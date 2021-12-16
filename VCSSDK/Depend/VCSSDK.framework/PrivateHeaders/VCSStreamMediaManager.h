@@ -318,6 +318,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param isOpen YES-打开 NO-关闭
 - (void)saveBeforeDecodeDataWithOpen:(BOOL)isOpen;
 
+#pragma mark 设置MCU云端系统接收轨道
+/// 设置MCU云端系统接收轨道
+/// @param track 轨道ID
+- (void)setMcuDefaultWithTrack:(int)track;
+
 #pragma mark 释放流媒体像素数据资源
 /// 释放流媒体像素数据资源
 /// @param yData 流媒体像素数据

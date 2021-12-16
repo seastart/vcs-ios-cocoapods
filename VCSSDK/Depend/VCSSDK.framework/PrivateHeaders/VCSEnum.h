@@ -9,6 +9,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - 码流类型标识符
+/**
+ 码流类型标识符
+ 
+ - VCSStreamIdentifierSub: 子码流标识符
+ - VCSStreamIdentifierMain: 主码流标识符
+ - VCSStreamIdentifierScreen: 共享码流标识符
+ */
+typedef enum : NSInteger {
+    
+    VCSStreamIdentifierSub = 1,
+    VCSStreamIdentifierMain = 2,
+    VCSStreamIdentifierScreen = 4
+} VCSStreamIdentifier;
+
 #pragma mark - 音频编码模式
 /**
  音频编码模式
