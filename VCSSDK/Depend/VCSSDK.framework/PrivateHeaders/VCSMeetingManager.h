@@ -58,6 +58,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isEnterFailed;
 #pragma mark 标记SDK是否在释放
 @property (nonatomic, assign) BOOL isDestroy;
+#pragma mark 标记本地采集是否开启
+@property (nonatomic, assign) BOOL isCameraCapture;
 
 #pragma mark 标记是否开启语音模式(YES-开启 NO-关闭)
 /// 标记是否开启语音模式(YES-开启 NO-关闭)
