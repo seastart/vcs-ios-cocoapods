@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 房间信息
 @property (nonatomic, strong) Room *room;
 #pragma mark 当前用户信息
-@property (nonatomic, strong) Account *account;
+@property (nonatomic, strong, readonly) Account *account;
 #pragma mark 当前参会人列表(streamId为Key, VCSMeetingMemberModel为Value)
 @property (nonatomic, strong) NSMutableDictionary<NSString *, VCSMeetingMemberModel *> *meetingMembers;
 #pragma mark 当前接收参会人音视频轨道列表(streamId为Key, 轨道track为Value)
