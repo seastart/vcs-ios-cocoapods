@@ -46,6 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Socket连接状态
 @property (nonatomic, assign) BOOL isSocketConnect;
 
+#pragma mark 进入房间状态
+/// 进入房间状态
+@property (nonatomic, assign) BOOL isEnterRoom;
 
 #pragma mark - -------- 互动服务基础接口 ---------
 #pragma mark 单例模式初始化互动服务实例
@@ -55,6 +58,10 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 互动服务连接
 /// 互动服务连接
 - (BOOL)servicConnect;
+
+#pragma mark 重连互动服务
+/// 重连互动服务
+- (BOOL)restartConnect;
 
 #pragma mark 关闭Socket连接
 /// 关闭Socket连接
