@@ -26,6 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class VCSMeetingManager;
 
+/// 释放完成回调
+typedef void (^VCSMeetingManagerDestroyBlock)(void);
+
 @interface VCSMeetingManager : NSObject
 
 #pragma mark 视频会议相关代理
@@ -101,7 +104,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 销毁释放视频会议资源
 /// 销毁释放视频会议资源
-- (void)destroy;
+/// @param finishBlock 释放完成回调
+- (void)destroy:(VCSMeetingManagerDestroyBlock)finishBlock;
 
 
 #pragma mark - -------- 视频会议屏幕录制相关接口 ---------
