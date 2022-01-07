@@ -143,6 +143,15 @@ typedef GPB_ENUM(Command) {
   /** 回收主持人 */
   Command_CmdRoomSetRoomRecoveryHost = 119,
 
+  /** 设置主播 */
+  Command_CmdRoomSetHosts = 120,
+
+  /** 设置房间允许自行解除禁音 */
+  Command_CmdRoomSetRelieveAstate = 121,
+
+  /** 触发会议内账号状态回传 */
+  Command_CmdRoomGetAccountStatus = 122,
+
   /** 后台禁用音视频 */
   Command_CmdRoomAdminCtrl = 200,
 
@@ -437,8 +446,12 @@ typedef GPB_ENUM(AccountType) {
   /** 服务 */
   AccountType_AtService = 3,
 
-  /** 网关 */
-  AccountType_AtGate = 4,
+  /** SIP直连设备 */
+  AccountType_AtSipGate = 4,
+  AccountType_AtRtsp = 5,
+  AccountType_AtSipDevice = 6,
+  AccountType_AtH323Gate = 7,
+  AccountType_AtH323Device = 8,
 };
 
 GPBEnumDescriptor *AccountType_EnumDescriptor(void);
@@ -500,8 +513,20 @@ typedef GPB_ENUM(TerminalType) {
   /** 微信小程序 */
   TerminalType_TerminalWxXcx = 9,
 
-  /** SIP网关 */
-  TerminalType_TerminalSipGate = 10,
+  /** SIP直连设备 */
+  TerminalType_TerminalSipGate = 12,
+
+  /** SIP注册设备 */
+  TerminalType_TerminalSipDevice = 13,
+
+  /** H.323直连设备 */
+  TerminalType_TerminalH323Gate = 14,
+
+  /** H.323注册设备 */
+  TerminalType_TerminalH323Device = 15,
+
+  /** RTSP设备 */
+  TerminalType_TerminalRtspDevice = 16,
 };
 
 GPBEnumDescriptor *TerminalType_EnumDescriptor(void);
@@ -807,6 +832,25 @@ GPBEnumDescriptor *MoveHostState_EnumDescriptor(void);
  **/
 BOOL MoveHostState_IsValidValue(int32_t value);
 
+#pragma mark - Enum RelieveAstate
+
+/** 解除禁音状态 */
+typedef GPB_ENUM(RelieveAstate) {
+  /** 允许成员自行解除禁音 */
+  RelieveAstate_RelieveAstateActive = 0,
+
+  /** 不允许解除禁音 */
+  RelieveAstate_RelieveAstateDisabled = 1,
+};
+
+GPBEnumDescriptor *RelieveAstate_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL RelieveAstate_IsValidValue(int32_t value);
+
 #pragma mark - Enum MuteState
 
 typedef GPB_ENUM(MuteState) {
@@ -828,20 +872,56 @@ GPBEnumDescriptor *MuteState_EnumDescriptor(void);
  **/
 BOOL MuteState_IsValidValue(int32_t value);
 
-#pragma mark - Enum RoomType
+#pragma mark - Enum RoomMode
 
-typedef GPB_ENUM(RoomType) {
-  RoomType_RoomTypeSfu = 1,
-  RoomType_RoomTypeMcu = 2,
+typedef GPB_ENUM(RoomMode) {
+  RoomMode_RoomModeSfu = 1,
+  RoomMode_RoomModeMcu = 2,
 };
 
-GPBEnumDescriptor *RoomType_EnumDescriptor(void);
+GPBEnumDescriptor *RoomMode_EnumDescriptor(void);
 
 /**
  * Checks to see if the given value is defined by the enum or was not known at
  * the time this source was generated.
  **/
-BOOL RoomType_IsValidValue(int32_t value);
+BOOL RoomMode_IsValidValue(int32_t value);
+
+#pragma mark - Enum McuMode
+
+typedef GPB_ENUM(McuMode) {
+  McuMode_McuModeNone = 0,
+  McuMode_McuModeRecord = 1,
+  McuMode_McuModeMcu = 2,
+  McuMode_McuModeRtmp = 4,
+};
+
+GPBEnumDescriptor *McuMode_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL McuMode_IsValidValue(int32_t value);
+
+#pragma mark - Enum OnlineStatus
+
+/** 账号在线状态 */
+typedef GPB_ENUM(OnlineStatus) {
+  /** 下线 */
+  OnlineStatus_OnlineDisabled = 0,
+
+  /** 上线 */
+  OnlineStatus_OnlineActive = 1,
+};
+
+GPBEnumDescriptor *OnlineStatus_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL OnlineStatus_IsValidValue(int32_t value);
 
 #pragma mark - Enum PushMsgType
 
@@ -1040,7 +1120,8 @@ typedef GPB_ENUM(RoomBase_FieldNumber) {
   RoomBase_FieldNumber_MovehostState = 16,
   RoomBase_FieldNumber_AppId = 17,
   RoomBase_FieldNumber_Mute = 18,
-  RoomBase_FieldNumber_Type = 19,
+  RoomBase_FieldNumber_Mode = 19,
+  RoomBase_FieldNumber_McuMode = 20,
 };
 
 /**
@@ -1126,9 +1207,12 @@ GPB_FINAL @interface RoomBase : GPBMessage
 @property(nonatomic, readwrite) int32_t mute;
 
 @property(nonatomic, readwrite) BOOL hasMute;
-@property(nonatomic, readwrite) RoomType type;
+@property(nonatomic, readwrite) RoomMode mode;
 
-@property(nonatomic, readwrite) BOOL hasType;
+@property(nonatomic, readwrite) BOOL hasMode;
+@property(nonatomic, readwrite) McuMode mcuMode;
+
+@property(nonatomic, readwrite) BOOL hasMcuMode;
 @end
 
 #pragma mark - ConferenceBase
@@ -1296,6 +1380,9 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_MovehostState = 17,
   Room_FieldNumber_AppId = 18,
   Room_FieldNumber_Mute = 19,
+  Room_FieldNumber_Mode = 20,
+  Room_FieldNumber_McuMode = 21,
+  Room_FieldNumber_RelieveAstate = 22,
 };
 
 /**
@@ -1384,6 +1471,16 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) MuteState mute;
 
 @property(nonatomic, readwrite) BOOL hasMute;
+@property(nonatomic, readwrite) RoomMode mode;
+
+@property(nonatomic, readwrite) BOOL hasMode;
+@property(nonatomic, readwrite) McuMode mcuMode;
+
+@property(nonatomic, readwrite) BOOL hasMcuMode;
+/** 允许成员自行解除禁音 0:允许解除禁音 1:不允许解除禁音 */
+@property(nonatomic, readwrite) RelieveAstate relieveAstate;
+
+@property(nonatomic, readwrite) BOOL hasRelieveAstate;
 @end
 
 #pragma mark - Account

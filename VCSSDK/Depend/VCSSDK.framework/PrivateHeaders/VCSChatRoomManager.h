@@ -196,6 +196,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param nickname 目标昵称
 - (void)sendRoomMemberNicknameWithTargetId:(NSString *)targetId nickname:(NSString *)nickname;
 
+#pragma mark 设置房间是否允许自行解除禁音
+/// 设置房间是否允许自行解除禁音
+/// @param state 0-允许解除禁音 1-不允许解除禁音
+- (void)sendRoomRelieveAstateWithState:(RelieveAstate)state;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -500,6 +500,11 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// @param selves 是否为当前账户(YES-自己 NO-其它成员)
 - (void)sendRoomMemberNicknameWithTargetId:(nullable NSString *)targetId nickname:(NSString *)nickname selves:(BOOL)selves;
 
+#pragma mark 设置房间是否允许自行解除禁音
+/// 设置房间是否允许自行解除禁音
+/// @param enable YES-允许解除禁音 NO-不允许解除禁音
+- (void)sendRoomRelieveStateWithEnable:(BOOL)enable;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -38,6 +38,7 @@ GPB_ENUM_FWD_DECLARE(HandUpStatus);
 GPB_ENUM_FWD_DECLARE(MessageType);
 GPB_ENUM_FWD_DECLARE(MuteState);
 GPB_ENUM_FWD_DECLARE(Operation);
+GPB_ENUM_FWD_DECLARE(RelieveAstate);
 GPB_ENUM_FWD_DECLARE(SharingType);
 
 NS_ASSUME_NONNULL_BEGIN
@@ -93,6 +94,7 @@ typedef GPB_ENUM(ExitRoomRequest_FieldNumber) {
   ExitRoomRequest_FieldNumber_Token = 1,
   ExitRoomRequest_FieldNumber_AccountId = 2,
   ExitRoomRequest_FieldNumber_RoomId = 3,
+  ExitRoomRequest_FieldNumber_MsgId = 4,
 };
 
 /**
@@ -114,6 +116,11 @@ GPB_FINAL @interface ExitRoomRequest : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
 /** Test to see if @c roomId has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 消息ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *msgId;
+/** Test to see if @c msgId has been set. */
+@property(nonatomic, readwrite) BOOL hasMsgId;
 
 @end
 
@@ -1270,6 +1277,7 @@ typedef GPB_ENUM(SetRoomMoveHostRequest_FieldNumber) {
   SetRoomMoveHostRequest_FieldNumber_TargetId = 2,
   SetRoomMoveHostRequest_FieldNumber_SourceId = 3,
   SetRoomMoveHostRequest_FieldNumber_RoomId = 4,
+  SetRoomMoveHostRequest_FieldNumber_MsgId = 5,
 };
 
 /**
@@ -1296,6 +1304,11 @@ GPB_FINAL @interface SetRoomMoveHostRequest : GPBMessage
 /** Test to see if @c roomId has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomId;
 
+/** 消息ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *msgId;
+/** Test to see if @c msgId has been set. */
+@property(nonatomic, readwrite) BOOL hasMsgId;
+
 @end
 
 #pragma mark - RoomMoveHostNotify
@@ -1304,6 +1317,7 @@ typedef GPB_ENUM(RoomMoveHostNotify_FieldNumber) {
   RoomMoveHostNotify_FieldNumber_TargetId = 1,
   RoomMoveHostNotify_FieldNumber_SourceId = 2,
   RoomMoveHostNotify_FieldNumber_RoomId = 3,
+  RoomMoveHostNotify_FieldNumber_MsgId = 4,
 };
 
 /**
@@ -1326,6 +1340,11 @@ GPB_FINAL @interface RoomMoveHostNotify : GPBMessage
 /** Test to see if @c roomId has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomId;
 
+/** 消息ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *msgId;
+/** Test to see if @c msgId has been set. */
+@property(nonatomic, readwrite) BOOL hasMsgId;
+
 @end
 
 #pragma mark - SetRoomUnionHostRequest
@@ -1336,6 +1355,7 @@ typedef GPB_ENUM(SetRoomUnionHostRequest_FieldNumber) {
   SetRoomUnionHostRequest_FieldNumber_SourceId = 3,
   SetRoomUnionHostRequest_FieldNumber_RoomId = 4,
   SetRoomUnionHostRequest_FieldNumber_State = 5,
+  SetRoomUnionHostRequest_FieldNumber_MsgId = 6,
 };
 
 /**
@@ -1366,6 +1386,11 @@ GPB_FINAL @interface SetRoomUnionHostRequest : GPBMessage
 @property(nonatomic, readwrite) BOOL state;
 
 @property(nonatomic, readwrite) BOOL hasState;
+/** 消息ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *msgId;
+/** Test to see if @c msgId has been set. */
+@property(nonatomic, readwrite) BOOL hasMsgId;
+
 @end
 
 #pragma mark - RoomUnionHostNotify
@@ -1410,6 +1435,7 @@ typedef GPB_ENUM(SetRoomRecoveryHostRequest_FieldNumber) {
   SetRoomRecoveryHostRequest_FieldNumber_RoomId = 2,
   SetRoomRecoveryHostRequest_FieldNumber_AccountId = 3,
   SetRoomRecoveryHostRequest_FieldNumber_TargetId = 4,
+  SetRoomRecoveryHostRequest_FieldNumber_MsgId = 5,
 };
 
 /**
@@ -1436,6 +1462,11 @@ GPB_FINAL @interface SetRoomRecoveryHostRequest : GPBMessage
 /** Test to see if @c targetId has been set. */
 @property(nonatomic, readwrite) BOOL hasTargetId;
 
+/** 消息ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *msgId;
+/** Test to see if @c msgId has been set. */
+@property(nonatomic, readwrite) BOOL hasMsgId;
+
 @end
 
 #pragma mark - RoomRecoveryHostNotify
@@ -1444,6 +1475,7 @@ typedef GPB_ENUM(RoomRecoveryHostNotify_FieldNumber) {
   RoomRecoveryHostNotify_FieldNumber_RoomId = 1,
   RoomRecoveryHostNotify_FieldNumber_AccountId = 2,
   RoomRecoveryHostNotify_FieldNumber_TargetId = 3,
+  RoomRecoveryHostNotify_FieldNumber_MsgId = 4,
 };
 
 /**
@@ -1466,46 +1498,10 @@ GPB_FINAL @interface RoomRecoveryHostNotify : GPBMessage
 /** Test to see if @c targetId has been set. */
 @property(nonatomic, readwrite) BOOL hasTargetId;
 
-@end
-
-#pragma mark - SetMemberNameHostRequest
-
-typedef GPB_ENUM(SetMemberNameHostRequest_FieldNumber) {
-  SetMemberNameHostRequest_FieldNumber_Token = 1,
-  SetMemberNameHostRequest_FieldNumber_RoomId = 2,
-  SetMemberNameHostRequest_FieldNumber_AccountId = 3,
-  SetMemberNameHostRequest_FieldNumber_TargetId = 4,
-  SetMemberNameHostRequest_FieldNumber_TargetNickname = 5,
-};
-
-/**
- * 修改成员呢称
- **/
-GPB_FINAL @interface SetMemberNameHostRequest : GPBMessage
-
-@property(nonatomic, readwrite, copy, null_resettable) NSString *token;
-/** Test to see if @c token has been set. */
-@property(nonatomic, readwrite) BOOL hasToken;
-
-/** 房间ID */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
-/** Test to see if @c roomId has been set. */
-@property(nonatomic, readwrite) BOOL hasRoomId;
-
-/** 操作账号ID */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
-/** Test to see if @c accountId has been set. */
-@property(nonatomic, readwrite) BOOL hasAccountId;
-
-/** 目标账号ID */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *targetId;
-/** Test to see if @c targetId has been set. */
-@property(nonatomic, readwrite) BOOL hasTargetId;
-
-/** 目标账号呢称 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *targetNickname;
-/** Test to see if @c targetNickname has been set. */
-@property(nonatomic, readwrite) BOOL hasTargetNickname;
+/** 消息ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *msgId;
+/** Test to see if @c msgId has been set. */
+@property(nonatomic, readwrite) BOOL hasMsgId;
 
 @end
 
@@ -1661,6 +1657,136 @@ GPB_FINAL @interface SetMemberMuteRequest : GPBMessage
 @property(nonatomic, readwrite) enum MuteState mute;
 
 @property(nonatomic, readwrite) BOOL hasMute;
+@end
+
+#pragma mark - SetMemberNameHostRequest
+
+typedef GPB_ENUM(SetMemberNameHostRequest_FieldNumber) {
+  SetMemberNameHostRequest_FieldNumber_Token = 1,
+  SetMemberNameHostRequest_FieldNumber_RoomId = 2,
+  SetMemberNameHostRequest_FieldNumber_AccountId = 3,
+  SetMemberNameHostRequest_FieldNumber_TargetId = 4,
+  SetMemberNameHostRequest_FieldNumber_TargetNickname = 5,
+};
+
+/**
+ * 修改成员呢称
+ **/
+GPB_FINAL @interface SetMemberNameHostRequest : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *token;
+/** Test to see if @c token has been set. */
+@property(nonatomic, readwrite) BOOL hasToken;
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 操作账号ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
+/** Test to see if @c accountId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountId;
+
+/** 目标账号ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *targetId;
+/** Test to see if @c targetId has been set. */
+@property(nonatomic, readwrite) BOOL hasTargetId;
+
+/** 目标账号呢称 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *targetNickname;
+/** Test to see if @c targetNickname has been set. */
+@property(nonatomic, readwrite) BOOL hasTargetNickname;
+
+@end
+
+#pragma mark - SetRoomRelieveAstateRequest
+
+typedef GPB_ENUM(SetRoomRelieveAstateRequest_FieldNumber) {
+  SetRoomRelieveAstateRequest_FieldNumber_Token = 1,
+  SetRoomRelieveAstateRequest_FieldNumber_AccountId = 2,
+  SetRoomRelieveAstateRequest_FieldNumber_RoomId = 3,
+  SetRoomRelieveAstateRequest_FieldNumber_RelieveAstate = 4,
+};
+
+/**
+ * 修改房间允许自行解除禁音
+ **/
+GPB_FINAL @interface SetRoomRelieveAstateRequest : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *token;
+/** Test to see if @c token has been set. */
+@property(nonatomic, readwrite) BOOL hasToken;
+
+/** 操作账号ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
+/** Test to see if @c accountId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountId;
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 0:允许解除禁音 1:不允许解除禁音 */
+@property(nonatomic, readwrite) enum RelieveAstate relieveAstate;
+
+@property(nonatomic, readwrite) BOOL hasRelieveAstate;
+@end
+
+#pragma mark - GetRoomAccountStatusRequest
+
+typedef GPB_ENUM(GetRoomAccountStatusRequest_FieldNumber) {
+  GetRoomAccountStatusRequest_FieldNumber_Token = 1,
+  GetRoomAccountStatusRequest_FieldNumber_AccountId = 2,
+  GetRoomAccountStatusRequest_FieldNumber_RoomId = 3,
+};
+
+/**
+ * 触发会议内账号状态回传
+ **/
+GPB_FINAL @interface GetRoomAccountStatusRequest : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *token;
+/** Test to see if @c token has been set. */
+@property(nonatomic, readwrite) BOOL hasToken;
+
+/** 操作账号ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
+/** Test to see if @c accountId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountId;
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+@end
+
+#pragma mark - SetHostsRequest
+
+typedef GPB_ENUM(SetHostsRequest_FieldNumber) {
+  SetHostsRequest_FieldNumber_Token = 1,
+  SetHostsRequest_FieldNumber_RoomId = 2,
+  SetHostsRequest_FieldNumber_HostsArray = 3,
+};
+
+GPB_FINAL @interface SetHostsRequest : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *token;
+/** Test to see if @c token has been set. */
+@property(nonatomic, readwrite) BOOL hasToken;
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 主播ID */
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSString*> *hostsArray;
+/** The number of items in @c hostsArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger hostsArray_Count;
+
 @end
 
 NS_ASSUME_NONNULL_END

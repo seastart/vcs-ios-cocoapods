@@ -227,6 +227,21 @@ typedef void(^VCSChatRoomPackageBlock)(PacketType type, Command command, Result 
 /// @param nickname 目标昵称
 + (NSData *)sendRoomMemberNicknameWithSession:(NSString *)session accountId:(NSString *)accountId targetId:(NSString *)targetId roomId:(NSString *)roomId nickname:(NSString *)nickname;
 
+#pragma mark 设置房间是否允许自行解除禁音
+/// 设置房间是否允许自行解除禁音
+/// @param session 入会凭证 (互动凭证)
+/// @param accountId 用户ID
+/// @param roomId 房间ID
+/// @param state  解除禁音状态
++ (NSData *)sendRoomRelieveAstateWithSession:(NSString *)session accountId:(NSString *)accountId roomId:(NSString *)roomId state:(RelieveAstate)state;
+
+#pragma mark 设置触发房间同步账户信息
+/// 设置触发房间同步账户信息
+/// @param session 入会凭证 (互动凭证)
+/// @param accountId 用户ID
+/// @param roomId 房间ID
++ (NSData *)sendRoomTriggerAccountSynchronizationWithSession:(NSString *)session accountId:(NSString *)accountId roomId:(NSString *)roomId;
+
 #pragma mark - 解析收到的互动服务消息
 /// 解析收到的互动服务消息
 /// @param receiveData 接收数据
