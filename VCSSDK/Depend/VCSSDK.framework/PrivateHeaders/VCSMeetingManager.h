@@ -13,7 +13,6 @@
 #import "VCSStreamMediaManager.h"
 #import "VCSChatRoomManager.h"
 #import "VCSCameraGatherManager.h"
-#import "VCSCallObserverManager.h"
 #import "VCSScreenRecordingServerManager.h"
 #import "VCSScreenRecordingClientManager.h"
 #import "Models.pbobjc.h"
