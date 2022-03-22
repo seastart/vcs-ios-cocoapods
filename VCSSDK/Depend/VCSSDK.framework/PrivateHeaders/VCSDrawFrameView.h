@@ -19,7 +19,7 @@ typedef void(^VCSDrawFrameViewTimeoutBlock)(VCSDrawConnectState state);
 typedef void(^VCSDrawFrameViewEventBlock)(CGPoint point, EWBDrawType event);
 
 /// 重置画布宽高比例回调
-typedef void(^VCSDrawFrameViewResetBlock)(float ratio, NSString * __nullable imageUrl);
+typedef void(^VCSDrawFrameViewResetBlock)(NSString * __nullable imageUrl);
 
 @interface VCSDrawFrameView : UIView
 

@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *nickname;
 #pragma mark 用户头像
 @property (nonatomic, copy) NSString *portrait;
+#pragma mark 头像相对地址
+@property (nonatomic, copy) NSString *relativePortrait;
 /* ****************** ⬆️ 当前登录用户信息(可由登录获取)(必填项) ⬆️ ****************** */
 
 

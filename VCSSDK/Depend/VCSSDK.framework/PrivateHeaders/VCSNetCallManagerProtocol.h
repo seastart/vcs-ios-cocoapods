@@ -65,4 +65,16 @@
 /// @param error 错误信息
 - (void)onListenNetCallChatRevokeWithNotify:(RegChatRevokeNotify *)notify error:(NSError *)error;
 
+#pragma mark 预约会议通知
+/// 预约会议通知
+/// @param notify 通知信息
+/// @param error 错误信息
+- (void)onListenNetCallRoomPrepareWithNotify:(RoomPrepareNotify *)notify error:(NSError *)error;
+
+#pragma mark 原始消息透传通知
+/// 原始消息透传通知
+/// @param command 消息指令
+/// @param content 消息内容
+- (void)onListenOriginalEventWithCommand:(Command)command content:(NSString *)content;
+
 @end

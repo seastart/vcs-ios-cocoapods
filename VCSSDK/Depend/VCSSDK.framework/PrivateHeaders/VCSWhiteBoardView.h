@@ -22,9 +22,9 @@ typedef void (^VCSDrawingClearBlock)(void);
 /// 图片按钮点击事件
 - (void)onSelectedPictureEvent;
 
-/// 电子画板图片下载事件
-/// @param isStart YES - 开始下载 NO - 下载完成
-- (void)onDownloadImageEvent:(BOOL)isStart;
+/// 电子画板图片变更事件
+/// @param imageUrl 背景图片路径
+- (void)onChangeDrawBackImageEvent:(nullable NSString *)imageUrl;
 
 @end
 
@@ -46,15 +46,22 @@ typedef void (^VCSDrawingClearBlock)(void);
 /// @param userId 用户ID
 /// @param privileges 是否开启书写权限
 /// @param eraserImage 橡皮擦画笔图标
-/// @param imageUrl 图片地址(共享白板时，无需传此参数)
+/// @param imageUrl 背景图片路径(共享白板时，无需传此参数)
+/// @param image 背景图片(共享白板时，无需传此参数)
 /// @param connectBlock 连接状态回调(YES-连接状态，NO-断开连接状态)
 /// @param clearBlock 清空电子画板数据回调
-- (void)drawServicConnectWithAddress:(NSString *)address port:(int)port roomId:(NSString *)roomId userId:(NSString *)userId privileges:(BOOL)privileges eraserImage:(nullable UIImage *)eraserImage imageUrl:(nullable NSString *)imageUrl connectBlock:(nullable VCSDrawingConnectBlock)connectBlock clearBlock:(nullable VCSDrawingClearBlock)clearBlock;
+- (void)drawServicConnectWithAddress:(NSString *)address port:(int)port roomId:(NSString *)roomId userId:(NSString *)userId privileges:(BOOL)privileges eraserImage:(nullable UIImage *)eraserImage image:(nullable UIImage *)image imageUrl:(nullable NSString *)imageUrl connectBlock:(nullable VCSDrawingConnectBlock)connectBlock clearBlock:(nullable VCSDrawingClearBlock)clearBlock;
 
-#pragma mark - 更换画板背景图片(共享图片)
-/// 更换画板背景图片(共享图片)
-/// @param imageUrl 图片地址
-- (void)changeDrawBackImageWithImageUrl:(nullable NSString *)imageUrl;
+#pragma mark - 更换服务背景图片
+/// 更换服务背景图片
+/// @param image 背景图片
+/// @param imageUrl 背景图片路径
+- (void)changeDrawBackImageWithImage:(nullable UIImage *)image imageUrl:(nullable NSString *)imageUrl;
+
+#pragma mark - 设置本地背景图片
+/// 设置本地背景图片
+/// @param image 背景图片
+- (void)setupDrawBackImage:(nullable UIImage *)image;
 
 #pragma mark - 清空电子画板数据
 /// 清空电子画板数据

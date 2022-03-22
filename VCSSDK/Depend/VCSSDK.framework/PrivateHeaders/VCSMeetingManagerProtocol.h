@@ -269,4 +269,10 @@
 /// @param error 错误信息
 - (void)onListenRoomChatEventWithNotify:(XChatEvent *)notify error:(NSError *)error;
 
+#pragma mark 原始消息透传通知
+/// 原始消息透传通知
+/// @param command 消息指令
+/// @param content 消息内容
+- (void)onListenRoomOriginalEventWithCommand:(Command)command content:(NSString *)content;
+
 @end

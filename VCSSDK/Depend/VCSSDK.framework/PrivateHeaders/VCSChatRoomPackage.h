@@ -167,8 +167,9 @@ typedef void(^VCSChatRoomPackageBlock)(PacketType type, Command command, Result 
 /// @param roomId 房间ID
 /// @param sharingType 分享类型
 /// @param sharingPicURL 分享图片时的图片地址
+/// @param sharingRelativePicURL 分享图片时的图片相对地址
 /// @param sharingStreamId 分享屏幕时的码流ID
-+ (NSData *)sendRoomStartToShareWithSession:(NSString *)session accountId:(NSString *)accountId roomId:(NSString *)roomId sharingType:(SharingType)sharingType sharingPicURL:(NSString *)sharingPicURL sharingStreamId:(NSString *)sharingStreamId;
++ (NSData *)sendRoomStartToShareWithSession:(NSString *)session accountId:(NSString *)accountId roomId:(NSString *)roomId sharingType:(SharingType)sharingType sharingPicURL:(NSString *)sharingPicURL sharingRelativePicURL:(NSString *)sharingRelativePicURL sharingStreamId:(NSString *)sharingStreamId;
 
 #pragma mark 停止分享(包括：白板、图片、桌面)
 /// 停止分享(包括：白板、图片、桌面)

@@ -280,6 +280,7 @@ typedef GPB_ENUM(StartToShareRequest_FieldNumber) {
   StartToShareRequest_FieldNumber_SharingType = 4,
   StartToShareRequest_FieldNumber_SharingPicURL = 5,
   StartToShareRequest_FieldNumber_SharingStreamId = 6,
+  StartToShareRequest_FieldNumber_SharingRelativePicURL = 7,
 };
 
 /**
@@ -315,6 +316,11 @@ GPB_FINAL @interface StartToShareRequest : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *sharingStreamId;
 /** Test to see if @c sharingStreamId has been set. */
 @property(nonatomic, readwrite) BOOL hasSharingStreamId;
+
+/** 分享图片时的图片相对地址 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *sharingRelativePicURL;
+/** Test to see if @c sharingRelativePicURL has been set. */
+@property(nonatomic, readwrite) BOOL hasSharingRelativePicURL;
 
 @end
 
@@ -882,6 +888,23 @@ typedef GPB_ENUM(RoomEndedNotify_FieldNumber) {
  * 会议结束通知
  **/
 GPB_FINAL @interface RoomEndedNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+@end
+
+#pragma mark - RoomPrepareNotify
+
+typedef GPB_ENUM(RoomPrepareNotify_FieldNumber) {
+  RoomPrepareNotify_FieldNumber_RoomId = 1,
+};
+
+/**
+ * 会议预约通知
+ **/
+GPB_FINAL @interface RoomPrepareNotify : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
 /** Test to see if @c roomId has been set. */
@@ -1586,6 +1609,7 @@ GPB_FINAL @interface XChatMessage : GPBMessage
 @property(nonatomic, readwrite) int64_t createdAt;
 
 @property(nonatomic, readwrite) BOOL hasCreatedAt;
+/** optional string account_relative_portrait=11; //聊天相对地址头像 */
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<XChatMessageAttachmemt*> *attachmentsArray;
 /** The number of items in @c attachmentsArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger attachmentsArray_Count;

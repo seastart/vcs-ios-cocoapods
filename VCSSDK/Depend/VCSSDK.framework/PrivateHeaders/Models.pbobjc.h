@@ -86,6 +86,9 @@ typedef GPB_ENUM(Command) {
   /** dx admin 1.2 增加房间内成员改名 */
   Command_CmdRoomSetMemberNameHost = 17,
 
+  /** 1.3.0 增加通知 */
+  Command_CmdRoomNotifyPrepare = 18,
+
   /** 进入房间 */
   Command_CmdRoomEnter = 100,
 
@@ -449,9 +452,9 @@ typedef GPB_ENUM(AccountType) {
   /** SIP直连设备 */
   AccountType_AtSipGate = 4,
   AccountType_AtRtsp = 5,
-  AccountType_AtSipDevice = 6,
+  AccountType_AtSipReg = 6,
   AccountType_AtH323Gate = 7,
-  AccountType_AtH323Device = 8,
+  AccountType_AtH323Reg = 8,
 };
 
 GPBEnumDescriptor *AccountType_EnumDescriptor(void);
@@ -517,13 +520,13 @@ typedef GPB_ENUM(TerminalType) {
   TerminalType_TerminalSipGate = 12,
 
   /** SIP注册设备 */
-  TerminalType_TerminalSipDevice = 13,
+  TerminalType_TerminalSipReg = 13,
 
   /** H.323直连设备 */
   TerminalType_TerminalH323Gate = 14,
 
   /** H.323注册设备 */
-  TerminalType_TerminalH323Device = 15,
+  TerminalType_TerminalH323Reg = 15,
 
   /** RTSP设备 */
   TerminalType_TerminalRtspDevice = 16,
@@ -1051,6 +1054,7 @@ typedef GPB_ENUM(AccountBase_FieldNumber) {
   AccountBase_FieldNumber_Mobile = 6,
   AccountBase_FieldNumber_SerialNo = 7,
   AccountBase_FieldNumber_RoomId = 8,
+  AccountBase_FieldNumber_RelativePortrait = 9,
 };
 
 /**
@@ -1096,6 +1100,11 @@ GPB_FINAL @interface AccountBase : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
 /** Test to see if @c roomId has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 头像相对地址 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *relativePortrait;
+/** Test to see if @c relativePortrait has been set. */
+@property(nonatomic, readwrite) BOOL hasRelativePortrait;
 
 @end
 
@@ -1383,6 +1392,7 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_Mode = 20,
   Room_FieldNumber_McuMode = 21,
   Room_FieldNumber_RelieveAstate = 22,
+  Room_FieldNumber_SharingRelativePicURL = 23,
 };
 
 /**
@@ -1481,6 +1491,11 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) RelieveAstate relieveAstate;
 
 @property(nonatomic, readwrite) BOOL hasRelieveAstate;
+/** 分享图片时的相对图片地址 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *sharingRelativePicURL;
+/** Test to see if @c sharingRelativePicURL has been set. */
+@property(nonatomic, readwrite) BOOL hasSharingRelativePicURL;
+
 @end
 
 #pragma mark - Account
@@ -1510,6 +1525,7 @@ typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_Hus = 22,
   Account_FieldNumber_DeviceAddress = 23,
   Account_FieldNumber_UpLevel = 24,
+  Account_FieldNumber_RelativePortrait = 25,
 };
 
 /**
@@ -1622,6 +1638,11 @@ GPB_FINAL @interface Account : GPBMessage
 @property(nonatomic, readwrite) int32_t upLevel;
 
 @property(nonatomic, readwrite) BOOL hasUpLevel;
+/** 头像相对路径 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *relativePortrait;
+/** Test to see if @c relativePortrait has been set. */
+@property(nonatomic, readwrite) BOOL hasRelativePortrait;
+
 @end
 
 #pragma mark - Stream
@@ -1792,6 +1813,7 @@ typedef GPB_ENUM(RealAccount_FieldNumber) {
   RealAccount_FieldNumber_DeviceId = 33,
   RealAccount_FieldNumber_CorpId = 34,
   RealAccount_FieldNumber_UpLevel = 35,
+  RealAccount_FieldNumber_AccountRelativePortrait = 36,
 };
 
 /**
@@ -1942,6 +1964,11 @@ GPB_FINAL @interface RealAccount : GPBMessage
 @property(nonatomic, readwrite) int32_t upLevel;
 
 @property(nonatomic, readwrite) BOOL hasUpLevel;
+/** 头像相对路径 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountRelativePortrait;
+/** Test to see if @c accountRelativePortrait has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountRelativePortrait;
+
 @end
 
 #pragma mark - SystemOption

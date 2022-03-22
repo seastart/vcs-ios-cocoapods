@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RoomServer.pbobjc.h"
 #import "Register.pbobjc.h"
 #import "Models.pbobjc.h"
 #import "VCSNetCallManagerProtocol.h"

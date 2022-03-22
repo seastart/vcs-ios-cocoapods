@@ -460,7 +460,8 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// 开始分享(包括：白板、图片、桌面)
 /// @param sharingType 分享类型
 /// @param sharingPicURL 分享图片时的图片地址
-- (void)sendRoomStartToShareWithSharingType:(SharingType)sharingType sharingPicURL:(nullable NSString *)sharingPicURL;
+/// @param sharingRelativePicURL 分享图片时的图片相对地址
+- (void)sendRoomStartToShareWithSharingType:(SharingType)sharingType sharingPicURL:(nullable NSString *)sharingPicURL sharingRelativePicURL:(nullable NSString *)sharingRelativePicURL;
 
 #pragma mark 停止分享
 /// 停止分享(包括：白板、图片、桌面)
