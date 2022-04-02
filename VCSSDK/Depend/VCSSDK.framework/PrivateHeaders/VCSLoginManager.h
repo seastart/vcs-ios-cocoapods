@@ -25,8 +25,9 @@ typedef void (^VCSLoginManagerResultBlock)(NSError * _Nullable error);
 /// @param meetingHost 连接地址
 /// @param meetingPort 连接端口
 /// @param serverId 注册服务器ID
+/// @param timeoutInterval 超时时间
 /// @param resultBlock 登录结果回调
-- (void)login:(NSString *)token meetingHost:(NSString *)meetingHost meetingPort:(NSInteger)meetingPort serverId:(NSString *)serverId resultBlock:(nullable VCSLoginManagerResultBlock)resultBlock;
+- (void)login:(NSString *)token meetingHost:(NSString *)meetingHost meetingPort:(NSInteger)meetingPort serverId:(NSString *)serverId timeoutInterval:(NSTimeInterval)timeoutInterval resultBlock:(nullable VCSLoginManagerResultBlock)resultBlock;
 
 #pragma mark - 退出登录
 /// 退出登录
