@@ -197,6 +197,12 @@ typedef GPB_ENUM(Command) {
   /** 会议开始通知 */
   Command_CmdRegMeetingBeginNotification = 1006,
 
+  /** 会议结束通知 */
+  Command_CmdRegMeetingEndNotification = 1007,
+
+  /** 会议外邀请通知 */
+  Command_CmdRegInviteConfNotice = 1008,
+
   /** 呼叫 */
   Command_CmdRegCall = 1010,
 
@@ -455,6 +461,9 @@ typedef GPB_ENUM(AccountType) {
   AccountType_AtSipReg = 6,
   AccountType_AtH323Gate = 7,
   AccountType_AtH323Reg = 8,
+
+  /** 萤石监控相机 */
+  AccountType_AtEzvizcamera = 9,
 };
 
 GPBEnumDescriptor *AccountType_EnumDescriptor(void);
@@ -530,6 +539,12 @@ typedef GPB_ENUM(TerminalType) {
 
   /** RTSP设备 */
   TerminalType_TerminalRtspDevice = 16,
+
+  /** MacOS */
+  TerminalType_TerminalMacOs = 17,
+
+  /** 萤石监控相机 */
+  TerminalType_TerminalEzvizcamera = 18,
 };
 
 GPBEnumDescriptor *TerminalType_EnumDescriptor(void);

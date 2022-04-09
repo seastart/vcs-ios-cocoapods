@@ -164,6 +164,36 @@ typedef enum : NSInteger {
     VCSDownLevelStateVeryBad = 3
 } VCSDownLevelState;
 
+
+#pragma mark - 事件命令类型
+/**
+ 事件命令类型
+ 
+ - VCSCommandEventStateAudio: 音频状态
+ - VCSCommandEventStateVideo: 视频状态
+ - VCSCommandEventStateRole: 角色状态
+ - VCSCommandEventStateHandup: 举手状态
+ - VCSCommandEventStateEnter:  成员进入
+ - VCSCommandEventStateExit: 成员退出
+ - VCSCommandEventStateBegin: 会议开始
+ - VCSCommandEventStateEnded: 会议结束
+ - VCSCommandEventStateInvite:  邀请参会
+ - VCSCommandEventStatePassthrough:  消息透传
+ */
+typedef enum : NSInteger {
+    
+    VCSCommandEventStateAudio = 2000,
+    VCSCommandEventStateVideo,
+    VCSCommandEventStateRole,
+    VCSCommandEventStateHandup,
+    VCSCommandEventStateEnter,
+    VCSCommandEventStateExit,
+    VCSCommandEventStateBegin,
+    VCSCommandEventStateEnded,
+    VCSCommandEventStateInvite,
+    VCSCommandEventStatePassthrough
+} VCSCommandEventState;
+
 @interface VCSEnum : NSObject
 
 @end

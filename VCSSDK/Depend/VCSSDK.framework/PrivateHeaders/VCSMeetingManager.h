@@ -505,6 +505,12 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// @param enable YES-允许解除禁音 NO-不允许解除禁音
 - (void)sendRoomRelieveStateWithEnable:(BOOL)enable;
 
+#pragma mark - 事件命令透传处理
+/// 事件命令透传处理
+/// @param command 消息指令
+/// @param notify 通知内容
+- (void)roomListenEventWithCommand:(VCSCommandEventState)command notify:(GPBMessage *)notify;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,6 +9,7 @@
 #import "RoomServer.pbobjc.h"
 #import "Register.pbobjc.h"
 #import "Models.pbobjc.h"
+#import "VCSCommons.h"
 #import "VCSMQTTClientManagerProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -18,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 信令服务连接状态
 /// 信令服务连接状态
 @property (nonatomic, assign) BOOL signalingConnect;
+
+#pragma mark 呼叫服务相关代理
+/// 呼叫服务相关代理
+@property (nonatomic, weak) id <VCSMQTTClientManagerProtocol> delegate;
 
 #pragma mark - -------- 呼叫服务基础接口 ---------
 #pragma mark 单例模式获取呼叫服务实例

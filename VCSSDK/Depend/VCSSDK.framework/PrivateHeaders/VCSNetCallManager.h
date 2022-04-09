@@ -9,6 +9,7 @@
 #import "RoomServer.pbobjc.h"
 #import "Register.pbobjc.h"
 #import "Models.pbobjc.h"
+#import "VCSCommons.h"
 #import "VCSNetCallManagerProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN

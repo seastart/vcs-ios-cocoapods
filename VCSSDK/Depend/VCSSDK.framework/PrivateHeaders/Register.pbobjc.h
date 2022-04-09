@@ -629,6 +629,71 @@ GPB_FINAL @interface MeetingBeginNotify : GPBMessage
 
 @end
 
+#pragma mark - MeetingEndNotify
+
+typedef GPB_ENUM(MeetingEndNotify_FieldNumber) {
+  MeetingEndNotify_FieldNumber_RoomNo = 1,
+  MeetingEndNotify_FieldNumber_Title = 2,
+};
+
+/**
+ * 会议结束通知
+ **/
+GPB_FINAL @interface MeetingEndNotify : GPBMessage
+
+/** 会议号 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+/** 会议标题 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *title;
+/** Test to see if @c title has been set. */
+@property(nonatomic, readwrite) BOOL hasTitle;
+
+@end
+
+#pragma mark - InviteConfNoticeNotify
+
+typedef GPB_ENUM(InviteConfNoticeNotify_FieldNumber) {
+  InviteConfNoticeNotify_FieldNumber_RoomNo = 1,
+  InviteConfNoticeNotify_FieldNumber_Title = 2,
+  InviteConfNoticeNotify_FieldNumber_AccountId = 3,
+  InviteConfNoticeNotify_FieldNumber_AccountName = 4,
+  InviteConfNoticeNotify_FieldNumber_AccountRole = 5,
+};
+
+/**
+ * 邀请成员信息
+ **/
+GPB_FINAL @interface InviteConfNoticeNotify : GPBMessage
+
+/** 会议号 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+/** 会议标题 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *title;
+/** Test to see if @c title has been set. */
+@property(nonatomic, readwrite) BOOL hasTitle;
+
+/** 成员id */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
+/** Test to see if @c accountId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountId;
+
+/** 成员名称 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountName;
+/** Test to see if @c accountName has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountName;
+
+/** 角色 */
+@property(nonatomic, readwrite) int32_t accountRole;
+
+@property(nonatomic, readwrite) BOOL hasAccountRole;
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END

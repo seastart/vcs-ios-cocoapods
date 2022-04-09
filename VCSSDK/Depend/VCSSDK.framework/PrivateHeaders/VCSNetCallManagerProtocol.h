@@ -53,6 +53,18 @@
 /// @param error 错误信息
 - (void)onListenNetCallMeetingBeginNotificationWithNotify:(MeetingBeginNotify *)notify error:(NSError *)error;
 
+#pragma mark 会议结束通知(在线的受邀人员会收到该通知)
+/// 会议结束通知(在线的受邀人员会收到该通知)
+/// @param notify 通知信息
+/// @param error 错误信息
+- (void)onListenNetCallMeetingEndedNotificationWithNotify:(MeetingEndNotify *)notify error:(NSError *)error;
+
+#pragma mark 会议邀请通知
+/// 会议邀请通知
+/// @param notify 通知信息
+/// @param error 错误信息
+- (void)onListenNetCallMeetingInviteNotificationWithNotify:(InviteConfNoticeNotify *)notify error:(NSError *)error;
+
 #pragma mark 聊天消息发送回执通知
 /// 聊天消息发送回执通知
 /// @param notify 通知信息
@@ -71,10 +83,10 @@
 /// @param error 错误信息
 - (void)onListenNetCallRoomPrepareWithNotify:(RoomPrepareNotify *)notify error:(NSError *)error;
 
-#pragma mark 原始消息透传通知
-/// 原始消息透传通知
+#pragma mark 事件命令透传通知
+/// 事件命令透传通知
 /// @param command 消息指令
 /// @param content 消息内容
-- (void)onListenOriginalEventWithCommand:(Command)command content:(NSString *)content;
+- (void)onListenNetCallEventWithCommand:(VCSCommandEventState)command content:(NSString *)content;
 
 @end
