@@ -55,11 +55,11 @@ typedef void(^VCSMQTTClientPackageBlock)(PacketType type, Command command, Resul
 
 #pragma mark 从呼叫中移除
 /// 从呼叫中移除
-/// @param targetIdArray 目标用户ID列表
+/// @param accountsArray 目标取消用户列表(空集合则移除所有人)
 /// @param roomNo 房间ID
 /// @param token 登录token
 /// @param accountId 用户ID
-+ (NSData *)sendCallRemoveWithTargetIdArray:(NSMutableArray<NSString *> *)targetIdArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId;
++ (NSData *)sendCallRemoveWithAccountsArray:(NSMutableArray<CancelAccount *> *)accountsArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId;
 
 #pragma mark 上报自己的通话状态
 /// 上报自己的通话状态

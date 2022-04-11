@@ -197,10 +197,10 @@ typedef GPB_ENUM(Command) {
   /** 会议开始通知 */
   Command_CmdRegMeetingBeginNotification = 1006,
 
-  /** 会议结束通知 */
+  /** 会议结束通知(新增),会议结束时推送 */
   Command_CmdRegMeetingEndNotification = 1007,
 
-  /** 会议外邀请通知 */
+  /** 会议外邀请通知(新增),修改会议白名单时推送 */
   Command_CmdRegInviteConfNotice = 1008,
 
   /** 呼叫 */
@@ -238,6 +238,9 @@ typedef GPB_ENUM(Command) {
 
   /** 成员入会时静音：0-关闭  1-开启  2-人员超过6人 */
   Command_CmdRoomSetMute = 1034,
+
+  /** =====================hiklink点对点呼叫========================== */
+  Command_CmdConfTypeUpdateNotify = 1035,
 };
 
 GPBEnumDescriptor *Command_EnumDescriptor(void);
@@ -478,6 +481,7 @@ BOOL AccountType_IsValidValue(int32_t value);
 
 /** 终端种类 */
 typedef GPB_ENUM(TerminalGroupType) {
+  /** */
   TerminalGroupType_Unknown = 0,
 
   /** PC端 */

@@ -1609,7 +1609,6 @@ GPB_FINAL @interface XChatMessage : GPBMessage
 @property(nonatomic, readwrite) int64_t createdAt;
 
 @property(nonatomic, readwrite) BOOL hasCreatedAt;
-/** optional string account_relative_portrait=11; //聊天相对地址头像 */
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<XChatMessageAttachmemt*> *attachmentsArray;
 /** The number of items in @c attachmentsArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger attachmentsArray_Count;
