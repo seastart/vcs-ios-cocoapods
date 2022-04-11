@@ -673,10 +673,11 @@ GPB_FINAL @interface MeetingEndNotify : GPBMessage
 
 typedef GPB_ENUM(InviteConfNoticeNotify_FieldNumber) {
   InviteConfNoticeNotify_FieldNumber_RoomNo = 1,
-  InviteConfNoticeNotify_FieldNumber_Title = 2,
-  InviteConfNoticeNotify_FieldNumber_AccountId = 3,
-  InviteConfNoticeNotify_FieldNumber_AccountName = 4,
-  InviteConfNoticeNotify_FieldNumber_AccountRole = 5,
+  InviteConfNoticeNotify_FieldNumber_ConfId = 2,
+  InviteConfNoticeNotify_FieldNumber_Title = 3,
+  InviteConfNoticeNotify_FieldNumber_AccountId = 4,
+  InviteConfNoticeNotify_FieldNumber_AccountName = 5,
+  InviteConfNoticeNotify_FieldNumber_AccountRole = 6,
 };
 
 /**
@@ -684,10 +685,15 @@ typedef GPB_ENUM(InviteConfNoticeNotify_FieldNumber) {
  **/
 GPB_FINAL @interface InviteConfNoticeNotify : GPBMessage
 
-/** 会议号 */
+/** 房间号 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
 /** Test to see if @c roomNo has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomNo;
+
+/** 会议ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *confId;
+/** Test to see if @c confId has been set. */
+@property(nonatomic, readwrite) BOOL hasConfId;
 
 /** 会议标题 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *title;
