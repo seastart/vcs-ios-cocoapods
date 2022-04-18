@@ -87,9 +87,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 从呼叫中移除
 /// 从呼叫中移除
-/// @param accountsArray 目标取消用户列表(空集合则移除所有人)
+/// @param accountsArray 移除目标用户列表(空集合则移除所有人)
 /// @param roomNo 房间ID
-- (void)callRemoveWithAccountsArray:(nullable NSMutableArray<CancelAccount *> *)accountsArray roomNo:(NSString *)roomNo;
+- (void)callRemoveWithAccountsArray:(nullable NSMutableArray<RemoveAccount *> *)accountsArray roomNo:(NSString *)roomNo;
 
 #pragma mark 上报自己的通话状态
 /// 上报自己的通话状态

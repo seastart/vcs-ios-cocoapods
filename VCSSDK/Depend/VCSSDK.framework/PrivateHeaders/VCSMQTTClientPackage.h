@@ -44,22 +44,30 @@ typedef void(^VCSMQTTClientPackageBlock)(PacketType type, Command command, Resul
 /// @param response 邀请响应
 + (NSData *)sendInviteConfirmWithInitiatorId:(NSString *)initiatorId receiverId:(NSString *)receiverId roomNo:(NSString *)roomNo response:(InviteResponse)response;
 
-#pragma mark 发起呼叫&取消呼叫
-/// 发起呼叫&取消呼叫
-/// @param accountsArray 呼叫&取消呼叫列表
+#pragma mark 发起呼叫
+/// 发起呼叫
+/// @param accountsArray 呼叫列表
 /// @param roomNo 房间ID
 /// @param token 登录token
 /// @param accountId 用户ID
 /// @param restart 是否重新开始(YES-忽略上次的呼叫 NO-叠加上次的呼叫)
 + (NSData *)sendCallWithAccountsArray:(NSMutableArray<WaitingAccount *> *)accountsArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId restart:(BOOL)restart;
 
-#pragma mark 从呼叫中移除
-/// 从呼叫中移除
-/// @param accountsArray 目标取消用户列表(空集合则移除所有人)
+#pragma mark 取消呼叫
+/// 取消呼叫
+/// @param accountsArray 取消呼叫
 /// @param roomNo 房间ID
 /// @param token 登录token
 /// @param accountId 用户ID
-+ (NSData *)sendCallRemoveWithAccountsArray:(NSMutableArray<CancelAccount *> *)accountsArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId;
++ (NSData *)sendCallCancelWithAccountsArray:(NSMutableArray<WaitingAccount *> *)accountsArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId;
+
+#pragma mark 从呼叫中移除
+/// 从呼叫中移除
+/// @param accountsArray 移除目标用户列表(空集合则移除所有人)
+/// @param roomNo 房间ID
+/// @param token 登录token
+/// @param accountId 用户ID
++ (NSData *)sendCallRemoveWithAccountsArray:(NSMutableArray<RemoveAccount *> *)accountsArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId;
 
 #pragma mark 上报自己的通话状态
 /// 上报自己的通话状态

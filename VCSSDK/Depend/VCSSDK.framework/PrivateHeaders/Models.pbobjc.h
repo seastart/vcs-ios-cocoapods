@@ -206,8 +206,11 @@ typedef GPB_ENUM(Command) {
   /** 呼叫 */
   Command_CmdRegCall = 1010,
 
+  /** 移除呼叫 */
+  Command_CmdRegCallRemove = 1011,
+
   /** 取消呼叫 */
-  Command_CmdRegCallCancel = 1011,
+  Command_CmdRegCallCancel = 1015,
 
   /** 会议等候者上报自己的状态 */
   Command_CmdRegWaiting = 1012,
