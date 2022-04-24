@@ -87,18 +87,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 从呼叫中移除
 /// 从呼叫中移除
-/// @param accountsArray 目标取消用户列表(空集合则移除所有人)
+/// @param accountsArray 移除目标用户列表(空集合则移除所有人)
 /// @param roomNo 房间ID
-- (void)callRemoveWithAccountsArray:(nullable NSMutableArray<CancelAccount *> *)accountsArray roomNo:(NSString *)roomNo;
+- (void)callRemoveWithAccountsArray:(nullable NSMutableArray<RemoveAccount *> *)accountsArray roomNo:(NSString *)roomNo;
 
-#pragma mark 上报自己的通话状态
-/// 上报自己的通话状态
-/// @param roomNo 房间号码
-/// @param name 用户名
-/// @param nickname 用户昵称
-/// @param portrait 用户头像
-/// @param status 通话状态
-- (void)accountStatusWithRoomNo:(NSString *)roomNo name:(nullable NSString *)name nickname:(nullable NSString *)nickname portrait:(nullable NSString *)portrait status:(InviteStatus)status;
+#pragma mark 更新帐户信息
+/// 更新帐户信息
+/// @param account 账户信息
+- (void)updateWaitingAccountInfo:(WaitingAccount *)account;
 
 #pragma mark 发送应用内推送
 /// 发送应用内推送

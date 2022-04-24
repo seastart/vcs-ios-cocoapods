@@ -31,11 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param data 消息体
 - (void)roomListenMessageWithCommand:(Command)command data:(NSData *)data;
 
-#pragma mark 监听互动服务成员心跳超时消息
-/// 监听互动服务成员心跳超时消息
-/// @param account 成员信息
-- (void)roomListenMemberTimeoutWithAccount:(Account *)account;
-
 @end
 
 @interface VCSChatRoomManager : NSObject

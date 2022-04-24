@@ -206,8 +206,11 @@ typedef GPB_ENUM(Command) {
   /** 呼叫 */
   Command_CmdRegCall = 1010,
 
-  /** 取消呼叫 */
+  /** 移除呼叫(历史问题) */
   Command_CmdRegCallCancel = 1011,
+
+  /** 取消呼叫 */
+  Command_CmdRegCallCancelNew = 1015,
 
   /** 会议等候者上报自己的状态 */
   Command_CmdRegWaiting = 1012,
@@ -1545,6 +1548,7 @@ typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_DeviceAddress = 23,
   Account_FieldNumber_UpLevel = 24,
   Account_FieldNumber_RelativePortrait = 25,
+  Account_FieldNumber_Version = 26,
 };
 
 /**
@@ -1662,6 +1666,10 @@ GPB_FINAL @interface Account : GPBMessage
 /** Test to see if @c relativePortrait has been set. */
 @property(nonatomic, readwrite) BOOL hasRelativePortrait;
 
+/** 版本号 */
+@property(nonatomic, readwrite) int32_t version;
+
+@property(nonatomic, readwrite) BOOL hasVersion;
 @end
 
 #pragma mark - Stream
@@ -1833,6 +1841,7 @@ typedef GPB_ENUM(RealAccount_FieldNumber) {
   RealAccount_FieldNumber_CorpId = 34,
   RealAccount_FieldNumber_UpLevel = 35,
   RealAccount_FieldNumber_AccountRelativePortrait = 36,
+  RealAccount_FieldNumber_Version = 37,
 };
 
 /**
@@ -1988,6 +1997,9 @@ GPB_FINAL @interface RealAccount : GPBMessage
 /** Test to see if @c accountRelativePortrait has been set. */
 @property(nonatomic, readwrite) BOOL hasAccountRelativePortrait;
 
+@property(nonatomic, readwrite) int32_t version;
+
+@property(nonatomic, readwrite) BOOL hasVersion;
 @end
 
 #pragma mark - SystemOption

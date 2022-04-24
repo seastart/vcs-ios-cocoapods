@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *portrait;
 #pragma mark 头像相对地址
 @property (nonatomic, copy) NSString *relativePortrait;
+#pragma mark 绑定数据(扩展字段)
+@property (nonatomic, copy) NSString *tag;
 /* ****************** ⬆️ 当前登录用户信息(可由登录获取)(必填项) ⬆️ ****************** */
 
 
@@ -58,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - 互动服务器异常重连最大时间(默认120s)
-@property (nonatomic, assign) int maxConnectDuration;
+/// @property (nonatomic, assign) int maxConnectDuration;
 
 
 #pragma mark - AGC AEC Sampe 编码参数设置(选填项)
