@@ -54,21 +54,29 @@ typedef void(^VCSNetCallPackageBlock)(PacketType type, Command command, Result r
 /// @param restart 是否重新开始(YES-忽略上次的呼叫 NO-叠加上次的呼叫)
 + (NSData *)sendCallWithAccountsArray:(NSMutableArray<WaitingAccount *> *)accountsArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId restart:(BOOL)restart;
 
-#pragma mark 取消呼叫
-/// 取消呼叫
+#pragma mark 从呼叫中移除(废弃)
+/// 从呼叫中移除(废弃)
+/// @param targetIdArray 目标用户ID列表
+/// @param roomNo 房间ID
+/// @param token 登录token
+/// @param accountId 用户ID
++ (NSData *)sendCallRemoveWithTargetIdArray:(NSMutableArray<NSString *> *)targetIdArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId;
+
+#pragma mark 取消呼叫(新增)
+/// 取消呼叫(新增)
 /// @param accountsArray 取消呼叫
 /// @param roomNo 房间ID
 /// @param token 登录token
 /// @param accountId 用户ID
-+ (NSData *)sendCallCancelWithAccountsArray:(NSMutableArray<WaitingAccount *> *)accountsArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId;
++ (NSData *)sendCallCancelNewWithAccountsArray:(NSMutableArray<WaitingAccount *> *)accountsArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId;
 
-#pragma mark 从呼叫中移除
-/// 从呼叫中移除
+#pragma mark 从呼叫中移除(新增)
+/// 从呼叫中移除(新增)
 /// @param accountsArray 移除目标用户列表(空集合则移除所有人)
 /// @param roomNo 房间ID
 /// @param token 登录token
 /// @param accountId 用户ID
-+ (NSData *)sendCallRemoveWithAccountsArray:(NSMutableArray<RemoveAccount *> *)accountsArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId;
++ (NSData *)sendCallRemoveNewWithAccountsArray:(NSMutableArray<RemoveAccount *> *)accountsArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId;
 
 #pragma mark 上报自己的通话状态
 /// 上报自己的通话状态

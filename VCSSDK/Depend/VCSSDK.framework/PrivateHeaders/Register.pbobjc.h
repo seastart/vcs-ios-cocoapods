@@ -390,11 +390,10 @@ typedef GPB_ENUM(CallCancel_FieldNumber) {
   CallCancel_FieldNumber_AccountId = 2,
   CallCancel_FieldNumber_RoomNo = 3,
   CallCancel_FieldNumber_TargetIdArray = 4,
-  CallCancel_FieldNumber_AccountsArray = 5,
 };
 
 /**
- * 取消呼叫(移除)
+ * 取消呼叫(老的移除功能)
  **/
 GPB_FINAL @interface CallCancel : GPBMessage
 
@@ -410,15 +409,10 @@ GPB_FINAL @interface CallCancel : GPBMessage
 /** Test to see if @c roomNo has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomNo;
 
-/** 空集合则清除取消所有人(废除) */
+/** 空集合则清除取消所有人 */
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSString*> *targetIdArray;
 /** The number of items in @c targetIdArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger targetIdArray_Count;
-
-/** 空集合则清除移除所有人 */
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<RemoveAccount*> *accountsArray;
-/** The number of items in @c accountsArray without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger accountsArray_Count;
 
 @end
 
@@ -428,8 +422,7 @@ typedef GPB_ENUM(CallCancelNew_FieldNumber) {
   CallCancelNew_FieldNumber_Token = 1,
   CallCancelNew_FieldNumber_AccountId = 2,
   CallCancelNew_FieldNumber_RoomNo = 3,
-  CallCancelNew_FieldNumber_Restart = 4,
-  CallCancelNew_FieldNumber_AccountsArray = 5,
+  CallCancelNew_FieldNumber_AccountsArray = 4,
 };
 
 /**
@@ -449,12 +442,41 @@ GPB_FINAL @interface CallCancelNew : GPBMessage
 /** Test to see if @c roomNo has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomNo;
 
-/** (废弃) */
-@property(nonatomic, readwrite) BOOL restart;
-
-@property(nonatomic, readwrite) BOOL hasRestart;
 /** 清除取消的集合 */
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<WaitingAccount*> *accountsArray;
+/** The number of items in @c accountsArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger accountsArray_Count;
+
+@end
+
+#pragma mark - CallRemove
+
+typedef GPB_ENUM(CallRemove_FieldNumber) {
+  CallRemove_FieldNumber_Token = 1,
+  CallRemove_FieldNumber_AccountId = 2,
+  CallRemove_FieldNumber_RoomNo = 3,
+  CallRemove_FieldNumber_AccountsArray = 4,
+};
+
+/**
+ * 移除呼叫
+ **/
+GPB_FINAL @interface CallRemove : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *token;
+/** Test to see if @c token has been set. */
+@property(nonatomic, readwrite) BOOL hasToken;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
+/** Test to see if @c accountId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountId;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+/** 空集合则清除移除所有人 */
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<RemoveAccount*> *accountsArray;
 /** The number of items in @c accountsArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger accountsArray_Count;
 

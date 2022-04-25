@@ -79,17 +79,29 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param restart 是否重新开始(YES-忽略上次的呼叫 NO-叠加上次的呼叫)
 - (void)callWithAccountsArray:(nullable NSMutableArray<WaitingAccount *> *)accountsArray roomNo:(NSString *)roomNo restart:(BOOL)restart;
 
-#pragma mark 取消呼叫
-/// 取消呼叫
+#pragma mark 取消呼叫(废弃)
+/// 取消呼叫(废弃)
 /// @param accountsArray 取消呼叫列表
 /// @param roomNo 房间ID
-- (void)callCancelWithAccountsArray:(nullable NSMutableArray<WaitingAccount *> *)accountsArray roomNo:(NSString *)roomNo;
+- (void)callCancelWithAccountsArray:(nullable NSMutableArray<WaitingAccount *> *)accountsArray roomNo:(NSString *)roomNo DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到callCancelNewWithAccountsArray:roomNo:接口");
 
-#pragma mark 从呼叫中移除
-/// 从呼叫中移除
+#pragma mark 从呼叫中移除(废弃)
+/// 从呼叫中移除(废弃)
+/// @param targetIdArray 目标用户ID列表(空集合则取消所有人)
+/// @param roomNo 房间ID
+- (void)callRemoveWithTargetIdArray:(nullable NSMutableArray<NSString *> *)targetIdArray roomNo:(NSString *)roomNo DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到callRemoveNewWithAccountsArray:roomNo:接口");
+
+#pragma mark 取消呼叫(新增)
+/// 取消呼叫(新增)
+/// @param accountsArray 取消呼叫列表
+/// @param roomNo 房间ID
+- (void)callCancelNewWithAccountsArray:(nullable NSMutableArray<WaitingAccount *> *)accountsArray roomNo:(NSString *)roomNo;
+
+#pragma mark 从呼叫中移除(新增)
+/// 从呼叫中移除(新增)
 /// @param accountsArray 移除目标用户列表(空集合则移除所有人)
 /// @param roomNo 房间ID
-- (void)callRemoveWithAccountsArray:(nullable NSMutableArray<RemoveAccount *> *)accountsArray roomNo:(NSString *)roomNo;
+- (void)callRemoveNewWithAccountsArray:(nullable NSMutableArray<RemoveAccount *> *)accountsArray roomNo:(NSString *)roomNo;
 
 #pragma mark 更新帐户信息
 /// 更新帐户信息
