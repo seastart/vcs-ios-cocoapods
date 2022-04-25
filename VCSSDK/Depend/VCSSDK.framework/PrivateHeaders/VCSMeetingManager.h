@@ -379,6 +379,11 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 #pragma mark 更新心跳(自身状态变化时需要及时调用此方法)
 - (void)renewMyAccountHeartBeat;
 
+#pragma mark 变更个人信息的扩展字段
+/// 变更个人信息的扩展字段
+/// @param extend 扩展字段内容
+- (void)changeAccountExtend:(NSString *)extend;
+
 #pragma mark 发送举手操作消息
 /// 发送举手操作消息
 /// @param hus 举手类型(HandUpStatus_HusNone-无，HandUpStatus_HusLiftTheBan-解除禁言请求)
