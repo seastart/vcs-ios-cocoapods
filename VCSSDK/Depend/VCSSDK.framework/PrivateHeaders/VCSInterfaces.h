@@ -16,6 +16,8 @@ FOUNDATION_EXTERN NSString *__nonnull const VCSRegServerPublishTopic;
 
 #pragma mark - 会控服务接收订阅主题
 FOUNDATION_EXTERN NSString *__nonnull const VCSRoomReceiveTopic;
+#pragma mark - 会控服务接收全员广播订阅主题
+FOUNDATION_EXTERN NSString *__nonnull const VCSRoomBroadcastReceiveTopic;
 #pragma mark - 会控服务发送订阅主题
 FOUNDATION_EXTERN NSString *__nonnull const VCSRoomServerPublishTopic;
 
