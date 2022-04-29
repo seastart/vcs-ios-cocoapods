@@ -161,6 +161,10 @@
 
 
 #pragma mark - -------- 互动服务服务相关代理 --------
+#pragma mark 互动服务闪断重连成功回调
+/// 互动服务闪断重连成功回调
+- (void)roomReconnectedSucceed;
+
 #pragma mark 互动服务连接失败(进入房间失败)
 /// 互动服务连接失败(进入房间失败)
 /// @param command cmd指令

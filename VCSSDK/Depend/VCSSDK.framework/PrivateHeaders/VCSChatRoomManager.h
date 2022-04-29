@@ -25,6 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param result 结果
 - (void)roomInteractiveListenWithCommand:(Command)command result:(Result)result;
 
+#pragma mark 互动服务闪断重连成功回调
+/// 互动服务闪断重连成功回调
+- (void)roomReconnectedSucceed;
+
 #pragma mark 监听互动服务消息
 /// 监听互动服务消息
 /// @param command 消息类型
