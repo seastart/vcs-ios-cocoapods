@@ -60,7 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 重连互动服务
 /// 重连互动服务
-- (BOOL)restartConnect;
+/// @param restart 是否需要重置订阅
+- (BOOL)restartConnect:(BOOL)restart;
 
 #pragma mark 关闭Socket连接
 /// 关闭Socket连接
