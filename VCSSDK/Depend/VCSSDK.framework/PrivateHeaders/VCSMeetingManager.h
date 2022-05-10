@@ -76,8 +76,8 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// 初始化会议SDK(YES-连接成功，NO-连接失败)
 /// @param meetingParam 会控参数
 /// @param isNoPickAudio 是否开启NoPickAudio模式(视频默认选择4方，音频选择所有发言者)
-/// @param delegate 代理
-- (BOOL)initMediaSessionWithMeetingParam:(VCSMeetingParam *)meetingParam isNoPickAudio:(BOOL)isNoPickAudio delegate:(id)delegate;
+/// @param delegate 代理委托
+- (BOOL)initMediaSessionWithMeetingParam:(VCSMeetingParam *)meetingParam isNoPickAudio:(BOOL)isNoPickAudio delegate:(id <VCSMeetingManagerProtocol>)delegate;
 
 #pragma mark 重新加入会议
 /// 重新加入会议(网络异常后重新入会调用)

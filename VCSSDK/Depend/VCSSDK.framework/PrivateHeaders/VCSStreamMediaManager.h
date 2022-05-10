@@ -192,6 +192,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param viewChange View是否改变
 - (void)startStreamingWithPushSampleBuffer:(CVPixelBufferRef)sampleBuffer stamp:(CMTime)stamp isFront:(BOOL)isFront viewChange:(int)viewChange;
 
+#pragma mark 重置编码器
+/// 重置编码器
+- (void)resetStreamEncoder;
+
 #pragma mark 设置网络延时抗抖动等级(重传档位)
 /// 设置网络延时抗抖动等级(重传档位)
 /// @param state 档位(默认为VCSNetworkDelayShakeStateMedium)
