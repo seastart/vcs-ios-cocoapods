@@ -313,10 +313,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 关闭远程调试(只有开启远程调试的时候才可以使用此方法)
 - (void)closeDebugger;
 
-#pragma mark 保存解码前数据流信息
-/// 保存解码前数据流信息
+#pragma mark 保存视频数据
+/// 保存视频数据
 /// @param isOpen YES-打开 NO-关闭
-- (void)saveBeforeDecodeDataWithOpen:(BOOL)isOpen;
+- (void)saveVideoStreamData:(BOOL)isOpen;
 
 #pragma mark 设置MCU云端系统接收轨道
 /// 设置MCU云端系统接收轨道

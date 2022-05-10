@@ -255,10 +255,10 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// 关闭远程调试(只有开启远程调试的时候才可以使用此方法)
 - (void)closeDebugger;
 
-#pragma mark 保存解码前数据流信息
-/// 保存解码前数据流信息
+#pragma mark 保存视频流数据
+/// 保存视频流数据
 /// @param isOpen YES-打开 NO-关闭
-- (void)saveBeforeDecodeDataWithOpen:(BOOL)isOpen;
+- (void)saveVideoStreamData:(BOOL)isOpen;
 
 #pragma mark 开启网络监测
 /// 开启网络监测

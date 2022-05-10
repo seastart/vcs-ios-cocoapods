@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 互动服务闪断重连成功回调
 /// 互动服务闪断重连成功回调
-- (void)roomReconnectedSucceed;
+- (BOOL)roomReconnectedSucceed;
 
 #pragma mark 监听互动服务消息
 /// 监听互动服务消息
