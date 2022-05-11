@@ -103,17 +103,17 @@ NS_ASSUME_NONNULL_BEGIN
 /// 单位为毫秒 默认为500毫秒
 @property (nonatomic, assign) float onAudioCycle;
 
-//#pragma mark 接收自适应延迟补充区间
-///// 补充区间下限，默认 1000
-//@property (nonatomic, assign) int lowerLimit;
-///// 补充区间上限，默认 1500
-//@property (nonatomic, assign) int upperLimit;
-//
-//#pragma mark 保存音频流数据相关
-///// 保存本地采集音频流，默认 NO
-//@property (nonatomic, assign) BOOL enableSaveAudioCapture;
-///// 保存远程接收音频流，默认 NO
-//@property (nonatomic, assign) BOOL enableSaveAudioReceive;
+#pragma mark 接收自适应延迟补充区间
+/// 补充区间下限，默认 1000
+@property (nonatomic, assign) int lowerLimit;
+/// 补充区间上限，默认 1500
+@property (nonatomic, assign) int upperLimit;
+
+#pragma mark 保存音频流数据相关
+/// 保存本地采集音频流，默认 NO
+@property (nonatomic, assign) BOOL enableSaveAudioCapture;
+/// 保存远程接收音频流，默认 NO
+@property (nonatomic, assign) BOOL enableSaveAudioReceive;
 
 /* ****************** ⬆️ AGC AEC sampe 编码参数设置(选填项) ⬆️ ****************** */
 
