@@ -179,6 +179,8 @@ typedef enum : NSInteger {
  - VCSCommandEventStateEnded: 会议结束
  - VCSCommandEventStateInvite:  邀请参会
  - VCSCommandEventStatePassthrough:  消息透传
+ - VCSCommandEventStateKickout: 被踢出房间
+ - VCSCommandEventStateInitiativeExit: 主动退出房间
  */
 typedef enum : NSInteger {
     
@@ -191,7 +193,9 @@ typedef enum : NSInteger {
     VCSCommandEventStateBegin,
     VCSCommandEventStateEnded,
     VCSCommandEventStateInvite,
-    VCSCommandEventStatePassthrough
+    VCSCommandEventStatePassthrough,
+    VCSCommandEventStateKickout,
+    VCSCommandEventStateInitiativeExit
 } VCSCommandEventState;
 
 @interface VCSEnum : NSObject

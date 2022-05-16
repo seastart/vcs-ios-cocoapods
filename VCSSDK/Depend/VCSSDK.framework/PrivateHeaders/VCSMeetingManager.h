@@ -103,8 +103,9 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 
 #pragma mark 销毁释放视频会议资源
 /// 销毁释放视频会议资源
+/// @param initiative 是否主动退出(用户点击退出会议时需要传YES)
 /// @param finishBlock 释放完成回调
-- (void)destroy:(VCSMeetingManagerDestroyBlock)finishBlock;
+- (void)destroy:(BOOL)initiative finishBlock:(VCSMeetingManagerDestroyBlock)finishBlock;
 
 
 #pragma mark - -------- 视频会议屏幕录制相关接口 ---------
