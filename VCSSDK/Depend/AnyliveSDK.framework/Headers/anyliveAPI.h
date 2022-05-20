@@ -43,6 +43,9 @@
 #define   VCS_BITRATE_QUARTER_BITRATE   -2     //事件属性 VCS_XBITRATE
 #define   VIDEO_PUSH_INIT               0x82    //视频进入和退出
 
+#define  VCS_RTMPUPLOADING_BEGIN    100    //开始推流
+#define  VCS_RTMP_HANDSHAKE_FAIL    101    //握手失败
+
 //显示
 #define CENTERCROP 0x01
 #define CENTERINSIDE 0x02
@@ -88,6 +91,35 @@
 
 #define SAVE_FRAME_FOR_TEST 0x2000 //
 #define VCS_OPT_AUDIOPRIO  0x030   // audio priority first
+
+
+
+#define  VCS_SET_SAVEPATH 0x300 //for save path
+//AEC 处理后 PCM，仅用于开启软件AEC 情况，示例：20220417130342_AEC.pcm
+#define VCS_SET_SAVEAECPCM    0x302
+
+//DEN 处理后 PCM，示例：20220417130342_MID.pcm[软件降噪才存在]
+#define VCS_SET_SAVEDENPCM   0x303
+
+//处理完毕后 PCM,就是编码前的PCM，示例：20220417130342_PRO.pcm
+#define VCS_SET_SAVEPROPCM    0x304
+
+//保存音频接收/解码
+//音频帧，示例：20000004_20220417130342.aac
+#define  VCS_SET_SAVERECVAUDIO  0x305
+
+//解码后 PCM，示例：20000004_20220417130342.pcm
+#define VCS_SET_SAVEDECPCM      0x306
+
+//混音后 PCM，示例：20220417130342_MIX.pcm
+#define VCS_SET_SAVEMIXPCM     0x307
+
+// 弱网下可配置"接收自适应延迟"（推荐配合新版本流服务器）
+#define VCS_SET_DEEPCONF     0x400
+
+//系统初始化后设置音频出于非上传状态/或者上传状态，
+#define VCS_SET_DEFNOSEND 0x308   //default send lparam = 0,lparam=1 nosend
+
 //设置代理用于数据回调
 @protocol callbackdataDelegate <NSObject>
 
@@ -398,6 +430,12 @@
      * @return
      */
 -(void)VCS_Probe:(int)upSpeed downSpeed:(int)downSpeed TestTimes:(int)TestTime myStreamId:(int)myStreamId;
+
+/*
+ 设置当前f设备方向
+ */
+
+-(void)VCS_SetCurrentDeviceOrientation:(NSInteger)UIDeviceOrientation;
 
 @property (nonatomic, weak) id<callbackdataDelegate> delegate;
 @end
