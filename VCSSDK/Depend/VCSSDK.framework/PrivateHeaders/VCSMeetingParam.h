@@ -54,13 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int meetingPort;
 #pragma mark 会议服务ID
 @property (nonatomic, copy) NSString *serverId;
-#pragma mark 设置是否横屏
-@property (nonatomic, assign) BOOL isHorizontalScreen;
 /* ******** ⬆️ 流媒体服务和互动服务地址端口(可由创建会议/连线获取)(必填项) ⬆️ ******** */
-
-
-#pragma mark - 互动服务器异常重连最大时间(默认120s)
-/// @property (nonatomic, assign) int maxConnectDuration;
 
 
 #pragma mark - AGC AEC Sampe 编码参数设置(选填项)
@@ -77,6 +71,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int vbirate;
 #pragma mark 设置音频编码模式 默认VCSAudioEncodeStateAac
 @property (nonatomic, assign) VCSAudioEncodeState audioEncode;
+
+#pragma mark 设置是否横屏
+@property (nonatomic, assign) BOOL isHorizontalScreen;
 
 /// 输出分辨率宽必须是16的倍数 高必须是2的倍数 否则容易出现绿边等问题(已做了兼容)
 /// 1080P---1920x1080
@@ -103,17 +100,17 @@ NS_ASSUME_NONNULL_BEGIN
 /// 单位为毫秒 默认为500毫秒
 @property (nonatomic, assign) float onAudioCycle;
 
-//#pragma mark 接收自适应延迟补充区间
-///// 补充区间下限，默认 1000
-//@property (nonatomic, assign) int lowerLimit;
-///// 补充区间上限，默认 1500
-//@property (nonatomic, assign) int upperLimit;
-//
-//#pragma mark 保存音频流数据相关
-///// 保存本地采集音频流，默认 NO
-//@property (nonatomic, assign) BOOL enableSaveAudioCapture;
-///// 保存远程接收音频流，默认 NO
-//@property (nonatomic, assign) BOOL enableSaveAudioReceive;
+#pragma mark 接收自适应延迟补充区间
+/// 补充区间下限，默认 500
+@property (nonatomic, assign) int lowerLimit;
+/// 补充区间上限，默认 1200
+@property (nonatomic, assign) int upperLimit;
+
+#pragma mark 保存音频流数据相关
+/// 保存本地采集音频流，默认 NO
+@property (nonatomic, assign) BOOL enableSaveAudioCapture;
+/// 保存远程接收音频流，默认 NO
+@property (nonatomic, assign) BOOL enableSaveAudioReceive;
 
 /* ****************** ⬆️ AGC AEC sampe 编码参数设置(选填项) ⬆️ ****************** */
 
@@ -126,25 +123,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 会控属性设置
 /* ****************** ⬇️ 会控属性设置 ⬇️ ****************** */
-#pragma mark 硬件解码 YES开启 NO关闭
+#pragma mark 硬件解码 YES开启 NO关闭，默认 YES
 @property (nonatomic, assign) BOOL isHardwarede;
-#pragma mark 网络自适应延迟 YES开启 NO关闭
+#pragma mark 网络自适应延迟 YES开启 NO关闭，默认 YES
 @property (nonatomic, assign) BOOL isAdaptation;
-#pragma mark 码率自适应 YES开启 NO关闭
+#pragma mark 码率自适应 YES开启 NO关闭，默认 YES
 @property (nonatomic, assign) BOOL isCodeRate;
-#pragma mark 音频状态 YES开启 NO关闭
+#pragma mark 音频状态 YES开启 NO关闭，默认 YES
 @property (nonatomic, assign) BOOL isOpenAudio;
-#pragma mark 视频状态 YES开启 NO关闭
+#pragma mark 视频状态 YES开启 NO关闭，默认 YES
 @property (nonatomic, assign) BOOL isOpenVideo;
-#pragma mark 扬声器状态 YES开启 NO关闭
+#pragma mark 扬声器状态 YES开启 NO关闭，默认 YES
 @property (nonatomic, assign) BOOL isOpenSpeaker;
-#pragma mark Debug模式状态 YES开启 NO关闭
+#pragma mark Debug模式状态 YES开启 NO关闭，默认 NO
 @property (nonatomic, assign) BOOL isOpenDebug;
 /* ****************** ⬆️ 会控属性设置 ⬆️ ****************** */
 
 
 /* ****************** ⬇️ 会控服务协议选择 ⬇️ ****************** */
-/// 会控服务是否使用TCP协议
+/// 会控服务是否使用TCP协议，默认 YES
 @property (nonatomic, assign) BOOL isOpenTCP;
 /* ****************** ⬆️ 会控服务协议选择 ⬆️ ****************** */
 
