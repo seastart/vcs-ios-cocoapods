@@ -10,6 +10,7 @@
 
 #pragma mark - 自定义DEBUG日志
 #define VCSLOG(format,...) NSLog((@"[VCSSDKLOG][%@][%d] " format),[[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__,##__VA_ARGS__)
+/// #define VCSLOG(str, args...) ((void)0)
 
 #pragma mark - 获取设备屏幕宽度/高度
 #define VCS_SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)

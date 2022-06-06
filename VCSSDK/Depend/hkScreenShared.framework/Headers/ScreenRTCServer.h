@@ -45,13 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 //编码数据
 - (void)didProcessEncoderData:(NSData*)sampleBuffer pts:(uint32_t)pts dts:(uint32_t)dts angle:(int)angle;
 
-
-//编码数据
-//- (void)didProcessEncoderData2:(NSData*)sampleBuffer pts:(uint32_t)pts dts:(uint32_t)dts angle:(int)angle width:(int)width height:(int)height bitrate:(int)bitrate fps:(int)fps;
-
 //Screen status  code [0:screen stop,1:screen start -1:screen connnect error]
 -(void)didProcessStatus:(int)codes;
-
--(void)didProcessInfo:(int)width height:(int)height bitrate:(int)bitrate;
 @end
 NS_ASSUME_NONNULL_END
