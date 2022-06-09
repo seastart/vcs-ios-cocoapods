@@ -32,9 +32,6 @@
 #define VCSWeakSelf() __weak typeof(self) weakSelf = self
 #define VCSStrongSelf(weakSelf) __strong typeof(self) strongSelf = weakSelf
 
-#pragma mark - 主线程运行
-#define VCSRunOnMainThread(code) {dispatch_async(dispatch_get_main_queue(), ^{code;});}
-
 #pragma mark - 当前资源包bundle
 #define VCSBundleModule [NSBundle bundleForFramework:[self class] module:@"VCSSDK"]
 #define VCSDrawingBundleModule [NSBundle bundleForFramework:[self class] module:@"VCSDrawing"]
