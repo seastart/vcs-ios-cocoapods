@@ -88,6 +88,33 @@ GPB_FINAL @interface EnterRoomRequest : GPBMessage
 
 @end
 
+#pragma mark - EnterRoomResponse
+
+typedef GPB_ENUM(EnterRoomResponse_FieldNumber) {
+  EnterRoomResponse_FieldNumber_Room = 1,
+  EnterRoomResponse_FieldNumber_Me = 2,
+  EnterRoomResponse_FieldNumber_MembersArray = 3,
+};
+
+GPB_FINAL @interface EnterRoomResponse : GPBMessage
+
+/** 当前房间状态 */
+@property(nonatomic, readwrite, strong, null_resettable) Room *room;
+/** Test to see if @c room has been set. */
+@property(nonatomic, readwrite) BOOL hasRoom;
+
+/** 当前我需要同步的帐号信息 */
+@property(nonatomic, readwrite, strong, null_resettable) Account *me;
+/** Test to see if @c me has been set. */
+@property(nonatomic, readwrite) BOOL hasMe;
+
+/** 部分成员信息（如共享时的共享人） */
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<Account*> *membersArray;
+/** The number of items in @c membersArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger membersArray_Count;
+
+@end
+
 #pragma mark - ExitRoomRequest
 
 typedef GPB_ENUM(ExitRoomRequest_FieldNumber) {
@@ -865,6 +892,8 @@ GPB_FINAL @interface ExitNotify : GPBMessage
 
 typedef GPB_ENUM(RoomBeginNotify_FieldNumber) {
   RoomBeginNotify_FieldNumber_RoomId = 1,
+  RoomBeginNotify_FieldNumber_RoomNo = 2,
+  RoomBeginNotify_FieldNumber_ConfId = 3,
 };
 
 /**
@@ -876,12 +905,22 @@ GPB_FINAL @interface RoomBeginNotify : GPBMessage
 /** Test to see if @c roomId has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomId;
 
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *confId;
+/** Test to see if @c confId has been set. */
+@property(nonatomic, readwrite) BOOL hasConfId;
+
 @end
 
 #pragma mark - RoomEndedNotify
 
 typedef GPB_ENUM(RoomEndedNotify_FieldNumber) {
   RoomEndedNotify_FieldNumber_RoomId = 1,
+  RoomEndedNotify_FieldNumber_RoomNo = 2,
+  RoomEndedNotify_FieldNumber_ConfId = 3,
 };
 
 /**
@@ -893,12 +932,22 @@ GPB_FINAL @interface RoomEndedNotify : GPBMessage
 /** Test to see if @c roomId has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomId;
 
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *confId;
+/** Test to see if @c confId has been set. */
+@property(nonatomic, readwrite) BOOL hasConfId;
+
 @end
 
 #pragma mark - RoomPrepareNotify
 
 typedef GPB_ENUM(RoomPrepareNotify_FieldNumber) {
   RoomPrepareNotify_FieldNumber_RoomId = 1,
+  RoomPrepareNotify_FieldNumber_RoomNo = 2,
+  RoomPrepareNotify_FieldNumber_ConfId = 3,
 };
 
 /**
@@ -909,6 +958,41 @@ GPB_FINAL @interface RoomPrepareNotify : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
 /** Test to see if @c roomId has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomId;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *confId;
+/** Test to see if @c confId has been set. */
+@property(nonatomic, readwrite) BOOL hasConfId;
+
+@end
+
+#pragma mark - RoomChangeNotify
+
+typedef GPB_ENUM(RoomChangeNotify_FieldNumber) {
+  RoomChangeNotify_FieldNumber_RoomId = 1,
+  RoomChangeNotify_FieldNumber_RoomNo = 2,
+  RoomChangeNotify_FieldNumber_ConfId = 3,
+};
+
+/**
+ * 会议更改通知
+ **/
+GPB_FINAL @interface RoomChangeNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *confId;
+/** Test to see if @c confId has been set. */
+@property(nonatomic, readwrite) BOOL hasConfId;
 
 @end
 
@@ -1810,6 +1894,70 @@ GPB_FINAL @interface SetHostsRequest : GPBMessage
 /** The number of items in @c hostsArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger hostsArray_Count;
 
+@end
+
+#pragma mark - ConfExtendNotify
+
+typedef GPB_ENUM(ConfExtendNotify_FieldNumber) {
+  ConfExtendNotify_FieldNumber_ConfId = 1,
+  ConfExtendNotify_FieldNumber_RoomNo = 2,
+  ConfExtendNotify_FieldNumber_BeginAt = 3,
+  ConfExtendNotify_FieldNumber_EndAt = 4,
+};
+
+GPB_FINAL @interface ConfExtendNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *confId;
+/** Test to see if @c confId has been set. */
+@property(nonatomic, readwrite) BOOL hasConfId;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+@property(nonatomic, readwrite) int64_t beginAt;
+
+@property(nonatomic, readwrite) BOOL hasBeginAt;
+@property(nonatomic, readwrite) int64_t endAt;
+
+@property(nonatomic, readwrite) BOOL hasEndAt;
+@end
+
+#pragma mark - ConfInviteeNotify
+
+typedef GPB_ENUM(ConfInviteeNotify_FieldNumber) {
+  ConfInviteeNotify_FieldNumber_RoomNo = 1,
+  ConfInviteeNotify_FieldNumber_ConfId = 2,
+};
+
+GPB_FINAL @interface ConfInviteeNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *confId;
+/** Test to see if @c confId has been set. */
+@property(nonatomic, readwrite) BOOL hasConfId;
+
+@end
+
+#pragma mark - McuStateNotify
+
+typedef GPB_ENUM(McuStateNotify_FieldNumber) {
+  McuStateNotify_FieldNumber_RoomNo = 1,
+  McuStateNotify_FieldNumber_McuMode = 2,
+};
+
+GPB_FINAL @interface McuStateNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+@property(nonatomic, readwrite) int32_t mcuMode;
+
+@property(nonatomic, readwrite) BOOL hasMcuMode;
 @end
 
 NS_ASSUME_NONNULL_END

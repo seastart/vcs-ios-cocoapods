@@ -33,7 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 监听互动服务消息
 /// @param command 消息类型
 /// @param data 消息体
-- (void)roomListenMessageWithCommand:(Command)command data:(NSData *)data;
+/// @param firstNotify 是否为首次状态通知
+- (void)roomListenMessageWithCommand:(Command)command data:(NSData *)data firstNotify:(BOOL)firstNotify;
 
 @end
 

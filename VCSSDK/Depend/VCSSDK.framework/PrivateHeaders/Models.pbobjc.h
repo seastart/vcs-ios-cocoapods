@@ -89,6 +89,18 @@ typedef GPB_ENUM(Command) {
   /** 1.3.0 增加通知 */
   Command_CmdRoomNotifyPrepare = 18,
 
+  /** 会议更改通知 */
+  Command_CmdRoomNotifyChange = 19,
+
+  /** 会议延长通知(后台) */
+  Command_CmdRoomNotifyExtend = 20,
+
+  /** 会议MCU状态变更通知(后台) */
+  Command_CmdRoomMcuChange = 21,
+
+  /** 会议邀请列表变更通知(后台) */
+  Command_CmdRoomInviteeChange = 22,
+
   /** 进入房间 */
   Command_CmdRoomEnter = 100,
 
@@ -487,7 +499,6 @@ BOOL AccountType_IsValidValue(int32_t value);
 
 /** 终端种类 */
 typedef GPB_ENUM(TerminalGroupType) {
-  /** */
   TerminalGroupType_Unknown = 0,
 
   /** PC端 */
@@ -1080,6 +1091,7 @@ typedef GPB_ENUM(AccountBase_FieldNumber) {
   AccountBase_FieldNumber_SerialNo = 7,
   AccountBase_FieldNumber_RoomId = 8,
   AccountBase_FieldNumber_RelativePortrait = 9,
+  AccountBase_FieldNumber_Tag = 10,
 };
 
 /**
@@ -1131,6 +1143,11 @@ GPB_FINAL @interface AccountBase : GPBMessage
 /** Test to see if @c relativePortrait has been set. */
 @property(nonatomic, readwrite) BOOL hasRelativePortrait;
 
+/** 附加标签 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *tag;
+/** Test to see if @c tag has been set. */
+@property(nonatomic, readwrite) BOOL hasTag;
+
 @end
 
 #pragma mark - RoomBase
@@ -1156,6 +1173,8 @@ typedef GPB_ENUM(RoomBase_FieldNumber) {
   RoomBase_FieldNumber_Mute = 18,
   RoomBase_FieldNumber_Mode = 19,
   RoomBase_FieldNumber_McuMode = 20,
+  RoomBase_FieldNumber_MaxAudio = 21,
+  RoomBase_FieldNumber_MaxVideo = 22,
 };
 
 /**
@@ -1247,6 +1266,12 @@ GPB_FINAL @interface RoomBase : GPBMessage
 @property(nonatomic, readwrite) McuMode mcuMode;
 
 @property(nonatomic, readwrite) BOOL hasMcuMode;
+@property(nonatomic, readwrite) int32_t maxAudio;
+
+@property(nonatomic, readwrite) BOOL hasMaxAudio;
+@property(nonatomic, readwrite) int32_t maxVideo;
+
+@property(nonatomic, readwrite) BOOL hasMaxVideo;
 @end
 
 #pragma mark - ConferenceBase
@@ -1552,6 +1577,7 @@ typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_UpLevel = 24,
   Account_FieldNumber_RelativePortrait = 25,
   Account_FieldNumber_Version = 26,
+  Account_FieldNumber_ErrMsg = 27,
 };
 
 /**
@@ -1673,6 +1699,10 @@ GPB_FINAL @interface Account : GPBMessage
 @property(nonatomic, readwrite) int32_t version;
 
 @property(nonatomic, readwrite) BOOL hasVersion;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *errMsg;
+/** Test to see if @c errMsg has been set. */
+@property(nonatomic, readwrite) BOOL hasErrMsg;
+
 @end
 
 #pragma mark - Stream
@@ -1845,6 +1875,7 @@ typedef GPB_ENUM(RealAccount_FieldNumber) {
   RealAccount_FieldNumber_UpLevel = 35,
   RealAccount_FieldNumber_AccountRelativePortrait = 36,
   RealAccount_FieldNumber_Version = 37,
+  RealAccount_FieldNumber_ErrMsg = 38,
 };
 
 /**
@@ -2003,6 +2034,10 @@ GPB_FINAL @interface RealAccount : GPBMessage
 @property(nonatomic, readwrite) int32_t version;
 
 @property(nonatomic, readwrite) BOOL hasVersion;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *errMsg;
+/** Test to see if @c errMsg has been set. */
+@property(nonatomic, readwrite) BOOL hasErrMsg;
+
 @end
 
 #pragma mark - SystemOption

@@ -217,7 +217,8 @@
 /// 我的状态变化通知
 /// @param notify 通知信息
 /// @param error 错误信息
-- (void)onListenMyAccountWithNotify:(MyAccountNotify *)notify error:(NSError *)error;
+/// @param firstNotify 是否为首次状态通知
+- (void)onListenMyAccountWithNotify:(MyAccountNotify *)notify error:(NSError *)error firstNotify:(BOOL)firstNotify;
 
 #pragma mark 码流变化通知
 /// 码流变化通知
