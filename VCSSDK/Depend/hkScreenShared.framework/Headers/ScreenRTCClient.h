@@ -35,8 +35,6 @@ typedef void (^StopReplayKit)(NSString *msg);
 /// client send data to  server
 - (void)sendBuffertoServer:(CMSampleBufferRef)sampleBuffer;
 - (void)sendNotifyBuffertoServer;
-
-
 @end
 
 NS_ASSUME_NONNULL_END

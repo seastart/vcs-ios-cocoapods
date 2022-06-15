@@ -133,7 +133,7 @@ static inline void VCSDispatchAscyncOnMainQueue(void(^block)(void)) {
 
 /// 延时操作
 static inline void VCSDispatchAfter(int64_t time, void(^block)(void)) {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)time), dispatch_get_main_queue(), ^{
         if (block) {
             block();
         }

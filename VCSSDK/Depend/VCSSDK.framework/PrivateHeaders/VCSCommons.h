@@ -18,6 +18,7 @@
 #import "NSBundle+FrameworkModule.h"
 
 #import "VCSToolBridge.h"
+#import "VCSTimerBridge.h"
 #import "VCSLocalizedHelper.h"
 #import "VCSPerformanceBridge.h"
 
