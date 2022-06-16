@@ -145,6 +145,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/// 释放完成回调
+typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
+
 @interface VCSStreamMediaManager : NSObject
 
 #pragma mark 流媒体服务相关代理
@@ -180,7 +183,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 释放流媒体服务资源
 /// 释放流媒体服务资源
-- (void)destroy;
+/// @param finishBlock 释放完成回调
+- (void)destroy:(VCSStreamMediaManagerDestroyBlock)finishBlock;
 
 
 #pragma mark - -------- 流媒体变换接口 --------

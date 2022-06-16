@@ -38,6 +38,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/// 释放完成回调
+typedef void (^VCSChatRoomManagerDestroyBlock)(void);
+
 @interface VCSChatRoomManager : NSObject
 
 #pragma mark 互动服务相关代理
@@ -70,7 +73,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 释放互动服务资源
 /// 释放互动服务资源
-- (void)destroy;
+/// @param finishBlock 释放完成回调
+- (void)destroy:(VCSChatRoomManagerDestroyBlock)finishBlock;
 
 
 #pragma mark - -------- 发送互动服务消息 --------
