@@ -119,7 +119,7 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 
 #pragma mark 关闭本次录屏服务
 /// 关闭本次录屏服务
-- (BOOL)closeScreenServer;
+- (void)closeScreenServer;
 
 #pragma mark 开启录制被调用端(编码模式)
 /// 开启录制被调用端(编码模式)

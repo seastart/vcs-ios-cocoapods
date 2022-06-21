@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 关闭本次录屏服务
 /// 关闭本次录屏服务
-- (BOOL)closeScreenServer;
+- (void)closeScreenServer;
 
 #pragma mark 释放录屏服务资源
 /// 释放录屏服务资源
