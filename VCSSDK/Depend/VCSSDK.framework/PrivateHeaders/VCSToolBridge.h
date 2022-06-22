@@ -36,6 +36,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param seprate 分隔符
 - (NSMutableArray *)stringToArray:(NSString *)string seprate:(NSString *)seprate;
 
+#pragma mark - 将数组拆分成固定长度
+/// 将数组拆分成固定长度
+/// @param originalArray 需要拆分的数组
+/// @param subSize 指定长度
+- (NSMutableArray *)splitWithOriginalArray:(NSMutableArray *)originalArray subSize:(int)subSize;
+
 #pragma mark - 获取唯一标识符UUID
 /// 获取唯一标识符UUID
 - (NSString *)getUniqueIdentifier;

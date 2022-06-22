@@ -137,6 +137,12 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 #pragma mark 发送缓冲区音视频流到服务器
 /// 发送缓冲区音视频流到服务器
 /// @param sampleBuffer 缓冲区
+/// @param sampleBufferType 类型
+- (void)sendSampleBufferServer:(CMSampleBufferRef)sampleBuffer withType:(RPSampleBufferType)sampleBufferType;
+
+#pragma mark 发送缓冲区音视频流到服务器
+/// 发送缓冲区音视频流到服务器
+/// @param sampleBuffer 缓冲区
 - (void)sendSampleBufferServer:(CMSampleBufferRef)sampleBuffer;
 
 #pragma mark - 静态补帧

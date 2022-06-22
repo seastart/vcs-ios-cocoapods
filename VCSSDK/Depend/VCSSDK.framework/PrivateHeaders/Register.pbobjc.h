@@ -681,6 +681,7 @@ typedef GPB_ENUM(MeetingBeginNotify_FieldNumber) {
   MeetingBeginNotify_FieldNumber_RoomNo = 1,
   MeetingBeginNotify_FieldNumber_RoomPwd = 2,
   MeetingBeginNotify_FieldNumber_Title = 3,
+  MeetingBeginNotify_FieldNumber_CreateAccId = 4,
 };
 
 /**
@@ -702,6 +703,11 @@ GPB_FINAL @interface MeetingBeginNotify : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *title;
 /** Test to see if @c title has been set. */
 @property(nonatomic, readwrite) BOOL hasTitle;
+
+/** 会议创建者ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *createAccId;
+/** Test to see if @c createAccId has been set. */
+@property(nonatomic, readwrite) BOOL hasCreateAccId;
 
 @end
 

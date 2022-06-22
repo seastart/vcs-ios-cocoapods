@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ReplayKit/ReplayKit.h>
 #import <hkScreenShared/hkScreenShared.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -31,6 +32,12 @@ typedef void (^VCSScreenClientCloseBlock)(NSString * _Nullable errorMsg);
 
 #pragma mark - 关闭被调用端屏幕共享连接
 - (void)closeScreenClient;
+
+#pragma mark - 发送缓冲区音视频流到服务器
+/// 发送缓冲区音视频流到服务器
+/// @param sampleBuffer 缓冲区
+/// @param sampleBufferType 类型
+- (void)sendSampleBufferServer:(CMSampleBufferRef)sampleBuffer withType:(RPSampleBufferType)sampleBufferType;
 
 #pragma mark - 发送缓冲区音视频流到服务器
 /// 发送缓冲区音视频流到服务器

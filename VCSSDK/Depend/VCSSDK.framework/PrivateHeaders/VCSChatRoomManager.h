@@ -33,9 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// 监听互动服务消息
 /// @param command 消息类型
 /// @param data 消息体
-- (void)roomListenMessageWithCommand:(Command)command data:(NSData *)data;
+/// @param firstNotify 是否为首次状态通知
+- (void)roomListenMessageWithCommand:(Command)command data:(NSData *)data firstNotify:(BOOL)firstNotify;
 
 @end
+
+/// 释放完成回调
+typedef void (^VCSChatRoomManagerDestroyBlock)(void);
 
 @interface VCSChatRoomManager : NSObject
 
@@ -69,7 +73,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 释放互动服务资源
 /// 释放互动服务资源
-- (void)destroy;
+/// @param finishBlock 释放完成回调
+- (void)destroy:(VCSChatRoomManagerDestroyBlock)finishBlock;
 
 
 #pragma mark - -------- 发送互动服务消息 --------
