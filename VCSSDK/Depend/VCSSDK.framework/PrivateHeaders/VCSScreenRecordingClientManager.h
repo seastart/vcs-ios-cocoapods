@@ -30,23 +30,11 @@ typedef void (^VCSScreenClientCloseBlock)(NSString * _Nullable errorMsg);
 /// @param closeBlock 被调用端关闭回调
 - (void)startScreenRecordingClient:(VCSScreenClientCloseBlock)closeBlock;
 
-#pragma mark - 关闭被调用端屏幕共享连接
-- (void)closeScreenClient;
-
-#pragma mark - 发送缓冲区音视频流到服务器
-/// 发送缓冲区音视频流到服务器
-/// @param sampleBuffer 缓冲区
-/// @param sampleBufferType 类型
+#pragma mark - 发送共享屏幕帧数据
+/// 发送共享屏幕帧数据
+/// @param sampleBuffer 帧数据
+/// @param sampleBufferType 帧数据类型
 - (void)sendSampleBufferServer:(CMSampleBufferRef)sampleBuffer withType:(RPSampleBufferType)sampleBufferType;
-
-#pragma mark - 发送缓冲区音视频流到服务器
-/// 发送缓冲区音视频流到服务器
-/// @param sampleBuffer 缓冲区
-- (void)sendSampleBufferServer:(CMSampleBufferRef)sampleBuffer;
-
-#pragma mark - 静态补帧
-/// 静态补帧
-- (void)sendNotifyBuffertoServer;
 
 @end
 

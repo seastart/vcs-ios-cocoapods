@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ScreenRTCConnect.h"
-
-
+#import <VideoToolbox/VideoToolbox.h>
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^StopReplayKit)(NSString *msg);
-@interface ScreenRTCClient : ScreenRTCConnect
+@interface ScreenRTCClient:NSObject
+//: ScreenRTCConnect
 //encoder 必须设置这些编码参数否则录屏失败 720x1280    300kp
 @property(nonatomic , readwrite)unsigned short Encoderwidth;
 @property(nonatomic , readwrite)unsigned short Encoderheight;
@@ -31,12 +30,11 @@ typedef void (^StopReplayKit)(NSString *msg);
 -(BOOL)initCliectConnect:(int)ModeType; //初始化后方可创createCliectConnect
 /// 创建 client socket
 - (BOOL)createCliectConnect;
-
+//close
+- (void)close;
 /// client send data to  server
 - (void)sendBuffertoServer:(CMSampleBufferRef)sampleBuffer;
 - (void)sendNotifyBuffertoServer;
-
-
 @end
 
 NS_ASSUME_NONNULL_END
