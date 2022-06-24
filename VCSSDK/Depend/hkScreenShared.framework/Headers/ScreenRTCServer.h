@@ -7,16 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ScreenRTCConnect.h"
+#import <VideoToolbox/VideoToolbox.h>
+//#import <pthread.h>
 
+//#import "ScreenRTCConnect.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol ScreenRTCServerConnectProtocol;
 
-@interface ScreenRTCServer : ScreenRTCConnect
-
-
+@interface ScreenRTCServer:NSObject
+//: ScreenRTCConnect
 
 /**
  delegate

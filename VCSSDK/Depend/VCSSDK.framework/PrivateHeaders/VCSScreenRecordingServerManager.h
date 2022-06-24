@@ -32,6 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 单例模式初始化屏幕录制实例
 + (VCSScreenRecordingServerManager *)sharedManager;
 
+#pragma mark 获取屏幕录制扩展版本
+/// 获取屏幕录制扩展版本
+- (NSString *)getVersion;
+
 #pragma mark - 开启录制调用端(编码模式)
 /// 开启录制调用端(编码模式)
 - (void)startEncoderScreenRecordingServer;
