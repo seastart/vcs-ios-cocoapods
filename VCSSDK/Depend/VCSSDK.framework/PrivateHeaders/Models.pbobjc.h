@@ -92,6 +92,18 @@ typedef GPB_ENUM(Command) {
   /** 会议更改通知 */
   Command_CmdRoomNotifyChange = 19,
 
+  /** 会议延长通知(后台) */
+  Command_CmdRoomNotifyExtend = 20,
+
+  /** 会议MCU状态变更通知(后台) */
+  Command_CmdRoomMcuChange = 21,
+
+  /** 会议邀请列表变更通知(后台) */
+  Command_CmdRoomInviteeChange = 22,
+
+  /** MCU磁盘剩余空间不足状态变更通知(后台) */
+  Command_CmdRoomMcuDisk = 23,
+
   /** 进入房间 */
   Command_CmdRoomEnter = 100,
 
@@ -490,7 +502,6 @@ BOOL AccountType_IsValidValue(int32_t value);
 
 /** 终端种类 */
 typedef GPB_ENUM(TerminalGroupType) {
-  /** */
   TerminalGroupType_Unknown = 0,
 
   /** PC端 */
@@ -934,6 +945,22 @@ GPBEnumDescriptor *McuMode_EnumDescriptor(void);
  * the time this source was generated.
  **/
 BOOL McuMode_IsValidValue(int32_t value);
+
+#pragma mark - Enum McuStatus
+
+/** MCU状态 */
+typedef GPB_ENUM(McuStatus) {
+  McuStatus_McuSuccess = 0,
+  McuStatus_McuFail = 1,
+};
+
+GPBEnumDescriptor *McuStatus_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL McuStatus_IsValidValue(int32_t value);
 
 #pragma mark - Enum OnlineStatus
 
