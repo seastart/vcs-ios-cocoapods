@@ -101,6 +101,8 @@ typedef GPB_ENUM(WaitingAccount_FieldNumber) {
   WaitingAccount_FieldNumber_UpdatedAt = 7,
   WaitingAccount_FieldNumber_CreatedAt = 8,
   WaitingAccount_FieldNumber_CallId = 9,
+  WaitingAccount_FieldNumber_CallType = 10,
+  WaitingAccount_FieldNumber_RoomPwd = 11,
 };
 
 GPB_FINAL @interface WaitingAccount : GPBMessage
@@ -138,6 +140,15 @@ GPB_FINAL @interface WaitingAccount : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *callId;
 /** Test to see if @c callId has been set. */
 @property(nonatomic, readwrite) BOOL hasCallId;
+
+/** 会议呼叫类型（0:普通会议 1.语音通话 2.视频通话 3.视频会议） */
+@property(nonatomic, readwrite) int32_t callType;
+
+@property(nonatomic, readwrite) BOOL hasCallType;
+/** 会议密码 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomPwd;
+/** Test to see if @c roomPwd has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomPwd;
 
 @end
 
@@ -681,7 +692,6 @@ typedef GPB_ENUM(MeetingBeginNotify_FieldNumber) {
   MeetingBeginNotify_FieldNumber_RoomNo = 1,
   MeetingBeginNotify_FieldNumber_RoomPwd = 2,
   MeetingBeginNotify_FieldNumber_Title = 3,
-  MeetingBeginNotify_FieldNumber_CreateAccId = 4,
 };
 
 /**
@@ -703,11 +713,6 @@ GPB_FINAL @interface MeetingBeginNotify : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *title;
 /** Test to see if @c title has been set. */
 @property(nonatomic, readwrite) BOOL hasTitle;
-
-/** 会议创建者ID */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *createAccId;
-/** Test to see if @c createAccId has been set. */
-@property(nonatomic, readwrite) BOOL hasCreateAccId;
 
 @end
 

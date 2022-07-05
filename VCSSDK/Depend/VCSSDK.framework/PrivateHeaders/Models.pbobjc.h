@@ -92,15 +92,6 @@ typedef GPB_ENUM(Command) {
   /** 会议更改通知 */
   Command_CmdRoomNotifyChange = 19,
 
-  /** 会议延长通知(后台) */
-  Command_CmdRoomNotifyExtend = 20,
-
-  /** 会议MCU状态变更通知(后台) */
-  Command_CmdRoomMcuChange = 21,
-
-  /** 会议邀请列表变更通知(后台) */
-  Command_CmdRoomInviteeChange = 22,
-
   /** 进入房间 */
   Command_CmdRoomEnter = 100,
 
@@ -499,6 +490,7 @@ BOOL AccountType_IsValidValue(int32_t value);
 
 /** 终端种类 */
 typedef GPB_ENUM(TerminalGroupType) {
+  /** */
   TerminalGroupType_Unknown = 0,
 
   /** PC端 */
@@ -2065,6 +2057,7 @@ typedef GPB_ENUM(MsgQueueWrap_FieldNumber) {
   MsgQueueWrap_FieldNumber_Data_p = 1,
   MsgQueueWrap_FieldNumber_TargetId = 2,
   MsgQueueWrap_FieldNumber_Command = 3,
+  MsgQueueWrap_FieldNumber_TokenId = 4,
 };
 
 GPB_FINAL @interface MsgQueueWrap : GPBMessage
@@ -2080,6 +2073,10 @@ GPB_FINAL @interface MsgQueueWrap : GPBMessage
 @property(nonatomic, readwrite) Command command;
 
 @property(nonatomic, readwrite) BOOL hasCommand;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *tokenId;
+/** Test to see if @c tokenId has been set. */
+@property(nonatomic, readwrite) BOOL hasTokenId;
+
 @end
 
 #pragma mark - DeviceOnline
