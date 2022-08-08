@@ -44,7 +44,7 @@ done < $PODSPEC_PATH
 # 检测要发布的版本号是否已经存在
 if [[ "${CLOUDS_VERSION_ARRAY[@]}" =~ "${OID_VERSION}" ]]; then
 	echo "要发布的版本号${OID_VERSION}已经存在，请修改组件发布版本(${PODSPEC_NAME})"
-	exit 1
+	# exit 1
 fi
 
 # 获取上传日志
