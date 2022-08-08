@@ -101,6 +101,9 @@ typedef GPB_ENUM(Command) {
   /** 会议邀请列表变更通知(后台) */
   Command_CmdRoomInviteeChange = 22,
 
+  /** MCU磁盘剩余空间不足状态变更通知(后台) */
+  Command_CmdRoomMcuDisk = 23,
+
   /** 进入房间 */
   Command_CmdRoomEnter = 100,
 
@@ -942,6 +945,22 @@ GPBEnumDescriptor *McuMode_EnumDescriptor(void);
  * the time this source was generated.
  **/
 BOOL McuMode_IsValidValue(int32_t value);
+
+#pragma mark - Enum McuStatus
+
+/** MCU状态 */
+typedef GPB_ENUM(McuStatus) {
+  McuStatus_McuSuccess = 0,
+  McuStatus_McuFail = 1,
+};
+
+GPBEnumDescriptor *McuStatus_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL McuStatus_IsValidValue(int32_t value);
 
 #pragma mark - Enum OnlineStatus
 
@@ -2065,6 +2084,7 @@ typedef GPB_ENUM(MsgQueueWrap_FieldNumber) {
   MsgQueueWrap_FieldNumber_Data_p = 1,
   MsgQueueWrap_FieldNumber_TargetId = 2,
   MsgQueueWrap_FieldNumber_Command = 3,
+  MsgQueueWrap_FieldNumber_TokenId = 4,
 };
 
 GPB_FINAL @interface MsgQueueWrap : GPBMessage
@@ -2080,6 +2100,10 @@ GPB_FINAL @interface MsgQueueWrap : GPBMessage
 @property(nonatomic, readwrite) Command command;
 
 @property(nonatomic, readwrite) BOOL hasCommand;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *tokenId;
+/** Test to see if @c tokenId has been set. */
+@property(nonatomic, readwrite) BOOL hasTokenId;
+
 @end
 
 #pragma mark - DeviceOnline

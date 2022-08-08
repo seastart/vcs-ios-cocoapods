@@ -35,6 +35,7 @@ CF_EXTERN_C_BEGIN
 @class XChatMessageAttachmemt;
 GPB_ENUM_FWD_DECLARE(DeviceState);
 GPB_ENUM_FWD_DECLARE(HandUpStatus);
+GPB_ENUM_FWD_DECLARE(McuStatus);
 GPB_ENUM_FWD_DECLARE(MessageType);
 GPB_ENUM_FWD_DECLARE(MuteState);
 GPB_ENUM_FWD_DECLARE(Operation);
@@ -1947,6 +1948,9 @@ GPB_FINAL @interface ConfInviteeNotify : GPBMessage
 typedef GPB_ENUM(McuStateNotify_FieldNumber) {
   McuStateNotify_FieldNumber_RoomNo = 1,
   McuStateNotify_FieldNumber_McuMode = 2,
+  McuStateNotify_FieldNumber_McuStatus = 3,
+  McuStateNotify_FieldNumber_McuCode = 4,
+  McuStateNotify_FieldNumber_McuMsg = 5,
 };
 
 GPB_FINAL @interface McuStateNotify : GPBMessage
@@ -1958,6 +1962,36 @@ GPB_FINAL @interface McuStateNotify : GPBMessage
 @property(nonatomic, readwrite) int32_t mcuMode;
 
 @property(nonatomic, readwrite) BOOL hasMcuMode;
+@property(nonatomic, readwrite) enum McuStatus mcuStatus;
+
+@property(nonatomic, readwrite) BOOL hasMcuStatus;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *mcuCode;
+/** Test to see if @c mcuCode has been set. */
+@property(nonatomic, readwrite) BOOL hasMcuCode;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *mcuMsg;
+/** Test to see if @c mcuMsg has been set. */
+@property(nonatomic, readwrite) BOOL hasMcuMsg;
+
+@end
+
+#pragma mark - McuDiskNotify
+
+typedef GPB_ENUM(McuDiskNotify_FieldNumber) {
+  McuDiskNotify_FieldNumber_FreeDisk = 1,
+  McuDiskNotify_FieldNumber_MinDisk = 2,
+};
+
+GPB_FINAL @interface McuDiskNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *freeDisk;
+/** Test to see if @c freeDisk has been set. */
+@property(nonatomic, readwrite) BOOL hasFreeDisk;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *minDisk;
+/** Test to see if @c minDisk has been set. */
+@property(nonatomic, readwrite) BOOL hasMinDisk;
+
 @end
 
 NS_ASSUME_NONNULL_END
