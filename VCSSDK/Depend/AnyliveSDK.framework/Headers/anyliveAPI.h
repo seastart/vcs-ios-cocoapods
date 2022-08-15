@@ -437,6 +437,10 @@
 
 -(void)VCS_SetCurrentDeviceOrientation:(NSInteger)UIDeviceOrientation;
 
+
+//frameType 0 audio   1 video
+-(NSInteger)VCS_PushStreamByUser:(const unsigned char*)StreamData bitslen:(int)bitslen stamp:(uint32_t)pts dts:(uint32_t)dts track:(int)track frameType:(int)frameType;
+
 @property (nonatomic, weak) id<callbackdataDelegate> delegate;
 @end
 

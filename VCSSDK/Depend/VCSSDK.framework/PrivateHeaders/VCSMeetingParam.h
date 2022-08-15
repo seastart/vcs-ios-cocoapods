@@ -76,13 +76,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isHorizontalScreen;
 
 /// 输出分辨率宽必须是16的倍数 高必须是2的倍数 否则容易出现绿边等问题(已做了兼容)
-/// 1080P---1920x1080
-/// 720P---1280x720
-/// 480P---640x480
-/// 180P---320x180
-#pragma mark 设置输出分辨率宽 默认720
+/// 1080P---1920x1080 (2000*1024)
+/// 720P---1280x720 (1500*1024)
+/// 480P---640x480 (900*1024)
+/// 180P---320x180 (500*1024)
+#pragma mark 设置输出分辨率宽 默认480
 @property (nonatomic, assign) int outWidth;
-#pragma mark 设置输出分辨率高 默认1280
+#pragma mark 设置输出分辨率高 默认640
 @property (nonatomic, assign) int outHeight;
 
 #pragma mark 设置预览方向
