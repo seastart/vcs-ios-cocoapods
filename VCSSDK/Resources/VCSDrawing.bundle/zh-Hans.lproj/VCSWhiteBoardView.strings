@@ -1,24 +1,24 @@
 
-/* Class = "UIButton"; normalTitle = "钢笔"; ObjectID = "GrQ-HO-Ld5"; */
-"GrQ-HO-Ld5.normalTitle" = "钢笔";
+/* Class = "UIButton"; normalTitle = "钢笔"; ObjectID = "FAC-Hb-bG2"; */
+"FAC-Hb-bG2.normalTitle" = "钢笔";
 
-/* Class = "UIButton"; selectedTitle = "钢笔"; ObjectID = "GrQ-HO-Ld5"; */
-"GrQ-HO-Ld5.selectedTitle" = "钢笔";
+/* Class = "UIButton"; selectedTitle = "钢笔"; ObjectID = "FAC-Hb-bG2"; */
+"FAC-Hb-bG2.selectedTitle" = "钢笔";
 
-/* Class = "UIButton"; normalTitle = "荧光笔"; ObjectID = "MpG-Rc-pMf"; */
-"MpG-Rc-pMf.normalTitle" = "荧光笔";
+/* Class = "UIButton"; normalTitle = "荧光笔"; ObjectID = "Xie-8j-0wY"; */
+"Xie-8j-0wY.normalTitle" = "荧光笔";
 
-/* Class = "UIButton"; selectedTitle = "荧光笔"; ObjectID = "MpG-Rc-pMf"; */
-"MpG-Rc-pMf.selectedTitle" = "荧光笔";
+/* Class = "UIButton"; selectedTitle = "荧光笔"; ObjectID = "Xie-8j-0wY"; */
+"Xie-8j-0wY.selectedTitle" = "荧光笔";
 
-/* Class = "UIButton"; normalTitle = "橡皮擦"; ObjectID = "ZmA-mb-ZPR"; */
-"ZmA-mb-ZPR.normalTitle" = "橡皮擦";
+/* Class = "UIButton"; normalTitle = "橡皮擦"; ObjectID = "gLM-TE-jtL"; */
+"gLM-TE-jtL.normalTitle" = "橡皮擦";
 
-/* Class = "UIButton"; normalTitle = "颜色"; ObjectID = "pRX-xO-DCi"; */
-"pRX-xO-DCi.normalTitle" = "颜色";
+/* Class = "UIButton"; normalTitle = "颜色"; ObjectID = "gVh-qB-Txb"; */
+"gVh-qB-Txb.normalTitle" = "颜色";
 
-/* Class = "UIButton"; normalTitle = "清除"; ObjectID = "pdw-W6-mFL"; */
-"pdw-W6-mFL.normalTitle" = "清除";
+/* Class = "UIButton"; normalTitle = "清除"; ObjectID = "K5n-lx-hpf"; */
+"K5n-lx-hpf.normalTitle" = "清除";
 
 /* Class = "UIButton"; normalTitle = "图片"; ObjectID = "NFd-p1-aL2"; */
 "NFd-p1-aL2.normalTitle" = "图片";
