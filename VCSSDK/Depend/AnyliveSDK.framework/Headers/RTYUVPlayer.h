@@ -10,7 +10,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-
+/// 错误码声明
+#define APPBACKGROUND -1
+#define GLCONTEXT_ERROR -2
+#define SETCONTEXT_ERROR -3
+#define VIDESIZE_ERROR -4
+#define DATA_ERROR -5
+#define INIT_ERRO -6
+#define NO_WINDOWS -7
 
 @protocol RTYUVPlayerDelegate<NSObject>
 -(void)viewtouchtag:(CGFloat)tag tapcount:(int)tapCount; //单击暴露
@@ -21,8 +28,7 @@
 //@property(nonatomic,assign)BOOL mrender;
 #pragma mark - 接口
 // track:视频轨道 type:[0 I420 ,1 NV12 2 NV21]
-- (void)displayYUVData:(int)track type:(int)type lable:(int)lable width:(int)width height:(int)height yData:(void *)yData uData:(void*)uData vData:(void*)vData;
-//-(void)setImageScaleType:(int)type;//设置image view 方式 默认CENTERINSIDE
+- (int)displayYUVData:(int)track type:(int)type lable:(int)lable width:(int)width height:(int)height yData:(void *)yData uData:(void*)uData vData:(void*)vData;
 -(void)SetLayoutReset:(BOOL)set;//YES 计算
 
 //视图控制
@@ -72,7 +78,7 @@
 /**
  display CVPixelBufferRef[YUV]
  */
--(void)displayCVPixleBuffer:(CVPixelBufferRef)pixelbuffer;
+-(int)displayCVPixleBuffer:(CVPixelBufferRef)pixelbuffer;
 
 -(void)ReleasePlay;
 -(void)renderFinish;
