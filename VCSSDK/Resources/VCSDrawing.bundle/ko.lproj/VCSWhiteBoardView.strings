@@ -2,14 +2,8 @@
 /* Class = "UIButton"; normalTitle = "钢笔"; ObjectID = "FAC-Hb-bG2"; */
 "FAC-Hb-bG2.normalTitle" = "펜";
 
-/* Class = "UIButton"; selectedTitle = "钢笔"; ObjectID = "FAC-Hb-bG2"; */
-"FAC-Hb-bG2.selectedTitle" = "펜";
-
 /* Class = "UIButton"; normalTitle = "荧光笔"; ObjectID = "Xie-8j-0wY"; */
 "Xie-8j-0wY.normalTitle" = "하이 라이터";
-
-/* Class = "UIButton"; selectedTitle = "荧光笔"; ObjectID = "Xie-8j-0wY"; */
-"Xie-8j-0wY.selectedTitle" = "하이 라이터";
 
 /* Class = "UIButton"; normalTitle = "橡皮擦"; ObjectID = "gLM-TE-jtL"; */
 "gLM-TE-jtL.normalTitle" = "지우개";

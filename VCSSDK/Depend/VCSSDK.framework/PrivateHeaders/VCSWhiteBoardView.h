@@ -5,6 +5,7 @@
 //  Created by SailorGa on 2020/8/3.
 //
 
+#import "VCSDrawingParam.h"
 #import <UIKit/UIKit.h>
 #import "VCSCommons.h"
 
@@ -37,6 +38,11 @@ typedef void (^VCSDrawingClearBlock)(void);
 /// 设置画笔工具栏中图片按钮状态
 /// @param state YES-隐藏 NO-显示
 - (void)setupPictureButtonWithState:(BOOL)state;
+
+#pragma mark - 设置按钮配置参数
+/// 设置按钮配置参数
+/// @param param 配置参数
+- (void)setupDrawingParam:(VCSDrawingParam *)param;
 
 #pragma mark - 电子白板服务连接
 /// 电子白板服务连接

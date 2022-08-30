@@ -7,3 +7,5 @@
 
 /// 电子画板
 #import "VCSWhiteBoardView.h"
+/// 配置参数
+#import "VCSDrawingParam.h"
