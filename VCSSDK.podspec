@@ -34,7 +34,7 @@ TODO: Add long description of the pod here.
   # 设置包含静态库框架(注意：不能写在subspec子模块中)
   s.static_framework = true
   # 依赖系统Frameworks库(采用weak link弱链接)
-  s.weak_frameworks = 'SystemConfiguration', 'Accelerate', 'AVFoundation', 'QuartzCore', 'CoreGraphics', 'CoreMedia', 'CoreAudio', 'CoreVideo', 'CoreML', 'OpenGLES', 'Security', 'CFNetwork', 'UIKit', 'Foundation', 'ReplayKit'
+  s.weak_frameworks = 'SystemConfiguration', 'Accelerate', 'AVFoundation', 'QuartzCore', 'CoreGraphics', 'CoreMedia', 'CoreAudio', 'CoreVideo', 'CoreML', 'OpenGLES', 'Security', 'CFNetwork', 'UIKit', 'Foundation', 'ReplayKit', 'PushKit'
   # 依赖系统Librarie库
   s.libraries = 'icucore', 'c', 'z', 'iconv', 'bz2', 'c++', 'resolv'
 
