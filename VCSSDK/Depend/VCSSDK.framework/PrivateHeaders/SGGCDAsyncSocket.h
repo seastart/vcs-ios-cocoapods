@@ -156,7 +156,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
 /**
  * Tells the socket to begin listening and accepting connections on the given port.
  * When a connection is accepted, a new instance of SGGCDAsyncSocket will be spawned to handle it,
- * and the socket:didAcceptNewSocket: delegate method will be invoked.
+ * and the _socket:didAcceptNewSocket: delegate method will be invoked.
  * 
  * The socket will listen on all available interfaces (e.g. wifi, ethernet, etc)
 **/
@@ -183,7 +183,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
 /**
  * Tells the socket to begin listening and accepting connections on the unix domain at the given url.
  * When a connection is accepted, a new instance of SGGCDAsyncSocket will be spawned to handle it,
- * and the socket:didAcceptNewSocket: delegate method will be invoked.
+ * and the _socket:didAcceptNewSocket: delegate method will be invoked.
  *
  * The socket will listen on all available interfaces (e.g. wifi, ethernet, etc)
  **/
@@ -320,7 +320,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
 /**
  * Disconnects immediately (synchronously). Any pending reads or writes are dropped.
  * 
- * If the socket is not already disconnected, an invocation to the socketDidDisconnect:withError: delegate method
+ * If the socket is not already disconnected, an invocation to the _socketDidDisconnect:withError: delegate method
  * will be queued onto the delegateQueue asynchronously (behind any previously queued delegate methods).
  * In other words, the disconnected delegate method will be invoked sometime shortly after this method returns.
  * 
@@ -412,8 +412,8 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
 
 // The readData and writeData methods won't block (they are asynchronous).
 // 
-// When a read is complete the socket:didReadData:withTag: delegate method is dispatched on the delegateQueue.
-// When a write is complete the socket:didWriteDataWithTag: delegate method is dispatched on the delegateQueue.
+// When a read is complete the _socket:didReadData:withTag: delegate method is dispatched on the delegateQueue.
+// When a write is complete the _socket:didWriteDataWithTag: delegate method is dispatched on the delegateQueue.
 // 
 // You may optionally set a timeout for any read/write operation. (To not timeout, use a negative time interval.)
 // If a read/write opertion times out, the corresponding "socket:shouldTimeout..." delegate method
@@ -442,7 +442,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * the method will do nothing, and the delegate will not be called.
  * 
  * If you pass a buffer, you must not alter it in any way while the socket is using it.
- * After completion, the data returned in socket:didReadData:withTag: will be a subset of the given buffer.
+ * After completion, the data returned in _socket:didReadData:withTag: will be a subset of the given buffer.
  * That is, it will reference the bytes that were appended to the given buffer via
  * the method [NSData dataWithBytesNoCopy:length:freeWhenDone:NO].
 **/
@@ -465,7 +465,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * the method will do nothing, and the delegate will not be called.
  * 
  * If you pass a buffer, you must not alter it in any way while the socket is using it.
- * After completion, the data returned in socket:didReadData:withTag: will be a subset of the given buffer.
+ * After completion, the data returned in _socket:didReadData:withTag: will be a subset of the given buffer.
  * That is, it will reference the bytes that were appended to the given buffer  via
  * the method [NSData dataWithBytesNoCopy:length:freeWhenDone:NO].
 **/
@@ -497,7 +497,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * the method will do nothing, and the delegate will not be called.
  * 
  * If you pass a buffer, you must not alter it in any way while AsyncSocket is using it.
- * After completion, the data returned in socket:didReadData:withTag: will be a subset of the given buffer.
+ * After completion, the data returned in _socket:didReadData:withTag: will be a subset of the given buffer.
  * That is, it will reference the bytes that were appended to the given buffer via
  * the method [NSData dataWithBytesNoCopy:length:freeWhenDone:NO].
 **/
@@ -542,7 +542,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * the method will do nothing (except maybe print a warning), and the delegate will not be called.
  * 
  * If you pass a buffer, you must not alter it in any way while the socket is using it.
- * After completion, the data returned in socket:didReadData:withTag: will be a subset of the given buffer.
+ * After completion, the data returned in _socket:didReadData:withTag: will be a subset of the given buffer.
  * That is, it will reference the bytes that were appended to the given buffer via
  * the method [NSData dataWithBytesNoCopy:length:freeWhenDone:NO].
  * 
@@ -614,7 +614,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * the method will do nothing (except maybe print a warning), and the delegate will not be called.
  * 
  * If you pass a buffer, you must not alter it in any way while the socket is using it.
- * After completion, the data returned in socket:didReadData:withTag: will be a subset of the given buffer.
+ * After completion, the data returned in _socket:didReadData:withTag: will be a subset of the given buffer.
  * That is, it will reference the bytes that were appended to the given buffer via
  * the method [NSData dataWithBytesNoCopy:length:freeWhenDone:NO].
  * 
@@ -655,7 +655,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * Thread-Safety Note:
  * If the given data parameter is mutable (NSMutableData) then you MUST NOT alter the data while
  * the socket is writing it. In other words, it's not safe to alter the data until after the delegate method
- * socket:didWriteDataWithTag: is invoked signifying that this particular write operation has completed.
+ * _socket:didWriteDataWithTag: is invoked signifying that this particular write operation has completed.
  * This is due to the fact that SGGCDAsyncSocket does NOT copy the data. It simply retains it.
  * This is for performance reasons. Often times, if NSMutableData is passed, it is because
  * a request/response was built up in memory. Copying this data adds an unwanted/unneeded overhead.
@@ -691,7 +691,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  *     So SGGCDAsyncSocket will invoke the delegate method socket:shouldTrustPeer: passing the SecTrustRef.
  *
  *     Note that if you set this option, then all other configuration keys are ignored.
- *     Evaluation will be completely up to you during the socket:didReceiveTrust:completionHandler: delegate method.
+ *     Evaluation will be completely up to you during the _socket:didReceiveTrust:completionHandler: delegate method.
  *
  *     For more information on trust evaluation see:
  *     Apple's Technical Note TN2232 - HTTPS Server Trust Evaluation
@@ -802,7 +802,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * To properly secure your connection in this particular scenario you
  * should set the kCFStreamSSLPeerName property to "MySecureServer.com".
  * 
- * You can also perform additional validation in socketDidSecure.
+ * You can also perform additional validation in _socketDidSecure.
 **/
 - (void)startTLS:(nullable NSDictionary <NSString*,NSObject*>*)tlsSettings;
 
@@ -834,7 +834,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * However, if you are writing a server that interacts with a plethora of clients,
  * you might encounter a client that uses the discouraged technique of shutting down its write stream.
  * If this is the case, you can set this property to NO,
- * and make use of the socketDidCloseReadStream delegate method.
+ * and make use of the _socketDidCloseReadStream delegate method.
  * 
  * The default value is YES.
 **/
@@ -893,7 +893,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * Additionally, networking traffic from a single IP cannot monopolize the module.
  * 
  * Here's how you would accomplish something like that:
- * - (dispatch_queue_t)newSocketQueueForConnectionFromAddress:(NSData *)address onSocket:(SGGCDAsyncSocket *)sock
+ * - (dispatch_queue_t)_newSocketQueueForConnectionFromAddress:(NSData *)address onSocket:(SGGCDAsyncSocket *)sock
  * {
  *     dispatch_queue_t socketQueue = dispatch_queue_create("", NULL);
  *     dispatch_queue_t ipQueue = [self ipQueueForAddress:address];
@@ -903,7 +903,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  *     
  *     return socketQueue;
  * }
- * - (void)socket:(SGGCDAsyncSocket *)sock didAcceptNewSocket:(SGGCDAsyncSocket *)newSocket
+ * - (void)_socket:(SGGCDAsyncSocket *)sock didAcceptNewSocket:(SGGCDAsyncSocket *)newSocket
  * {
  *     [clientConnections addObject:newSocket];
  *     [newSocket markSocketQueueTargetQueue:moduleQueue];
@@ -999,7 +999,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * 
  * Example usage:
  * 
- * - (void)socket:(SGGCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
+ * - (void)_socket:(SGGCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
  * {
  *     [asyncSocket performBlock:^{
  *         [asyncSocket enableBackgroundingOnSocket];
@@ -1065,7 +1065,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
 @optional
 
 /**
- * This method is called immediately prior to socket:didAcceptNewSocket:.
+ * This method is called immediately prior to _socket:didAcceptNewSocket:.
  * It optionally allows a listening socket to specify the socketQueue for a new accepted socket.
  * If this method is not implemented, or returns NULL, the new accepted socket will create its own default queue.
  * 
@@ -1082,7 +1082,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * dispatch_retain(myExistingQueue);
  * return myExistingQueue;
 **/
-- (nullable dispatch_queue_t)newSocketQueueForConnectionFromAddress:(NSData *)address onSocket:(SGGCDAsyncSocket *)sock;
+- (nullable dispatch_queue_t)_newSocketQueueForConnectionFromAddress:(NSData *)address onSocket:(SGGCDAsyncSocket *)sock;
 
 /**
  * Called when a socket accepts a connection.
@@ -1094,43 +1094,43 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * By default the new socket will have the same delegate and delegateQueue.
  * You may, of course, change this at any time.
 **/
-- (void)socket:(SGGCDAsyncSocket *)sock didAcceptNewSocket:(SGGCDAsyncSocket *)newSocket;
+- (void)_socket:(SGGCDAsyncSocket *)sock didAcceptNewSocket:(SGGCDAsyncSocket *)newSocket;
 
 /**
  * Called when a socket connects and is ready for reading and writing.
  * The host parameter will be an IP address, not a DNS name.
 **/
-- (void)socket:(SGGCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port;
+- (void)_socket:(SGGCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port;
 
 /**
  * Called when a socket connects and is ready for reading and writing.
  * The host parameter will be an IP address, not a DNS name.
  **/
-- (void)socket:(SGGCDAsyncSocket *)sock didConnectToUrl:(NSURL *)url;
+- (void)_socket:(SGGCDAsyncSocket *)sock didConnectToUrl:(NSURL *)url;
 
 /**
  * Called when a socket has completed reading the requested data into memory.
  * Not called if there is an error.
 **/
-- (void)socket:(SGGCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag;
+- (void)_socket:(SGGCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag;
 
 /**
  * Called when a socket has read in data, but has not yet completed the read.
  * This would occur if using readToData: or readToLength: methods.
  * It may be used for things such as updating progress bars.
 **/
-- (void)socket:(SGGCDAsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag;
+- (void)_socket:(SGGCDAsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag;
 
 /**
  * Called when a socket has completed writing the requested data. Not called if there is an error.
 **/
-- (void)socket:(SGGCDAsyncSocket *)sock didWriteDataWithTag:(long)tag;
+- (void)_socket:(SGGCDAsyncSocket *)sock didWriteDataWithTag:(long)tag;
 
 /**
  * Called when a socket has written some data, but has not yet completed the entire write.
  * It may be used for things such as updating progress bars.
 **/
-- (void)socket:(SGGCDAsyncSocket *)sock didWritePartialDataOfLength:(NSUInteger)partialLength tag:(long)tag;
+- (void)_socket:(SGGCDAsyncSocket *)sock didWritePartialDataOfLength:(NSUInteger)partialLength tag:(long)tag;
 
 /**
  * Called if a read operation has reached its timeout without completing.
@@ -1143,7 +1143,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * 
  * Note that this method may be called multiple times for a single read if you return positive numbers.
 **/
-- (NSTimeInterval)socket:(SGGCDAsyncSocket *)sock shouldTimeoutReadWithTag:(long)tag
+- (NSTimeInterval)_socket:(SGGCDAsyncSocket *)sock shouldTimeoutReadWithTag:(long)tag
                                                                  elapsed:(NSTimeInterval)elapsed
                                                                bytesDone:(NSUInteger)length;
 
@@ -1158,7 +1158,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * 
  * Note that this method may be called multiple times for a single write if you return positive numbers.
 **/
-- (NSTimeInterval)socket:(SGGCDAsyncSocket *)sock shouldTimeoutWriteWithTag:(long)tag
+- (NSTimeInterval)_socket:(SGGCDAsyncSocket *)sock shouldTimeoutWriteWithTag:(long)tag
                                                                   elapsed:(NSTimeInterval)elapsed
                                                                 bytesDone:(NSUInteger)length;
 
@@ -1168,7 +1168,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * This delegate method is only called if autoDisconnectOnClosedReadStream has been set to NO.
  * See the discussion on the autoDisconnectOnClosedReadStream method for more information.
 **/
-- (void)socketDidCloseReadStream:(SGGCDAsyncSocket *)sock;
+- (void)_socketDidCloseReadStream:(SGGCDAsyncSocket *)sock;
 
 /**
  * Called when a socket disconnects with or without error.
@@ -1191,16 +1191,16 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * 
  * Of course, this depends on how your state machine is configured.
 **/
-- (void)socketDidDisconnect:(SGGCDAsyncSocket *)sock withError:(nullable NSError *)err;
+- (void)_socketDidDisconnect:(SGGCDAsyncSocket *)sock withError:(nullable NSError *)err;
 
 /**
  * Called after the socket has successfully completed SSL/TLS negotiation.
  * This method is not called unless you use the provided startTLS method.
  * 
  * If a SSL/TLS negotiation fails (invalid certificate, etc) then the socket will immediately close,
- * and the socketDidDisconnect:withError: delegate method will be called with the specific SSL error code.
+ * and the _socketDidDisconnect:withError: delegate method will be called with the specific SSL error code.
 **/
-- (void)socketDidSecure:(SGGCDAsyncSocket *)sock;
+- (void)_socketDidSecure:(SGGCDAsyncSocket *)sock;
 
 /**
  * Allows a socket delegate to hook into the TLS handshake and manually validate the peer it's connecting to.
@@ -1219,7 +1219,7 @@ typedef NS_ERROR_ENUM(SGGCDAsyncSocketErrorDomain, SGGCDAsyncSocketError) {
  * The completionHandler block is thread-safe, and may be invoked from a background queue/thread.
  * It is safe to invoke the completionHandler block even if the socket has been closed.
 **/
-- (void)socket:(SGGCDAsyncSocket *)sock didReceiveTrust:(SecTrustRef)trust
+- (void)_socket:(SGGCDAsyncSocket *)sock didReceiveTrust:(SecTrustRef)trust
                                     completionHandler:(void (^)(BOOL shouldTrustPeer))completionHandler;
 
 @end

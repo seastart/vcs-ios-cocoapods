@@ -911,7 +911,7 @@ typedef BOOL (^SGGCDAsyncUdpSocketSendFilterBlock)(NSData *data, NSData *address
  * Additionally, networking traffic from a single IP cannot monopolize the module.
  *
  * Here's how you would accomplish something like that:
- * - (dispatch_queue_t)newSocketQueueForConnectionFromAddress:(NSData *)address onSocket:(SGGCDAsyncSocket *)sock
+ * - (dispatch_queue_t)_newSocketQueueForConnectionFromAddress:(NSData *)address onSocket:(SGGCDAsyncSocket *)sock
  * {
  *     dispatch_queue_t socketQueue = dispatch_queue_create("", NULL);
  *     dispatch_queue_t ipQueue = [self ipQueueForAddress:address];
@@ -921,7 +921,7 @@ typedef BOOL (^SGGCDAsyncUdpSocketSendFilterBlock)(NSData *data, NSData *address
  *
  *     return socketQueue;
  * }
- * - (void)socket:(SGGCDAsyncSocket *)sock didAcceptNewSocket:(SGGCDAsyncSocket *)newSocket
+ * - (void)_socket:(SGGCDAsyncSocket *)sock didAcceptNewSocket:(SGGCDAsyncSocket *)newSocket
  * {
  *     [clientConnections addObject:newSocket];
  *     [newSocket markSocketQueueTargetQueue:moduleQueue];
