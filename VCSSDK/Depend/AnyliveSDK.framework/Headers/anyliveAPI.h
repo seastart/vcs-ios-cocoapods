@@ -441,6 +441,14 @@
 //frameType 0 audio   1 video
 -(NSInteger)VCS_PushStreamByUser:(const unsigned char*)StreamData bitslen:(int)bitslen stamp:(uint32_t)pts dts:(uint32_t)dts track:(int)track frameType:(int)frameType;
 
+
+
+/**
+ 设置小流信息  VCS_CreateVideoOutput 之前设置
+ */
+
+-(void)VCS_SetMinStreamInfo:(int)height bitrate:(int)bitrate fps:(int)fps;
+
 @property (nonatomic, weak) id<callbackdataDelegate> delegate;
 @end
 

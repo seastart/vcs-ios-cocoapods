@@ -85,6 +85,14 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 设置输出分辨率高 默认640
 @property (nonatomic, assign) int outHeight;
 
+#pragma mark - 编码小流的相关参数设置(选填项)
+#pragma mark 子码流帧率 默认15
+@property (nonatomic, assign) int fps_sub;
+#pragma mark 子码流码率 默认128*1024
+@property (nonatomic, assign) int vbirate_sub;
+#pragma mark 子码流分辨率 默认180
+@property (nonatomic, assign) int height_sub;
+
 #pragma mark 设置预览方向
 /// 设置预览方向默认 UIDeviceOrientationLandscapeLeft
 @property(nonatomic, assign) UIDeviceOrientation deviceOrientation;
