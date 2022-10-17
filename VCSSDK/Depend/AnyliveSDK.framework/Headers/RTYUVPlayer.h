@@ -10,14 +10,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-/// 错误码声明
-#define APPBACKGROUND -1
-#define GLCONTEXT_ERROR -2
-#define SETCONTEXT_ERROR -3
-#define VIDESIZE_ERROR -4
-#define DATA_ERROR -5
-#define INIT_ERRO -6
-#define NO_WINDOWS -7
+
 
 @protocol RTYUVPlayerDelegate<NSObject>
 -(void)viewtouchtag:(CGFloat)tag tapcount:(int)tapCount; //单击暴露
