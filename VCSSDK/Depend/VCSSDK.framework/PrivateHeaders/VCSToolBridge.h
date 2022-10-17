@@ -51,13 +51,19 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param domain 域名地址
 - (NSString *)localDomainParsing:(NSString *)domain;
 
-#pragma mark - 获取当前时间(精确到毫秒)
-/// 获取当前时间(精确到毫秒)
-- (NSTimeInterval)getTimeInterval;
+#pragma mark - 获取当前时间戳
+/// 获取当前时间戳
+- (NSTimeInterval)getNowTimeInterval;
 
 #pragma mark - 判断应用是否在Mac上运行
 /// 判断应用是否在Mac上运行
 - (BOOL)isiOSAppOnMac;
+
+#pragma mark - HmacSHA1方式加密的字符串
+/// HmacSHA1方式加密的字符串
+/// @param key 加密Key
+/// @param data 加密数据
+- (NSString *)VCSHmacSha1:(NSString *)key data:(NSString *)data;
 
 @end
 

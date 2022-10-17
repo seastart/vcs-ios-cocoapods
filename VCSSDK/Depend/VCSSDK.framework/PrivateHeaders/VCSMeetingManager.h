@@ -18,6 +18,7 @@
 #import "Models.pbobjc.h"
 #import "RoomServer.pbobjc.h"
 #import "VCSCommons.h"
+#import "RTCModel.h"
 #import "VCSMeetingManagerProtocol.h"
 #import "VCSMeetingMemberModel.h"
 

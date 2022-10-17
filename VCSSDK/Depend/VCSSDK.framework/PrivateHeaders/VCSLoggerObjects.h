@@ -1,0 +1,246 @@
+//
+//  VCSLoggerObjects.h
+//  VCSSDK
+//
+//  Created by SailorGa on 2022/9/29.
+//
+
+#import <Foundation/Foundation.h>
+#import "VCSCommons.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+#pragma mark - 日志等级
+/**
+ 日志等级
+
+ - VCSLoggerLevelTrace: 细粒度调试
+ - VCSLoggerLevelDebug: 调试
+ - VCSLoggerLevelInfo: 信息
+ - VCSLoggerLevelWarn: 警告
+ - VCSLoggerLevelError: 错误
+ - VCSLoggerLevelFatal: 致命
+*/
+typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
+    
+    VCSLoggerLevelTrace = 1,
+    VCSLoggerLevelDebug = 5,
+    VCSLoggerLevelInfo = 9,
+    VCSLoggerLevelWarn = 13,
+    VCSLoggerLevelError = 17,
+    VCSLoggerLevelFatal = 21,
+};
+
+@class VCSLoggerItemModel;
+@class VCSLoggerParam;
+
+@class VCSMetricItemModel;
+@class VCSMetricNetworkModel;
+@class VCSMetricDeviceModel;
+@class VCSMetricAudioModel;
+@class VCSMetricVideoModel;
+
+#pragma mark - 行为日志上报对象
+@interface VCSLoggerModel : NSObject
+
+/// 设备标识，只读属性
+@property (nonatomic, copy, readonly) NSString *device_id;
+/// 设备类型，默认 TerminalType_TerminalIos
+@property (nonatomic, assign) NSInteger device_type;
+
+/// 日志列表
+@property (nonatomic, strong) NSMutableArray <VCSLoggerItemModel *> *logs;
+
+@end
+
+#pragma mark - 行为日志对象
+@interface VCSLoggerItemModel : NSObject
+
+/// 日志时间戳，只读属性
+@property (nonatomic, copy, readonly) NSString *time;
+/// 日志等级，默认 VCSLoggerLevelInfo
+@property (nonatomic, assign) VCSLoggerLevel serverity;
+/// 日志类型
+@property (nonatomic, copy) NSString *type;
+/// 用户标识
+@property (nonatomic, copy, nullable) NSString *uid;
+/// 用户名称
+@property (nonatomic, copy, nullable) NSString *uname;
+/// 模块名称
+@property (nonatomic, copy, nullable) NSString *mname;
+/// 模块标识
+@property (nonatomic, copy, nullable) NSString *mid;
+/// 日志内容，日志数据的Json串
+@property (nonatomic, copy) NSString *body;
+
+/// 创建行为日志对象
+/// - Parameter loggerParam: 记录日志参数
+- (instancetype)initWithParam:(VCSLoggerParam *)loggerParam;
+
+@end
+
+#pragma mark - 记录行为日志参数
+@interface VCSLoggerParam : NSObject
+
+/// 日志等级，默认 VCSLoggerLevelInfo
+@property (nonatomic, assign) VCSLoggerLevel logLevel;
+/// 日志类型
+@property (nonatomic, copy) NSString *logType;
+/// 用户标识
+@property (nonatomic, copy, nullable) NSString *userId;
+/// 用户名称
+@property (nonatomic, copy, nullable) NSString *userName;
+/// 模块名称
+@property (nonatomic, copy, nullable) NSString *moduleName;
+/// 模块标识
+@property (nonatomic, copy, nullable) NSString *moduleId;
+/// 日志内容
+@property (nonatomic, assign) id params;
+
+/// 创建行为日志参数
+/// - Parameters:
+///   - logLevel: 日志等级
+///   - logType: 日志类型
+///   - userId: 用户标识
+///   - userName: 用户名称
+///   - moduleName: 模块名称
+///   - moduleId: 模块标识
+///   - params: 日志内容
+- (instancetype)initWithLevel:(VCSLoggerLevel)logLevel logType:(NSString *)logType userId:(nullable NSString *)userId userName:(nullable NSString *)userName moduleName:(nullable NSString *)moduleName moduleId:(nullable NSString *)moduleId params:(id)params;
+
+@end
+
+#pragma mark - 实时日志上报对象
+@interface VCSMetricModel : NSObject
+
+/// 设备标识，只读属性
+@property (nonatomic, copy, readonly) NSString *device_id;
+/// 设备类型，默认 TerminalType_TerminalIos
+@property (nonatomic, assign) NSInteger device_type;
+/// 日志标识
+@property (nonatomic, copy) NSString *start_log_trace_id;
+
+/// 日志列表
+@property (nonatomic, strong) NSMutableArray <VCSMetricItemModel *> *metrics;
+
+@end
+
+#pragma mark - 实时日志对象
+@interface VCSMetricItemModel : NSObject
+
+/// 日志时间戳，只读属性
+@property (nonatomic, copy, readonly) NSString *time;
+
+/// 用户标识
+@property (nonatomic, copy) NSString *uid;
+/// 房间号码
+@property (nonatomic, copy) NSString *room_no;
+
+/// 网络信息
+@property (nonatomic, strong) VCSMetricNetworkModel *network;
+/// 设备信息采样
+@property (nonatomic, strong) VCSMetricDeviceModel *device;
+
+/// 本地音频信息
+@property (nonatomic, strong) VCSMetricAudioModel *local_audio;
+/// 本地视频信息
+@property (nonatomic, strong) NSMutableArray <VCSMetricVideoModel *> *local_videos;
+/// 本地共享信息
+@property (nonatomic, strong) VCSMetricVideoModel *local_share;
+
+/// 远程音频信息
+@property (nonatomic, strong) NSMutableArray <VCSMetricAudioModel *> *remote_audios;
+/// 远程视频信息
+@property (nonatomic, strong) NSMutableArray <VCSMetricVideoModel *> *remote_videos;
+/// 远程共享信息
+@property (nonatomic, strong) NSMutableArray <VCSMetricVideoModel *> *remote_shares;
+
+/// 创建实时日志对象
+/// - Parameters:
+///   - userId: 用户标识
+///   - roomNo: 房间号码
+///   - networkModel: 流媒体网络信息
+///   - localAudio: 本地音频信息
+///   - localVideos: 本地视频信息列表
+///   - localShare: 本地共享信息
+///   - remoteAudios: 远程音频信息列表
+///   - remoteVideos: 远程视频信息列表
+///   - remoteShares: 远程共享信息列表
+- (instancetype)initWithUserId:(NSString *)userId roomNo:(NSString *)roomNo networkModel:(VCSMetricNetworkModel *)networkModel localAudio:(VCSMetricAudioModel *)localAudio localVideos:(NSMutableArray <VCSMetricVideoModel *> *)localVideos localShare:(VCSMetricVideoModel *)localShare remoteAudios:(NSMutableArray <VCSMetricAudioModel *> *)remoteAudios remoteVideos:(NSMutableArray <VCSMetricVideoModel *> *)remoteVideos remoteShares:(NSMutableArray <VCSMetricVideoModel *> *)remoteShares;
+
+@end
+
+#pragma mark - 实时日志网络信息对象
+@interface VCSMetricNetworkModel : NSObject
+
+/// 上行码率
+@property (nonatomic, assign) CGFloat bitrate_up;
+/// 下行码率❓
+@property (nonatomic, assign) CGFloat bitrate_down;
+/// 上行丢包率(补偿后)
+@property (nonatomic, assign) CGFloat lossrate_up;
+/// 下行丢包率(补偿后)❓
+@property (nonatomic, assign) CGFloat lossrate_down;
+/// 上行网络延时
+@property (nonatomic, assign) CGFloat delay;
+
+@end
+
+#pragma mark - 实时日志设备信息采样对象
+@interface VCSMetricDeviceModel : NSObject
+
+/// 系统占用CPU
+@property (nonatomic, assign) CGFloat cpu_system;
+/// 应用占用CPU
+@property (nonatomic, assign) CGFloat cpu_app;
+/// 系统占用内存
+@property (nonatomic, assign) CGFloat mem_system;
+/// 应用占用内存
+@property (nonatomic, assign) CGFloat mem_app;
+
+@end
+
+#pragma mark - 实时日志音频对象
+@interface VCSMetricAudioModel : NSObject
+
+/// 用户标识
+@property (nonatomic, copy, nullable) NSString *uid;
+/// 音频码率
+@property (nonatomic, assign) CGFloat bitrate;
+/// 音频分贝值
+@property (nonatomic, assign) CGFloat db;
+
+/// 创建音频日志对象
+/// - Parameters:
+///   - userId: 用户标识
+///   - db: 音频分贝值
+- (instancetype)initWithUserId:(nullable NSString *)userId db:(CGFloat)db;
+
+@end
+
+#pragma mark - 实时日志视频对象
+@interface VCSMetricVideoModel : NSObject
+
+/// 用户标识
+@property (nonatomic, copy, nullable) NSString *uid;
+/// 视频码率
+@property (nonatomic, assign) CGFloat bitrate;
+/// 视频分辨率
+@property (nonatomic, assign) CGFloat height;
+/// 视频分辨率
+@property (nonatomic, assign) CGFloat width;
+/// 视频帧率
+@property (nonatomic, assign) CGFloat framerate;
+
+/// 创建视频日志对象
+/// - Parameters:
+///   - userId: 用户标识
+///   - bitrate: 视频码率
+///   - height: 视频分辨率
+///   - width: 视频分辨率
+///   - framerate: 视频帧率
+- (instancetype)initWithUserId:(nullable NSString *)userId bitrate:(CGFloat)bitrate height:(CGFloat)height width:(CGFloat)width framerate:(CGFloat)framerate;
+
+@end
+
+NS_ASSUME_NONNULL_END

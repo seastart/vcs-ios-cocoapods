@@ -9,6 +9,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - APPID
+FOUNDATION_EXTERN NSString *__nonnull const VCSAPPID;
+#pragma mark - APPKEY
+FOUNDATION_EXTERN NSString *__nonnull const VCSAPPKEY;
+#pragma mark - SIGNATURE
+FOUNDATION_EXTERN NSString *__nonnull const VCSSIGNATURE;
+#pragma mark - 接口请求公共路径
+FOUNDATION_EXTERN NSString *__nonnull const VCSREQUESTPATH;
+
 #pragma mark - 呼叫服务接收订阅主题
 FOUNDATION_EXTERN NSString *__nonnull const VCSRegReceiveTopic;
 #pragma mark - 呼叫服务发送订阅主题

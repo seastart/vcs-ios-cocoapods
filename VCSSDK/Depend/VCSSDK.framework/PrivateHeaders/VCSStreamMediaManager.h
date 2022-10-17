@@ -360,6 +360,46 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 /// 非语音模式流媒体设置
 - (void)nonAudioModeStreamMediaSetup;
 
+#pragma mark - -------- 触发日志相关接口 --------
+#pragma mark 开始房间共享
+/// 开始房间共享
+/// - Parameters:
+///   - sharingType: 分享类型
+///   - sharingPicURL: 图片地址
+- (void)startRoomShare:(SharingType)sharingType sharingPicURL:(nullable NSString *)sharingPicURL;
+
+#pragma mark 开启共享屏幕追加日志
+/// 开启共享屏幕追加日志
+/// - Parameters:
+///   - bitrate: 码率
+///   - height: 分辨率
+///   - width: 分辨率
+///   - fps: 帧率
+- (void)openScreenShare:(int)bitrate height:(int)height width:(int)width fps:(CGFloat)fps;
+
+#pragma mark 设置共享桌面信息
+/// 设置共享桌面信息
+/// - Parameters:
+///   - bitrate: 码率
+///   - height: 分辨率
+///   - width: 分辨率
+///   - framerate: 帧率
+- (void)setupScreenBitrate:(int)bitrate height:(int)height width:(int)width framerate:(CGFloat)framerate;
+
+#pragma mark 开启视频行为日志
+/// 开启视频行为日志
+/// - Parameter state: 设备状态
+- (void)openVideoLogger:(DeviceState)state;
+
+#pragma mark - 追加会控消息日志
+/// 追加会控消息日志
+/// - Parameters:
+///   - command: 指令
+///   - result: 结果
+///   - type: 包类型
+///   - data: 消息数据
+- (void)writeMessageLogWithCommand:(Command)command result:(Result)result type:(PacketType)type data:(nullable NSString *)data;
+
 @end
 
 NS_ASSUME_NONNULL_END
