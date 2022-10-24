@@ -391,7 +391,7 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 /// - Parameter state: 设备状态
 - (void)openVideoLogger:(DeviceState)state;
 
-#pragma mark - 追加会控消息日志
+#pragma mark 追加会控消息日志
 /// 追加会控消息日志
 /// - Parameters:
 ///   - command: 指令
@@ -399,6 +399,14 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 ///   - type: 包类型
 ///   - data: 消息数据
 - (void)writeMessageLogWithCommand:(Command)command result:(Result)result type:(PacketType)type data:(nullable NSString *)data;
+
+#pragma mark 追加事件日志
+/// 追加事件日志
+/// - Parameters:
+///   - moduleName: 模块名称
+///   - logType: 日志类型
+///   - params: 日志内容
+- (void)addEventLogs:(NSString *)moduleName logType:(NSString *)logType params:(id)params;
 
 @end
 

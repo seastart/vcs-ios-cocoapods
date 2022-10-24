@@ -20,8 +20,10 @@ typedef void (^NetworkResultBlock)(BOOL result, id _Nullable data, NSString * _N
 
 #pragma mark - 设置域名地址
 /// 设置域名地址
-/// - Parameter domainUrl: 域名地址
-- (void)setupDomainUrl:(NSString *)domainUrl;
+/// - Parameters:
+///   - domainUrl: 域名地址
+///   - secretKey: 请求密钥
+- (void)setupDomainUrl:(NSString *)domainUrl secretKey:(NSString *)secretKey;
 
 #pragma mark - 设置用户令牌
 /// 设置用户令牌

@@ -43,8 +43,8 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 #pragma mark - 行为日志上报对象
 @interface VCSLoggerModel : NSObject
 
-/// 设备标识，只读属性
-@property (nonatomic, copy, readonly) NSString *device_id;
+/// 设备标识
+@property (nonatomic, copy) NSString *device_id;
 /// 设备类型，默认 TerminalType_TerminalIos
 @property (nonatomic, assign) NSInteger device_type;
 
@@ -56,8 +56,8 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 #pragma mark - 行为日志对象
 @interface VCSLoggerItemModel : NSObject
 
-/// 日志时间戳，只读属性
-@property (nonatomic, copy, readonly) NSString *time;
+/// 日志时间戳
+@property (nonatomic, assign) NSInteger time;
 /// 日志等级，默认 VCSLoggerLevelInfo
 @property (nonatomic, assign) VCSLoggerLevel serverity;
 /// 日志类型
@@ -70,55 +70,29 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 @property (nonatomic, copy, nullable) NSString *mname;
 /// 模块标识
 @property (nonatomic, copy, nullable) NSString *mid;
-/// 日志内容，日志数据的Json串
-@property (nonatomic, copy) NSString *body;
+/// 日志内容
+@property (nonatomic, assign) id body;
 
 /// 创建行为日志对象
-/// - Parameter loggerParam: 记录日志参数
-- (instancetype)initWithParam:(VCSLoggerParam *)loggerParam;
-
-@end
-
-#pragma mark - 记录行为日志参数
-@interface VCSLoggerParam : NSObject
-
-/// 日志等级，默认 VCSLoggerLevelInfo
-@property (nonatomic, assign) VCSLoggerLevel logLevel;
-/// 日志类型
-@property (nonatomic, copy) NSString *logType;
-/// 用户标识
-@property (nonatomic, copy, nullable) NSString *userId;
-/// 用户名称
-@property (nonatomic, copy, nullable) NSString *userName;
-/// 模块名称
-@property (nonatomic, copy, nullable) NSString *moduleName;
-/// 模块标识
-@property (nonatomic, copy, nullable) NSString *moduleId;
-/// 日志内容
-@property (nonatomic, assign) id params;
-
-/// 创建行为日志参数
 /// - Parameters:
-///   - logLevel: 日志等级
-///   - logType: 日志类型
-///   - userId: 用户标识
-///   - userName: 用户名称
-///   - moduleName: 模块名称
-///   - moduleId: 模块标识
-///   - params: 日志内容
-- (instancetype)initWithLevel:(VCSLoggerLevel)logLevel logType:(NSString *)logType userId:(nullable NSString *)userId userName:(nullable NSString *)userName moduleName:(nullable NSString *)moduleName moduleId:(nullable NSString *)moduleId params:(id)params;
+///   - serverity: 日志等级
+///   - type: 日志类型
+///   - uid: 用户标识
+///   - uname: 用户名称
+///   - mname: 模块名称
+///   - mid: 模块标识
+///   - body: 日志内容
+- (instancetype)initWithServerity:(VCSLoggerLevel)serverity type:(NSString *)type uid:(nullable NSString *)uid uname:(nullable NSString *)uname mname:(nullable NSString *)mname mid:(nullable NSString *)mid body:(id)body;
 
 @end
 
 #pragma mark - 实时日志上报对象
 @interface VCSMetricModel : NSObject
 
-/// 设备标识，只读属性
-@property (nonatomic, copy, readonly) NSString *device_id;
+/// 设备标识
+@property (nonatomic, copy) NSString *device_id;
 /// 设备类型，默认 TerminalType_TerminalIos
 @property (nonatomic, assign) NSInteger device_type;
-/// 日志标识
-@property (nonatomic, copy) NSString *start_log_trace_id;
 
 /// 日志列表
 @property (nonatomic, strong) NSMutableArray <VCSMetricItemModel *> *metrics;
@@ -128,13 +102,17 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 #pragma mark - 实时日志对象
 @interface VCSMetricItemModel : NSObject
 
-/// 日志时间戳，只读属性
-@property (nonatomic, copy, readonly) NSString *time;
+/// 日志时间戳
+@property (nonatomic, assign) NSInteger time;
 
 /// 用户标识
 @property (nonatomic, copy) NSString *uid;
 /// 房间号码
 @property (nonatomic, copy) NSString *room_no;
+/// 房间标识
+@property (nonatomic, copy) NSString *conf_id;
+/// 日志标识
+@property (nonatomic, copy) NSString *trace_id;
 
 /// 网络信息
 @property (nonatomic, strong) VCSMetricNetworkModel *network;
@@ -159,6 +137,7 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 /// - Parameters:
 ///   - userId: 用户标识
 ///   - roomNo: 房间号码
+///   - roomId: 房间标识
 ///   - networkModel: 流媒体网络信息
 ///   - localAudio: 本地音频信息
 ///   - localVideos: 本地视频信息列表
@@ -166,7 +145,7 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 ///   - remoteAudios: 远程音频信息列表
 ///   - remoteVideos: 远程视频信息列表
 ///   - remoteShares: 远程共享信息列表
-- (instancetype)initWithUserId:(NSString *)userId roomNo:(NSString *)roomNo networkModel:(VCSMetricNetworkModel *)networkModel localAudio:(VCSMetricAudioModel *)localAudio localVideos:(NSMutableArray <VCSMetricVideoModel *> *)localVideos localShare:(VCSMetricVideoModel *)localShare remoteAudios:(NSMutableArray <VCSMetricAudioModel *> *)remoteAudios remoteVideos:(NSMutableArray <VCSMetricVideoModel *> *)remoteVideos remoteShares:(NSMutableArray <VCSMetricVideoModel *> *)remoteShares;
+- (instancetype)initWithUserId:(NSString *)userId roomNo:(NSString *)roomNo roomId:(NSString *)roomId networkModel:(VCSMetricNetworkModel *)networkModel localAudio:(VCSMetricAudioModel *)localAudio localVideos:(NSMutableArray <VCSMetricVideoModel *> *)localVideos localShare:(VCSMetricVideoModel *)localShare remoteAudios:(NSMutableArray <VCSMetricAudioModel *> *)remoteAudios remoteVideos:(NSMutableArray <VCSMetricVideoModel *> *)remoteVideos remoteShares:(NSMutableArray <VCSMetricVideoModel *> *)remoteShares;
 
 @end
 

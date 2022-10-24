@@ -55,6 +55,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取当前时间戳
 - (NSTimeInterval)getNowTimeInterval;
 
+#pragma mark - 获取当前时间戳(毫秒)
+/// 获取当前时间戳(毫秒)
+- (NSTimeInterval)getNowTimeIntervalMilli;
+
 #pragma mark - 判断应用是否在Mac上运行
 /// 判断应用是否在Mac上运行
 - (BOOL)isiOSAppOnMac;
@@ -64,6 +68,16 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param key 加密Key
 /// @param data 加密数据
 - (NSString *)VCSHmacSha1:(NSString *)key data:(NSString *)data;
+
+#pragma mark - HmacSHA256方式加密的字符串
+/// HmacSHA256方式加密的字符串
+/// @param data 加密数据
+- (NSString *)VCSHmacSha256:(NSString *)data;
+
+#pragma mark - MD5方式加密的字符串
+/// MD5方式加密的字符串
+/// @param data 加密数据
+- (NSString *)VCSMD5:(NSString *)data;
 
 @end
 

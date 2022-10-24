@@ -22,14 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// 行为日志扩展事件回调
 /// - Parameters:
 ///   - manager: 日志组件实例
-///   - loggerParam: 行为日志对象
+///   - itemModel: 行为日志对象
 - (VCSLoggerItemModel *)loggerManager:(VCSLoggerManager *)manager onLoggerExpand:(VCSLoggerItemModel *)itemModel;
 
 #pragma mark 实时日志扩展事件回调
 /// 实时日志扩展事件回调
 /// - Parameters:
 ///   - manager: 日志组件实例
-///   - object: 实时日志对象
+///   - itemModel: 实时日志对象
 - (VCSMetricItemModel *)loggerManager:(VCSLoggerManager *)manager onMetricExpand:(VCSMetricItemModel *)itemModel;
 
 @end
@@ -57,18 +57,35 @@ NS_ASSUME_NONNULL_BEGIN
 /// 启动日志服务
 /// - Parameters:
 ///   - domainUrl: 服务地址
+///   - secretKey: 服务密钥
 ///   - delegate: 日志代理
-- (void)startLogger:(NSString *)domainUrl delegate:(nullable id <VCSLoggerManagerDelegate>)delegate;
+- (void)startLogger:(NSString *)domainUrl secretKey:(NSString *)secretKey delegate:(nullable id <VCSLoggerManagerDelegate>)delegate;
+
+#pragma mark 变更服务地址
+/// 变更服务地址
+/// - Parameters:
+///   - domainUrl: 服务地址
+///   - secretKey: 服务密钥
+- (void)changeDomainUrl:(NSString *)domainUrl secretKey:(NSString *)secretKey;
 
 #pragma mark 追加行为日志
 /// 追加行为日志
-/// - Parameter param: 行为日志参数
-- (void)appendLoggerWithParam:(VCSLoggerParam *)param;
+/// - Parameter itemModel: 行为日志对象
+- (void)appendLoggerWithItemModel:(VCSLoggerItemModel *)itemModel;
 
 #pragma mark 追加实时日志
 /// 追加实时日志
-/// - Parameter param: 实时日志对象
+/// - Parameter itemModel: 实时日志对象
 - (void)appendMetricWithItemModel:(VCSMetricItemModel *)itemModel;
+
+#pragma mark 触发日志上报
+/// 触发日志上报
+- (void)triggerUpload;
+
+#pragma mark 是否启用日志上报
+/// 是否启用日志上报
+/// - Parameter enabled: Yes-启用  No-关闭
+- (void)enableUploadLogs:(BOOL)enabled;
 
 @end
 
