@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VCSSDK'
-  s.version          = '1.2.97'
+  s.version          = '1.2.98'
 
   s.summary          = '视频会议SDK'
 # This description is used to generate tags and improve search results.
@@ -34,7 +34,7 @@ TODO: Add long description of the pod here.
   # 设置包含静态库框架(注意：不能写在subspec子模块中)
   s.static_framework = true
   # 依赖系统Frameworks库(采用weak link弱链接)
-  s.weak_frameworks = 'SystemConfiguration', 'Accelerate', 'AVFoundation', 'QuartzCore', 'CoreGraphics', 'CoreMedia', 'CoreAudio', 'CoreVideo', 'CoreML', 'OpenGLES', 'Security', 'CFNetwork', 'UIKit', 'Foundation', 'ReplayKit', 'PushKit'
+  s.weak_frameworks = 'SystemConfiguration', 'Accelerate', 'AVFoundation', 'QuartzCore', 'CoreGraphics', 'CoreMedia', 'CoreAudio', 'CoreVideo', 'CoreML', 'OpenGLES', 'Security', 'CFNetwork', 'UIKit', 'Foundation', 'ReplayKit', 'PushKit', 'CoreTelephony'
   # 依赖系统Librarie库
   s.libraries = 'icucore', 'c', 'z', 'iconv', 'bz2', 'c++', 'resolv'
 
