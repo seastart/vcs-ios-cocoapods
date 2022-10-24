@@ -236,6 +236,15 @@ typedef void(^VCSChatRoomPackageBlock)(PacketType type, Command command, Result 
 /// @param state  解除禁音状态
 + (NSData *)sendRoomRelieveAstateWithSession:(NSString *)session accountId:(NSString *)accountId roomId:(NSString *)roomId state:(RelieveAstate)state;
 
+#pragma mark 设置房间成员扩展字段
+/// 设置房间成员扩展字段
+/// @param session 入会凭证 (互动凭证)
+/// @param accountId 用户标识
+/// @param targetId 目标用户标识
+/// @param roomId 房间标识
+/// @param extendInfo 扩展信息
++ (NSData *)sendRoomChangeAccountExtendWithSession:(NSString *)session accountId:(NSString *)accountId targetId:(NSString *)targetId roomId:(NSString *)roomId extendInfo:(NSString *)extendInfo;
+
 #pragma mark 设置触发房间同步账户信息
 /// 设置触发房间同步账户信息
 /// @param session 入会凭证 (互动凭证)
