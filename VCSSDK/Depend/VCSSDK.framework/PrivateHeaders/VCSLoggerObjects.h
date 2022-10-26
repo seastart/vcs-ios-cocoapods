@@ -106,32 +106,32 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 @property (nonatomic, assign) NSInteger time;
 
 /// 用户标识
-@property (nonatomic, copy) NSString *uid;
+@property (nonatomic, copy, nullable) NSString *uid;
 /// 房间号码
-@property (nonatomic, copy) NSString *room_no;
+@property (nonatomic, copy, nullable) NSString *room_no;
 /// 房间标识
-@property (nonatomic, copy) NSString *conf_id;
+@property (nonatomic, copy, nullable) NSString *conf_id;
 /// 日志标识
-@property (nonatomic, copy) NSString *trace_id;
+@property (nonatomic, copy, nullable) NSString *trace_id;
 
 /// 网络信息
-@property (nonatomic, strong) VCSMetricNetworkModel *network;
+@property (nonatomic, strong, nullable) VCSMetricNetworkModel *network;
 /// 设备信息采样
-@property (nonatomic, strong) VCSMetricDeviceModel *device;
+@property (nonatomic, strong, nullable) VCSMetricDeviceModel *device;
 
 /// 本地音频信息
-@property (nonatomic, strong) VCSMetricAudioModel *local_audio;
+@property (nonatomic, strong, nullable) VCSMetricAudioModel *local_audio;
 /// 本地视频信息
-@property (nonatomic, strong) NSMutableArray <VCSMetricVideoModel *> *local_videos;
+@property (nonatomic, strong, nullable) NSMutableArray <VCSMetricVideoModel *> *local_videos;
 /// 本地共享信息
-@property (nonatomic, strong) VCSMetricVideoModel *local_share;
+@property (nonatomic, strong, nullable) VCSMetricVideoModel *local_share;
 
 /// 远程音频信息
-@property (nonatomic, strong) NSMutableArray <VCSMetricAudioModel *> *remote_audios;
+@property (nonatomic, strong, nullable) NSMutableArray <VCSMetricAudioModel *> *remote_audios;
 /// 远程视频信息
-@property (nonatomic, strong) NSMutableArray <VCSMetricVideoModel *> *remote_videos;
+@property (nonatomic, strong, nullable) NSMutableArray <VCSMetricVideoModel *> *remote_videos;
 /// 远程共享信息
-@property (nonatomic, strong) NSMutableArray <VCSMetricVideoModel *> *remote_shares;
+@property (nonatomic, strong, nullable) NSMutableArray <VCSMetricVideoModel *> *remote_shares;
 
 /// 创建实时日志对象
 /// - Parameters:
@@ -145,7 +145,7 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 ///   - remoteAudios: 远程音频信息列表
 ///   - remoteVideos: 远程视频信息列表
 ///   - remoteShares: 远程共享信息列表
-- (instancetype)initWithUserId:(NSString *)userId roomNo:(NSString *)roomNo roomId:(NSString *)roomId networkModel:(VCSMetricNetworkModel *)networkModel localAudio:(VCSMetricAudioModel *)localAudio localVideos:(NSMutableArray <VCSMetricVideoModel *> *)localVideos localShare:(VCSMetricVideoModel *)localShare remoteAudios:(NSMutableArray <VCSMetricAudioModel *> *)remoteAudios remoteVideos:(NSMutableArray <VCSMetricVideoModel *> *)remoteVideos remoteShares:(NSMutableArray <VCSMetricVideoModel *> *)remoteShares;
+- (instancetype)initWithUserId:(nullable NSString *)userId roomNo:(nullable NSString *)roomNo roomId:(nullable NSString *)roomId networkModel:(nullable VCSMetricNetworkModel *)networkModel localAudio:(nullable VCSMetricAudioModel *)localAudio localVideos:(nullable NSMutableArray <VCSMetricVideoModel *> *)localVideos localShare:(nullable VCSMetricVideoModel *)localShare remoteAudios:(nullable NSMutableArray <VCSMetricAudioModel *> *)remoteAudios remoteVideos:(nullable NSMutableArray <VCSMetricVideoModel *> *)remoteVideos remoteShares:(nullable NSMutableArray <VCSMetricVideoModel *> *)remoteShares;
 
 @end
 
@@ -176,6 +176,9 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 @property (nonatomic, assign) CGFloat mem_system;
 /// 应用占用内存
 @property (nonatomic, assign) CGFloat mem_app;
+
+/// 获取当前资源占用
++ (instancetype)defaultConfig;
 
 @end
 
