@@ -109,9 +109,9 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 @property (nonatomic, copy, nullable) NSString *uid;
 /// 房间号码
 @property (nonatomic, copy, nullable) NSString *room_no;
-/// 房间标识
-@property (nonatomic, copy, nullable) NSString *conf_id;
-/// 日志标识
+/// 会议日志标识
+@property (nonatomic, copy, nullable) NSString *conf_log_id;
+/// 参会记录标识
 @property (nonatomic, copy, nullable) NSString *trace_id;
 
 /// 网络信息
@@ -122,22 +122,21 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 /// 本地音频信息
 @property (nonatomic, strong, nullable) VCSMetricAudioModel *local_audio;
 /// 本地视频信息
-@property (nonatomic, strong, nullable) NSMutableArray <VCSMetricVideoModel *> *local_videos;
+@property (nonatomic, strong, nullable) NSArray <VCSMetricVideoModel *> *local_videos;
 /// 本地共享信息
 @property (nonatomic, strong, nullable) VCSMetricVideoModel *local_share;
 
 /// 远程音频信息
-@property (nonatomic, strong, nullable) NSMutableArray <VCSMetricAudioModel *> *remote_audios;
+@property (nonatomic, strong, nullable) NSArray <VCSMetricAudioModel *> *remote_audios;
 /// 远程视频信息
-@property (nonatomic, strong, nullable) NSMutableArray <VCSMetricVideoModel *> *remote_videos;
+@property (nonatomic, strong, nullable) NSArray <VCSMetricVideoModel *> *remote_videos;
 /// 远程共享信息
-@property (nonatomic, strong, nullable) NSMutableArray <VCSMetricVideoModel *> *remote_shares;
+@property (nonatomic, strong, nullable) NSArray <VCSMetricVideoModel *> *remote_shares;
 
 /// 创建实时日志对象
 /// - Parameters:
 ///   - userId: 用户标识
 ///   - roomNo: 房间号码
-///   - roomId: 房间标识
 ///   - networkModel: 流媒体网络信息
 ///   - localAudio: 本地音频信息
 ///   - localVideos: 本地视频信息列表
@@ -145,7 +144,7 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 ///   - remoteAudios: 远程音频信息列表
 ///   - remoteVideos: 远程视频信息列表
 ///   - remoteShares: 远程共享信息列表
-- (instancetype)initWithUserId:(nullable NSString *)userId roomNo:(nullable NSString *)roomNo roomId:(nullable NSString *)roomId networkModel:(nullable VCSMetricNetworkModel *)networkModel localAudio:(nullable VCSMetricAudioModel *)localAudio localVideos:(nullable NSMutableArray <VCSMetricVideoModel *> *)localVideos localShare:(nullable VCSMetricVideoModel *)localShare remoteAudios:(nullable NSMutableArray <VCSMetricAudioModel *> *)remoteAudios remoteVideos:(nullable NSMutableArray <VCSMetricVideoModel *> *)remoteVideos remoteShares:(nullable NSMutableArray <VCSMetricVideoModel *> *)remoteShares;
+- (instancetype)initWithUserId:(nullable NSString *)userId roomNo:(nullable NSString *)roomNo networkModel:(nullable VCSMetricNetworkModel *)networkModel localAudio:(nullable VCSMetricAudioModel *)localAudio localVideos:(nullable NSArray <VCSMetricVideoModel *> *)localVideos localShare:(nullable VCSMetricVideoModel *)localShare remoteAudios:(nullable NSArray <VCSMetricAudioModel *> *)remoteAudios remoteVideos:(nullable NSArray <VCSMetricVideoModel *> *)remoteVideos remoteShares:(nullable NSArray <VCSMetricVideoModel *> *)remoteShares;
 
 @end
 

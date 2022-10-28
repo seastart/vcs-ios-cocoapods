@@ -361,8 +361,8 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 - (void)nonAudioModeStreamMediaSetup;
 
 #pragma mark - -------- 触发日志相关接口 --------
-#pragma mark 开始房间共享
-/// 开始房间共享
+#pragma mark 开始房间共享日志
+/// 开始房间共享日志
 /// - Parameters:
 ///   - sharingType: 分享类型
 ///   - sharingPicURL: 图片地址
@@ -386,6 +386,11 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 ///   - framerate: 帧率
 - (void)setupScreenBitrate:(int)bitrate height:(int)height width:(int)width framerate:(CGFloat)framerate;
 
+#pragma mark 开启音频行为日志
+/// 开启音频行为日志
+/// - Parameter state: 设备状态
+- (void)openAudioLogger:(DeviceState)state;
+
 #pragma mark 开启视频行为日志
 /// 开启视频行为日志
 /// - Parameter state: 设备状态
@@ -399,6 +404,20 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 ///   - type: 包类型
 ///   - data: 消息数据
 - (void)writeMessageLogWithCommand:(Command)command result:(Result)result type:(PacketType)type data:(nullable NSString *)data;
+
+#pragma mark 追加角色变化日志
+/// 追加角色变化日志
+/// - Parameters:
+///   - originRole: 原角色
+///   - newRole: 新角色
+- (void)writeRoomRoleChange:(ConferenceRole)originRole newRole:(ConferenceRole)newRole;
+
+#pragma mark 追加昵称变化日志
+/// 追加昵称变化日志
+/// - Parameters:
+///   - originName: 原昵称
+///   - newName: 新昵称
+- (void)writeRoomNicknameChange:(NSString *)originName newName:(NSString *)newName;
 
 #pragma mark 追加事件日志
 /// 追加事件日志
