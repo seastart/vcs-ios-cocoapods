@@ -186,16 +186,20 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 
 /// 用户标识
 @property (nonatomic, copy, nullable) NSString *uid;
-/// 音频码率
+/// 音频码率❓
 @property (nonatomic, assign) CGFloat bitrate;
 /// 音频分贝值
 @property (nonatomic, assign) CGFloat db;
+/// 编码格式
+@property (nonatomic, copy, nullable) NSString *codec;
 
 /// 创建音频日志对象
 /// - Parameters:
 ///   - userId: 用户标识
+///   - bitrate: 音频码率
 ///   - db: 音频分贝值
-- (instancetype)initWithUserId:(nullable NSString *)userId db:(CGFloat)db;
+///   - codec: 编码格式
+- (instancetype)initWithUserId:(nullable NSString *)userId bitrate:(CGFloat)bitrate db:(CGFloat)db codec:(nullable NSString *)codec;
 
 @end
 
@@ -204,7 +208,7 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 
 /// 用户标识
 @property (nonatomic, copy, nullable) NSString *uid;
-/// 视频码率
+/// 视频码率❓
 @property (nonatomic, assign) CGFloat bitrate;
 /// 视频分辨率
 @property (nonatomic, assign) CGFloat height;
@@ -213,6 +217,11 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 /// 视频帧率
 @property (nonatomic, assign) CGFloat framerate;
 
+/// 视频轨道
+@property (nonatomic, assign) int track;
+/// 编码格式
+@property (nonatomic, copy, nullable) NSString *codec;
+
 /// 创建视频日志对象
 /// - Parameters:
 ///   - userId: 用户标识
@@ -220,7 +229,9 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 ///   - height: 视频分辨率
 ///   - width: 视频分辨率
 ///   - framerate: 视频帧率
-- (instancetype)initWithUserId:(nullable NSString *)userId bitrate:(CGFloat)bitrate height:(CGFloat)height width:(CGFloat)width framerate:(CGFloat)framerate;
+///   - track: 视频轨道
+///   - codec: 编码格式
+- (instancetype)initWithUserId:(nullable NSString *)userId bitrate:(CGFloat)bitrate height:(CGFloat)height width:(CGFloat)width framerate:(CGFloat)framerate track:(int)track codec:(nullable NSString *)codec;
 
 @end
 

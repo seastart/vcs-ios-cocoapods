@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VCSSDK'
-  s.version          = '1.2.100-logger.1'
+  s.version          = '1.3.1-logger.1'
 
   s.summary          = '视频会议SDK'
 # This description is used to generate tags and improve search results.
