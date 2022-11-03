@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic, readonly) int height;
 /// 视频帧率
 @property (assign, nonatomic, readonly) float fps;
+/// 最后一次帧处理时间戳(毫秒)
+@property (assign, nonatomic, readonly) NSTimeInterval interval;
 
 #pragma mark - 更新远程视频信息
 /// 更新远程视频信息

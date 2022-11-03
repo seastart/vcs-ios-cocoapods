@@ -156,7 +156,8 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 /// @property (nonatomic, assign) NSInteger connectDelayNumber;
 #pragma mark 流媒体服务连接状态
 @property (nonatomic, assign) BOOL isStaticConnect;
-
+#pragma mark 是否在共享屏幕
+@property (nonatomic, assign) BOOL isScreenShare;
 
 #pragma mark 网络状态变更
 /// 网络状态变更
