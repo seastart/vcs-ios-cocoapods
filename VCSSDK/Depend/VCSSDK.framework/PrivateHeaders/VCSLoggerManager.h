@@ -44,6 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 日志事件代理
 @property (nonatomic, weak) id<VCSLoggerManagerDelegate> delegate;
+/// 绑定会议号码
+@property (nonatomic, strong, readonly) NSString *roomNo;
 
 #pragma mark 获取日志组件实例
 /// 获取日志组件实例
@@ -86,6 +88,16 @@ NS_ASSUME_NONNULL_BEGIN
 /// 是否启用日志上报
 /// - Parameter enabled: Yes-启用  No-关闭
 - (void)enableUploadLogs:(BOOL)enabled;
+
+#pragma mark 绑定会议号码
+/// 绑定会议号码
+/// - Parameter roomNo: 会议号码
+- (void)bindRoomNo:(nullable NSString *)roomNo;
+
+#pragma mark 追加打印日志
+/// 追加打印日志
+/// - Parameter format: 版式串
++ (void)LOGGER:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
 
 @end
 

@@ -215,7 +215,7 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 /// 视频分辨率
 @property (nonatomic, assign) CGFloat width;
 /// 视频帧率
-@property (nonatomic, assign) CGFloat framerate;
+@property (nonatomic, assign) CGFloat frame_rate;
 
 /// 视频轨道
 @property (nonatomic, assign) int track;

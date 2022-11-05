@@ -362,50 +362,6 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 - (void)nonAudioModeStreamMediaSetup;
 
 #pragma mark - -------- 触发日志相关接口 --------
-#pragma mark 开始房间共享日志
-/// 开始房间共享日志
-/// - Parameters:
-///   - sharingType: 分享类型
-///   - sharingPicURL: 图片地址
-- (void)startRoomShare:(SharingType)sharingType sharingPicURL:(nullable NSString *)sharingPicURL;
-
-#pragma mark 开启共享屏幕追加日志
-/// 开启共享屏幕追加日志
-/// - Parameters:
-///   - bitrate: 码率
-///   - height: 分辨率
-///   - width: 分辨率
-///   - fps: 帧率
-- (void)openScreenShare:(int)bitrate height:(int)height width:(int)width fps:(CGFloat)fps;
-
-#pragma mark 设置共享桌面信息
-/// 设置共享桌面信息
-/// - Parameters:
-///   - bitrate: 码率
-///   - height: 分辨率
-///   - width: 分辨率
-///   - framerate: 帧率
-- (void)setupScreenBitrate:(int)bitrate height:(int)height width:(int)width framerate:(CGFloat)framerate;
-
-#pragma mark 开启音频行为日志
-/// 开启音频行为日志
-/// - Parameter state: 设备状态
-- (void)openAudioLogger:(DeviceState)state;
-
-#pragma mark 开启视频行为日志
-/// 开启视频行为日志
-/// - Parameter state: 设备状态
-- (void)openVideoLogger:(DeviceState)state;
-
-#pragma mark 追加会控消息日志
-/// 追加会控消息日志
-/// - Parameters:
-///   - command: 指令
-///   - result: 结果
-///   - type: 包类型
-///   - data: 消息数据
-- (void)writeMessageLogWithCommand:(Command)command result:(Result)result type:(PacketType)type data:(nullable NSString *)data;
-
 #pragma mark 追加角色变化日志
 /// 追加角色变化日志
 /// - Parameters:
@@ -420,6 +376,15 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 ///   - newName: 新昵称
 - (void)writeRoomNicknameChange:(NSString *)originName newName:(NSString *)newName;
 
+#pragma mark 追加会控消息日志
+/// 追加会控消息日志
+/// - Parameters:
+///   - command: 指令
+///   - result: 结果
+///   - type: 包类型
+///   - data: 消息数据
+- (void)writeMessageLogWithCommand:(Command)command result:(Result)result type:(PacketType)type data:(nullable NSString *)data;
+
 #pragma mark 追加事件日志
 /// 追加事件日志
 /// - Parameters:
@@ -427,6 +392,15 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 ///   - logType: 日志类型
 ///   - params: 日志内容
 - (void)addEventLogs:(NSString *)moduleName logType:(NSString *)logType params:(id)params;
+
+#pragma mark 设置共享桌面实时信息
+/// 设置共享桌面实时信息
+/// - Parameters:
+///   - bitrate: 码率
+///   - height: 分辨率
+///   - width: 分辨率
+///   - framerate: 帧率
+- (void)setupScreenBitrate:(int)bitrate height:(int)height width:(int)width framerate:(CGFloat)framerate;
 
 @end
 
