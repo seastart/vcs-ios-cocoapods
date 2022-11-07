@@ -77,12 +77,10 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 /// - Parameters:
 ///   - serverity: 日志等级
 ///   - type: 日志类型
-///   - uid: 用户标识
-///   - uname: 用户名称
 ///   - mname: 模块名称
 ///   - mid: 模块标识
 ///   - body: 日志内容
-- (instancetype)initWithServerity:(VCSLoggerLevel)serverity type:(NSString *)type uid:(nullable NSString *)uid uname:(nullable NSString *)uname mname:(nullable NSString *)mname mid:(nullable NSString *)mid body:(id)body;
+- (instancetype)initWithServerity:(VCSLoggerLevel)serverity type:(NSString *)type mname:(nullable NSString *)mname mid:(nullable NSString *)mid body:(id)body;
 
 @end
 
