@@ -27,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取系统CPU占有率
 + (double)getSystemCPU;
 
+#pragma mark - 获取设备全部内存
+/// 获取设备全部内存
++ (double)getAllMemory;
+
 @end
 
 NS_ASSUME_NONNULL_END

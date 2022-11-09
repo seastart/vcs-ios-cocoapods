@@ -62,14 +62,22 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 @property (nonatomic, assign) VCSLoggerLevel serverity;
 /// 日志类型
 @property (nonatomic, copy) NSString *type;
+
 /// 用户标识
 @property (nonatomic, copy, nullable) NSString *uid;
 /// 用户名称
 @property (nonatomic, copy, nullable) NSString *uname;
+
 /// 模块名称
 @property (nonatomic, copy, nullable) NSString *mname;
 /// 模块标识
 @property (nonatomic, copy, nullable) NSString *mid;
+
+/// 会议记录标识(入会必传)
+@property (nonatomic, copy, nullable) NSString *conf_log_id;
+/// 参会记录标识(入会必传)
+@property (nonatomic, copy, nullable) NSString *trace_id;
+
 /// 日志内容
 @property (nonatomic, assign) id body;
 
@@ -107,7 +115,7 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 @property (nonatomic, copy, nullable) NSString *uid;
 /// 房间号码
 @property (nonatomic, copy, nullable) NSString *room_no;
-/// 会议日志标识
+/// 会议记录标识
 @property (nonatomic, copy, nullable) NSString *conf_log_id;
 /// 参会记录标识
 @property (nonatomic, copy, nullable) NSString *trace_id;
@@ -165,14 +173,20 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 #pragma mark - 实时日志设备信息采样对象
 @interface VCSMetricDeviceModel : NSObject
 
-/// 系统占用CPU
+/// 系统占用CPU百分比
 @property (nonatomic, assign) CGFloat cpu_system;
-/// 应用占用CPU
+/// 应用占用CPU百分比
 @property (nonatomic, assign) CGFloat cpu_app;
-/// 系统占用内存
+
+/// 系统占用内存百分比
 @property (nonatomic, assign) CGFloat mem_system;
-/// 应用占用内存
+/// 应用占用内存百分比
 @property (nonatomic, assign) CGFloat mem_app;
+
+/// 系统占用内存大小
+@property (nonatomic, assign) CGFloat mem_system_val;
+/// 应用占用内存大小
+@property (nonatomic, assign) CGFloat mem_app_val;
 
 /// 获取当前资源占用
 + (instancetype)defaultConfig;
