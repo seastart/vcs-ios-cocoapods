@@ -67,6 +67,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取屏幕尺寸
 + (CGSize)getScreenSize;
 
+#pragma mark - 获取屏幕刻度
+/// 获取屏幕刻度
++ (CGFloat)getScreenScale;
+
 #pragma mark - 获取设备型号
 /// 获取设备型号
 + (NSString *)getDeviceType;
