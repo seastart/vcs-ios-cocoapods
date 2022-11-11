@@ -64,6 +64,9 @@ typedef enum : NSInteger {
 @property (nonatomic, copy, readonly) VCSMQTTManager * (^certificates)(NSArray *);
 /// 指示连接的协议版本。默认SGMQTTProtocolVersion311
 @property (nonatomic, copy, readonly) VCSMQTTManager * (^protocolLevel)(SGMQTTProtocolVersion);
+/// 指示会话过期间隔。默认 300s
+@property (nonatomic, copy, readonly) VCSMQTTManager * (^expiryInterval)(NSNumber *);
+
 /// 指示MQTTSession的运行循环。默认[NSRunLoop currentRunLoop]
 @property (nonatomic, copy, readonly) VCSMQTTManager * (^runLoop)(NSRunLoop *);
 

@@ -192,6 +192,7 @@ typedef NS_ENUM(int, SGMQTTSessionManagerState) {
  * @param securityPolicy A custom SSL security policy or nil.
  * @param certificates An NSArray of the pinned certificates to use or nil.
  * @param protocolLevel Protocol version of the connection.
+ * @param expiryInterval Session Expiry Interval specifies the number of seconds after which a session should expire.
  * @param connectHandler Called when first connected or if error occurred. It is not called on subsequent internal reconnects.
  */
 
@@ -212,6 +213,7 @@ typedef NS_ENUM(int, SGMQTTSessionManagerState) {
    securityPolicy:(SGMQTTSSLSecurityPolicy *)securityPolicy
      certificates:(NSArray *)certificates
     protocolLevel:(SGMQTTProtocolVersion)protocolLevel
+   expiryInterval:(NSNumber *)expiryInterval
    connectHandler:(SGMQTTConnectHandler)connectHandler;
 
 /** Re-Connects to the MQTT broker using the parameters for given in the connectTo method
