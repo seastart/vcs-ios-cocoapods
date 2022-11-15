@@ -81,9 +81,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 构造远程视频索引键
 /// 构造远程视频索引键
-/// @param linkId 流媒体ID
-/// @param trackId 轨道ID
-+ (NSString *)formationStreamRemoteKey:(int)linkId trackId:(int)trackId;
+/// @param linkId 流媒体标识
+/// @param trackNo 轨道号号码
++ (NSString *)formationStreamRemoteKey:(int)linkId trackNo:(int)trackNo;
 
 #pragma mark - 判断掩码是否包含有该轨道
 /// 判断掩码是否包含有该轨道

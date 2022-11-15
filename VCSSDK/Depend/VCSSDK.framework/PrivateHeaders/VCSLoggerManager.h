@@ -46,6 +46,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<VCSLoggerManagerDelegate> delegate;
 /// 绑定会议号码
 @property (nonatomic, strong, readonly) NSString *roomNo;
+/// 日志服务是否启用
+@property (nonatomic, assign, readonly) BOOL serviceEnabled;
 
 #pragma mark 获取日志组件实例
 /// 获取日志组件实例
