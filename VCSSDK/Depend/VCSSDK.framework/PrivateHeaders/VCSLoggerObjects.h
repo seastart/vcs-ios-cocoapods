@@ -65,7 +65,7 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 
 /// 用户标识
 @property (nonatomic, copy, nullable) NSString *uid;
-/// 用户名称
+/// 用户会议昵称(入会必传)
 @property (nonatomic, copy, nullable) NSString *uname;
 
 /// 模块名称
