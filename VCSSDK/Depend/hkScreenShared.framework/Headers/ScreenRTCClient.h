@@ -14,16 +14,13 @@ typedef void (^StopReplayKit)(NSString *msg);
 @interface ScreenRTCClient:NSObject
 //: ScreenRTCConnect
 //encoder 必须设置这些编码参数否则录屏失败 720x1280    300kp
-@property(nonatomic , readwrite)unsigned short Encoderwidth;
-@property(nonatomic , readwrite)unsigned short Encoderheight;
-@property(nonatomic, readwrite) unsigned int EncoderstartBitrate;//300
-@property(nonatomic, readwrite) unsigned int EncodermaxBitrate;
-@property(nonatomic, readwrite) unsigned int EncoderminBitrate;
-@property(nonatomic, readwrite) uint32_t EncodermaxFramerate;//30
-@property(nonatomic,copy)StopReplayKit ReplayBlock;
+@property (nonatomic, readwrite) unsigned short Encoderwidth;
+@property (nonatomic, readwrite) unsigned short Encoderheight;
+@property (nonatomic, readwrite) uint32_t EncodermaxFramerate;//30
+@property (nonatomic, copy) StopReplayKit ReplayBlock;
 
 //非编码模式输出参数
-@property(nonatomic, readwrite) unsigned int height;//720p
+@property (nonatomic, readwrite) unsigned int height;//720p
 
 // Init CliectConnect
 //ModeType:0 encdoer ModeType:1 CSAMPLEBUFFER dedault encoder 需要和 server 保持统一模式
