@@ -207,6 +207,13 @@ typedef void (^VCSChatRoomManagerDestroyBlock)(void);
 /// @param state 0-允许解除禁音 1-不允许解除禁音
 - (void)sendRoomRelieveAstateWithState:(RelieveAstate)state;
 
+#pragma mark 设置房间成员扩展信息
+/// 设置房间成员扩展信息
+/// - Parameters:
+///   - targetId: 目标用户标识
+///   - extendInfo: 扩展信息
+- (void)sendRoomMemberExtendWithTargetId:(NSString *)targetId extendInfo:(NSString *)extendInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END
