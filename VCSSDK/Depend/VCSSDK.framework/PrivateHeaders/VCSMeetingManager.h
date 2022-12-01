@@ -508,6 +508,14 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// @param enable YES-允许解除禁音 NO-不允许解除禁音
 - (void)sendRoomRelieveStateWithEnable:(BOOL)enable;
 
+#pragma mark 设置房间成员扩展信息
+/// 设置房间成员扩展信息
+/// - Parameters:
+///   - targetId: 目标用户标识
+///   - extendInfo: 扩展信息
+///   - selves: 是否为当前账户(YES-自己 NO-其它成员)
+- (void)sendRoomMemberExtendWithTargetId:(nullable NSString *)targetId extendInfo:(NSString *)extendInfo selves:(BOOL)selves;
+
 #pragma mark - 事件命令透传处理
 /// 事件命令透传处理
 /// @param command 消息指令
