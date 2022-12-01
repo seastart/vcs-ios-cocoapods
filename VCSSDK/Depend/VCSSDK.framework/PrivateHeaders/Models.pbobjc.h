@@ -104,6 +104,15 @@ typedef GPB_ENUM(Command) {
   /** MCU磁盘剩余空间不足状态变更通知(后台) */
   Command_CmdRoomMcuDisk = 23,
 
+  /** 盒子6小时到期后10分钟通知一 下盒子 */
+  Command_CmdRoomConferenceNotify = 24,
+
+  /** 盒子入会前修改姓名 */
+  Command_CmdRoomsNicknameUpdate = 25,
+
+  /** 修改成员自定义信息 */
+  Command_CmdRoomSetMemberExtendInfoHost = 26,
+
   /** 进入房间 */
   Command_CmdRoomEnter = 100,
 
@@ -262,6 +271,18 @@ typedef GPB_ENUM(Command) {
 
   /** =====================hiklink点对点呼叫========================== */
   Command_CmdConfTypeUpdateNotify = 1035,
+
+  /** =====================ROOMS会议盒子绑定手机号========================== */
+  Command_CmdRoomsAddMobileNotify = 1040,
+
+  /** =====================ROOMS会议盒子解绑手机号========================== */
+  Command_CmdRoomsChangeMobileNotify = 1041,
+
+  /** =====================H5日志上传通知ROOMS========================== */
+  Command_CmdRoomsAddLogNotify = 1042,
+
+  /** =====================Rooms系统配置文件通知========================== */
+  Command_CmdRoomsUpgradeFileNotify = 1043,
 };
 
 GPBEnumDescriptor *Command_EnumDescriptor(void);
@@ -569,6 +590,9 @@ typedef GPB_ENUM(TerminalType) {
 
   /** 萤石监控相机 */
   TerminalType_TerminalEzvizcamera = 18,
+
+  /** Rooms盒子 */
+  TerminalType_TerminalRooms = 19,
 };
 
 GPBEnumDescriptor *TerminalType_EnumDescriptor(void);
@@ -1597,6 +1621,7 @@ typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_RelativePortrait = 25,
   Account_FieldNumber_Version = 26,
   Account_FieldNumber_ErrMsg = 27,
+  Account_FieldNumber_ExtendInfo = 28,
 };
 
 /**
@@ -1721,6 +1746,11 @@ GPB_FINAL @interface Account : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *errMsg;
 /** Test to see if @c errMsg has been set. */
 @property(nonatomic, readwrite) BOOL hasErrMsg;
+
+/** 自定扩展信息 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *extendInfo;
+/** Test to see if @c extendInfo has been set. */
+@property(nonatomic, readwrite) BOOL hasExtendInfo;
 
 @end
 
@@ -1895,6 +1925,7 @@ typedef GPB_ENUM(RealAccount_FieldNumber) {
   RealAccount_FieldNumber_AccountRelativePortrait = 36,
   RealAccount_FieldNumber_Version = 37,
   RealAccount_FieldNumber_ErrMsg = 38,
+  RealAccount_FieldNumber_ExtendInfo = 39,
 };
 
 /**
@@ -2057,6 +2088,11 @@ GPB_FINAL @interface RealAccount : GPBMessage
 /** Test to see if @c errMsg has been set. */
 @property(nonatomic, readwrite) BOOL hasErrMsg;
 
+/** 自定义扩展信息 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *extendInfo;
+/** Test to see if @c extendInfo has been set. */
+@property(nonatomic, readwrite) BOOL hasExtendInfo;
+
 @end
 
 #pragma mark - SystemOption
@@ -2066,6 +2102,9 @@ typedef GPB_ENUM(SystemOption_FieldNumber) {
   SystemOption_FieldNumber_Value = 2,
 };
 
+/**
+ * 系统参数
+ **/
 GPB_FINAL @interface SystemOption : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *name;
@@ -2390,6 +2429,80 @@ GPB_FINAL @interface FileInfo : GPBMessage
 /** Test to see if @c key has been set. */
 @property(nonatomic, readwrite) BOOL hasKey;
 
+@end
+
+#pragma mark - RoomsMobileNotify
+
+typedef GPB_ENUM(RoomsMobileNotify_FieldNumber) {
+  RoomsMobileNotify_FieldNumber_Name = 1,
+  RoomsMobileNotify_FieldNumber_Mobile = 2,
+  RoomsMobileNotify_FieldNumber_State = 3,
+};
+
+GPB_FINAL @interface RoomsMobileNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *name;
+/** Test to see if @c name has been set. */
+@property(nonatomic, readwrite) BOOL hasName;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *mobile;
+/** Test to see if @c mobile has been set. */
+@property(nonatomic, readwrite) BOOL hasMobile;
+
+@property(nonatomic, readwrite) int64_t state;
+
+@property(nonatomic, readwrite) BOOL hasState;
+@end
+
+#pragma mark - RoomsLogAddNotify
+
+typedef GPB_ENUM(RoomsLogAddNotify_FieldNumber) {
+  RoomsLogAddNotify_FieldNumber_Name = 1,
+  RoomsLogAddNotify_FieldNumber_Id_p = 2,
+  RoomsLogAddNotify_FieldNumber_State = 3,
+};
+
+GPB_FINAL @interface RoomsLogAddNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *name;
+/** Test to see if @c name has been set. */
+@property(nonatomic, readwrite) BOOL hasName;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+/** Test to see if @c id_p has been set. */
+@property(nonatomic, readwrite) BOOL hasId_p;
+
+@property(nonatomic, readwrite) int64_t state;
+
+@property(nonatomic, readwrite) BOOL hasState;
+@end
+
+#pragma mark - RoomsUpgradeFileNotify
+
+typedef GPB_ENUM(RoomsUpgradeFileNotify_FieldNumber) {
+  RoomsUpgradeFileNotify_FieldNumber_Name = 1,
+  RoomsUpgradeFileNotify_FieldNumber_Id_p = 2,
+  RoomsUpgradeFileNotify_FieldNumber_UpgradeFile = 3,
+  RoomsUpgradeFileNotify_FieldNumber_State = 4,
+};
+
+GPB_FINAL @interface RoomsUpgradeFileNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *name;
+/** Test to see if @c name has been set. */
+@property(nonatomic, readwrite) BOOL hasName;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+/** Test to see if @c id_p has been set. */
+@property(nonatomic, readwrite) BOOL hasId_p;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *upgradeFile;
+/** Test to see if @c upgradeFile has been set. */
+@property(nonatomic, readwrite) BOOL hasUpgradeFile;
+
+@property(nonatomic, readwrite) int64_t state;
+
+@property(nonatomic, readwrite) BOOL hasState;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -1994,6 +1994,63 @@ GPB_FINAL @interface McuDiskNotify : GPBMessage
 
 @end
 
+#pragma mark - RoomConferenceNotify
+
+typedef GPB_ENUM(RoomConferenceNotify_FieldNumber) {
+  RoomConferenceNotify_FieldNumber_State = 1,
+};
+
+/**
+ * 盒子6小时会议结之前更新状态
+ **/
+GPB_FINAL @interface RoomConferenceNotify : GPBMessage
+
+@property(nonatomic, readwrite) int32_t state;
+
+@property(nonatomic, readwrite) BOOL hasState;
+@end
+
+#pragma mark - SetMemberExtendInfoHostRequest
+
+typedef GPB_ENUM(SetMemberExtendInfoHostRequest_FieldNumber) {
+  SetMemberExtendInfoHostRequest_FieldNumber_Token = 1,
+  SetMemberExtendInfoHostRequest_FieldNumber_RoomId = 2,
+  SetMemberExtendInfoHostRequest_FieldNumber_AccountId = 3,
+  SetMemberExtendInfoHostRequest_FieldNumber_TargetId = 4,
+  SetMemberExtendInfoHostRequest_FieldNumber_ExtendInfo = 5,
+};
+
+/**
+ * 修改成员自定义信息
+ **/
+GPB_FINAL @interface SetMemberExtendInfoHostRequest : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *token;
+/** Test to see if @c token has been set. */
+@property(nonatomic, readwrite) BOOL hasToken;
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 操作账号ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
+/** Test to see if @c accountId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountId;
+
+/** 目标账号ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *targetId;
+/** Test to see if @c targetId has been set. */
+@property(nonatomic, readwrite) BOOL hasTargetId;
+
+/** 自定义信息 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *extendInfo;
+/** Test to see if @c extendInfo has been set. */
+@property(nonatomic, readwrite) BOOL hasExtendInfo;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END

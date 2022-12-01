@@ -103,6 +103,7 @@ typedef GPB_ENUM(WaitingAccount_FieldNumber) {
   WaitingAccount_FieldNumber_CallId = 9,
   WaitingAccount_FieldNumber_CallType = 10,
   WaitingAccount_FieldNumber_RoomPwd = 11,
+  WaitingAccount_FieldNumber_ExtendInfo = 12,
 };
 
 GPB_FINAL @interface WaitingAccount : GPBMessage
@@ -149,6 +150,11 @@ GPB_FINAL @interface WaitingAccount : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *roomPwd;
 /** Test to see if @c roomPwd has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomPwd;
+
+/** 自定义信息 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *extendInfo;
+/** Test to see if @c extendInfo has been set. */
+@property(nonatomic, readwrite) BOOL hasExtendInfo;
 
 @end
 
@@ -818,6 +824,31 @@ GPB_FINAL @interface RemoveAccount : GPBMessage
 /** Test to see if @c targetId has been set. */
 @property(nonatomic, readwrite) BOOL hasTargetId;
 
+@end
+
+#pragma mark - RoomsNicknameUpdateNotify
+
+typedef GPB_ENUM(RoomsNicknameUpdateNotify_FieldNumber) {
+  RoomsNicknameUpdateNotify_FieldNumber_Id_p = 1,
+  RoomsNicknameUpdateNotify_FieldNumber_Nickname = 2,
+  RoomsNicknameUpdateNotify_FieldNumber_State = 3,
+};
+
+/**
+ * 盒子修改姓名通知
+ **/
+GPB_FINAL @interface RoomsNicknameUpdateNotify : GPBMessage
+
+@property(nonatomic, readwrite) int32_t id_p;
+
+@property(nonatomic, readwrite) BOOL hasId_p;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *nickname;
+/** Test to see if @c nickname has been set. */
+@property(nonatomic, readwrite) BOOL hasNickname;
+
+@property(nonatomic, readwrite) int32_t state;
+
+@property(nonatomic, readwrite) BOOL hasState;
 @end
 
 NS_ASSUME_NONNULL_END
