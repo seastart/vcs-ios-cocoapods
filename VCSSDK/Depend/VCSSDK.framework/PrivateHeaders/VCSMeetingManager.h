@@ -62,6 +62,8 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 @property (nonatomic, assign) BOOL isDestroy;
 #pragma mark 标记本地采集是否开启
 @property (nonatomic, assign) BOOL isCameraCapture;
+#pragma mark 标记本地共享状态
+@property (nonatomic, assign) BOOL isLocalShared;
 
 #pragma mark 标记是否开启语音模式(YES-开启 NO-关闭)
 /// 标记是否开启语音模式(YES-开启 NO-关闭)
@@ -156,7 +158,7 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 
 #pragma mark 关闭/开启视频(是否发送视频)
 /// 关闭/开启视频(是否发送视频)
-- (NSInteger)enableSendVideo:(DeviceState)state;
+- (void)enableSendVideo:(DeviceState)state;
 
 #pragma mark 设置自己是否接收对方音频
 /// 设置自己是否接收对方音频
