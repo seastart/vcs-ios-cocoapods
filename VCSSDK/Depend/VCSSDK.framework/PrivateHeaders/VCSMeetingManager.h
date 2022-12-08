@@ -156,7 +156,7 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 
 #pragma mark 关闭/开启视频(是否发送视频)
 /// 关闭/开启视频(是否发送视频)
-- (void)enableSendVideo:(DeviceState)state;
+- (NSInteger)enableSendVideo:(DeviceState)state;
 
 #pragma mark 设置自己是否接收对方音频
 /// 设置自己是否接收对方音频
