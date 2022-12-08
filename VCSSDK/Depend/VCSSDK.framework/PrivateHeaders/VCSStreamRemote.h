@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 视频流高
 @property (assign, nonatomic, readonly) int height;
 /// 视频帧率
-@property (assign, nonatomic, readonly) float fps;
+@property (assign, nonatomic, readonly) int fps;
 /// 最后一次帧处理时间戳(毫秒)
 @property (assign, nonatomic, readonly) NSTimeInterval interval;
 

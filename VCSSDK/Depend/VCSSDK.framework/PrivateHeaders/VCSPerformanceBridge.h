@@ -15,16 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取应用程序内存占用情况
 + (double)getApplicationMemory;
 
-#pragma mark - 获取应用程序CPU占有率
-/// 获取应用程序CPU占有率
+#pragma mark - 获取应用程序CPU占用率
+/// 获取应用程序CPU占用率
 + (double)getApplicationCPU;
 
 #pragma mark - 获取系统内存占用情况
 /// 获取系统内存占用情况
 + (double)getSystemMemory;
 
-#pragma mark - 获取系统CPU占有率
-/// 获取系统CPU占有率
+#pragma mark - 获取系统CPU占用率
+/// 获取系统CPU占用率
 + (double)getSystemCPU;
 
 #pragma mark - 获取设备全部内存
