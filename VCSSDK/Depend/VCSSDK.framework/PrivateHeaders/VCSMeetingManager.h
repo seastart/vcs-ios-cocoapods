@@ -65,6 +65,8 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 @property (nonatomic, assign) BOOL isCameraCapture;
 #pragma mark 标识当前是否在房间内
 @property (nonatomic, assign) BOOL enterRoom;
+#pragma mark 标记本地共享状态
+@property (nonatomic, assign) BOOL isLocalShared;
 
 #pragma mark 标记是否开启语音模式(YES-开启 NO-关闭)
 /// 标记是否开启语音模式(YES-开启 NO-关闭)
