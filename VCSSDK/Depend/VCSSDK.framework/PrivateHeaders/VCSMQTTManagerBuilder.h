@@ -67,6 +67,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 指示连接的协议版本。默认SGMQTTProtocolVersion311
 @property (nonatomic, assign) SGMQTTProtocolVersion protocolLevel;
 
+/// 指示会话过期间隔，MQTT5,0之后版本有效。默认 300s
+@property (nonatomic, strong) NSNumber *expiryInterval;
+
 /// 指示MQTTSession的运行循环。默认[NSRunLoop currentRunLoop]
 @property (nonatomic, strong) NSRunLoop *runLoop;
 

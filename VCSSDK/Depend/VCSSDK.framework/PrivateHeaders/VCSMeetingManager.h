@@ -10,8 +10,10 @@
 #import <AnyliveSDK/AnyliveSDK.h>
 #import <hkScreenShared/hkScreenShared.h>
 #import "VCSMeetingParam.h"
+#import "VCSLoginConfig.h"
 #import "VCSStreamMediaManager.h"
 #import "VCSChatRoomManager.h"
+#import "VCSRoomControlManager.h"
 #import "VCSCameraGatherManager.h"
 #import "VCSScreenRecordingServerManager.h"
 #import "VCSScreenRecordingClientManager.h"
@@ -69,11 +71,36 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// 标记是否开启语音模式(YES-开启 NO-关闭)
 @property (nonatomic, assign, readonly) BOOL isAudioMode;
 
-#pragma mark (音频转发包 视频转发包 数据转发包 SDP转发包)
-#pragma mark - -------- 视频会议基础接口 ---------
-#pragma mark 单例模式初始化流媒体服务类
+#pragma mark - 单例模式初始化流媒体服务类
 + (VCSMeetingManager *)sharedManager;
 
+
+#pragma mark - -------- 组件公共基础接口 ---------
+#pragma mark 通过配置初始化组件
+/// 通过配置初始化组件
+/// - Parameters:
+///   - config: 配置参数
+///   - resultBlock: 结果回调
+- (void)initializeWithConfig:(VCSLoginConfig *)config resultBlock:(nullable VCSNetworkResultBlock)resultBlock;
+
+#pragma mark 通过令牌初始化组件
+/// 通过令牌初始化组件
+/// - Parameters:
+///   - token: 登录令牌
+///   - appId: 应用标识
+///   - appKey: 应用密钥
+///   - domainUrl: 服务地址
+- (void)initializeWithToken:(NSString *)token appId:(NSString *)appId appKey:(NSString *)appKey domainUrl:(NSString *)domainUrl;
+
+#pragma mark 更新令牌
+/// 更新令牌
+/// - Parameters:
+///   - token: 登录令牌
+- (void)updateToken:(nullable NSString *)token;
+
+
+#pragma mark - -------- 视频会议基础接口 ---------
+#pragma mark (音频转发包 视频转发包 数据转发包 SDP转发包)
 #pragma mark 初始化会议SDK(YES-连接成功，NO-连接失败)
 /// 初始化会议SDK(YES-连接成功，NO-连接失败)
 /// @param meetingParam 会控参数
@@ -372,6 +399,51 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 - (int)getCurrenCamera;
 
 
+#pragma mark - -------- 会议控制相关接口 ---------
+#pragma mark 踢出指定成员
+/// 踢出指定成员
+/// @param targetId 目标成员标识
+/// @param reenter 是否允许再次进入
+- (void)kickoutMemberWithTargetId:(NSString *)targetId reenter:(BOOL)reenter;
+
+#pragma mark 转移主持人权限给指定成员
+/// 转移主持人权限给指定成员
+/// @param targetId 目标成员标识
+- (void)moveRoomHostWithTargetId:(NSString *)targetId;
+
+#pragma mark 回收指定成员房间主持人权限
+/// 回收指定成员房间主持人权限
+/// @param targetId 目标成员标识
+- (void)recoveryRoomHostWithTargetId:(nullable NSString *)targetId;
+
+#pragma mark 设置/取消指定成员联席主持人权限
+/// 设置/取消指定成员联席主持人权限
+/// @param targetId 目标成员标识
+/// @param state 设置状态(YES-设置 NO-回收)
+- (void)setupRoomUnionHostWithTargetId:(NSString *)targetId state:(BOOL)state;
+
+#pragma mark 设置房间音频状态
+/// 设置房间音频状态
+/// @param state 音频状态
+- (void)setupRoomAudioStateWithState:(DeviceState)state;
+
+#pragma mark 设置房间视频状态
+/// 设置房间视频状态
+/// @param state 视频状态
+- (void)setupRoomVideoStateWithState:(DeviceState)state;
+
+#pragma mark 变更房间内成员的昵称
+/// 变更房间内成员的昵称
+/// @param targetId 目标成员标识
+/// @param nickname 新昵称
+- (void)changeMemberNicknameWithTargetId:(NSString *)targetId nickname:(NSString *)nickname;
+
+#pragma mark 变更房间内自己的昵称
+/// 变更房间内自己的昵称
+/// - Parameter nickname: 新昵称
+- (void)changeSelvesNickname:(NSString *)nickname;
+
+
 #pragma mark - -------- 视频会议互动消息服务相关接口 ---------
 #pragma mark 更新心跳(自身状态变化时需要及时调用此方法)
 - (void)renewMyAccountHeartBeat;
@@ -396,7 +468,7 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 #pragma mark 发送主持人踢人消息
 /// 发送主持人踢人消息
 /// @param targetId 目标用户ID
-- (void)sendKickoutWithTargetId:(nullable NSString *)targetId;
+- (void)sendKickoutWithTargetId:(nullable NSString *)targetId DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到kickoutMemberWithTargetId:reenter:接口");
 
 #pragma mark 发送主持人禁用/关闭/开启音频消息
 /// 发送主持人禁用/开启音频消息
@@ -425,12 +497,12 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 #pragma mark 发送主持人操作房间音频消息
 /// 发送主持人操作房间音频消息
 /// @param audioState 音频状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
-- (void)sendKostCtrlRoomAudioWithAudioState:(DeviceState)audioState;
+- (void)sendKostCtrlRoomAudioWithAudioState:(DeviceState)audioState DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到setupRoomAudioStateWithState:接口");
 
 #pragma mark 发送主持人操作房间视频消息
 /// 发送主持人操作房间视频消息
 /// @param videoState 视频状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
-- (void)sendKostCtrlRoomVideoWithVideoState:(DeviceState)videoState;
+- (void)sendKostCtrlRoomVideoWithVideoState:(DeviceState)videoState DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到setupRoomVideoStateWithState:接口");
 
 #pragma mark 推送码流发生变化
 /// 推送码流发生变化
@@ -477,18 +549,18 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 #pragma mark 转移房间主持人权限
 /// 转移房间主持人权限
 /// @param targetId 目标用户
-- (void)sendRoomMoveHostWithTargetId:(NSString *)targetId;
+- (void)sendRoomMoveHostWithTargetId:(NSString *)targetId DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到moveRoomHostWithTargetId:接口");
 
 #pragma mark 设置房间联席主持人权限
 /// 设置房间联席主持人权限
 /// @param targetId 目标用户
 /// @param enable YES-设置 NO-回收
-- (void)sendRoomUnionHostWithTargetId:(NSString *)targetId enable:(BOOL)enable;
+- (void)sendRoomUnionHostWithTargetId:(NSString *)targetId enable:(BOOL)enable DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到setupRoomUnionHostWithTargetId:state:接口");
 
 #pragma mark 回收房间主持人权限
 /// 回收房间主持人权限
 /// @param targetId 目标用户
-- (void)sendRoomRecoveryHostWithTargetId:(nullable NSString *)targetId;
+- (void)sendRoomRecoveryHostWithTargetId:(nullable NSString *)targetId DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到recoveryRoomHostWithTargetId:接口");
 
 #pragma mark 设置房间静音状态
 /// 设置房间静音状态
@@ -500,7 +572,7 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// @param targetId 目标用户ID
 /// @param nickname 目标昵称
 /// @param selves 是否为当前账户(YES-自己 NO-其它成员)
-- (void)sendRoomMemberNicknameWithTargetId:(nullable NSString *)targetId nickname:(NSString *)nickname selves:(BOOL)selves;
+- (void)sendRoomMemberNicknameWithTargetId:(nullable NSString *)targetId nickname:(NSString *)nickname selves:(BOOL)selves DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到changeMemberNicknameWithTargetId:nickname:和changeSelvesNickname:接口");
 
 #pragma mark 设置房间是否允许自行解除禁音
 /// 设置房间是否允许自行解除禁音

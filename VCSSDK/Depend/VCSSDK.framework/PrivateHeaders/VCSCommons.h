@@ -21,6 +21,7 @@
 #import "VCSTimerBridge.h"
 #import "VCSLocalizedHelper.h"
 #import "VCSPerformanceBridge.h"
+#import "VCSMeetingNetworkHelper.h"
 
 #import "VCSAudioFileBridge.h"
 #import "VCSAudioTimerBridge.h"

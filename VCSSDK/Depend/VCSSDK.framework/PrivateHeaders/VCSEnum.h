@@ -9,6 +9,49 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - 终端类型
+/**
+ 终端类型
+ 
+ - VCSTerminalTypeWindows: 未知
+ - VCSTerminalTypeWindows: PC端
+ - VCSTerminalTypeAndroid: 安卓端
+ - VCSTerminalTypeiOS: iOS端
+ - VCSTerminalTypeEmbeddedAndroid: 安卓一体机
+ - VCSTerminalTypeEmbedded: 录播主机
+ - VCSTerminalTypeMeetingTerminal: 视频会议硬终端
+ - VCSTerminalTypeAdnroidHD: 安卓HD
+ - VCSTerminalTypeWebRTC: WebRTC
+ - VCSTerminalTypeWeChat: 微信小程序
+ */
+typedef enum : NSUInteger {
+    
+    VCSTerminalTypeUnknown = 0,
+    VCSTerminalTypeWindows = 1,
+    VCSTerminalTypeAndroid = 2,
+    VCSTerminalTypeiOS = 3,
+    VCSTerminalTypeEmbeddedAndroid = 4,
+    VCSTerminalTypeEmbedded = 5,
+    VCSTerminalTypeMeetingTerminal = 6,
+    VCSTerminalTypeAdnroidHD = 7,
+    VCSTerminalTypeWebRTC = 8,
+    VCSTerminalTypeWeChat = 9
+} VCSTerminalType;
+
+#pragma mark - 企业成员角色类型
+/**
+ 企业成员角色类型
+
+- VCSMemberRoleTypeNormal: 普通成员
+- VCSMemberRoleTypeCreator: 创建者
+- VCSMemberRoleTypeAdmin: 管理员
+*/
+typedef enum : NSUInteger {
+    VCSMemberRoleTypeNormal = 0,
+    VCSMemberRoleTypeCreator,
+    VCSMemberRoleTypeAdmin
+} VCSMemberRoleType;
+
 #pragma mark - 码流类型标识符
 /**
  码流类型标识符
