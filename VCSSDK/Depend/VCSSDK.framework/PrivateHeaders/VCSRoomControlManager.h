@@ -66,6 +66,20 @@ typedef void (^VCSNetworkResultBlock)(BOOL result, id _Nullable data, NSString *
 /// @param resultBlock 结果回调
 - (void)kickoutMemberWithTargetId:(NSString *)targetId reenter:(BOOL)reenter resultBlock:(nullable VCSNetworkResultBlock)resultBlock;
 
+#pragma mark 主持人操作成员音频状态
+/// 主持人操作成员音频状态
+/// @param accountidArray 成员标识列表(为空时表示全员操作)
+/// @param audioState 音频状态
+/// @param resultBlock 结果回调
+- (void)hostControlMemberAudioWithAccountidArray:(nullable NSArray<NSString *> *)accountidArray audioState:(DeviceState)audioState resultBlock:(nullable VCSNetworkResultBlock)resultBlock;
+
+#pragma mark 主持人操作成员视频状态
+/// 主持人操作成员视频状态
+/// @param accountidArray 成员标识列表(为空时表示全员操作)
+/// @param videoState 视频状态
+/// @param resultBlock 结果回调
+- (void)hostControlMemberVideoWithAccountidArray:(nullable NSArray<NSString *> *)accountidArray videoState:(DeviceState)videoState resultBlock:(nullable VCSNetworkResultBlock)resultBlock;
+
 #pragma mark 转移主持人权限给指定成员
 /// 转移主持人权限给指定成员
 /// @param targetId 目标成员标识
@@ -96,6 +110,18 @@ typedef void (^VCSNetworkResultBlock)(BOOL result, id _Nullable data, NSString *
 /// @param state 视频状态
 /// @param resultBlock 结果回调
 - (void)setupRoomVideoStateWithState:(DeviceState)state resultBlock:(nullable VCSNetworkResultBlock)resultBlock;
+
+#pragma mark 设置房间锁定状态
+/// 设置房间锁定状态
+/// @param state 是否锁定(YES-锁定 NO-解锁)
+/// @param resultBlock 结果回调
+- (void)setupRoomLockoutStateWithState:(BOOL)state resultBlock:(nullable VCSNetworkResultBlock)resultBlock;
+
+#pragma mark 设置房间状态
+/// 设置房间状态
+/// @param enable 是否启用(YES-启用 NO-禁用)
+/// @param resultBlock 结果回调
+- (void)setupRoomStateWithEnable:(BOOL)enable resultBlock:(nullable VCSNetworkResultBlock)resultBlock;
 
 #pragma mark 变更房间内成员的昵称
 /// 变更房间内成员的昵称

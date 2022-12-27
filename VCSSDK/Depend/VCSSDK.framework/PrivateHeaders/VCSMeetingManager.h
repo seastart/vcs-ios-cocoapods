@@ -101,8 +101,8 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 
 #pragma mark - -------- 视频会议基础接口 ---------
 #pragma mark (音频转发包 视频转发包 数据转发包 SDP转发包)
-#pragma mark 初始化会议SDK(YES-连接成功，NO-连接失败)
-/// 初始化会议SDK(YES-连接成功，NO-连接失败)
+#pragma mark 加入会议房间(YES-连接成功，NO-连接失败)
+/// 加入会议房间(YES-连接成功，NO-连接失败)
 /// @param meetingParam 会控参数
 /// @param isNoPickAudio 是否开启NoPickAudio模式(视频默认选择4方，音频选择所有发言者)
 /// @param delegate 代理委托
@@ -406,6 +406,18 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// @param reenter 是否允许再次进入
 - (void)kickoutMemberWithTargetId:(NSString *)targetId reenter:(BOOL)reenter;
 
+#pragma mark 主持人操作成员音频状态
+/// 主持人操作成员音频状态
+/// @param accountidArray 成员标识列表(为空时表示全员操作)
+/// @param audioState 音频状态
+- (void)hostControlMemberAudioWithAccountidArray:(nullable NSArray<NSString *> *)accountidArray audioState:(DeviceState)audioState;
+
+#pragma mark 主持人操作成员视频状态
+/// 主持人操作成员视频状态
+/// @param accountidArray 成员标识列表(为空时表示全员操作)
+/// @param videoState 视频状态
+- (void)hostControlMemberVideoWithAccountidArray:(nullable NSArray<NSString *> *)accountidArray videoState:(DeviceState)videoState;
+
 #pragma mark 转移主持人权限给指定成员
 /// 转移主持人权限给指定成员
 /// @param targetId 目标成员标识
@@ -431,6 +443,16 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// 设置房间视频状态
 /// @param state 视频状态
 - (void)setupRoomVideoStateWithState:(DeviceState)state;
+
+#pragma mark 设置房间锁定状态
+/// 设置房间锁定状态
+/// @param state 是否锁定(YES-锁定 NO-解锁)
+- (void)setupRoomLockoutStateWithState:(BOOL)state;
+
+#pragma mark 设置房间状态
+/// 设置房间状态
+/// @param enable 是否启用(YES-启用 NO-禁用)
+- (void)setupRoomStateWithEnable:(BOOL)enable;
 
 #pragma mark 变更房间内成员的昵称
 /// 变更房间内成员的昵称
@@ -486,13 +508,13 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// 发送主持人操作成员音频消息
 /// @param targetidsArray 成员列表(为空时表示全局禁用)
 /// @param audioState 音频状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
-- (void)sendKostCtrlMemberAudioWithTargetidsArray:(nullable NSMutableArray<NSString *> *)targetidsArray audioState:(DeviceState)audioState;
+- (void)sendKostCtrlMemberAudioWithTargetidsArray:(nullable NSMutableArray<NSString *> *)targetidsArray audioState:(DeviceState)audioState DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到hostControlMemberAudioWithAccountidArray:audioState:接口");
 
 #pragma mark 发送主持人操作成员视频消息
 /// 发送主持人操作成员视频消息
 /// @param targetidsArray 成员列表(为空时表示全局禁用)
 /// @param videoState 视频状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
-- (void)sendKostCtrlMemberVideoWithTargetidsArray:(nullable NSMutableArray<NSString *> *)targetidsArray videoState:(DeviceState)videoState;
+- (void)sendKostCtrlMemberVideoWithTargetidsArray:(nullable NSMutableArray<NSString *> *)targetidsArray videoState:(DeviceState)videoState DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到hostControlMemberVideoWithAccountidArray:videoState:接口");
 
 #pragma mark 发送主持人操作房间音频消息
 /// 发送主持人操作房间音频消息

@@ -20,6 +20,8 @@ FOUNDATION_EXTERN NSString *__nonnull const VCSTouristLoginInterfacePart;
 
 #pragma mark - 踢出指定成员
 FOUNDATION_EXTERN NSString *__nonnull const VCSRoomKickoutInfofacePart;
+#pragma mark - 操作成员音视频状态
+FOUNDATION_EXTERN NSString *__nonnull const VCSRoomMemberMediaStateInfofacePart;
 #pragma mark - 转移主持人给指定成员
 FOUNDATION_EXTERN NSString *__nonnull const VCSRoomMoveHostInfofacePart;
 #pragma mark - 回收指定成员房间主持人权限
@@ -28,6 +30,10 @@ FOUNDATION_EXTERN NSString *__nonnull const VCSRoomRecoveryHostInfofacePart;
 FOUNDATION_EXTERN NSString *__nonnull const VCSRoomUnionHostInfofacePart;
 #pragma mark - 设置房间音视频状态
 FOUNDATION_EXTERN NSString *__nonnull const VCSRoomMediaStateInfofacePart;
+#pragma mark - 设置房间锁定状态
+FOUNDATION_EXTERN NSString *__nonnull const VCSRoomLockedStateInfofacePart;
+#pragma mark - 设置房间状态
+FOUNDATION_EXTERN NSString *__nonnull const VCSRoomStateInfofacePart;
 #pragma mark - 变更房间内成员昵称
 FOUNDATION_EXTERN NSString *__nonnull const VCSRoomMemberNicknameInfofacePart;
 #pragma mark - 变更房间内自己的状态
