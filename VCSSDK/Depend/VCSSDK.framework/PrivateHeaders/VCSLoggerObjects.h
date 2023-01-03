@@ -159,11 +159,11 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 
 /// 上行码率
 @property (nonatomic, assign) CGFloat bitrate_up;
-/// 下行码率❓
+/// 下行码率
 @property (nonatomic, assign) CGFloat bitrate_down;
 /// 上行丢包率(补偿后)
 @property (nonatomic, assign) CGFloat lossrate_up;
-/// 下行丢包率(补偿后)❓
+/// 下行丢包率(补偿后)
 @property (nonatomic, assign) CGFloat lossrate_down;
 /// 上行网络延时
 @property (nonatomic, assign) CGFloat delay;
@@ -198,20 +198,23 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 
 /// 用户标识
 @property (nonatomic, copy, nullable) NSString *uid;
-/// 音频码率❓
+/// 音频码率
 @property (nonatomic, assign) CGFloat bitrate;
 /// 音频分贝值
 @property (nonatomic, assign) CGFloat db;
 /// 编码格式
 @property (nonatomic, copy, nullable) NSString *codec;
+/// 内部字段(流媒体标识)
+@property (nonatomic, assign, readonly) NSInteger linkId;
 
 /// 创建音频日志对象
 /// - Parameters:
 ///   - userId: 用户标识
+///   - linkId: 流媒体标识
 ///   - bitrate: 音频码率
 ///   - db: 音频分贝值
 ///   - codec: 编码格式
-- (instancetype)initWithUserId:(nullable NSString *)userId bitrate:(CGFloat)bitrate db:(CGFloat)db codec:(nullable NSString *)codec;
+- (instancetype)initWithUserId:(nullable NSString *)userId linkId:(NSInteger)linkId bitrate:(CGFloat)bitrate db:(CGFloat)db codec:(nullable NSString *)codec;
 
 @end
 
@@ -220,7 +223,7 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 
 /// 用户标识
 @property (nonatomic, copy, nullable) NSString *uid;
-/// 视频码率❓
+/// 视频码率
 @property (nonatomic, assign) CGFloat bitrate;
 /// 视频分辨率
 @property (nonatomic, assign) CGFloat height;
