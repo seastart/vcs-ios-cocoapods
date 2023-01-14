@@ -126,7 +126,9 @@
 //event
 -(void)vcs_RoomEvent_Callback:(int)iEvent lparam:(int)lparam wparam:(int)wparam ptr:(NSString*)ptr;
 //client frame
-- (void)vcs_Client_FrameCb:(int)linkId track:(int)track type:(int)type lable:(int)lable width:(int)width height:(int)height yData:(void *)yData uData:(void*)uData vData:(void*)vData;
+//- (void)vcs_Client_FrameCb:(int)linkId track:(int)track type:(int)type lable:(int)lable width:(int)width height:(int)height yData:(void *)yData uData:(void*)uData vData:(void*)vData;
+
+- (void)vcs_Client_FrameCb:(int)linkId stamp:(int)stamp track:(int)track type:(int)type lable:(int)lable width:(int)width height:(int)height yData:(void *)yData uData:(void*)uData vData:(void*)vData;
 
 //audio status event
 //new 2020/08/13
