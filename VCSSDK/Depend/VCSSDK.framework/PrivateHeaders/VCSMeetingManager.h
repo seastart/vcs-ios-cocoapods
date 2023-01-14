@@ -379,6 +379,9 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 #pragma mark 更新心跳(自身状态变化时需要及时调用此方法)
 - (void)renewMyAccountHeartBeat;
 
+#pragma mark 发送退出房间消息
+- (void)sendExitRoom;
+
 #pragma mark 变更个人信息的扩展字段
 /// 变更个人信息的扩展字段
 /// @param extend 扩展字段内容

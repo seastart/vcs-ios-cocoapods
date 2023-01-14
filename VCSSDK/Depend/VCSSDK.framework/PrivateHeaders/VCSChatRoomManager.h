@@ -83,6 +83,9 @@ typedef void (^VCSChatRoomManagerDestroyBlock)(void);
 /// 发送心跳消息
 - (void)sendHeartBeat;
 
+#pragma mark 发送退出房间消息
+- (void)sendExitRoom;
+
 #pragma mark 发送聊天消息
 /// 发送文本消息
 /// @param message 消息内容
