@@ -31,6 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取设备全部内存
 + (double)getAllMemory;
 
+#pragma mark - 获取磁盘空间警告
+/// 获取磁盘空间警告
++ (BOOL)getDiskspaceWarning;
+
 @end
 
 NS_ASSUME_NONNULL_END
