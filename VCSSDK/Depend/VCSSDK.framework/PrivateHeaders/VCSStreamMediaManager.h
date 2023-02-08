@@ -40,14 +40,15 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 会议室当前用户上传流媒体状态回调
 /// 会议室当前用户上传流媒体状态回调
 /// @param ptr 底层防止溢出字段
-/// @param streamData 流媒体信息(delay : 上传延迟时间 speed : 上传发送速度 status : -1上传出错 >=0正常 buffer : 上传缓冲包0-4正常 overflow : 上传缓冲包0-4正常 loss_r = "0.00"; 当前上传丢包率 loss_c  = "0.00"; 经过补偿的最终上传丢包率)
+/// @param streamData 流媒体信息
 /// {
 ///    uploadinfo =     (
 ///                {
 ///            buffer = 0; 上传缓冲包0-4正常
 ///            delay = 0; 上传延迟时间
 ///            overflow = 0; 上传缓冲包0-4正常
-///            speed = 0kps; 上传发送速度
+///            speed = 0kps; 上传视频速率
+///            audio_speed: 0kps; 上传音频速率
 ///            status = "-2"; -1上传出错 >=0正常
 ///            loss_r = "0.00"; 当前上传丢包率
 ///            loss_c  = "0.00"; 经过补偿的最终上传丢包率
