@@ -120,13 +120,18 @@
 //系统初始化后设置音频出于非上传状态/或者上传状态，
 #define VCS_SET_DEFNOSEND 0x308   //default send lparam = 0,lparam=1 nosend
 
+/// encrypt
+#define VCS_SET_ECPA 0x30a
+
 //设置代理用于数据回调
 @protocol callbackdataDelegate <NSObject>
 
 //event
 -(void)vcs_RoomEvent_Callback:(int)iEvent lparam:(int)lparam wparam:(int)wparam ptr:(NSString*)ptr;
 //client frame
-- (void)vcs_Client_FrameCb:(int)linkId track:(int)track type:(int)type lable:(int)lable width:(int)width height:(int)height yData:(void *)yData uData:(void*)uData vData:(void*)vData;
+//- (void)vcs_Client_FrameCb:(int)linkId track:(int)track type:(int)type lable:(int)lable width:(int)width height:(int)height yData:(void *)yData uData:(void*)uData vData:(void*)vData;
+
+- (void)vcs_Client_FrameCb:(int)linkId stamp:(int)stamp track:(int)track type:(int)type lable:(int)lable width:(int)width height:(int)height yData:(void *)yData uData:(void*)uData vData:(void*)vData;
 
 //audio status event
 //new 2020/08/13
