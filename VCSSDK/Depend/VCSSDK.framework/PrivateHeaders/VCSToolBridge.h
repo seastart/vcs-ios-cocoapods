@@ -79,6 +79,26 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param data 加密数据
 - (NSString *)VCSMD5:(NSString *)data;
 
+<<<<<<< HEAD
+=======
+#pragma mark - 构造远程视频索引键
+/// 构造远程视频索引键
+/// @param linkId 流媒体标识
+/// @param trackNo 轨道号号码
++ (NSString *)formationStreamRemoteKey:(int)linkId trackNo:(int)trackNo;
+
+#pragma mark - 判断掩码是否包含有该轨道
+/// 判断掩码是否包含有该轨道
+/// @param mask 轨道掩码
+/// @param track 轨道号码
++ (BOOL)hasTrack:(int)mask track:(int)track;
+
+#pragma mark - 获取掩码所包含的轨道列表
+/// 获取掩码所包含的轨道列表
+/// @param mask  轨道掩码
++ (NSArray *)maskCompriseByTrack:(int)mask;
+
+>>>>>>> master
 @end
 
 NS_ASSUME_NONNULL_END

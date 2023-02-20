@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VCSSDK'
-  s.version          = '1.3.13-manage.3'
+  s.version          = '1.3.14-manage.1'
 
   s.summary          = '视频会议SDK'
 # This description is used to generate tags and improve search results.
@@ -38,9 +38,12 @@ TODO: Add long description of the pod here.
   # 依赖系统Librarie库
   s.libraries = 'icucore', 'c', 'z', 'iconv', 'bz2', 'c++', 'resolv'
 
-  # 依赖开源数据传输解析库
+  # 依赖开源库
+  s.dependency 'MMKV'
   s.dependency 'Protobuf'
-
+  s.dependency 'SSZipArchive', '>= 2.4.3'
+  s.dependency 'AFNetworking', '>= 4.0.0'
+  
   # 依赖本地Frameworks库
   s.vendored_frameworks = 'VCSSDK/Depend/*.framework'
   
