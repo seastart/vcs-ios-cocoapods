@@ -19,6 +19,8 @@
 
 #import "VCSToolBridge.h"
 #import "VCSTimerBridge.h"
+#import "VCSDeviceBridge.h"
+#import "VCSNetworkBridge.h"
 #import "VCSLocalizedHelper.h"
 #import "VCSPerformanceBridge.h"
 

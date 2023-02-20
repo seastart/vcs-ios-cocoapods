@@ -11,16 +11,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VCSPerformanceBridge : NSObject
 
-/// 初始化方法
-+ (VCSPerformanceBridge *)sharedManager;
+#pragma mark - 获取应用程序内存占用情况
+/// 获取应用程序内存占用情况
++ (double)getApplicationMemory;
 
-#pragma mark - 获取当前应用的内存占用情况
-/// 获取当前应用的内存占用情况
-- (double)getMemoryUsage;
+#pragma mark - 获取应用程序CPU占用率
+/// 获取应用程序CPU占用率
++ (double)getApplicationCPU;
 
-#pragma mark - 获取当前应用CPU占有率
-/// 获取当前应用在CPU中的占有率
-- (double)getCpuUsage;
+#pragma mark - 获取系统内存占用情况
+/// 获取系统内存占用情况
++ (double)getSystemMemory;
+
+#pragma mark - 获取系统CPU占用率
+/// 获取系统CPU占用率
++ (double)getSystemCPU;
+
+#pragma mark - 获取设备全部内存
+/// 获取设备全部内存
++ (double)getAllMemory;
+
+#pragma mark - 获取磁盘空间警告
+/// 获取磁盘空间警告
++ (BOOL)getDiskspaceWarning;
 
 @end
 

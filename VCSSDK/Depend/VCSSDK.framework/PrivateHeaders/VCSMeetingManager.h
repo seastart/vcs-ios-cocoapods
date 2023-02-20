@@ -18,6 +18,7 @@
 #import "Models.pbobjc.h"
 #import "RoomServer.pbobjc.h"
 #import "VCSCommons.h"
+#import "RTCModel.h"
 #import "VCSMeetingManagerProtocol.h"
 #import "VCSMeetingMemberModel.h"
 
@@ -62,6 +63,8 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 @property (nonatomic, assign) BOOL isDestroy;
 #pragma mark 标记本地采集是否开启
 @property (nonatomic, assign) BOOL isCameraCapture;
+#pragma mark 标识当前是否在房间内
+@property (nonatomic, assign) BOOL enterRoom;
 #pragma mark 标记本地共享状态
 @property (nonatomic, assign) BOOL isLocalShared;
 
@@ -375,6 +378,9 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 #pragma mark - -------- 视频会议互动消息服务相关接口 ---------
 #pragma mark 更新心跳(自身状态变化时需要及时调用此方法)
 - (void)renewMyAccountHeartBeat;
+
+#pragma mark 发送退出房间消息
+- (void)sendExitRoom;
 
 #pragma mark 变更个人信息的扩展字段
 /// 变更个人信息的扩展字段

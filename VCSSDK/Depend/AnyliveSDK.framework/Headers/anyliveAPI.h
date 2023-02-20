@@ -120,6 +120,9 @@
 //系统初始化后设置音频出于非上传状态/或者上传状态，
 #define VCS_SET_DEFNOSEND 0x308   //default send lparam = 0,lparam=1 nosend
 
+/// encrypt
+#define VCS_SET_ECPA 0x30a
+
 //设置代理用于数据回调
 @protocol callbackdataDelegate <NSObject>
 

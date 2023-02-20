@@ -2,43 +2,71 @@
 //  VCSNetworkBridge.h
 //  VCSSDK
 //
-//  Created by SailorGa on 2021/11/2.
+//  Created by SailorGa on 2022/9/28.
 //
 
+#import <AFNetworking/AFNetworking.h>
 #import <Foundation/Foundation.h>
-#import "VCSNetworkModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^NetworkResultBlock)(BOOL result, id _Nullable data, NSString * _Nullable errorMsg);
+
 @interface VCSNetworkBridge : NSObject
 
-#pragma mark - 单例获取网络检测工具示例
-/// 单例获取网络检测工具示例
+#pragma mark - 获取网络工具对象
+/// 获取网络工具对象
 + (VCSNetworkBridge *)sharedManager;
 
-#pragma mark - 恢复初始设置
-/// 恢复初始设置
-- (void)setup;
+#pragma mark - 设置域名地址
+/// 设置域名地址
+/// - Parameters:
+///   - domainUrl: 域名地址
+///   - secretKey: 请求密钥
+- (void)setupDomainUrl:(NSString *)domainUrl secretKey:(NSString *)secretKey;
 
-#pragma mark - 单次网络检测结果处理
-/// 单次网络检测结果处理
-/// @param result 单次检测结果
-/// @param replacing 需要替换的字符串
-/// @param upload 是否为上行
-- (void)networkDetectionSingleWithResult:(NSString *)result replacing:(NSString *)replacing upload:(BOOL)upload;
+#pragma mark - 设置用户令牌
+/// 设置用户令牌
+/// - Parameter token: 用户令牌
+- (void)setupUserToken:(nullable NSString *)token;
 
-#pragma mark - 最终上行网络检测结果处理
-/// 最终上行网络检测结果处理
-- (nullable VCSNetworkModel *)networkUploadFinally;
+#pragma mark - 发起GET请求
+/// 发起GET请求
+/// - Parameters:
+///   - url: 请求接口
+///   - params: 请求参数
+///   - className: 结果对象
+///   - resultBlock: 请求回调
+- (void)GET:(NSString *)url params:(nullable NSDictionary *)params className:(nullable NSString *)className resultBlock:(NetworkResultBlock)resultBlock;
 
-#pragma mark - 最终下行网络检测结果处理
-/// 最终下行网络检测结果处理
-- (nullable VCSNetworkModel * )networkDownFinally;
+#pragma mark - 发起POST请求
+/// 发起POST请求
+/// - Parameters:
+///   - url: 请求接口
+///   - params: 请求参数
+///   - className: 结果对象
+///   - resultBlock: 请求回调
+- (void)POST:(NSString *)url params:(nullable NSDictionary *)params className:(nullable NSString *)className resultBlock:(NetworkResultBlock)resultBlock;
 
-#pragma mark - 最终网络检测结果处理
-/// 最终网络检测结果处理
-/// @param dataArray 单次检测结果列表
-- (nullable VCSNetworkModel *)networkDetectionFinallyWithDataArray:(NSArray<VCSNetworkModel *> *)dataArray;
+#pragma mark - 发起POST上传图片
+/// 发起POST上传图片
+/// - Parameters:
+///   - url: 请求接口
+///   - params: 请求参数
+///   - imageData: 图片数据
+///   - className: 结果对象
+///   - resultBlock: 请求回调
+- (void)POST:(NSString *)url params:(nullable NSDictionary *)params imageData:(NSData *)imageData className:(nullable NSString *)className resultBlock:(NetworkResultBlock)resultBlock;
+
+#pragma mark - 发起POST上传压缩包
+/// 发起POST上传压缩包
+/// - Parameters:
+///   - url: 请求接口
+///   - params: 请求参数
+///   - fileData: 文件数据
+///   - className: 结果对象
+///   - resultBlock: 请求回调
+- (void)POST:(NSString *)url params:(nullable NSDictionary *)params fileData:(NSData *)fileData className:(nullable NSString *)className resultBlock:(NetworkResultBlock)resultBlock;
 
 @end
 
