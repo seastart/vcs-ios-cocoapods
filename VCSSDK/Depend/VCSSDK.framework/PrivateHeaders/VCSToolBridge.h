@@ -51,13 +51,50 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param domain 域名地址
 - (NSString *)localDomainParsing:(NSString *)domain;
 
-#pragma mark - 获取当前时间(精确到毫秒)
-/// 获取当前时间(精确到毫秒)
-- (NSTimeInterval)getTimeInterval;
+#pragma mark - 获取当前时间戳
+/// 获取当前时间戳
+- (NSTimeInterval)getNowTimeInterval;
+
+#pragma mark - 获取当前时间戳(毫秒)
+/// 获取当前时间戳(毫秒)
+- (NSTimeInterval)getNowTimeIntervalMilli;
 
 #pragma mark - 判断应用是否在Mac上运行
 /// 判断应用是否在Mac上运行
 - (BOOL)isiOSAppOnMac;
+
+#pragma mark - HmacSHA1方式加密的字符串
+/// HmacSHA1方式加密的字符串
+/// @param key 加密Key
+/// @param data 加密数据
+- (NSString *)VCSHmacSha1:(NSString *)key data:(NSString *)data;
+
+#pragma mark - HmacSHA256方式加密的字符串
+/// HmacSHA256方式加密的字符串
+/// @param data 加密数据
+- (NSString *)VCSHmacSha256:(NSString *)data;
+
+#pragma mark - MD5方式加密的字符串
+/// MD5方式加密的字符串
+/// @param data 加密数据
+- (NSString *)VCSMD5:(NSString *)data;
+
+#pragma mark - 构造远程视频索引键
+/// 构造远程视频索引键
+/// @param linkId 流媒体标识
+/// @param trackNo 轨道号号码
++ (NSString *)formationStreamRemoteKey:(int)linkId trackNo:(int)trackNo;
+
+#pragma mark - 判断掩码是否包含有该轨道
+/// 判断掩码是否包含有该轨道
+/// @param mask 轨道掩码
+/// @param track 轨道号码
++ (BOOL)hasTrack:(int)mask track:(int)track;
+
+#pragma mark - 获取掩码所包含的轨道列表
+/// 获取掩码所包含的轨道列表
+/// @param mask  轨道掩码
++ (NSArray *)maskCompriseByTrack:(int)mask;
 
 @end
 
