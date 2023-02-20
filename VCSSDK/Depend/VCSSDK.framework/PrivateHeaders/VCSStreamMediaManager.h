@@ -40,14 +40,15 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 会议室当前用户上传流媒体状态回调
 /// 会议室当前用户上传流媒体状态回调
 /// @param ptr 底层防止溢出字段
-/// @param streamData 流媒体信息(delay : 上传延迟时间 speed : 上传发送速度 status : -1上传出错 >=0正常 buffer : 上传缓冲包0-4正常 overflow : 上传缓冲包0-4正常 loss_r = "0.00"; 当前上传丢包率 loss_c  = "0.00"; 经过补偿的最终上传丢包率)
+/// @param streamData 流媒体信息
 /// {
 ///    uploadinfo =     (
 ///                {
 ///            buffer = 0; 上传缓冲包0-4正常
 ///            delay = 0; 上传延迟时间
 ///            overflow = 0; 上传缓冲包0-4正常
-///            speed = 0kps; 上传发送速度
+///            speed = 0kps; 上传视频速率
+///            audio_speed: 0kps; 上传音频速率
 ///            status = "-2"; -1上传出错 >=0正常
 ///            loss_r = "0.00"; 当前上传丢包率
 ///            loss_c  = "0.00"; 经过补偿的最终上传丢包率
@@ -70,6 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///              "lrl": 6.8,  短时端到端丢包率（对方手机到你手机）
 ///              "lrd": 8.9,   短时下行丢包率（服务器到你）
 ///              "audio": 600,   接收音频包信息
+///              "audio_speed": -1,   音频速率
+///              "total_speed": -1,    视频速率
 ///          }
 ///      ]
 ///  }
@@ -156,7 +159,8 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 /// @property (nonatomic, assign) NSInteger connectDelayNumber;
 #pragma mark 流媒体服务连接状态
 @property (nonatomic, assign) BOOL isStaticConnect;
-
+#pragma mark 是否在共享屏幕
+@property (nonatomic, assign) BOOL isScreenShare;
 
 #pragma mark 网络状态变更
 /// 网络状态变更
@@ -359,6 +363,47 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 #pragma mark 非语音模式流媒体设置
 /// 非语音模式流媒体设置
 - (void)nonAudioModeStreamMediaSetup;
+
+#pragma mark - -------- 触发日志相关接口 --------
+#pragma mark 追加角色变化日志
+/// 追加角色变化日志
+/// - Parameters:
+///   - originRole: 原角色
+///   - newRole: 新角色
+- (void)writeRoomRoleChange:(ConferenceRole)originRole newRole:(ConferenceRole)newRole;
+
+#pragma mark 追加昵称变化日志
+/// 追加昵称变化日志
+/// - Parameters:
+///   - originName: 原昵称
+///   - newName: 新昵称
+- (void)writeRoomNicknameChange:(NSString *)originName newName:(NSString *)newName;
+
+#pragma mark 追加会控消息日志
+/// 追加会控消息日志
+/// - Parameters:
+///   - command: 指令
+///   - result: 结果
+///   - type: 包类型
+///   - data: 消息数据
+- (void)writeMessageLogWithCommand:(Command)command result:(Result)result type:(PacketType)type data:(nullable NSString *)data;
+
+#pragma mark 追加事件日志
+/// 追加事件日志
+/// - Parameters:
+///   - moduleName: 模块名称
+///   - logType: 日志类型
+///   - params: 日志内容
+- (void)addEventLogs:(NSString *)moduleName logType:(NSString *)logType params:(id)params;
+
+#pragma mark 设置共享桌面实时信息
+/// 设置共享桌面实时信息
+/// - Parameters:
+///   - bitrate: 码率
+///   - height: 分辨率
+///   - width: 分辨率
+///   - framerate: 帧率
+- (void)setupScreenBitrate:(int)bitrate height:(int)height width:(int)width framerate:(CGFloat)framerate;
 
 @end
 

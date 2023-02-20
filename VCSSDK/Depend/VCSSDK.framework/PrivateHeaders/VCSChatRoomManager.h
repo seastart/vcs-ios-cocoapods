@@ -32,9 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 监听互动服务消息
 /// 监听互动服务消息
 /// @param command 消息类型
+/// @param result 结果
 /// @param data 消息体
 /// @param firstNotify 是否为首次状态通知
-- (void)roomListenMessageWithCommand:(Command)command data:(NSData *)data firstNotify:(BOOL)firstNotify;
+- (void)roomListenMessageWithCommand:(Command)command result:(Result)result data:(NSData *)data firstNotify:(BOOL)firstNotify;
 
 @end
 
@@ -81,6 +82,9 @@ typedef void (^VCSChatRoomManagerDestroyBlock)(void);
 #pragma mark 发送心跳消息
 /// 发送心跳消息
 - (void)sendHeartBeat;
+
+#pragma mark 发送退出房间消息
+- (void)sendExitRoom;
 
 #pragma mark 发送聊天消息
 /// 发送文本消息
