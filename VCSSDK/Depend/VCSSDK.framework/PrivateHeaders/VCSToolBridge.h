@@ -79,8 +79,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param data 加密数据
 - (NSString *)VCSMD5:(NSString *)data;
 
-<<<<<<< HEAD
-=======
 #pragma mark - 构造远程视频索引键
 /// 构造远程视频索引键
 /// @param linkId 流媒体标识
@@ -98,7 +96,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param mask  轨道掩码
 + (NSArray *)maskCompriseByTrack:(int)mask;
 
->>>>>>> master
 @end
 
 NS_ASSUME_NONNULL_END

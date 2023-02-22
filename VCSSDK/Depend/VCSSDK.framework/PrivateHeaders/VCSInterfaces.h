@@ -9,7 +9,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-<<<<<<< HEAD
 #pragma mark - 密码HmacSHA1加密Key
 FOUNDATION_EXTERN NSString *__nonnull const VCSHmacSha1Key;
 #pragma mark - HTTP接口请求前缀
@@ -39,7 +38,7 @@ FOUNDATION_EXTERN NSString *__nonnull const VCSRoomStateInfofacePart;
 FOUNDATION_EXTERN NSString *__nonnull const VCSRoomMemberNicknameInfofacePart;
 #pragma mark - 变更房间内自己的状态
 FOUNDATION_EXTERN NSString *__nonnull const VCSRoomSelvesStateInfofacePart;
-=======
+
 #pragma mark - 接口请求公共路径
 FOUNDATION_EXTERN NSString *__nonnull const VCSREQUESTPATH;
 #pragma mark - 存储上传鉴权令牌
@@ -52,7 +51,6 @@ FOUNDATION_EXTERN NSString *__nonnull const VCSLoggerUploadAuthToken;
 FOUNDATION_EXTERN NSString *__nonnull const VCSLoggerLogsUpload;
 #pragma mark - 实时日志上报
 FOUNDATION_EXTERN NSString *__nonnull const VCSLoggerMetricUpload;
->>>>>>> master
 
 #pragma mark - 呼叫服务接收订阅主题
 FOUNDATION_EXTERN NSString *__nonnull const VCSRegReceiveTopic;
