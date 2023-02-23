@@ -9,8 +9,8 @@
 #define VCSMacros_h
 
 #pragma mark - 自定义DEBUG日志
-/// #define VCSLOG(format,...) NSLog((@"[VCSSDKLOG][%@][%d] " format),[[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__,##__VA_ARGS__)
-#define VCSLOG(str, args...) ((void)0)
+#define VCSLOG(format,...) NSLog((@"[VCSSDKLOG][%@][%d] " format),[[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__,##__VA_ARGS__)
+/// #define VCSLOG(str, args...) ((void)0)
 
 #pragma mark - 设备标识
 #define VCSDeviceIdentifier [[UIDevice currentDevice].identifierForVendor UUIDString]
