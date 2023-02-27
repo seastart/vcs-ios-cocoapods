@@ -283,6 +283,12 @@ typedef GPB_ENUM(Command) {
 
   /** =====================Rooms系统配置文件通知========================== */
   Command_CmdRoomsUpgradeFileNotify = 1043,
+
+  /** 将数据通过服务透传到指定的帐号(非MQTT连接的客户端用) */
+  Command_CmdTransparent = 2000,
+
+  /** 被踢离开会议通知 */
+  Command_CmdRoomNotifyKickoutExit = 1500,
 };
 
 GPBEnumDescriptor *Command_EnumDescriptor(void);
@@ -509,6 +515,9 @@ typedef GPB_ENUM(AccountType) {
 
   /** 萤石监控相机 */
   AccountType_AtEzvizcamera = 9,
+
+  /** rooms盒子 */
+  AccountType_AtRooms = 10,
 };
 
 GPBEnumDescriptor *AccountType_EnumDescriptor(void);
@@ -846,22 +855,22 @@ GPBEnumDescriptor *NetLevel_EnumDescriptor(void);
  **/
 BOOL NetLevel_IsValidValue(int32_t value);
 
-#pragma mark - Enum DeviceOnlineType
+#pragma mark - Enum SdkNetType
 
-typedef GPB_ENUM(DeviceOnlineType) {
-  DeviceOnlineType_DotUdp = 0,
-  DeviceOnlineType_DotWs = 1,
-  DeviceOnlineType_DotMqtt = 2,
-  DeviceOnlineType_DotRedisQueue = 3,
+typedef GPB_ENUM(SdkNetType) {
+  SdkNetType_DotUdp = 0,
+  SdkNetType_DotWs = 1,
+  SdkNetType_DotMqtt = 2,
+  SdkNetType_DotRedisQueue = 3,
 };
 
-GPBEnumDescriptor *DeviceOnlineType_EnumDescriptor(void);
+GPBEnumDescriptor *SdkNetType_EnumDescriptor(void);
 
 /**
  * Checks to see if the given value is defined by the enum or was not known at
  * the time this source was generated.
  **/
-BOOL DeviceOnlineType_IsValidValue(int32_t value);
+BOOL SdkNetType_IsValidValue(int32_t value);
 
 #pragma mark - Enum HandUpStatus
 
@@ -2117,32 +2126,32 @@ GPB_FINAL @interface SystemOption : GPBMessage
 
 @end
 
-#pragma mark - MsgQueueWrap
+#pragma mark - TransparentWrap
 
-typedef GPB_ENUM(MsgQueueWrap_FieldNumber) {
-  MsgQueueWrap_FieldNumber_Data_p = 1,
-  MsgQueueWrap_FieldNumber_TargetId = 2,
-  MsgQueueWrap_FieldNumber_Command = 3,
-  MsgQueueWrap_FieldNumber_TokenId = 4,
+typedef GPB_ENUM(TransparentWrap_FieldNumber) {
+  TransparentWrap_FieldNumber_Id_p = 1,
+  TransparentWrap_FieldNumber_Command = 2,
+  TransparentWrap_FieldNumber_Payload = 3,
+  TransparentWrap_FieldNumber_Type = 4,
 };
 
-GPB_FINAL @interface MsgQueueWrap : GPBMessage
+GPB_FINAL @interface TransparentWrap : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *data_p;
-/** Test to see if @c data_p has been set. */
-@property(nonatomic, readwrite) BOOL hasData_p;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSString *targetId;
-/** Test to see if @c targetId has been set. */
-@property(nonatomic, readwrite) BOOL hasTargetId;
+/** reg上是tokenId,room上是accId */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+/** Test to see if @c id_p has been set. */
+@property(nonatomic, readwrite) BOOL hasId_p;
 
 @property(nonatomic, readwrite) Command command;
 
 @property(nonatomic, readwrite) BOOL hasCommand;
-@property(nonatomic, readwrite, copy, null_resettable) NSString *tokenId;
-/** Test to see if @c tokenId has been set. */
-@property(nonatomic, readwrite) BOOL hasTokenId;
+@property(nonatomic, readwrite, copy, null_resettable) NSData *payload;
+/** Test to see if @c payload has been set. */
+@property(nonatomic, readwrite) BOOL hasPayload;
 
+@property(nonatomic, readwrite) PacketType type;
+
+@property(nonatomic, readwrite) BOOL hasType;
 @end
 
 #pragma mark - DeviceOnline
@@ -2190,7 +2199,7 @@ GPB_FINAL @interface DeviceOnline : GPBMessage
 /** Test to see if @c token has been set. */
 @property(nonatomic, readwrite) BOOL hasToken;
 
-@property(nonatomic, readwrite) DeviceOnlineType dot;
+@property(nonatomic, readwrite) SdkNetType dot;
 
 @property(nonatomic, readwrite) BOOL hasDot;
 @end
