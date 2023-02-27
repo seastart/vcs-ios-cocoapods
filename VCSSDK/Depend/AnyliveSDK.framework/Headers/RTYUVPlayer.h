@@ -64,10 +64,10 @@
    * 默认使用内部的Touch
    */
 -(void)useMyControl:(BOOL)use;
-/**
-* 清除像素
-*/
--(void)cleanpixels;
+
+/// 清除像素
+- (void)cleanpixels;
+
 /**
  display CVPixelBufferRef[YUV]
  */
