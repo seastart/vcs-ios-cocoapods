@@ -157,6 +157,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isOpenTCP;
 /* ****************** ⬆️ 会控服务协议选择 ⬆️ ****************** */
 
+/// 设备标识
+@property (nonatomic, strong) NSString *deviceId;
+
 @end
 
 NS_ASSUME_NONNULL_END

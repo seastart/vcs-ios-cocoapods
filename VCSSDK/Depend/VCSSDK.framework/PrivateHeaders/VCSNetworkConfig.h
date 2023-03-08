@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VCSCommons.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,6 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 测试时长，默认 30s
 @property (nonatomic, assign) int duration;
 /* ******** ⬆️ 网络检测配置项(必填项,不设置采用默认值) ⬆️ ******** */
+
+/// 设备标识
+@property (nonatomic, strong) NSString *deviceId;
 
 @end
 

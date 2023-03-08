@@ -62,8 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// - Parameters:
 ///   - domainUrl: 服务地址
 ///   - secretKey: 服务密钥
+///   - deviceId: 设备标识
 ///   - delegate: 日志代理
-- (void)startLogger:(NSString *)domainUrl secretKey:(NSString *)secretKey delegate:(nullable id <VCSLoggerManagerDelegate>)delegate;
+- (void)startLogger:(NSString *)domainUrl secretKey:(NSString *)secretKey deviceId:(NSString *)deviceId delegate:(nullable id <VCSLoggerManagerDelegate>)delegate;
 
 #pragma mark 变更服务地址
 /// 变更服务地址
