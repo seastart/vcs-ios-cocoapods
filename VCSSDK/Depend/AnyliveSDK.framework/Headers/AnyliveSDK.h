@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define SDKVERSION "9.5.10-dev.7@2023.03.01"
+#define SDKVERSION "9.5.10-dev.8@2023.03.23"
 
 //! Project version number for AnyliveSDK.
 FOUNDATION_EXPORT double AnyliveSDKVersionNumber;
