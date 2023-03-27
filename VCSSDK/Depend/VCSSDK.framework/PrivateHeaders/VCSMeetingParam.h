@@ -41,6 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int sdkNo;
 #pragma mark 进入房间ID
 @property (nonatomic, copy) NSString *roomId;
+#pragma mark 房间是否加密
+@property (nonatomic, assign) BOOL isEncrypt;
 /* ****************** ⬆️ 入会房间信息(可由创建会议/连线获取)(必填项) ⬆️ ****************** */
 
 
@@ -154,6 +156,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 会控服务是否使用TCP协议，默认 YES
 @property (nonatomic, assign) BOOL isOpenTCP;
 /* ****************** ⬆️ 会控服务协议选择 ⬆️ ****************** */
+
+/// 设备标识
+@property (nonatomic, strong) NSString *deviceId;
 
 @end
 

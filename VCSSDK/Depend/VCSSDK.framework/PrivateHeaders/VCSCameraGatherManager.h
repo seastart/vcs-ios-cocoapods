@@ -72,21 +72,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取本地预览播放器
 - (nullable RTYUVPlayer *)localPreview;
 
-#pragma mark 开启预览
-/// 开启预览
-- (void)startCameraPreview;
+#pragma mark 开启摄像头预览和采集
+/// 开启摄像头预览和采集
+- (void)startCapture;
 
-#pragma mark 停止预览
-/// 停止预览
-- (void)stopCameraPreview;
-
-#pragma mark 启动推流(启动本地摄像头视频采集)
-/// 启动推流(启动本地摄像头视频采集)
-- (void)startCameraCapture;
-
-#pragma mark 停止推流(停止本地摄像头视频采集)
-/// 停止推流(停止本地摄像头视频采集)
-- (void)stopCameraCapture;
+#pragma mark 停止摄像头预览和采集
+/// 停止摄像头预览和采集
+- (void)stopCapture;
 
 #pragma mark 设置视频曝光率
 /// 设置视频曝光率

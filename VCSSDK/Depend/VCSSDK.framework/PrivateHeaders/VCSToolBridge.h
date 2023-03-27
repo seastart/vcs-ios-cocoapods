@@ -18,8 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)applicationStateBackground;
 
 /// 检测是否开启了相机权限
-/// @param resultBlock 检测结果
-- (void)checkCameraAuthorizationWithResultBlock:(void (^)(BOOL result))resultBlock;
+- (BOOL)checkCameraAuthorization;
+
+/// 检测是否开启了麦克风权限
+- (BOOL)checkMicrophoneAuthorization;
 
 /// 字典转Json字符串
 /// @param dict 字典数据
