@@ -812,6 +812,8 @@ GPB_FINAL @interface MyAccountNotify : GPBMessage
 
 typedef GPB_ENUM(KickoutNotify_FieldNumber) {
   KickoutNotify_FieldNumber_AccountId = 1,
+  KickoutNotify_FieldNumber_AccountTokenId = 2,
+  KickoutNotify_FieldNumber_Msg = 3,
 };
 
 /**
@@ -822,6 +824,16 @@ GPB_FINAL @interface KickoutNotify : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
 /** Test to see if @c accountId has been set. */
 @property(nonatomic, readwrite) BOOL hasAccountId;
+
+/** 被踢的用户token_id */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountTokenId;
+/** Test to see if @c accountTokenId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountTokenId;
+
+/** 推送消息 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *msg;
+/** Test to see if @c msg has been set. */
+@property(nonatomic, readwrite) BOOL hasMsg;
 
 @end
 
@@ -2048,6 +2060,29 @@ GPB_FINAL @interface SetMemberExtendInfoHostRequest : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *extendInfo;
 /** Test to see if @c extendInfo has been set. */
 @property(nonatomic, readwrite) BOOL hasExtendInfo;
+
+@end
+
+#pragma mark - KickoutExitNotify
+
+typedef GPB_ENUM(KickoutExitNotify_FieldNumber) {
+  KickoutExitNotify_FieldNumber_AccountId = 1,
+  KickoutExitNotify_FieldNumber_AccountTokenId = 2,
+};
+
+/**
+ * 被踢离开会议通知
+ **/
+GPB_FINAL @interface KickoutExitNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
+/** Test to see if @c accountId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountId;
+
+/** 被踢的用户token_id */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountTokenId;
+/** Test to see if @c accountTokenId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountTokenId;
 
 @end
 

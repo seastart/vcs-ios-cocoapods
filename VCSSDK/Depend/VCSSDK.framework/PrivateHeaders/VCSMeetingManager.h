@@ -184,7 +184,7 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 #pragma mark 关闭/开启音频(是否发送音频)
 /// 关闭/开启音频(是否发送音频)
 /// @param state 设备状态
-- (NSInteger)enableSendAudio:(DeviceState)state;
+- (void)enableSendAudio:(DeviceState)state;
 
 #pragma mark 关闭/开启视频(是否发送视频)
 /// 关闭/开启视频(是否发送视频)
@@ -318,21 +318,13 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// @param displayView 预览播放器
 - (void)onLocalDisplayViewReady:(RTYUVPlayer *)displayView;
 
-#pragma mark 开启预览
-/// 开启预览
-- (void)startCameraPreview;
+#pragma mark 开启摄像头预览和采集
+/// 开启摄像头预览和采集
+- (void)startCapture;
 
-#pragma mark 停止预览
-/// 停止预览
-- (void)stopCameraPreview;
-
-#pragma mark 启动推流(启动本地摄像头视频采集)
-/// 启动推流(启动本地摄像头视频采集)
-- (void)startCameraCapture;
-
-#pragma mark 停止推流(停止本地摄像头视频采集)
-/// 停止推流(停止本地摄像头视频采集)
-- (void)stopCameraCapture;
+#pragma mark 停止摄像头预览和采集
+/// 停止摄像头预览和采集
+- (void)stopCapture;
 
 #pragma mark 设置视频曝光率
 /// 设置视频曝光率
