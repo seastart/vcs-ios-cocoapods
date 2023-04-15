@@ -1619,6 +1619,11 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_ExternalMemberLimit = 24,
   Room_FieldNumber_InsideWaitingRoomState = 25,
   Room_FieldNumber_ExternalWaitingRoomState = 26,
+  Room_FieldNumber_InsideScreenShot = 27,
+  Room_FieldNumber_InsideWaterMark = 28,
+  Room_FieldNumber_ExternalScreenShot = 29,
+  Room_FieldNumber_ExternalWaterMark = 30,
+  Room_FieldNumber_ExternalShareScreen = 31,
 };
 
 /**
@@ -1734,6 +1739,26 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) ExternalWaitingRoomState externalWaitingRoomState;
 
 @property(nonatomic, readwrite) BOOL hasExternalWaitingRoomState;
+/** 内部成员权限-截图与录屏 */
+@property(nonatomic, readwrite) BOOL insideScreenShot;
+
+@property(nonatomic, readwrite) BOOL hasInsideScreenShot;
+/** 内部成员权限-会议水印 */
+@property(nonatomic, readwrite) BOOL insideWaterMark;
+
+@property(nonatomic, readwrite) BOOL hasInsideWaterMark;
+/** 外部成员权限-截图与录屏 */
+@property(nonatomic, readwrite) BOOL externalScreenShot;
+
+@property(nonatomic, readwrite) BOOL hasExternalScreenShot;
+/** 外部成员权限-会议水印 */
+@property(nonatomic, readwrite) BOOL externalWaterMark;
+
+@property(nonatomic, readwrite) BOOL hasExternalWaterMark;
+/** 外部成员权限-共享屏幕 */
+@property(nonatomic, readwrite) BOOL externalShareScreen;
+
+@property(nonatomic, readwrite) BOOL hasExternalShareScreen;
 @end
 
 #pragma mark - Account
