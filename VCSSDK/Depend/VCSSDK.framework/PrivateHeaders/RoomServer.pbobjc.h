@@ -2086,6 +2086,29 @@ GPB_FINAL @interface KickoutExitNotify : GPBMessage
 
 @end
 
+#pragma mark - McuStatusNotify
+
+typedef GPB_ENUM(McuStatusNotify_FieldNumber) {
+  McuStatusNotify_FieldNumber_RoomNo = 1,
+  McuStatusNotify_FieldNumber_McuStatus = 2,
+};
+
+/**
+ * MCU录制监控状态
+ **/
+GPB_FINAL @interface McuStatusNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+/** 0 正常录制 1 录制异步 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *mcuStatus;
+/** Test to see if @c mcuStatus has been set. */
+@property(nonatomic, readwrite) BOOL hasMcuStatus;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END
