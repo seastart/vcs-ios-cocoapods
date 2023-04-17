@@ -301,51 +301,6 @@ typedef GPB_ENUM(Command) {
 
   /** 被踢离开会议通知 */
   Command_CmdRoomNotifyKickoutExit = 1500,
-
-  /** --------------------等候室相关指令开始-----------------------------// */
-  Command_CmdWaitingRoomEnter = 1300,
-
-  /** 成员进入等候室通知 */
-  Command_CmdWaitingRoomNotifyEnter = 1301,
-
-  /** 等候室状态通知 */
-  Command_CmdWaitingRoomNotifyWaitingRoom = 1302,
-
-  /** 等候室成员状态通知 */
-  Command_CmdWaitingRoomNotifyAccount = 1303,
-
-  /** 等候室我的状态变化通知 */
-  Command_CmdWaitingRoomNotifyMyAccount = 1304,
-
-  /** 等候室成员离开通知 */
-  Command_CmdWaitingRoomNotifyExit = 1305,
-
-  /** 等候室主持人同意进入通知 */
-  Command_CmdWaitingRoomHostAgree = 1306,
-
-  /** 等候室主持人拒绝进入通知 */
-  Command_CmdWaitingRoomHostRefuse = 1307,
-
-  /** 会中增加邀请人号码同步 */
-  Command_CmdRoomAddInviteMobile = 1308,
-
-  /** 会中删除邀请人号码同步 */
-  Command_CmdRoomDelInviteMobile = 1309,
-
-  /** 会中成员移动到等候室通知 */
-  Command_CmdRoomMoveWaitingRoom = 1310,
-
-  /** 等候室成员发送心跳 */
-  Command_CmdWaitgingRoomHeartbeat = 1311,
-
-  /** 等候室成员剔除通知 */
-  Command_CmdWaitingRoomNotifyKickout = 1312,
-
-  /** 等候室发送聊天 */
-  Command_CmdWaitingRoomChat = 1313,
-
-  /** 等候室主持人通知 */
-  Command_CmdWaitingRoomHostNotify = 1314,
 };
 
 GPBEnumDescriptor *Command_EnumDescriptor(void);
