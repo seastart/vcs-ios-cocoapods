@@ -98,6 +98,18 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param mask  轨道掩码
 + (NSArray *)maskCompriseByTrack:(int)mask;
 
+#pragma mark - 将字符转换成字典
+/// 将字符转换成字典
+/// @param string 字符串
++ (nullable NSDictionary *)dictionaryWithJsonString:(nullable NSString *)string;
+
+#pragma mark 释放流媒体像素数据资源
+/// 释放流媒体像素数据资源
+/// @param yData 流媒体像素数据
+/// @param uData 流媒体像素数据
+/// @param vData 流媒体像素数据
++ (void)destroyStreamWithyData:(void *)yData uData:(void *)uData vData:(void *)vData;
+
 @end
 
 NS_ASSUME_NONNULL_END
