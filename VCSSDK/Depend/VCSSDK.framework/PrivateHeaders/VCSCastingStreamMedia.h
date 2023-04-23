@@ -70,6 +70,13 @@ typedef void (^VCSCastingStreamMediaDestroyBlock)(void);
 /// @param displayAngle 显示角度
 - (void)publishScreenEncoderWithStreamData:(NSData *)streamData stamp:(uint32_t)stamp dts:(uint32_t)dts displayAngle:(int)displayAngle;
 
+#pragma mark 发布投屏音频流
+/// 发布投屏音频流
+/// @param streamData 投屏流数据
+/// @param stamp 显示时间戳
+/// @param dts 解码时间戳
+- (void)publishScreenAudioWithStreamData:(NSData *)streamData stamp:(uint32_t)stamp dts:(uint32_t)dts;
+
 #pragma mark 资源销毁
 /// 资源销毁
 /// @param finishBlock 完成回调

@@ -34,19 +34,30 @@ NS_ASSUME_NONNULL_BEGIN
 //
 -(BOOL)destroyServerConnect;
 
+//用户强制关闭
 -(BOOL )closeClientByCustomUser;
+
+//用户请求关键帧
+
+-(BOOL)doRequestIDR;
+
 @end
 
 
 @protocol ScreenRTCServerConnectProtocol <NSObject>
 
-//非编码数据【NV12】
+//非编码数据【NV12】这个不使用了
 - (void)didProcessSampleBuffer:(CMSampleBufferRef)sampleBuffer stamp:(CMTime)pts;
 
 //编码数据
 - (void)didProcessEncoderData:(NSData*)sampleBuffer pts:(uint32_t)pts dts:(uint32_t)dts angle:(int)angle;
 
-//Screen status  code [0:screen stop,1:screen start -1:screen connnect error]
+//a音频
+- (void)didProcessAudioData:(NSData*)sampleBuffer pts:(uint32_t)pts dts:(uint32_t)dts;
+
+
+//Screen status  code [0:screen stop,1:screen start 5:requestIDR -1:screen connnect error]
 -(void)didProcessStatus:(int)codes;
+
 @end
 NS_ASSUME_NONNULL_END

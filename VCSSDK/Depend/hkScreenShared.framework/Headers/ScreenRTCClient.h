@@ -29,8 +29,14 @@ typedef void (^StopReplayKit)(NSString *msg);
 - (BOOL)createCliectConnect;
 //close
 - (void)close;
-/// client send data to  server
+
+/// client send video data to  server
 - (void)sendBuffertoServer:(CMSampleBufferRef)sampleBuffer;
+
+
+/// client send audio data to  server
+- (void)sendAudioBuffertoServer:(CMSampleBufferRef)sampleBuffer;
+
 - (void)sendNotifyBuffertoServer;
 @end
 

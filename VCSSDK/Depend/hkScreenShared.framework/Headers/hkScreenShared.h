@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define SCREEENVERSION @"9.5.1@2022.11.21"
+#define SCREEENVERSION @"9.5.5-Branch_9.6.0.1@2023.04.23"
 
 //! Project version number for hkScreenShared.
 FOUNDATION_EXPORT double hkScreenSharedVersionNumber;
@@ -16,8 +16,8 @@ FOUNDATION_EXPORT double hkScreenSharedVersionNumber;
 //! Project version string for hkScreenShared.
 FOUNDATION_EXPORT const unsigned char hkScreenSharedVersionString[];
 
-#import<hkScreenShared/ScreenRTCClient.h>
-#import<hkScreenShared/ScreenRTCServer.h>
+#import "ScreenRTCClient.h"
+#import "ScreenRTCServer.h"
 
 /// In this header, you should import all the public headers of your framework using statements like #import <hkScreenShared/PublicHeader.h>
 

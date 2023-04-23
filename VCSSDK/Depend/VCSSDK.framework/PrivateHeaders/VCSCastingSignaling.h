@@ -35,6 +35,16 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param signaling 指令实例
 - (void)castingSignalingDidCastingStop:(VCSCastingSignaling *)signaling;
 
+#pragma mark 请求I帧回调
+/// 请求I帧回调
+/// @param signaling 指令实例
+- (void)castingSignalingRequestIDR:(VCSCastingSignaling *)signaling;
+
+#pragma mark 当前服务延时回调
+/// 当前服务延时回调
+/// @param timestamp 当前延时
+- (void)castingSignalingDelayed:(NSInteger)timestamp;
+
 @end
 
 /// 释放完成回调

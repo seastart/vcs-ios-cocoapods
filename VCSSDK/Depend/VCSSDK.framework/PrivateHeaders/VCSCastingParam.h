@@ -171,9 +171,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL enableSaveVideo;
 /// 保存采集音频流，默认 NO
 @property (nonatomic, assign) BOOL enableSaveAudioCapture;
-/// 保存远程音频流，默认 NO
-@property (nonatomic, assign) BOOL enableSaveAudioReceive;
-
 
 #pragma mark - ---- 高阶配置参数 ----
 /// 回声消除AEC，默认12
@@ -216,6 +213,11 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy) NSString *targetId;
 /// 附加数据
 @property (nonatomic, copy) NSString *extra;
+
+/// 当前时间戳
+@property (nonatomic, assign) NSInteger timetick;
+/// ping指令凑包数据
+@property (nonatomic, assign) NSString *ext;
 
 @end
 

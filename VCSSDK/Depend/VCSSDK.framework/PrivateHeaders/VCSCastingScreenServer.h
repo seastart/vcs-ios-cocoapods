@@ -28,6 +28,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param angle 显示角度
 - (void)screenServer:(VCSCastingScreenServer *)server didStreamData:(NSData *)streamData pts:(uint32_t)pts dts:(uint32_t)dts angle:(int)angle;
 
+#pragma mark 投屏音频原始数据回调
+/// 投屏音频原始数据回调
+/// @param server 服务端实例
+/// @param streamData 共享音频数据
+/// @param pts 显示时间戳
+/// @param dts 解码时间戳
+- (void)screenServer:(VCSCastingScreenServer *)server didAudioStreamData:(NSData *)streamData pts:(uint32_t)pts dts:(uint32_t)dts;
+
 #pragma mark 投屏状态码回调
 /// 投屏状态码回调
 /// @param server 服务端实例
@@ -63,6 +71,10 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 关闭投屏服务端
 /// 关闭投屏服务端
 - (void)closeScreenServer;
+
+#pragma mark 强制关键帧
+/// 强制关键帧
+- (BOOL)forceKeyFrame;
 
 #pragma mark 资源销毁
 /// 资源销毁
