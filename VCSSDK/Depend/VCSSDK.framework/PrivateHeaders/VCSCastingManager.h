@@ -17,9 +17,38 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#pragma mark - 投屏状态回调
+#pragma mark - 投屏回调
+@protocol VCSCastingManagerDelegate <NSObject>
+#pragma mark 可选实现代理方法
+@optional
+
+#pragma mark - ----- Core Delegate Methods -----
+#pragma mark 屏幕录制状态回调
+/// 屏幕录制状态回调
+/// @param status 状态码
+- (void)onScreenRecordStatus:(VCSCastingScreenStatus)status;
+
+#pragma mark 投屏状态回调
 /// 投屏状态回调
-typedef void (^VCSCastingBroadcastStatusBlock)(VCSCastingStatus status);
+/// @param status 状态码
+- (void)onCastingScreenStatus:(VCSCastingStatus)status;
+
+#pragma mark 码率自适应状态回调
+/// 码率自适应状态回调
+/// @param state 码率自适应状态
+- (void)onUploadBitrateAdaptiveState:(VCSCastingBitrateAdaptiveState)state;
+
+#pragma mark 发送状态信息回调
+/// 发送状态信息回调
+/// @param sendModel 发送状态数据
+- (void)onSendStreamModel:(VCSStreamSendModel *)sendModel;
+
+#pragma mark 当前服务延时回调
+/// 当前服务延时回调
+/// @param timestamp 服务延时
+- (void)onSignalingDelayed:(NSInteger)timestamp;
+
+@end
 
 #pragma mark - 投屏完成回调
 /// 投屏完成回调
@@ -32,10 +61,6 @@ typedef void (^VCSCastingBroadcastFinishedBlock)(NSString * _Nullable reason);
 - (instancetype)init __attribute__((unavailable("Use +sharedInstance instead")));
 
 #pragma mark - ------------ Core Service ------------
-#pragma mark 接收端是否允许投屏
-/// 接收端是否允许投屏
-@property (nonatomic, assign, readonly) VCSCastingStatus castingStatus;
-
 #pragma mark 获取投屏单例
 /// 获取投屏单例
 + (VCSCastingManager *)sharedInstance;
@@ -45,8 +70,13 @@ typedef void (^VCSCastingBroadcastFinishedBlock)(NSString * _Nullable reason);
 /// 配置投屏参数
 /// - Parameters:
 ///   - mediaConfig: 配置参数
-///   - statusBlock: 状态回调
-- (void)setupCastingConfig:(VCSCastingMediaConfig *)mediaConfig statusBlock:(VCSCastingBroadcastStatusBlock)statusBlock;
+///   - delegate: 代理回调
+- (void)setupCastingConfig:(VCSCastingMediaConfig *)mediaConfig delegate:(nullable id <VCSCastingManagerDelegate>)delegate;
+
+#pragma mark 启动投射音频
+/// 启动投射音频
+/// - Parameter enable: YES-启用 NO-关闭
+- (void)enableCastingAudio:(BOOL)enable;
 
 #pragma mark 停止投屏
 /// 停止投屏

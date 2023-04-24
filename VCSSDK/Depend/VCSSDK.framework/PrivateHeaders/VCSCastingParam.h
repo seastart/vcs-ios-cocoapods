@@ -29,9 +29,9 @@ typedef enum : NSInteger {
     VCSNetworkQosShakeLevelLong = 3
 } VCSNetworkQosShakeLevel;
 
-#pragma mark - 上行码率自适应状态
+#pragma mark - 码率自适应状态
 /**
- 上行码率自适应状态
+ 码率自适应状态
  
  - VCSCastingBitrateAdaptiveStateStart: 码率自适应开始工作
  - VCSCastingBitrateAdaptiveStateNormal: 码率恢复到最初设置
@@ -47,6 +47,19 @@ typedef enum : NSInteger {
     VCSCastingBitrateAdaptiveStateQuarter = -2,
     VCSCastingBitrateAdaptiveStateVeryBad = -3,
 } VCSCastingBitrateAdaptiveState;
+
+#pragma mark - 编码类型
+/**
+ 编码类型
+ 
+ - VCSCodecTypeAAC: AAC
+ - VCSCodecTypeOPUS: OPUS
+ */
+typedef enum : NSUInteger {
+    
+    VCSCodecTypeAAC = 0,
+    VCSCodecTypeOPUS = 0x5355504F
+} VCSCodecType;
 
 #pragma mark - 投屏采集状态
 /**
@@ -64,19 +77,6 @@ typedef enum : NSInteger {
     VCSCastingScreenStatusStop = 0,
     VCSCastingScreenStatusStart = 1
 } VCSCastingScreenStatus;
-
-#pragma mark - 编码类型
-/**
- 编码类型
- 
- - VCSCodecTypeAAC: AAC
- - VCSCodecTypeOPUS: OPUS
- */
-typedef enum : NSUInteger {
-    
-    VCSCodecTypeAAC = 0,
-    VCSCodecTypeOPUS = 0x5355504F
-} VCSCodecType;
 
 #pragma mark - 投屏状态
 /**
