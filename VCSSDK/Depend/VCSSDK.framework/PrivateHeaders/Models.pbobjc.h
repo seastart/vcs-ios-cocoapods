@@ -1579,6 +1579,7 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_ExternalScreenShot = 29,
   Room_FieldNumber_ExternalWaterMark = 30,
   Room_FieldNumber_ExternalShareScreen = 31,
+  Room_FieldNumber_CorpExternalMemberLimit = 32,
 };
 
 /**
@@ -1682,7 +1683,7 @@ GPB_FINAL @interface Room : GPBMessage
 /** Test to see if @c sharingRelativePicURL has been set. */
 @property(nonatomic, readwrite) BOOL hasSharingRelativePicURL;
 
-/** 外部联系人入会类型限制(0：不允许外部联系人入会;1:允许外部联系人入会；2：仅受邀外部联系人入会) */
+/** 企业外外部联系人入会类型限制(0：不允许外部联系人入会;1:允许外部联系人入会；2：仅受邀外部联系人入会) */
 @property(nonatomic, readwrite) ExternalMemberLimit externalMemberLimit;
 
 @property(nonatomic, readwrite) BOOL hasExternalMemberLimit;
@@ -1714,6 +1715,10 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) BOOL externalShareScreen;
 
 @property(nonatomic, readwrite) BOOL hasExternalShareScreen;
+/** 企业内外部联系人入会类型限制(0：不允许外部联系人入会;1:允许外部联系人入会；2：仅受邀外部联系人入会) */
+@property(nonatomic, readwrite) ExternalMemberLimit corpExternalMemberLimit;
+
+@property(nonatomic, readwrite) BOOL hasCorpExternalMemberLimit;
 @end
 
 #pragma mark - Account
