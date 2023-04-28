@@ -1752,6 +1752,7 @@ typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_Version = 26,
   Account_FieldNumber_ErrMsg = 27,
   Account_FieldNumber_ExtendInfo = 28,
+  Account_FieldNumber_Mobile = 29,
 };
 
 /**
@@ -1881,6 +1882,11 @@ GPB_FINAL @interface Account : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *extendInfo;
 /** Test to see if @c extendInfo has been set. */
 @property(nonatomic, readwrite) BOOL hasExtendInfo;
+
+/** 手机号码 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *mobile;
+/** Test to see if @c mobile has been set. */
+@property(nonatomic, readwrite) BOOL hasMobile;
 
 @end
 
