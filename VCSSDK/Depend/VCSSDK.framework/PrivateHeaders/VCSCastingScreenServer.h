@@ -52,6 +52,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ------------ Core Service ------------
 
+/// 设备分辨率(宽)
+@property (nonatomic, assign) float screen_width;
+/// 设备分辨率(高)
+@property (nonatomic, assign) float screen_height;
+/// 真实编码分辨率(宽)
+@property (nonatomic, assign) int width;
+/// 真实编码分辨率(高)
+@property (nonatomic, assign) int height;
+/// 真实编码帧率(当前帧率)
+@property (nonatomic, assign) float fps;
+/// 真实编码码率(当前码率)
+@property (nonatomic, assign) int bitrate;
+/// 当前视频角度
+@property (nonatomic, assign) int videoAngle;
+/// 当前上传速率(单位kps)
+@property (nonatomic, copy) NSString *speed;
+
 /// 投屏服务端回调代理
 @property (nonatomic, weak) id<VCSCastingScreenServerDelegate> delegate;
 

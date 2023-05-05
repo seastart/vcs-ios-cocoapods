@@ -23,8 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
  delegate
  */
 @property(nonatomic , weak)id <ScreenRTCServerConnectProtocol> delegate;
-
-
+/// YES-投屏 NO-共享，默认 NO
+@property (nonatomic, assign) BOOL projection;
 
 //ModeType:0 encdoer ModeType:1 CSAMPLEBUFFER dedault encoder 需要和 client 保持统一模式
 -(BOOL)initServerConnect:(int)ModeType; //初始化后方可创createServerConnect
@@ -40,6 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
 //用户请求关键帧
 
 -(BOOL)doRequestIDR;
+
+//更新编码帧率
+-(BOOL)updateFps:(int)fps;
 
 @end
 

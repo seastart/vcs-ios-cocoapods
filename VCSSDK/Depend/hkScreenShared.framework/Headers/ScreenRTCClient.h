@@ -11,33 +11,37 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^StopReplayKit)(NSString *msg);
+
 @interface ScreenRTCClient:NSObject
-//: ScreenRTCConnect
-//encoder 必须设置这些编码参数否则录屏失败 720x1280    300kp
-@property (nonatomic, readwrite) unsigned short Encoderwidth;
-@property (nonatomic, readwrite) unsigned short Encoderheight;
-@property (nonatomic, readwrite) uint32_t EncodermaxFramerate;//30
+
 @property (nonatomic, copy) StopReplayKit ReplayBlock;
+/// YES-投屏 NO-共享，默认 NO
+@property (nonatomic, assign) BOOL projection;
 
-//非编码模式输出参数
-@property (nonatomic, readwrite) unsigned int height;//720p
+/// 初始化后方可创 Create Cliect Connect
+- (BOOL)initCliectConnect:(int)ModeType;
 
-// Init CliectConnect
-//ModeType:0 encdoer ModeType:1 CSAMPLEBUFFER dedault encoder 需要和 server 保持统一模式
--(BOOL)initCliectConnect:(int)ModeType; //初始化后方可创createCliectConnect
+/// 设置分辨率与编码帧率
+- (void)setCaptureSize:(int)width height:(int)height framerate:(int)framerate;
+
+/// 采集的帧率，默认15[进行弱网帧率控制的时候可以实时调用这个来设置]
+- (void)setCaptureFps:(int)capfps;
+
 /// 创建 client socket
 - (BOOL)createCliectConnect;
-//close
+
+/// close
 - (void)close;
 
-/// client send video data to  server
+/// client send video data to server
 - (void)sendBuffertoServer:(CMSampleBufferRef)sampleBuffer;
 
-
-/// client send audio data to  server
+/// client send audio data to server
 - (void)sendAudioBuffertoServer:(CMSampleBufferRef)sampleBuffer;
 
+/// 在没有图像数据时进行补帧
 - (void)sendNotifyBuffertoServer;
+
 @end
 
 NS_ASSUME_NONNULL_END

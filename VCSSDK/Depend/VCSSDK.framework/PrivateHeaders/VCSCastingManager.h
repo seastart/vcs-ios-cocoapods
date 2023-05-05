@@ -33,11 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param status 状态码
 - (void)onCastingScreenStatus:(VCSCastingStatus)status;
 
-#pragma mark 码率自适应状态回调
-/// 码率自适应状态回调
-/// @param state 码率自适应状态
-- (void)onUploadBitrateAdaptiveState:(VCSCastingBitrateAdaptiveState)state;
-
 #pragma mark 发送状态信息回调
 /// 发送状态信息回调
 /// @param sendModel 发送状态数据

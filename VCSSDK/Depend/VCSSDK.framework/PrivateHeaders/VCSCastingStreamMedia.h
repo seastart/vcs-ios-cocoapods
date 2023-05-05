@@ -23,17 +23,17 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 #pragma mark - ----- Core Delegate Methods -----
-#pragma mark 上行码率自适应状态回调
-/// 上行码率自适应状态回调
-/// @param stream 流媒体实例
-/// @param state 上行码率自适应状态
-- (void)streamMedia:(VCSCastingStreamMedia *)stream onUploadBitrateAdaptiveState:(VCSCastingBitrateAdaptiveState)state;
-
 #pragma mark 流媒体发送状态数据回调
 /// 流媒体发送状态数据回调
 /// @param stream 流媒体实例
 /// @param sendModel 流媒体发送状态数据
 - (void)streamMedia:(VCSCastingStreamMedia *)stream onSendStreamModel:(VCSStreamSendModel *)sendModel;
+
+#pragma mark 流媒体溢出状态回调
+/// 流媒体溢出状态回调
+/// @param stream 流媒体实例
+/// @param status 溢出状态
+- (void)streamMedia:(VCSCastingStreamMedia *)stream didChangeOverflowStatus:(VCSOverflowStatus)status;
 
 @end
 
@@ -59,8 +59,9 @@ typedef void (^VCSCastingStreamMediaDestroyBlock)(void);
 #pragma mark 初始化流媒体
 /// 初始化流媒体
 /// @param mediaConfig 配置参数
+/// @param linkId 用户标识
 /// @param delegate 代理回调
-- (void)initializeStreamMediaWithMediaConfig:(VCSCastingMediaConfig *)config delegate:(nullable id <VCSCastingStreamMediaDelegate>)delegate;
+- (void)initializeStreamMediaWithMediaConfig:(VCSCastingMediaConfig *)config linkId:(NSString *)linkId delegate:(nullable id <VCSCastingStreamMediaDelegate>)delegate;
 
 #pragma mark 发布投屏流
 /// 发布投屏流

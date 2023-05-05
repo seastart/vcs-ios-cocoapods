@@ -66,8 +66,9 @@ typedef void (^VCSCastingSignalingDestroyBlock)(void);
 /// 连接服务器
 /// - Parameter serviceHost: 服务地址
 /// - Parameter linkId: 成员标识
+/// - Parameter username: 成员标识
 /// - Parameter delegate: 代理回调
-- (BOOL)servicConnect:(NSString *)serviceHost linkId:(NSString *)linkId delegate:(nullable id <VCSCastingSignalingDelegate>)delegate;
+- (BOOL)servicConnect:(NSString *)serviceHost linkId:(NSString *)linkId username:(NSString *)username delegate:(nullable id <VCSCastingSignalingDelegate>)delegate;
 
 #pragma mark 销毁连接
 /// 销毁连接

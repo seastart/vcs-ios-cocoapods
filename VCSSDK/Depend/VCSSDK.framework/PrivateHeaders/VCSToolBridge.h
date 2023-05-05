@@ -110,6 +110,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param vData 流媒体像素数据
 + (void)destroyStreamWithyData:(void *)yData uData:(void *)uData vData:(void *)vData;
 
+#pragma mark 随机生成数字串
+/// 随机生成数字串
+/// @param number 随机数量
++ (NSString *)buildRandomStringWithNumber:(NSInteger)number;
+
 @end
 
 NS_ASSUME_NONNULL_END
