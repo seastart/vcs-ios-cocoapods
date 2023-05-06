@@ -1580,6 +1580,7 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_ExternalWaterMark = 30,
   Room_FieldNumber_ExternalShareScreen = 31,
   Room_FieldNumber_CorpExternalMemberLimit = 32,
+  Room_FieldNumber_AccessWhitelist = 33,
 };
 
 /**
@@ -1719,6 +1720,10 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) ExternalMemberLimit corpExternalMemberLimit;
 
 @property(nonatomic, readwrite) BOOL hasCorpExternalMemberLimit;
+/** 企业内部成员开启白名单限制(false:不开启;true：开启) */
+@property(nonatomic, readwrite) BOOL accessWhitelist;
+
+@property(nonatomic, readwrite) BOOL hasAccessWhitelist;
 @end
 
 #pragma mark - Account
