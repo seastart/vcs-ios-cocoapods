@@ -23,8 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
  delegate
  */
 @property(nonatomic , weak)id <ScreenRTCServerConnectProtocol> delegate;
-/// YES-投屏 NO-共享，默认 NO
-@property (nonatomic, assign) BOOL projection;
+
+
 
 //ModeType:0 encdoer ModeType:1 CSAMPLEBUFFER dedault encoder 需要和 client 保持统一模式
 -(BOOL)initServerConnect:(int)ModeType; //初始化后方可创createServerConnect
@@ -34,7 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 //
 -(BOOL)destroyServerConnect;
 
-//用户强制关闭
 -(BOOL )closeClientByCustomUser;
 
 //用户请求关键帧
@@ -49,8 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol ScreenRTCServerConnectProtocol <NSObject>
 
-//非编码数据【NV12】这个不使用了
-- (void)didProcessSampleBuffer:(CMSampleBufferRef)sampleBuffer stamp:(CMTime)pts;
+//非编码数据【NV12】
+//- (void)didProcessSampleBuffer:(CMSampleBufferRef)sampleBuffer stamp:(CMTime)pts;
 
 //编码数据
 - (void)didProcessEncoderData:(NSData*)sampleBuffer pts:(uint32_t)pts dts:(uint32_t)dts angle:(int)angle;
@@ -59,8 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)didProcessAudioData:(NSData*)sampleBuffer pts:(uint32_t)pts dts:(uint32_t)dts;
 
 
-//Screen status  code [0:screen stop,1:screen start 5:requestIDR -1:screen connnect error]
+//Screen status  code [0:screen stop,1:screen start -1:screen connnect error]
 -(void)didProcessStatus:(int)codes;
-
 @end
 NS_ASSUME_NONNULL_END

@@ -78,8 +78,10 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) int delay;
 /// 溢出缓冲包数
 @property (nonatomic, assign) int overflow;
-/// 上传速率(单位kps)
+/// 视频上传速率(单位kps)
 @property (nonatomic, copy) NSString *speed;
+/// 音频上传速率(单位kps)
+@property (nonatomic, copy) NSString *audio_speed;
 /// 上传状态
 @property (nonatomic, assign) NSInteger status;
 /// 补偿前丢包率

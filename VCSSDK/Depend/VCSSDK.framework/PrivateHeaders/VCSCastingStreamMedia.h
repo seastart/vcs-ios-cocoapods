@@ -63,17 +63,17 @@ typedef void (^VCSCastingStreamMediaDestroyBlock)(void);
 /// @param delegate 代理回调
 - (void)initializeStreamMediaWithMediaConfig:(VCSCastingMediaConfig *)config linkId:(NSString *)linkId delegate:(nullable id <VCSCastingStreamMediaDelegate>)delegate;
 
-#pragma mark 发布投屏流
-/// 发布投屏流
-/// @param streamData 投屏流数据
+#pragma mark 发布投屏视频流
+/// 发布投屏视频流
+/// @param streamData 投屏视频流数据
 /// @param stamp 显示时间戳
 /// @param dts 解码时间戳
 /// @param displayAngle 显示角度
-- (void)publishScreenEncoderWithStreamData:(NSData *)streamData stamp:(uint32_t)stamp dts:(uint32_t)dts displayAngle:(int)displayAngle;
+- (void)publishScreenVideoWithStreamData:(NSData *)streamData stamp:(uint32_t)stamp dts:(uint32_t)dts displayAngle:(int)displayAngle;
 
 #pragma mark 发布投屏音频流
 /// 发布投屏音频流
-/// @param streamData 投屏流数据
+/// @param streamData 投屏音频流数据
 /// @param stamp 显示时间戳
 /// @param dts 解码时间戳
 - (void)publishScreenAudioWithStreamData:(NSData *)streamData stamp:(uint32_t)stamp dts:(uint32_t)dts;

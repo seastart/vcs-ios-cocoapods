@@ -56,6 +56,10 @@ typedef void (^VCSCastingBroadcastFinishedBlock)(NSString * _Nullable reason);
 - (instancetype)init __attribute__((unavailable("Use +sharedInstance instead")));
 
 #pragma mark - ------------ Core Service ------------
+
+/// 当前屏幕录制状态
+@property (nonatomic, assign, readonly) VCSCastingScreenStatus screenStatus;
+
 #pragma mark 获取投屏单例
 /// 获取投屏单例
 + (VCSCastingManager *)sharedInstance;
@@ -76,18 +80,6 @@ typedef void (^VCSCastingBroadcastFinishedBlock)(NSString * _Nullable reason);
 #pragma mark 停止投屏
 /// 停止投屏
 - (void)stopCasting;
-
-#pragma mark - ------------ 投屏扩展相关接口函数 ------------
-#pragma mark 开启投屏客户端
-/// 开启投屏客户端
-/// @param finishedBlock 完成回调
-- (void)startCastingScreenClient:(VCSCastingBroadcastFinishedBlock)finishedBlock;
-
-#pragma mark 发送投屏帧数据
-/// 发送投屏帧数据
-/// @param sampleBuffer 帧数据
-/// @param sampleBufferType 帧数据类型
-- (void)sendCastingSampleBuffer:(CMSampleBufferRef)sampleBuffer withType:(RPSampleBufferType)sampleBufferType;
 
 @end
 
