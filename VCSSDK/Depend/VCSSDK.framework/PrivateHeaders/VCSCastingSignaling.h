@@ -70,6 +70,10 @@ typedef void (^VCSCastingSignalingDestroyBlock)(void);
 /// - Parameter delegate: 代理回调
 - (BOOL)servicConnect:(NSString *)serviceHost linkId:(NSString *)linkId username:(NSString *)username delegate:(nullable id <VCSCastingSignalingDelegate>)delegate;
 
+#pragma mark 启动投屏信令
+/// 启动投屏信令
+- (void)beginCastingSignaling;
+
 #pragma mark 销毁连接
 /// 销毁连接
 /// @param finishBlock 释放完成回调

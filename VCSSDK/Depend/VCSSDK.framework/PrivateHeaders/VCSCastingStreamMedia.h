@@ -35,6 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param status 溢出状态
 - (void)streamMedia:(VCSCastingStreamMedia *)stream didChangeOverflowStatus:(VCSOverflowStatus)status;
 
+#pragma mark 流媒体连接结果回调
+/// 流媒体连接结果回调
+/// @param stream 流媒体实例
+/// @param succeed 是否成功
+- (void)streamMedia:(VCSCastingStreamMedia *)stream didConnectFinish:(BOOL)succeed;
+
 @end
 
 /// 释放完成回调
