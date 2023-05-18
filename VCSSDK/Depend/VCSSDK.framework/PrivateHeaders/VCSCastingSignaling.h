@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param signaling 指令实例
 /// @param status 是否允许投屏(0-接受 1-拒绝)
 /// @param extra 附加信息
-- (void)castingSignaling:(VCSCastingSignaling *)signaling onCastingStartStatus:(VCSCastingStatus)status didExtra:(NSString *)extra;
+- (void)castingSignaling:(VCSCastingSignaling *)signaling onCastingStartStatus:(VCSCastingStatus)status didExtra:(nullable NSString *)extra;
 
 #pragma mark 结束投屏回调
 /// 结束投屏回调

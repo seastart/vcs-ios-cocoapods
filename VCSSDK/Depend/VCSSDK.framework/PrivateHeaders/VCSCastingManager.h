@@ -31,7 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 投屏状态回调
 /// 投屏状态回调
 /// @param status 状态码
-- (void)onCastingScreenStatus:(VCSCastingStatus)status;
+/// @param reason 拒绝原因
+- (void)onCastingScreenStatus:(VCSCastingStatus)status reason:(nullable NSString *)reason;
 
 #pragma mark 发送状态信息回调
 /// 发送状态信息回调

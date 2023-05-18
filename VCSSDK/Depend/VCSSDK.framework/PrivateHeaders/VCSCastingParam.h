@@ -36,12 +36,14 @@ typedef enum : NSInteger {
  - VCSCastingStatusNormal: 默认状态
  - VCSCastingStatusAccept: 允许投屏
  - VCSCastingStatusRefuse: 拒绝投屏
+ - VCSCastingStatusFailed: 投屏失败
  */
 typedef enum : NSUInteger {
     
     VCSCastingStatusNormal = -1,
     VCSCastingStatusAccept = 0,
-    VCSCastingStatusRefuse = 1
+    VCSCastingStatusRefuse = 1,
+    VCSCastingStatusFailed = 2
 } VCSCastingStatus;
 
 
