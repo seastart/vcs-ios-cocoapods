@@ -296,6 +296,15 @@ typedef GPB_ENUM(Command) {
   /** =====================Rooms能力不足给盒子通知========================== */
   Command_CmdRoomsInsufficientCapacity = 1046,
 
+  /** =====================Rooms下发节目========================== */
+  Command_CmdRoomsShowAddNotify = 1047,
+
+  /** =====================Rooms删除节目========================== */
+  Command_CmdRoomsShowDeleteNotify = 1048,
+
+  /** =====================Rooms切换企业========================== */
+  Command_CmdRoomsCorpChangeNotify = 1049,
+
   /** 将数据通过服务透传到指定的帐号(非MQTT连接的客户端用) */
   Command_CmdTransparent = 2000,
 
@@ -1581,6 +1590,7 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_ExternalShareScreen = 31,
   Room_FieldNumber_CorpExternalMemberLimit = 32,
   Room_FieldNumber_AccessWhitelist = 33,
+  Room_FieldNumber_MemberSensitiveState = 34,
 };
 
 /**
@@ -1724,6 +1734,10 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) BOOL accessWhitelist;
 
 @property(nonatomic, readwrite) BOOL hasAccessWhitelist;
+/** 会中成员姓名脱敏(false：不脱敏;true:脱敏) */
+@property(nonatomic, readwrite) BOOL memberSensitiveState;
+
+@property(nonatomic, readwrite) BOOL hasMemberSensitiveState;
 @end
 
 #pragma mark - Account
@@ -2734,6 +2748,63 @@ GPB_FINAL @interface RoomsInsufficientCapacityNotify : GPBMessage
 @property(nonatomic, readwrite) int64_t conc;
 
 @property(nonatomic, readwrite) BOOL hasConc;
+@end
+
+#pragma mark - RoomsShowAddNotify
+
+typedef GPB_ENUM(RoomsShowAddNotify_FieldNumber) {
+  RoomsShowAddNotify_FieldNumber_Id_p = 1,
+  RoomsShowAddNotify_FieldNumber_ShowId = 2,
+};
+
+GPB_FINAL @interface RoomsShowAddNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+/** Test to see if @c id_p has been set. */
+@property(nonatomic, readwrite) BOOL hasId_p;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *showId;
+/** Test to see if @c showId has been set. */
+@property(nonatomic, readwrite) BOOL hasShowId;
+
+@end
+
+#pragma mark - RoomsShowDeleteNotify
+
+typedef GPB_ENUM(RoomsShowDeleteNotify_FieldNumber) {
+  RoomsShowDeleteNotify_FieldNumber_Id_p = 1,
+  RoomsShowDeleteNotify_FieldNumber_ShowId = 2,
+};
+
+GPB_FINAL @interface RoomsShowDeleteNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+/** Test to see if @c id_p has been set. */
+@property(nonatomic, readwrite) BOOL hasId_p;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *showId;
+/** Test to see if @c showId has been set. */
+@property(nonatomic, readwrite) BOOL hasShowId;
+
+@end
+
+#pragma mark - RoomsCorpChangeNotify
+
+typedef GPB_ENUM(RoomsCorpChangeNotify_FieldNumber) {
+  RoomsCorpChangeNotify_FieldNumber_Id_p = 1,
+  RoomsCorpChangeNotify_FieldNumber_CorpId = 2,
+};
+
+GPB_FINAL @interface RoomsCorpChangeNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+/** Test to see if @c id_p has been set. */
+@property(nonatomic, readwrite) BOOL hasId_p;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *corpId;
+/** Test to see if @c corpId has been set. */
+@property(nonatomic, readwrite) BOOL hasCorpId;
+
 @end
 
 #pragma mark - RoomsNameUpdateNotify
