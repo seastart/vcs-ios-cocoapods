@@ -41,8 +41,9 @@ API_AVAILABLE(ios(12.0))
 /// 录屏启动方法
 /// 需要在 RPBroadcastSampleHandler 的实现类中的 broadcastStartedWithSetupInfo 方法中调用
 /// - Parameters:
+///   - appGroup: Application Group Identifier
 ///   - delegate: 回调对象
-- (void)broadcastStartedWithDelegate:(id<VCSReplayKitDelegate>)delegate;
+- (void)broadcastStartedWithAppGroup:(NSString *)appGroup delegate:(id<VCSReplayKitDelegate>)delegate;
 
 #pragma mark 媒体数据(音视频)发送方法
 /// 媒体数据(音视频)发送方法

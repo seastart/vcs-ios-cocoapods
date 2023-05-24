@@ -22,7 +22,7 @@ typedef void (^StopReplayKit)(NSString *msg);
 //非编码模式输出参数
 @property (nonatomic, readwrite) unsigned int height;//720p
 
--(BOOL)initCliectConnect:(int)ModeType; //初始化后方可创createCliectConnect
+- (BOOL)initCliectConnect:(int)ModeType appGroup:(NSString *)appGroup; //初始化后方可创createCliectConnect
 /// 创建 client socket
 - (BOOL)createCliectConnect;
 //close

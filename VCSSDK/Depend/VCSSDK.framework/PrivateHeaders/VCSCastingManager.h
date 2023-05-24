@@ -70,8 +70,9 @@ typedef void (^VCSCastingBroadcastFinishedBlock)(NSString * _Nullable reason);
 /// 配置投屏参数
 /// - Parameters:
 ///   - mediaConfig: 配置参数
+///   - appGroup: Application Group Identifier
 ///   - delegate: 代理回调
-- (void)setupCastingConfig:(VCSCastingMediaConfig *)mediaConfig delegate:(nullable id <VCSCastingManagerDelegate>)delegate;
+- (void)setupCastingConfig:(VCSCastingMediaConfig *)mediaConfig appGroup:(NSString *)appGroup delegate:(nullable id <VCSCastingManagerDelegate>)delegate;
 
 #pragma mark 启动投射音频
 /// 启动投射音频

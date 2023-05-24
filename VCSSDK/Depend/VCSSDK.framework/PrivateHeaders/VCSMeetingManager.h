@@ -113,13 +113,14 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 
 
 #pragma mark - -------- 视频会议屏幕录制相关接口 ---------
-#pragma mark 开启录屏服务端
-/// 开启录屏服务端
-- (void)startScreenRecordingServer;
+#pragma mark 开启屏幕录制
+/// 开启屏幕录制
+/// @param appGroup Application Group Identifier
+- (void)startScreenRecordWithAppGroup:(NSString *)appGroup;
 
-#pragma mark - 关闭录屏服务
-/// 关闭录屏服务
-- (void)closeScreenServer;
+#pragma mark - 关闭屏幕录制
+/// 关闭屏幕录制
+- (void)stopScreenRecord;
 
 
 #pragma mark - -------- 视频会议流媒体服务相关接口 ---------

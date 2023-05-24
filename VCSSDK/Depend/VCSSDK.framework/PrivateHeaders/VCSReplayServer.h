@@ -87,14 +87,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// 屏幕录制版本
 - (NSString *)version;
 
-#pragma mark 开启屏幕录制服务端
-/// 开启屏幕录制服务端
+#pragma mark 开启屏幕录制
+/// 开启屏幕录制
+/// @param appGroup Application Group Identifier
 /// @param delegate 代理回调
-- (void)startScreenRecordingServer:(nullable id <VCSReplayServerDelegate>)delegate;
+- (void)startScreenRecordWithAppGroup:(NSString *)appGroup delegate:(nullable id <VCSReplayServerDelegate>)delegate;
 
-#pragma mark 关闭屏幕录制服务端
-/// 关闭屏幕录制服务端
-- (void)closeScreenServer;
+#pragma mark 关闭屏幕录制
+/// 关闭屏幕录制
+- (void)stopScreenRecord;
 
 #pragma mark 强制关键帧
 /// 强制关键帧

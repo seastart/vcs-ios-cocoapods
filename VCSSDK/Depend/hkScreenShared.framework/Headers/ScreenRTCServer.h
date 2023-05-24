@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 //ModeType:0 encdoer ModeType:1 CSAMPLEBUFFER dedault encoder 需要和 client 保持统一模式
--(BOOL)initServerConnect:(int)ModeType; //初始化后方可创createServerConnect
+- (BOOL)initServerConnect:(int)ModeType appGroup:(NSString *)appGroup; //初始化后方可创createServerConnect
 /// 创建 server connect
 - (BOOL)createServerConnect;
 
