@@ -24,10 +24,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic , weak)id <ScreenRTCServerConnectProtocol> delegate;
 
+#pragma mark - 初始化屏幕采集服务端
+/// 初始化屏幕采集服务端
+/// - Parameters:
+///   - ModeType: 编码模式 0-编码模式 1-原数据模式
+///   - appGroup: Application Group Identifier
+///   - isCasting: 是否是投屏模式 YES-投屏 NO-共享
+- (BOOL)initServerConnect:(int)ModeType appGroup:(NSString *)appGroup isCasting:(BOOL)isCasting;
 
-
-//ModeType:0 encdoer ModeType:1 CSAMPLEBUFFER dedault encoder 需要和 client 保持统一模式
-- (BOOL)initServerConnect:(int)ModeType appGroup:(NSString *)appGroup; //初始化后方可创createServerConnect
 /// 创建 server connect
 - (BOOL)createServerConnect;
 

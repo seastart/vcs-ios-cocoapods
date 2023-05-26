@@ -90,8 +90,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 开启屏幕录制
 /// 开启屏幕录制
 /// @param appGroup Application Group Identifier
+/// @param isCasting 录屏模式 YES-投屏 NO-共享
 /// @param delegate 代理回调
-- (void)startScreenRecordWithAppGroup:(NSString *)appGroup delegate:(nullable id <VCSReplayServerDelegate>)delegate;
+- (void)startScreenRecordWithAppGroup:(NSString *)appGroup isCasting:(BOOL)isCasting delegate:(nullable id <VCSReplayServerDelegate>)delegate;
 
 #pragma mark 关闭屏幕录制
 /// 关闭屏幕录制

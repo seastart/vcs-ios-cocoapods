@@ -128,6 +128,9 @@
 /// 关闭接收功能
 #define VCS_NORECVDATA 0x403
 
+/// 是否开启原生音频设置
+#define VCS_NATIVE_AUDIO 0x405
+
 //设置代理用于数据回调
 @protocol callbackdataDelegate <NSObject>
 
