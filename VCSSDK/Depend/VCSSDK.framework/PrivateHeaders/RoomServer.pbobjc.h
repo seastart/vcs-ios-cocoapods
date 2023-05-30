@@ -844,6 +844,7 @@ typedef GPB_ENUM(EnterNotify_FieldNumber) {
   EnterNotify_FieldNumber_RoomId = 2,
   EnterNotify_FieldNumber_RoomNo = 3,
   EnterNotify_FieldNumber_RoomSdkno = 4,
+  EnterNotify_FieldNumber_MsgId = 5,
 };
 
 /**
@@ -866,6 +867,10 @@ GPB_FINAL @interface EnterNotify : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *roomSdkno;
 /** Test to see if @c roomSdkno has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomSdkno;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *msgId;
+/** Test to see if @c msgId has been set. */
+@property(nonatomic, readwrite) BOOL hasMsgId;
 
 @end
 

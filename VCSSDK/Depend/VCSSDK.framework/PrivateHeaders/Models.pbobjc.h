@@ -1591,6 +1591,7 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_CorpExternalMemberLimit = 32,
   Room_FieldNumber_AccessWhitelist = 33,
   Room_FieldNumber_MemberSensitiveState = 34,
+  Room_FieldNumber_MsgId = 35,
 };
 
 /**
@@ -1738,6 +1739,11 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) BOOL memberSensitiveState;
 
 @property(nonatomic, readwrite) BOOL hasMemberSensitiveState;
+/** 消息ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *msgId;
+/** Test to see if @c msgId has been set. */
+@property(nonatomic, readwrite) BOOL hasMsgId;
+
 @end
 
 #pragma mark - Account
