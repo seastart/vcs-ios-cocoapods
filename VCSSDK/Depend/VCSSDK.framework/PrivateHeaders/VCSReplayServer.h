@@ -78,6 +78,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int videoAngle;
 /// 当前上传速率(单位kps)
 @property (nonatomic, copy) NSString *speed;
+/// 流媒体延迟
+@property (nonatomic, assign) int delay;
 
 #pragma mark 获取单例
 /// 获取单例
