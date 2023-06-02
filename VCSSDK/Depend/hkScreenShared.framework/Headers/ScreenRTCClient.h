@@ -35,6 +35,12 @@ typedef void (^StopReplayKit)(NSString *msg);
 - (void)sendAudioBuffertoServer:(CMSampleBufferRef)sampleBuffer;
 
 - (void)sendNotifyBuffertoServer;
+
+#pragma mark - 调整码率
+/// 调整码率
+/// - Parameter isReduce: YES-降低 NO-提升
+- (void)adjustBitrate:(BOOL)isReduce;
+
 @end
 
 NS_ASSUME_NONNULL_END
