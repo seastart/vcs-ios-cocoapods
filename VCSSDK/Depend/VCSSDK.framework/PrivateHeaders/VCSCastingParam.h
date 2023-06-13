@@ -126,6 +126,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy) NSString *type;
 /// 消息编号
 @property (nonatomic, copy) NSString *seq;
+/// 平台类型
+@property (nonatomic, assign) NSInteger terminalType;
 
 @end
 
