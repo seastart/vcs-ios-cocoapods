@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define SDKVERSION "9.5.12-audioOptimize.3@2023.06.05"
+#define SDKVERSION "9.5.12-audioOptimize.4@2023.06.20"
 
 //! Project version number for AnyliveSDK.
 FOUNDATION_EXPORT double AnyliveSDKVersionNumber;
