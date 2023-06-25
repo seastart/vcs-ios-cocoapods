@@ -61,6 +61,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取当前时间戳(毫秒)
 - (NSTimeInterval)getNowTimeIntervalMilli;
 
+#pragma mark - 获取当前时间字符串
+/// 获取当前时间字符串
+- (NSString *)getNowTimeDate;
+
 #pragma mark - 判断应用是否在Mac上运行
 /// 判断应用是否在Mac上运行
 - (BOOL)isiOSAppOnMac;
