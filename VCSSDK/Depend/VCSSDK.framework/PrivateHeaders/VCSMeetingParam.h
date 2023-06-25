@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *accountId;
 #pragma mark 用户名
 @property (nonatomic, copy) NSString *name;
+#pragma mark 手机号码
+@property (nonatomic, copy) NSString *mobile;
 #pragma mark 用户昵称
 @property (nonatomic, copy) NSString *nickname;
 #pragma mark 用户头像
