@@ -844,6 +844,7 @@ typedef GPB_ENUM(EnterNotify_FieldNumber) {
   EnterNotify_FieldNumber_RoomId = 2,
   EnterNotify_FieldNumber_RoomNo = 3,
   EnterNotify_FieldNumber_RoomSdkno = 4,
+  EnterNotify_FieldNumber_MsgId = 5,
 };
 
 /**
@@ -866,6 +867,10 @@ GPB_FINAL @interface EnterNotify : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *roomSdkno;
 /** Test to see if @c roomSdkno has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomSdkno;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *msgId;
+/** Test to see if @c msgId has been set. */
+@property(nonatomic, readwrite) BOOL hasMsgId;
 
 @end
 
@@ -2083,6 +2088,29 @@ GPB_FINAL @interface KickoutExitNotify : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *accountTokenId;
 /** Test to see if @c accountTokenId has been set. */
 @property(nonatomic, readwrite) BOOL hasAccountTokenId;
+
+@end
+
+#pragma mark - McuStatusNotify
+
+typedef GPB_ENUM(McuStatusNotify_FieldNumber) {
+  McuStatusNotify_FieldNumber_RoomNo = 1,
+  McuStatusNotify_FieldNumber_McuStatus = 2,
+};
+
+/**
+ * MCU录制监控状态
+ **/
+GPB_FINAL @interface McuStatusNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+/** 0 正常录制 1 录制异步 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *mcuStatus;
+/** Test to see if @c mcuStatus has been set. */
+@property(nonatomic, readwrite) BOOL hasMcuStatus;
 
 @end
 

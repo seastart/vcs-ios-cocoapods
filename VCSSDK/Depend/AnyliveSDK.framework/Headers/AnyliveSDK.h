@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define SDKVERSION "9.5.10-dev.9@2023.03.27"
+#define SDKVERSION "9.5.11@2023.04.13"
 
 //! Project version number for AnyliveSDK.
 FOUNDATION_EXPORT double AnyliveSDKVersionNumber;
@@ -20,11 +20,11 @@ FOUNDATION_EXPORT const unsigned char AnyliveSDKVersionString[];
 //! #define FITXY 0x603
 
 /// SDK API
-#import<AnyliveSDk/anyliveAPI.h>
+#import "anyliveAPI.h"
 /// 用于显示YUV数据
-#import<AnyliveSDk/RTYUVPlayer.h>
+#import "RTYUVPlayer.h"
 /// 视频采集
-#import<AnyliveSDk/VideoCapture.h>
+#import "VideoCapture.h"
 
 /// In this header, you should import all the public headers of your framework using statements like #import <AnyliveSDK/PublicHeader.h>
 
