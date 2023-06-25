@@ -113,6 +113,9 @@ typedef GPB_ENUM(Command) {
   /** 修改成员自定义信息 */
   Command_CmdRoomSetMemberExtendInfoHost = 26,
 
+  /** MCU录制状态监控 */
+  Command_CmdRoomMcuStatus = 27,
+
   /** 进入房间 */
   Command_CmdRoomEnter = 100,
 
@@ -283,6 +286,24 @@ typedef GPB_ENUM(Command) {
 
   /** =====================Rooms系统配置文件通知========================== */
   Command_CmdRoomsUpgradeFileNotify = 1043,
+
+  /** =====================Rooms充值通知========================== */
+  Command_CmdRoomsOrderPayNotify = 1044,
+
+  /** =====================Rooms充值成功给盒子通知========================== */
+  Command_CmdRoomsRechargeNotify = 1045,
+
+  /** =====================Rooms能力不足给盒子通知========================== */
+  Command_CmdRoomsInsufficientCapacity = 1046,
+
+  /** =====================Rooms下发节目========================== */
+  Command_CmdRoomsShowAddNotify = 1047,
+
+  /** =====================Rooms删除节目========================== */
+  Command_CmdRoomsShowDeleteNotify = 1048,
+
+  /** =====================Rooms切换企业========================== */
+  Command_CmdRoomsCorpChangeNotify = 1049,
 
   /** 将数据通过服务透传到指定的帐号(非MQTT连接的客户端用) */
   Command_CmdTransparent = 2000,
@@ -459,6 +480,9 @@ typedef GPB_ENUM(ConferenceRole) {
 
   /** /联席主持人 */
   ConferenceRole_CrUnionHost = 4,
+
+  /** 企业外部联系人 */
+  ConferenceRole_CrCorpExternal = 5,
 };
 
 GPBEnumDescriptor *ConferenceRole_EnumDescriptor(void);
@@ -969,6 +993,7 @@ typedef GPB_ENUM(McuMode) {
   McuMode_McuModeRecord = 1,
   McuMode_McuModeMcu = 2,
   McuMode_McuModeRtmp = 4,
+  McuMode_McuModeRecordHls = 8,
 };
 
 GPBEnumDescriptor *McuMode_EnumDescriptor(void);
@@ -1045,6 +1070,66 @@ GPBEnumDescriptor *ChatResult_EnumDescriptor(void);
  * the time this source was generated.
  **/
 BOOL ChatResult_IsValidValue(int32_t value);
+
+#pragma mark - Enum ExternalMemberLimit
+
+/** 外部联系人入会类型限制(0：不允许外部联系人入会;1:允许外部联系人入会；2：仅受邀外部联系人入会) */
+typedef GPB_ENUM(ExternalMemberLimit) {
+  /** 不允许外部联系人入会 */
+  ExternalMemberLimit_NotAllow = 0,
+
+  /** 允许外部联系人入会 */
+  ExternalMemberLimit_Allow = 1,
+
+  /** 仅受邀外部联系人入会 */
+  ExternalMemberLimit_OnlyInviteAllow = 2,
+};
+
+GPBEnumDescriptor *ExternalMemberLimit_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL ExternalMemberLimit_IsValidValue(int32_t value);
+
+#pragma mark - Enum InsideWaitingRoomState
+
+/** 内部成员是否开启等候室(0：关闭;1:开启;) */
+typedef GPB_ENUM(InsideWaitingRoomState) {
+  /** 关闭 */
+  InsideWaitingRoomState_InsideClose = 0,
+
+  /** 开启 */
+  InsideWaitingRoomState_InsideOpen = 1,
+};
+
+GPBEnumDescriptor *InsideWaitingRoomState_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL InsideWaitingRoomState_IsValidValue(int32_t value);
+
+#pragma mark - Enum ExternalWaitingRoomState
+
+/** 外部联系人是否开启等候室(0：关闭;1:开启;) */
+typedef GPB_ENUM(ExternalWaitingRoomState) {
+  /** 关闭 */
+  ExternalWaitingRoomState_ExternalClose = 0,
+
+  /** 开启 */
+  ExternalWaitingRoomState_ExternalOpen = 1,
+};
+
+GPBEnumDescriptor *ExternalWaitingRoomState_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL ExternalWaitingRoomState_IsValidValue(int32_t value);
 
 #pragma mark - ModelsRoot
 
@@ -1495,6 +1580,18 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_McuMode = 21,
   Room_FieldNumber_RelieveAstate = 22,
   Room_FieldNumber_SharingRelativePicURL = 23,
+  Room_FieldNumber_ExternalMemberLimit = 24,
+  Room_FieldNumber_InsideWaitingRoomState = 25,
+  Room_FieldNumber_ExternalWaitingRoomState = 26,
+  Room_FieldNumber_InsideScreenShot = 27,
+  Room_FieldNumber_InsideWaterMark = 28,
+  Room_FieldNumber_ExternalScreenShot = 29,
+  Room_FieldNumber_ExternalWaterMark = 30,
+  Room_FieldNumber_ExternalShareScreen = 31,
+  Room_FieldNumber_CorpExternalMemberLimit = 32,
+  Room_FieldNumber_AccessWhitelist = 33,
+  Room_FieldNumber_MemberSensitiveState = 34,
+  Room_FieldNumber_MsgId = 35,
 };
 
 /**
@@ -1598,6 +1695,55 @@ GPB_FINAL @interface Room : GPBMessage
 /** Test to see if @c sharingRelativePicURL has been set. */
 @property(nonatomic, readwrite) BOOL hasSharingRelativePicURL;
 
+/** 企业外外部联系人入会类型限制(0：不允许外部联系人入会;1:允许外部联系人入会；2：仅受邀外部联系人入会) */
+@property(nonatomic, readwrite) ExternalMemberLimit externalMemberLimit;
+
+@property(nonatomic, readwrite) BOOL hasExternalMemberLimit;
+/** 内部成员是否开启等候室(0：关闭;1:开启;) */
+@property(nonatomic, readwrite) InsideWaitingRoomState insideWaitingRoomState;
+
+@property(nonatomic, readwrite) BOOL hasInsideWaitingRoomState;
+/** 外部联系人是否开启等候室(0：关闭;1:开启;) */
+@property(nonatomic, readwrite) ExternalWaitingRoomState externalWaitingRoomState;
+
+@property(nonatomic, readwrite) BOOL hasExternalWaitingRoomState;
+/** 内部成员权限-截图与录屏 */
+@property(nonatomic, readwrite) BOOL insideScreenShot;
+
+@property(nonatomic, readwrite) BOOL hasInsideScreenShot;
+/** 内部成员权限-会议水印 */
+@property(nonatomic, readwrite) BOOL insideWaterMark;
+
+@property(nonatomic, readwrite) BOOL hasInsideWaterMark;
+/** 外部成员权限-截图与录屏 */
+@property(nonatomic, readwrite) BOOL externalScreenShot;
+
+@property(nonatomic, readwrite) BOOL hasExternalScreenShot;
+/** 外部成员权限-会议水印 */
+@property(nonatomic, readwrite) BOOL externalWaterMark;
+
+@property(nonatomic, readwrite) BOOL hasExternalWaterMark;
+/** 外部成员权限-共享屏幕 */
+@property(nonatomic, readwrite) BOOL externalShareScreen;
+
+@property(nonatomic, readwrite) BOOL hasExternalShareScreen;
+/** 企业内外部联系人入会类型限制(0：不允许外部联系人入会;1:允许外部联系人入会；2：仅受邀外部联系人入会) */
+@property(nonatomic, readwrite) ExternalMemberLimit corpExternalMemberLimit;
+
+@property(nonatomic, readwrite) BOOL hasCorpExternalMemberLimit;
+/** 企业内部成员开启白名单限制(false:不开启;true：开启) */
+@property(nonatomic, readwrite) BOOL accessWhitelist;
+
+@property(nonatomic, readwrite) BOOL hasAccessWhitelist;
+/** 会中成员姓名脱敏(false：不脱敏;true:脱敏) */
+@property(nonatomic, readwrite) BOOL memberSensitiveState;
+
+@property(nonatomic, readwrite) BOOL hasMemberSensitiveState;
+/** 消息ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *msgId;
+/** Test to see if @c msgId has been set. */
+@property(nonatomic, readwrite) BOOL hasMsgId;
+
 @end
 
 #pragma mark - Account
@@ -1631,6 +1777,7 @@ typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_Version = 26,
   Account_FieldNumber_ErrMsg = 27,
   Account_FieldNumber_ExtendInfo = 28,
+  Account_FieldNumber_Mobile = 29,
 };
 
 /**
@@ -1760,6 +1907,11 @@ GPB_FINAL @interface Account : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *extendInfo;
 /** Test to see if @c extendInfo has been set. */
 @property(nonatomic, readwrite) BOOL hasExtendInfo;
+
+/** 手机号码 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *mobile;
+/** Test to see if @c mobile has been set. */
+@property(nonatomic, readwrite) BOOL hasMobile;
 
 @end
 
@@ -2123,6 +2275,34 @@ GPB_FINAL @interface SystemOption : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *value;
 /** Test to see if @c value has been set. */
 @property(nonatomic, readwrite) BOOL hasValue;
+
+@end
+
+#pragma mark - MsgQueueWrap
+
+typedef GPB_ENUM(MsgQueueWrap_FieldNumber) {
+  MsgQueueWrap_FieldNumber_Data_p = 1,
+  MsgQueueWrap_FieldNumber_TargetId = 2,
+  MsgQueueWrap_FieldNumber_Command = 3,
+  MsgQueueWrap_FieldNumber_TokenId = 4,
+};
+
+GPB_FINAL @interface MsgQueueWrap : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *data_p;
+/** Test to see if @c data_p has been set. */
+@property(nonatomic, readwrite) BOOL hasData_p;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *targetId;
+/** Test to see if @c targetId has been set. */
+@property(nonatomic, readwrite) BOOL hasTargetId;
+
+@property(nonatomic, readwrite) Command command;
+
+@property(nonatomic, readwrite) BOOL hasCommand;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *tokenId;
+/** Test to see if @c tokenId has been set. */
+@property(nonatomic, readwrite) BOOL hasTokenId;
 
 @end
 
@@ -2508,6 +2688,148 @@ GPB_FINAL @interface RoomsUpgradeFileNotify : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *upgradeFile;
 /** Test to see if @c upgradeFile has been set. */
 @property(nonatomic, readwrite) BOOL hasUpgradeFile;
+
+@property(nonatomic, readwrite) int64_t state;
+
+@property(nonatomic, readwrite) BOOL hasState;
+@end
+
+#pragma mark - RoomsOrderPayNotify
+
+typedef GPB_ENUM(RoomsOrderPayNotify_FieldNumber) {
+  RoomsOrderPayNotify_FieldNumber_OrderId = 1,
+  RoomsOrderPayNotify_FieldNumber_Name = 2,
+  RoomsOrderPayNotify_FieldNumber_Id_p = 3,
+  RoomsOrderPayNotify_FieldNumber_State = 4,
+};
+
+GPB_FINAL @interface RoomsOrderPayNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *orderId;
+/** Test to see if @c orderId has been set. */
+@property(nonatomic, readwrite) BOOL hasOrderId;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *name;
+/** Test to see if @c name has been set. */
+@property(nonatomic, readwrite) BOOL hasName;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+/** Test to see if @c id_p has been set. */
+@property(nonatomic, readwrite) BOOL hasId_p;
+
+@property(nonatomic, readwrite) int64_t state;
+
+@property(nonatomic, readwrite) BOOL hasState;
+@end
+
+#pragma mark - RoomsRechargeSuccessNotify
+
+typedef GPB_ENUM(RoomsRechargeSuccessNotify_FieldNumber) {
+  RoomsRechargeSuccessNotify_FieldNumber_State = 1,
+  RoomsRechargeSuccessNotify_FieldNumber_Duration = 2,
+};
+
+GPB_FINAL @interface RoomsRechargeSuccessNotify : GPBMessage
+
+@property(nonatomic, readwrite) int32_t state;
+
+@property(nonatomic, readwrite) BOOL hasState;
+@property(nonatomic, readwrite) int64_t duration;
+
+@property(nonatomic, readwrite) BOOL hasDuration;
+@end
+
+#pragma mark - RoomsInsufficientCapacityNotify
+
+typedef GPB_ENUM(RoomsInsufficientCapacityNotify_FieldNumber) {
+  RoomsInsufficientCapacityNotify_FieldNumber_Time = 1,
+  RoomsInsufficientCapacityNotify_FieldNumber_Conc = 2,
+};
+
+GPB_FINAL @interface RoomsInsufficientCapacityNotify : GPBMessage
+
+@property(nonatomic, readwrite) int64_t time;
+
+@property(nonatomic, readwrite) BOOL hasTime;
+@property(nonatomic, readwrite) int64_t conc;
+
+@property(nonatomic, readwrite) BOOL hasConc;
+@end
+
+#pragma mark - RoomsShowAddNotify
+
+typedef GPB_ENUM(RoomsShowAddNotify_FieldNumber) {
+  RoomsShowAddNotify_FieldNumber_Id_p = 1,
+  RoomsShowAddNotify_FieldNumber_ShowId = 2,
+};
+
+GPB_FINAL @interface RoomsShowAddNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+/** Test to see if @c id_p has been set. */
+@property(nonatomic, readwrite) BOOL hasId_p;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *showId;
+/** Test to see if @c showId has been set. */
+@property(nonatomic, readwrite) BOOL hasShowId;
+
+@end
+
+#pragma mark - RoomsShowDeleteNotify
+
+typedef GPB_ENUM(RoomsShowDeleteNotify_FieldNumber) {
+  RoomsShowDeleteNotify_FieldNumber_Id_p = 1,
+  RoomsShowDeleteNotify_FieldNumber_ShowId = 2,
+};
+
+GPB_FINAL @interface RoomsShowDeleteNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+/** Test to see if @c id_p has been set. */
+@property(nonatomic, readwrite) BOOL hasId_p;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *showId;
+/** Test to see if @c showId has been set. */
+@property(nonatomic, readwrite) BOOL hasShowId;
+
+@end
+
+#pragma mark - RoomsCorpChangeNotify
+
+typedef GPB_ENUM(RoomsCorpChangeNotify_FieldNumber) {
+  RoomsCorpChangeNotify_FieldNumber_Id_p = 1,
+  RoomsCorpChangeNotify_FieldNumber_CorpId = 2,
+};
+
+GPB_FINAL @interface RoomsCorpChangeNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+/** Test to see if @c id_p has been set. */
+@property(nonatomic, readwrite) BOOL hasId_p;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *corpId;
+/** Test to see if @c corpId has been set. */
+@property(nonatomic, readwrite) BOOL hasCorpId;
+
+@end
+
+#pragma mark - RoomsNameUpdateNotify
+
+typedef GPB_ENUM(RoomsNameUpdateNotify_FieldNumber) {
+  RoomsNameUpdateNotify_FieldNumber_Id_p = 1,
+  RoomsNameUpdateNotify_FieldNumber_Nickname = 2,
+  RoomsNameUpdateNotify_FieldNumber_State = 3,
+};
+
+GPB_FINAL @interface RoomsNameUpdateNotify : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+/** Test to see if @c id_p has been set. */
+@property(nonatomic, readwrite) BOOL hasId_p;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *nickname;
+/** Test to see if @c nickname has been set. */
+@property(nonatomic, readwrite) BOOL hasNickname;
 
 @property(nonatomic, readwrite) int64_t state;
 
