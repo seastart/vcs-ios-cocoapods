@@ -16,6 +16,7 @@
 #define VCSDeviceIdentifier [[UIDevice currentDevice].identifierForVendor UUIDString]
 
 #pragma mark - 获取设备屏幕宽度/高度
+#define VCS_SCREEN_SCALE ([[UIScreen mainScreen] scale])
 #define VCS_SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define VCS_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 

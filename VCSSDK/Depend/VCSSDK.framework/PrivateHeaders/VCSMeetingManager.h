@@ -13,8 +13,7 @@
 #import "VCSStreamMediaManager.h"
 #import "VCSChatRoomManager.h"
 #import "VCSCameraGatherManager.h"
-#import "VCSScreenRecordingServerManager.h"
-#import "VCSScreenRecordingClientManager.h"
+#import "VCSReplayServer.h"
 #import "Models.pbobjc.h"
 #import "RoomServer.pbobjc.h"
 #import "VCSCommons.h"
@@ -114,33 +113,14 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 
 
 #pragma mark - -------- 视频会议屏幕录制相关接口 ---------
-#pragma mark 开启录制调用端(编码模式)
-/// 开启录制调用端(编码模式)
-- (void)startEncoderScreenRecordingServer;
+#pragma mark 开启屏幕录制
+/// 开启屏幕录制
+/// @param appGroup Application Group Identifier
+- (void)startScreenRecordWithAppGroup:(NSString *)appGroup;
 
-#pragma mark 开启录制调用端(非编码模式)
-/// 开启录制调用端(非编码模式)
-- (void)startScreenRecordingServer;
-
-#pragma mark 关闭本次录屏服务
-/// 关闭本次录屏服务
-- (void)closeScreenServer;
-
-#pragma mark 开启录制被调用端(编码模式)
-/// 开启录制被调用端(编码模式)
-/// @param closeBlock 被调用端关闭回调
-- (void)startEncoderScreenRecordingClient:(VCSScreenClientCloseBlock)closeBlock;
-
-#pragma mark 开启录制被调用端(非编码模式)
-/// 开启录制被调用端(非编码模式)
-/// @param closeBlock 被调用端关闭回调
-- (void)startScreenRecordingClient:(VCSScreenClientCloseBlock)closeBlock;
-
-#pragma mark - 发送共享屏幕帧数据
-/// 发送共享屏幕帧数据
-/// @param sampleBuffer 帧数据
-/// @param sampleBufferType 帧数据类型
-- (void)sendSampleBufferServer:(CMSampleBufferRef)sampleBuffer withType:(RPSampleBufferType)sampleBufferType;
+#pragma mark - 关闭屏幕录制
+/// 关闭屏幕录制
+- (void)stopScreenRecord;
 
 
 #pragma mark - -------- 视频会议流媒体服务相关接口 ---------
