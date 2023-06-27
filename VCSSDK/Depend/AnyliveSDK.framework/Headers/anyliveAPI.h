@@ -27,7 +27,7 @@
 #define VCS_EVENT_STATUS_SDP 0x02
 
 //子事件
-
+#define   VCS_UPLOAD_STATUS_OVERFLOW    3 /// 溢出事件
 #define   VCS_UPLOAD_STATUS_NOMACFOUND  -6//事件属性 VCS_CONNECT_EVENT
 #define   VCS_UPLOAD_STATUS_PACKERFAIL  -5 //事件属性 VCS_CONNECT_EVENT
 #define   VCS_UPLOAD_STATUS_DNSERROR    -4 //事件属性 VCS_CONNECT_EVENT
@@ -120,8 +120,16 @@
 //系统初始化后设置音频出于非上传状态/或者上传状态，
 #define VCS_SET_DEFNOSEND 0x308   //default send lparam = 0,lparam=1 nosend
 
-/// encrypt
+/// 是否开启加密
 #define VCS_SET_ECPA 0x30a
+
+/// 启用HTTP数据上传，用于投屏
+#define VCS_HTTP_UPLOAD 0x402
+/// 关闭接收功能
+#define VCS_NORECVDATA 0x403
+
+/// 是否开启原生音频设置
+#define VCS_NATIVE_AUDIO 0x405
 
 //设置代理用于数据回调
 @protocol callbackdataDelegate <NSObject>
@@ -337,7 +345,14 @@
 //录屏推流
 //录屏编码数据推送 //如果时非编码模式
 -(NSInteger)VCS_pushEncoderStream:(NSData*)StreamData stamp:(uint32_t)pts dts:(uint32_t)dts displayAngle:(int)angle;
-//-(NSInteger)VCS_pushEncoderStream:(NSData*)StreamData stamp:(uint32_t)pts dts:(uint32_t)dts;
+
+/// 发送音频数据(PCM数据)
+/// - Parameters:
+///   - StreamData: 音频数据
+///   - pts: 显示时间戳
+///   - dts: 解码时间戳
+- (NSInteger)VCS_pusAudioStream:(NSData *)StreamData stamp:(uint32_t)pts dts:(uint32_t)dts;
+
 //是否关闭camera流推送。在非编码模式下有效 非编码模式录屏下必须通过该函数来却换流推送
 -(void)VCS_CloseCameraStream:(BOOL)Close;
 //录屏推流

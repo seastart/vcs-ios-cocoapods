@@ -24,10 +24,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic , weak)id <ScreenRTCServerConnectProtocol> delegate;
 
+#pragma mark - 初始化屏幕采集服务端
+/// 初始化屏幕采集服务端
+/// - Parameters:
+///   - ModeType: 编码模式 0-编码模式 1-原数据模式
+///   - appGroup: Application Group Identifier
+///   - isCasting: 是否是投屏模式 YES-投屏 NO-共享
+- (BOOL)initServerConnect:(int)ModeType appGroup:(NSString *)appGroup isCasting:(BOOL)isCasting;
 
-
-//ModeType:0 encdoer ModeType:1 CSAMPLEBUFFER dedault encoder 需要和 client 保持统一模式
--(BOOL)initServerConnect:(int)ModeType; //初始化后方可创createServerConnect
 /// 创建 server connect
 - (BOOL)createServerConnect;
 
@@ -35,16 +39,28 @@ NS_ASSUME_NONNULL_BEGIN
 -(BOOL)destroyServerConnect;
 
 -(BOOL )closeClientByCustomUser;
+
+//用户请求关键帧
+
+-(BOOL)doRequestIDR;
+
+//更新编码帧率
+-(BOOL)updateFps:(int)fps;
+
 @end
 
 
 @protocol ScreenRTCServerConnectProtocol <NSObject>
 
 //非编码数据【NV12】
-- (void)didProcessSampleBuffer:(CMSampleBufferRef)sampleBuffer stamp:(CMTime)pts;
+//- (void)didProcessSampleBuffer:(CMSampleBufferRef)sampleBuffer stamp:(CMTime)pts;
 
 //编码数据
 - (void)didProcessEncoderData:(NSData*)sampleBuffer pts:(uint32_t)pts dts:(uint32_t)dts angle:(int)angle;
+
+//a音频
+- (void)didProcessAudioData:(NSData*)sampleBuffer pts:(uint32_t)pts dts:(uint32_t)dts;
+
 
 //Screen status  code [0:screen stop,1:screen start -1:screen connnect error]
 -(void)didProcessStatus:(int)codes;
