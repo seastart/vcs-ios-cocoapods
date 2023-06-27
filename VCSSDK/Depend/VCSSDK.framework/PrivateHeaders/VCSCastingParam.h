@@ -106,6 +106,14 @@ typedef enum : NSUInteger {
 /// 用户名称
 @property (nonatomic, copy) NSString *username;
 
+#pragma mark - ---- 编码配置参数 ----
+/// 编码宽度，默认720
+@property (nonatomic, assign) int encoderWidth;
+/// 编码高度，默认1280
+@property (nonatomic, assign) int encoderHeight;
+/// 编码帧率，默认15
+@property (nonatomic, assign) int framerate;
+
 #pragma mark - ---- 调试模式参数 ----
 /// 远程调试地址
 @property (nonatomic, copy, nullable) NSString *debugHost;
@@ -126,6 +134,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy) NSString *type;
 /// 消息编号
 @property (nonatomic, copy) NSString *seq;
+/// 平台类型
+@property (nonatomic, assign) NSInteger terminalType;
 
 @end
 
