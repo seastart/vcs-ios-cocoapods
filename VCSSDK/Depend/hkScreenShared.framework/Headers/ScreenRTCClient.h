@@ -22,16 +22,25 @@ typedef void (^StopReplayKit)(NSString *msg);
 //非编码模式输出参数
 @property (nonatomic, readwrite) unsigned int height;//720p
 
-// Init CliectConnect
-//ModeType:0 encdoer ModeType:1 CSAMPLEBUFFER dedault encoder 需要和 server 保持统一模式
--(BOOL)initCliectConnect:(int)ModeType; //初始化后方可创createCliectConnect
+- (BOOL)initCliectConnect:(int)ModeType appGroup:(NSString *)appGroup; //初始化后方可创createCliectConnect
 /// 创建 client socket
 - (BOOL)createCliectConnect;
 //close
 - (void)close;
+
 /// client send data to  server
 - (void)sendBuffertoServer:(CMSampleBufferRef)sampleBuffer;
+
+/// client send audio data to  server
+- (void)sendAudioBuffertoServer:(CMSampleBufferRef)sampleBuffer;
+
 - (void)sendNotifyBuffertoServer;
+
+#pragma mark - 调整码率
+/// 调整码率
+/// - Parameter isReduce: YES-降低 NO-提升
+- (void)adjustBitrate:(BOOL)isReduce;
+
 @end
 
 NS_ASSUME_NONNULL_END
