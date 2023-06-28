@@ -167,8 +167,6 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 
 #pragma mark 流媒体服务相关代理
 @property (nonatomic, weak) id <VCSStreamMediaManagerDelegate> delegate;
-#pragma mark 流媒体连接Delay次数
-/// @property (nonatomic, assign) NSInteger connectDelayNumber;
 #pragma mark 流媒体服务连接状态
 @property (nonatomic, assign) BOOL isStaticConnect;
 #pragma mark 是否在共享屏幕
