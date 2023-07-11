@@ -330,10 +330,10 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 /// @param isOpen YES-打开 NO-关闭
 - (void)saveVideoStreamData:(BOOL)isOpen;
 
-#pragma mark 设置MCU云端系统接收轨道
-/// 设置MCU云端系统接收轨道
-/// @param track 轨道ID
-- (void)setMcuDefaultWithTrack:(int)track;
+#pragma mark 设置云端系统录制轨道
+/// 设置云端系统录制轨道
+/// @param identifier 轨道标识
+- (void)setCloudRecordIdentifier:(VCSStreamIdentifier)identifier;
 
 #pragma mark 释放流媒体像素数据资源
 /// 释放流媒体像素数据资源
