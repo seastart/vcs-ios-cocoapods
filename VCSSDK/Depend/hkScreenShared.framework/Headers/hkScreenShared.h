@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define SCREEENVERSION @"9.5.6-castingOptimize.1@2023.07.06"
+#define SCREEENVERSION @"9.5.6-castingOptimize.2@2023.07.12"
 
 //! Project version number for hkScreenShared.
 FOUNDATION_EXPORT double hkScreenSharedVersionNumber;
