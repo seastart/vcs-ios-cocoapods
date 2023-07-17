@@ -119,6 +119,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param number 随机数量
 + (NSString *)buildRandomStringWithNumber:(NSInteger)number;
 
+#pragma mark 构建随机连接标识
+/// 构建随机连接标识
++ (NSString *)buildRandomLinkId;
+
 @end
 
 NS_ASSUME_NONNULL_END

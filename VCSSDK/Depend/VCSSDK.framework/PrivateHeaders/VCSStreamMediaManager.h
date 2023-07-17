@@ -292,7 +292,7 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 - (void)releaseKickoutResource:(int)clientId;
 
 #pragma mark 录屏数据推流(编码模式)
-- (NSInteger)pushScreenEncoderStream:(NSData *)streamData stamp:(uint32_t)stamp dts:(uint32_t)dts displayAngle:(int)displayAngle;
+- (NSInteger)pushScreenEncoderStream:(NSData *)streamData stamp:(uint32_t)stamp dts:(uint32_t)dts displayAngle:(int)displayAngle keyframe:(BOOL)keyframe;
 
 #pragma mark 录屏数据推流(非编码模式)
 - (NSInteger)pushScreenStream:(CVPixelBufferRef)sampleBuffer stamp:(CMTime)stamp rotate:(int)rotate autofixblackSide:(BOOL)fix;
