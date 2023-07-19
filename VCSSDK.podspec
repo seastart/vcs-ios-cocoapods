@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VCSSDK'
-  s.version          = '1.3.18-castingOptimize.4'
+  s.version          = '1.3.18-castingWeaknet.1'
   s.summary          = '视频会议SDK'
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
