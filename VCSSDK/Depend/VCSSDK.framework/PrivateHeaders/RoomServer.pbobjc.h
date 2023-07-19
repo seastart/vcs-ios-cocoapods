@@ -2114,6 +2114,36 @@ GPB_FINAL @interface McuStatusNotify : GPBMessage
 
 @end
 
+#pragma mark - McuRunStateNotify
+
+typedef GPB_ENUM(McuRunStateNotify_FieldNumber) {
+  McuRunStateNotify_FieldNumber_RoomNo = 1,
+  McuRunStateNotify_FieldNumber_McuStatus = 2,
+  McuRunStateNotify_FieldNumber_McuMsg = 3,
+};
+
+/**
+ * MCU录制监控状态
+ **/
+GPB_FINAL @interface McuRunStateNotify : GPBMessage
+
+/** 房间号 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+/** 0 正常录制 1 录制异常 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *mcuStatus;
+/** Test to see if @c mcuStatus has been set. */
+@property(nonatomic, readwrite) BOOL hasMcuStatus;
+
+/** 异常消息 ：  录制异常、资源不足 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *mcuMsg;
+/** Test to see if @c mcuMsg has been set. */
+@property(nonatomic, readwrite) BOOL hasMcuMsg;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END

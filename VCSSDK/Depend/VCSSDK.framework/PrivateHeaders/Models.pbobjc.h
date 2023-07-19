@@ -1592,6 +1592,9 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_AccessWhitelist = 33,
   Room_FieldNumber_MemberSensitiveState = 34,
   Room_FieldNumber_MsgId = 35,
+  Room_FieldNumber_LayoutType = 36,
+  Room_FieldNumber_McuStartAccId = 37,
+  Room_FieldNumber_Res = 38,
 };
 
 /**
@@ -1744,6 +1747,19 @@ GPB_FINAL @interface Room : GPBMessage
 /** Test to see if @c msgId has been set. */
 @property(nonatomic, readwrite) BOOL hasMsgId;
 
+/** MCU录制布局(0:自动布局;1:自定义布局(均分布局); */
+@property(nonatomic, readwrite) int32_t layoutType;
+
+@property(nonatomic, readwrite) BOOL hasLayoutType;
+/** 当前开启MCU帐号ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *mcuStartAccId;
+/** Test to see if @c mcuStartAccId has been set. */
+@property(nonatomic, readwrite) BOOL hasMcuStartAccId;
+
+/** 视频分辨 */
+@property(nonatomic, readwrite) int32_t res;
+
+@property(nonatomic, readwrite) BOOL hasRes;
 @end
 
 #pragma mark - Account
@@ -2761,6 +2777,9 @@ GPB_FINAL @interface RoomsInsufficientCapacityNotify : GPBMessage
 typedef GPB_ENUM(RoomsShowAddNotify_FieldNumber) {
   RoomsShowAddNotify_FieldNumber_Id_p = 1,
   RoomsShowAddNotify_FieldNumber_ShowId = 2,
+  RoomsShowAddNotify_FieldNumber_ShowType = 3,
+  RoomsShowAddNotify_FieldNumber_CorpPublishRecordId = 4,
+  RoomsShowAddNotify_FieldNumber_CorpId = 5,
 };
 
 GPB_FINAL @interface RoomsShowAddNotify : GPBMessage
@@ -2773,6 +2792,17 @@ GPB_FINAL @interface RoomsShowAddNotify : GPBMessage
 /** Test to see if @c showId has been set. */
 @property(nonatomic, readwrite) BOOL hasShowId;
 
+@property(nonatomic, readwrite) int64_t showType;
+
+@property(nonatomic, readwrite) BOOL hasShowType;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *corpPublishRecordId;
+/** Test to see if @c corpPublishRecordId has been set. */
+@property(nonatomic, readwrite) BOOL hasCorpPublishRecordId;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *corpId;
+/** Test to see if @c corpId has been set. */
+@property(nonatomic, readwrite) BOOL hasCorpId;
+
 @end
 
 #pragma mark - RoomsShowDeleteNotify
@@ -2780,6 +2810,9 @@ GPB_FINAL @interface RoomsShowAddNotify : GPBMessage
 typedef GPB_ENUM(RoomsShowDeleteNotify_FieldNumber) {
   RoomsShowDeleteNotify_FieldNumber_Id_p = 1,
   RoomsShowDeleteNotify_FieldNumber_ShowId = 2,
+  RoomsShowDeleteNotify_FieldNumber_ShowType = 3,
+  RoomsShowDeleteNotify_FieldNumber_CorpPublishRecordId = 4,
+  RoomsShowDeleteNotify_FieldNumber_CorpId = 5,
 };
 
 GPB_FINAL @interface RoomsShowDeleteNotify : GPBMessage
@@ -2791,6 +2824,17 @@ GPB_FINAL @interface RoomsShowDeleteNotify : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *showId;
 /** Test to see if @c showId has been set. */
 @property(nonatomic, readwrite) BOOL hasShowId;
+
+@property(nonatomic, readwrite) int64_t showType;
+
+@property(nonatomic, readwrite) BOOL hasShowType;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *corpPublishRecordId;
+/** Test to see if @c corpPublishRecordId has been set. */
+@property(nonatomic, readwrite) BOOL hasCorpPublishRecordId;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *corpId;
+/** Test to see if @c corpId has been set. */
+@property(nonatomic, readwrite) BOOL hasCorpId;
 
 @end
 

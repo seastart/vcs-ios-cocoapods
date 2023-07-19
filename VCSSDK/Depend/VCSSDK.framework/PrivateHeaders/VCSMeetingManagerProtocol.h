@@ -277,6 +277,12 @@
 /// @param error 错误信息
 - (void)onListenRoomChatEventWithNotify:(XChatEvent *)notify error:(NSError *)error;
 
+#pragma mark 云录制状态通知
+/// 云录制状态通知
+/// @param notify 通知信息
+/// @param error 错误信息
+- (void)onListenRoomCloudRecordEventWithNotify:(McuRunStateNotify *)notify error:(NSError *)error;
+
 #pragma mark 事件命令透传通知
 /// 事件命令透传通知
 /// @param command 消息指令
