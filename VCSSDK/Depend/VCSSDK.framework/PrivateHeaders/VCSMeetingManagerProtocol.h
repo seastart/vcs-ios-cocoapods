@@ -162,6 +162,16 @@
 /// @param connectModel 网络连接状况
 - (void)roomNetworkManagerDidFinshedWithUploadModel:(nullable VCSNetworkModel *)uploadModel downModel:(nullable VCSNetworkModel *)downModel connectModel:(VCSNetworkConnectModel *)connectModel;
 
+#pragma mark 流媒体连接结果回调
+/// 流媒体连接结果回调
+/// @param succeed 连接是否成功，YES-成功 NO-失败
+- (void)roomStreamMediaDidConnectFinish:(BOOL)succeed;
+
+#pragma mark 流媒体重连结果回调
+/// 流媒体重连结果回调
+/// @param succeed 重连是否成功，YES-成功 NO-失败
+- (void)roomStreamMediaDidReconnectFinish:(BOOL)succeed;
+
 
 #pragma mark - -------- 互动服务服务相关代理 --------
 #pragma mark 互动服务闪断重连成功回调
