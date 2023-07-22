@@ -147,6 +147,18 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param connectModel 网络连接状况
 - (void)roomNetworkManagerDidFinshedWithUploadModel:(nullable VCSNetworkModel *)uploadModel downModel:(nullable VCSNetworkModel *)downModel connectModel:(VCSNetworkConnectModel *)connectModel;
 
+#pragma mark 流媒体连接结果回调
+/// 流媒体连接结果回调
+/// @param stream 流媒体实例
+/// @param succeed 连接是否成功，YES-成功 NO-失败
+- (void)streamMedia:(VCSStreamMediaManager *)stream didConnectFinish:(BOOL)succeed;
+
+#pragma mark 流媒体重连结果回调
+/// 流媒体重连结果回调
+/// @param stream 流媒体实例
+/// @param succeed 重连是否成功，YES-成功 NO-失败
+- (void)streamMedia:(VCSStreamMediaManager *)stream didReconnectFinish:(BOOL)succeed;
+
 @end
 
 /// 释放完成回调
@@ -156,8 +168,6 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 
 #pragma mark 流媒体服务相关代理
 @property (nonatomic, weak) id <VCSStreamMediaManagerDelegate> delegate;
-#pragma mark 流媒体连接Delay次数
-/// @property (nonatomic, assign) NSInteger connectDelayNumber;
 #pragma mark 流媒体服务连接状态
 @property (nonatomic, assign) BOOL isStaticConnect;
 #pragma mark 是否在共享屏幕
