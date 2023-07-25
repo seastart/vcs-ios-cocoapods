@@ -994,6 +994,17 @@ typedef GPB_ENUM(McuMode) {
   McuMode_McuModeMcu = 2,
   McuMode_McuModeRtmp = 4,
   McuMode_McuModeRecordHls = 8,
+  McuMode_McuModeThree = 3,
+  McuMode_McuModeFive = 5,
+  McuMode_McuModeSix = 6,
+  McuMode_McuModeSeven = 7,
+  McuMode_McuModeNine = 9,
+  McuMode_McuModeTen = 10,
+  McuMode_McuModeEleven = 11,
+  McuMode_McuModeTwelve = 12,
+  McuMode_McuModeThirteen = 13,
+  McuMode_McuModeFourteen = 14,
+  McuMode_McuModeFifteen = 15,
 };
 
 GPBEnumDescriptor *McuMode_EnumDescriptor(void);
@@ -1595,6 +1606,7 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_LayoutType = 36,
   Room_FieldNumber_McuStartAccId = 37,
   Room_FieldNumber_Res = 38,
+  Room_FieldNumber_McuAccNum = 39,
 };
 
 /**
@@ -1760,6 +1772,10 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) int32_t res;
 
 @property(nonatomic, readwrite) BOOL hasRes;
+/** 当前mcu自定义布局方数 */
+@property(nonatomic, readwrite) int32_t mcuAccNum;
+
+@property(nonatomic, readwrite) BOOL hasMcuAccNum;
 @end
 
 #pragma mark - Account
