@@ -2119,6 +2119,7 @@ typedef GPB_ENUM(RealAccount_FieldNumber) {
   RealAccount_FieldNumber_Version = 37,
   RealAccount_FieldNumber_ErrMsg = 38,
   RealAccount_FieldNumber_ExtendInfo = 39,
+  RealAccount_FieldNumber_McuLable = 40,
 };
 
 /**
@@ -2285,6 +2286,11 @@ GPB_FINAL @interface RealAccount : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *extendInfo;
 /** Test to see if @c extendInfo has been set. */
 @property(nonatomic, readwrite) BOOL hasExtendInfo;
+
+/** MCU标签信息 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *mcuLable;
+/** Test to see if @c mcuLable has been set. */
+@property(nonatomic, readwrite) BOOL hasMcuLable;
 
 @end
 
