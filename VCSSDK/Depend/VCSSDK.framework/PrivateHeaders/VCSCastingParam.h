@@ -113,7 +113,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) int encoderWidth;
 /// 编码高度，默认1280
 @property (nonatomic, assign) int encoderHeight;
-/// 编码帧率，默认15
+/// 编码帧率，默认20
 @property (nonatomic, assign) int framerate;
 
 #pragma mark - ---- 调试模式参数 ----
