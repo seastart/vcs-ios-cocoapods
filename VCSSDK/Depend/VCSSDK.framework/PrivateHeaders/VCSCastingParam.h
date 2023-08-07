@@ -132,7 +132,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) int encoderWidth;
 /// 编码高度，默认1280
 @property (nonatomic, assign) int encoderHeight;
-/// 编码帧率，默认15，注：已失效，不再支持配置
+/// 编码帧率，默认20，注：已失效，不再支持配置
 @property (nonatomic, assign) int framerate;
 
 #pragma mark - ---- 调试模式参数 ----
@@ -193,10 +193,9 @@ typedef enum : NSUInteger {
 /// 溢出开始时间，秒级时间戳
 @property (nonatomic, assign) NSInteger startDate;
 /// 溢出结束时间，秒级时间戳
-@property (nonatomic, assign) NSInteger finishDate;
-
+/// @property (nonatomic, assign) NSInteger finishDate;
 /// 溢出状态，YES-溢出 NO-恢复
-@property (nonatomic, assign) BOOL status;
+/// @property (nonatomic, assign) BOOL status;
 
 @end
 
