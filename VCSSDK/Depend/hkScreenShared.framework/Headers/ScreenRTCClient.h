@@ -36,10 +36,10 @@ typedef void (^StopReplayKit)(NSString *msg);
 
 - (void)sendNotifyBuffertoServer;
 
-#pragma mark - 调整码率
-/// 调整码率
+#pragma mark - 请求调整码率
+/// 请求调整码率
 /// - Parameter isReduce: YES-降低 NO-提升
-- (void)adjustBitrate:(BOOL)isReduce;
+- (void)requestAdjustBitrate:(BOOL)isReduce;
 
 @end
 

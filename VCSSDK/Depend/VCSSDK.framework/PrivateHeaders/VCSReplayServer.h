@@ -27,7 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param pts 显示时间戳
 /// @param dts 解码时间戳
 /// @param angle 显示角度
-- (void)screenServer:(VCSReplayServer *)server didStreamData:(NSData *)streamData pts:(uint32_t)pts dts:(uint32_t)dts angle:(int)angle;
+/// @param keyframe 是否为关键帧
+- (void)screenServer:(VCSReplayServer *)server didStreamData:(NSData *)streamData pts:(uint32_t)pts dts:(uint32_t)dts angle:(int)angle keyframe:(BOOL)keyframe;
 
 #pragma mark 屏幕录制音频原始数据回调
 /// 屏幕录制音频原始数据回调
