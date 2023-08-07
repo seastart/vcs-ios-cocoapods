@@ -23,6 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 #pragma mark - ----- Core Delegate Methods -----
+#pragma mark 投屏检测状态回调
+/// 投屏检测状态回调
+/// @param status 状态码
+/// @param reason 拒绝原因
+- (void)onCastingProbesStatus:(VCSCastingStatus)status reason:(nullable NSString *)reason;
+
 #pragma mark 屏幕录制状态回调
 /// 屏幕录制状态回调
 /// @param status 状态码
