@@ -75,7 +75,8 @@ typedef void (^VCSCastingStreamMediaDestroyBlock)(void);
 /// @param stamp 显示时间戳
 /// @param dts 解码时间戳
 /// @param displayAngle 显示角度
-- (void)publishScreenVideoWithStreamData:(NSData *)streamData stamp:(uint32_t)stamp dts:(uint32_t)dts displayAngle:(int)displayAngle;
+/// @param keyframe 是否为关键帧
+- (void)publishScreenVideoWithStreamData:(NSData *)streamData stamp:(uint32_t)stamp dts:(uint32_t)dts displayAngle:(int)displayAngle keyframe:(BOOL)keyframe;
 
 #pragma mark 发布投屏音频流
 /// 发布投屏音频流
