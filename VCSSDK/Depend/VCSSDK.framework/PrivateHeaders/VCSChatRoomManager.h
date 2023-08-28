@@ -68,6 +68,11 @@ typedef void (^VCSChatRoomManagerDestroyBlock)(void);
 /// @param restart 是否需要重置订阅
 - (BOOL)restartConnect:(BOOL)restart;
 
+#pragma mark 手动重置订阅主题(测试)
+/// 手动重置订阅主题(测试)
+/// - Parameter finishBlock: 订阅完成
+- (void)manualRestartSubscribe:(nullable void(^)())finishBlock;
+
 #pragma mark 关闭Socket连接
 /// 关闭Socket连接
 - (void)closeSocket;
