@@ -92,6 +92,11 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// @param session 进入房间凭证
 - (void)restartMeetingWithMeetingHost:(NSString *)meetingHost meetingPort:(int)meetingPort streamHost:(NSString *)streamHost streamPort:(int)streamPort session:(NSString *)session;
 
+#pragma mark 手动重置订阅主题(测试)
+/// 手动重置订阅主题(测试)
+/// - Parameter finishBlock: 订阅完成
+- (void)manualRestartSubscribe:(nullable void(^)())finishBlock;
+
 #pragma mark 获取SDK版本号
 /// 获取SDK版本号
 - (NSString *)version;
@@ -252,6 +257,11 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 #pragma mark 获取当前接收的共享屏幕流信息
 /// 获取当前接收的共享屏幕流信息
 - (VCSMeetingDesktopModel *)getSharingDesktopInfo;
+
+#pragma mark 设置云端系统录制轨道
+/// 设置云端系统录制轨道
+/// @param identifier 轨道标识
+- (void)setCloudRecordIdentifier:(VCSStreamIdentifier)identifier;
 
 
 #pragma mark - -------- 视频会议本地采集相关接口 ---------

@@ -162,6 +162,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设备标识
 @property (nonatomic, strong) NSString *deviceId;
 
+/// 云端录制轨道标识，默认 VCSStreamIdentifierMain
+@property (nonatomic, assign) VCSStreamIdentifier cloudRecordIdentifier;
+
 @end
 
 NS_ASSUME_NONNULL_END
