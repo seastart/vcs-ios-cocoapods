@@ -107,6 +107,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy) NSString *domain;
 /// 用户名称
 @property (nonatomic, copy) NSString *username;
+/// 媒体流是否启用加密，默认 NO
+@property (nonatomic, assign) BOOL enableEncrypt;
 
 #pragma mark - ---- 编码配置参数 ----
 /// 编码宽度，默认720
