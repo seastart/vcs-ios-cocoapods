@@ -40,6 +40,7 @@ TODO: Add long description of the pod here.
   # 依赖开源库
   s.dependency 'MMKV'
   s.dependency 'Protobuf'
+  s.dependency 'GoogleWebRTC'
   s.dependency 'SSZipArchive', '>= 2.4.3'
   s.dependency 'AFNetworking', '>= 4.0.0'
   
