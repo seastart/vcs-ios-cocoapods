@@ -1,0 +1,267 @@
+
+Validating spec
+ -> VCSSDK  VCSSDK (1.3.21) - Analyzing on iOS 9.0 platform.
+  - Generating Info.plist file at `../../../../../../../../../../var/folders/zf/71jr2cps0nz9jfv8p9m4h5cc0000gn/T/CocoaPods-Lint-20231010-88490-15nh726-VCSSDK/App/App-Info.plist`
+  Preparing
+
+Analyzing dependencies
+
+Inspecting targets to integrate
+  Using `ARCHS` setting to build architectures of target `Pods-App`: (``)
+
+Fetching external sources
+-> Fetching podspec for `VCSSDK` from `/Users/SailorGa/SailorOS/Freewind/AnyMeeting/AnyDepend/VCSSDK/Depend/VCSSDK/VCSSDK.podspec`
+
+Resolving dependencies of 
+  CDN: trunk Relative path: CocoaPods-version.yml exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_8_8_5.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.3.1/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_e_c_d.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.24.3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_2_1_2.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/2/1/2/SSZipArchive/2.5.4/SSZipArchive.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_a_7_5.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/a/7/5/AFNetworking/4.0.1/AFNetworking.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/a/7/5/AFNetworking/4.0.1/AFNetworking.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/a/7/5/AFNetworking/4.0.0/AFNetworking.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/a/7/5/AFNetworking/4.0.1/AFNetworking.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/a/7/5/AFNetworking/4.0.1/AFNetworking.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/a/7/5/AFNetworking/4.0.1/AFNetworking.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/a/7/5/AFNetworking/4.0.1/AFNetworking.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/a/7/5/AFNetworking/4.0.1/AFNetworking.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/2/1/2/SSZipArchive/2.5.4/SSZipArchive.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/2/1/2/SSZipArchive/2.5.3/SSZipArchive.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/2/1/2/SSZipArchive/2.5.2/SSZipArchive.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/2/1/2/SSZipArchive/2.5.1/SSZipArchive.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/2/1/2/SSZipArchive/2.5.0/SSZipArchive.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/2/1/2/SSZipArchive/2.4.3/SSZipArchive.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.3.1/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.3.0/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.16/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.15/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.14/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.13/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.12/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.11/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.10/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.9/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.8/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.7/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.6/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.5/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.4/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.3/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.2/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.2.1/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.1.2/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.1.1/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.1.0/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.24/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.23/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.22/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.20/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.19/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.18/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.17/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.16/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.15/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.14/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.13/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.12/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.11/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/8/5/MMKV/1.0.10/MMKV.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_b_d_5.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/b/d/5/MMKVCore/1.3.1/MMKVCore.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/b/d/5/MMKVCore/1.2.16/MMKVCore.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.24.3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.24.2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.24.1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.24.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.24.0-rc3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.24.0-rc2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.24.0-rc1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.23.4/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.23.3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.23.2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.23.1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.23.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.23.0-rc3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.23.0-rc2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.22.5/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.22.4/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.22.3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.22.1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.22.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.22.0-rc3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.22.0-rc2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.22.0-rc1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.12/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.11/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.10/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.9/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.8/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.7/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.6/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.5/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.4/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.0-rc2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.21.0-rc1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.20.3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.20.2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.20.1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.20.1-rc1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.20.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.20.0-rc2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.20.0-rc1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.19.6/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.19.5/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.19.4/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.19.3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.19.2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.19.1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.19.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.18.3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.18.1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.18.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.18.0-rc2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.18.0-rc1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.17.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.16.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.15.8/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.14.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.13.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.13.0-rc3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.12.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.11.4/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.11.3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.11.2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.11.1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.11.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.11.0-rc2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.10.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.10.0-rc1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.9.2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.9.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.9.0-rc1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.8.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.8.0-rc1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.7.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.7.0-rc.3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.7.0-rc.2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.6.1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.6.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.5.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.4.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.3.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.2.1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.2.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.2.0rc2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.2.0-rc.1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.1.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.0.2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.0.0/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.0.0-beta-4/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.0.0-beta-3.1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.0.0-beta-3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.0.0-beta-2/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.0.0-alpha-4.1/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/c/d/Protobuf/3.0.0-alpha-3/Protobuf.podspec.json exists! Returning local because checking is only performed in repo update
+
+Comparing resolved specification to the sandbox manifest
+  A AFNetworking
+  A MMKV
+  A MMKVCore
+  A Protobuf
+  A SSZipArchive
+  A VCSSDK
+
+Downloading dependencies
+
+-> Installing AFNetworking (4.0.1)
+  > Copying AFNetworking from `/Users/SailorGa/Library/Caches/CocoaPods/Pods/Release/AFNetworking/4.0.1-3bd23` to `../../../../../../../../../../private/var/folders/zf/71jr2cps0nz9jfv8p9m4h5cc0000gn/T/CocoaPods-Lint-20231010-88490-15nh726-VCSSDK/Pods/AFNetworking`
+
+-> Installing MMKV (1.2.16)
+ > Git download
+ > Git download
+     $ /usr/bin/git clone https://github.com/Tencent/MMKV.git /var/folders/zf/71jr2cps0nz9jfv8p9m4h5cc0000gn/T/d20231010-88490-z0jsjh --template= --single-branch --depth 1 --branch v1.2.16
+  > Copying MMKV from `/Users/SailorGa/Library/Caches/CocoaPods/Pods/Release/MMKV/1.2.16-78447` to `../../../../../../../../../../private/var/folders/zf/71jr2cps0nz9jfv8p9m4h5cc0000gn/T/CocoaPods-Lint-20231010-88490-15nh726-VCSSDK/Pods/MMKV`
+
+-> Installing MMKVCore (1.2.16)
+ > Git download
+ > Git download
+     $ /usr/bin/git clone https://github.com/Tencent/MMKV.git /var/folders/zf/71jr2cps0nz9jfv8p9m4h5cc0000gn/T/d20231010-88490-11rn2me --template= --single-branch --depth 1 --branch v1.2.16
+
+[!] Error installing MMKVCore
+ -> VCSSDK (1.3.21)
+    - ERROR | [iOS] unknown: Encountered an unknown error ([!] /usr/bin/git clone https://github.com/Tencent/MMKV.git /var/folders/zf/71jr2cps0nz9jfv8p9m4h5cc0000gn/T/d20231010-88490-11rn2me --template= --single-branch --depth 1 --branch v1.2.16
+
+Cloning into '/var/folders/zf/71jr2cps0nz9jfv8p9m4h5cc0000gn/T/d20231010-88490-11rn2me'...
+fatal: unable to access 'https://github.com/Tencent/MMKV.git/': Failure when receiving data from the peer
+
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader.rb:144:in `rescue in execute_command'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader.rb:141:in `execute_command'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-downloader-1.6.3/lib/cocoapods-downloader/base.rb:175:in `block in executable'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-downloader-1.6.3/lib/cocoapods-downloader/git.rb:107:in `block in clone'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader.rb:175:in `block in ui_sub_action'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/user_interface.rb:64:in `section'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader.rb:174:in `ui_sub_action'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-downloader-1.6.3/lib/cocoapods-downloader/git.rb:105:in `clone'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-downloader-1.6.3/lib/cocoapods-downloader/git.rb:73:in `download!'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-downloader-1.6.3/lib/cocoapods-downloader/base.rb:83:in `block in download'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader.rb:159:in `block in ui_action'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/user_interface.rb:64:in `section'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader.rb:158:in `ui_action'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-downloader-1.6.3/lib/cocoapods-downloader/base.rb:81:in `download'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader.rb:110:in `download_source'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader.rb:77:in `download_request'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader/cache.rb:256:in `download'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader/cache.rb:239:in `block in uncached_pod'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader/cache.rb:266:in `in_tmpdir'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader/cache.rb:238:in `uncached_pod'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader/cache.rb:33:in `download_pod'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/downloader.rb:42:in `download'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/installer/pod_source_downloader.rb:69:in `download!'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/installer/pod_source_installer.rb:117:in `download_source'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/installer/pod_source_installer.rb:67:in `install!'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/installer.rb:621:in `install_source_of_pod'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/installer.rb:539:in `block (2 levels) in install_pod_sources'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/user_interface.rb:86:in `titled_section'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/installer.rb:538:in `block in install_pod_sources'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/installer.rb:535:in `each'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/installer.rb:535:in `install_pod_sources'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/installer.rb:258:in `block in download_dependencies'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/user_interface.rb:64:in `section'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/installer.rb:257:in `download_dependencies'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/validator.rb:580:in `block in download_pod'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/validator.rb:580:in `each'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/validator.rb:580:in `download_pod'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/validator.rb:402:in `block in perform_extensive_analysis'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/validator.rb:396:in `each'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/validator.rb:396:in `perform_extensive_analysis'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/validator.rb:129:in `validate'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/command/repo/push.rb:151:in `block in validate_podspec_files'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/command/repo/push.rb:140:in `each'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/command/repo/push.rb:140:in `validate_podspec_files'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/command/repo/push.rb:81:in `run'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/claide-1.1.0/lib/claide/command.rb:334:in `run'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/command.rb:52:in `run'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/bin/pod:55:in `<top (required)>'
+/usr/local/bin/pod:23:in `load'
+/usr/local/bin/pod:23:in `<main>'
+) during validation.
+
+[!] The `/Users/SailorGa/SailorOS/Freewind/AnyMeeting/AnyDepend/VCSSDK/Depend/VCSSDK/VCSSDK.podspec` specification does not validate.
+
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/command/repo/push.rb:156:in `block in validate_podspec_files'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/command/repo/push.rb:140:in `each'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/command/repo/push.rb:140:in `validate_podspec_files'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/command/repo/push.rb:81:in `run'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/claide-1.1.0/lib/claide/command.rb:334:in `run'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/lib/cocoapods/command.rb:52:in `run'
+/Users/SailorGa/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/cocoapods-1.12.1/bin/pod:55:in `<top (required)>'
+/usr/local/bin/pod:23:in `load'
+/usr/local/bin/pod:23:in `<main>'

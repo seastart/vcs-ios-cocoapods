@@ -83,6 +83,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int delay;
 /// 队列溢出状态
 @property (nonatomic, assign) BOOL overflow;
+/// 弱网档位描述
+@property (nonatomic, copy) NSString *gearsDescribe;
 
 #pragma mark 获取单例
 /// 获取单例
@@ -110,6 +112,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 强制关键帧
 /// 强制关键帧
 - (BOOL)forceKeyFrame;
+
+#pragma mark 变更编码帧率
+/// 变更编码帧率
+/// - Parameter framerate: 目标帧率
+- (BOOL)changeEncoderFps:(int)framerate;
 
 #pragma mark 资源销毁
 /// 资源销毁
