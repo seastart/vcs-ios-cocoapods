@@ -45,6 +45,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param timestamp 当前延时
 - (void)castingSignalingDelayed:(NSInteger)timestamp;
 
+#pragma mark 发送延迟检测回调
+/// 发送延迟检测回调
+- (void)castingSignalingDidPing;
+
 @end
 
 /// 释放完成回调
