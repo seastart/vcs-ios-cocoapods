@@ -65,6 +65,25 @@ typedef enum : NSUInteger {
 } VCSOverflowStatus;
 
 
+#pragma mark - 弱网档位
+/**
+ 弱网档位
+ 
+ - VCSCastingWeaknet0: 0档位，20帧
+ - VCSCastingWeaknet1: 1档位，15帧
+ - VCSCastingWeaknet2: 2档位，10帧
+ - VCSCastingWeaknet3: 3档位，5帧
+ - VCSCastingWeaknet4: 4档位，2帧
+ */
+typedef enum : NSUInteger {
+    
+    VCSCastingWeaknet0 = 0,
+    VCSCastingWeaknet1 = 1,
+    VCSCastingWeaknet2 = 2,
+    VCSCastingWeaknet3 = 3,
+    VCSCastingWeaknet4 = 4
+} VCSCastingWeaknet;
+
 #pragma mark - 流媒体发送状态信息列表
 @interface VCSStreamSendStatus : NSObject
 
@@ -107,13 +126,15 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy) NSString *domain;
 /// 用户名称
 @property (nonatomic, copy) NSString *username;
+/// 媒体流是否启用加密，默认 NO
+@property (nonatomic, assign) BOOL enableEncrypt;
 
 #pragma mark - ---- 编码配置参数 ----
 /// 编码宽度，默认720
 @property (nonatomic, assign) int encoderWidth;
 /// 编码高度，默认1280
 @property (nonatomic, assign) int encoderHeight;
-/// 编码帧率，默认20
+/// 编码帧率，默认20，注：已失效，不再支持配置
 @property (nonatomic, assign) int framerate;
 
 #pragma mark - ---- 调试模式参数 ----
@@ -164,6 +185,19 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) NSString *ext;
 /// 调试信息
 @property (nonatomic, assign) NSString *info;
+
+@end
+
+
+#pragma mark - 发送堆栈溢出对象
+@interface VCSCastingOverflow : NSObject
+
+/// 溢出开始时间，秒级时间戳
+@property (nonatomic, assign) NSInteger startDate;
+/// 溢出结束时间，秒级时间戳
+/// @property (nonatomic, assign) NSInteger finishDate;
+/// 溢出状态，YES-溢出 NO-恢复
+/// @property (nonatomic, assign) BOOL status;
 
 @end
 
