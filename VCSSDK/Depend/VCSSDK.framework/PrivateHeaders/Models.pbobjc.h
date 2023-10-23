@@ -403,6 +403,8 @@ typedef GPB_ENUM(ServerType) {
 
   /** 流媒体 */
   ServerType_StVtdu = 3,
+  ServerType_StMqtt = 4,
+  ServerType_StPicCache = 5,
 };
 
 GPBEnumDescriptor *ServerType_EnumDescriptor(void);
@@ -1810,6 +1812,7 @@ typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_ErrMsg = 27,
   Account_FieldNumber_ExtendInfo = 28,
   Account_FieldNumber_Mobile = 29,
+  Account_FieldNumber_Token = 30,
 };
 
 /**
@@ -1944,6 +1947,11 @@ GPB_FINAL @interface Account : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *mobile;
 /** Test to see if @c mobile has been set. */
 @property(nonatomic, readwrite) BOOL hasMobile;
+
+/** 账号登录token */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *token;
+/** Test to see if @c token has been set. */
+@property(nonatomic, readwrite) BOOL hasToken;
 
 @end
 
