@@ -116,6 +116,9 @@ typedef GPB_ENUM(Command) {
   /** MCU录制状态监控 */
   Command_CmdRoomMcuStatus = 27,
 
+  /** 房间人数广播 */
+  Command_CmdRoomNotfyRoomCount = 28,
+
   /** 进入房间 */
   Command_CmdRoomEnter = 100,
 
@@ -2900,6 +2903,24 @@ GPB_FINAL @interface RoomsNameUpdateNotify : GPBMessage
 @property(nonatomic, readwrite) int64_t state;
 
 @property(nonatomic, readwrite) BOOL hasState;
+@end
+
+#pragma mark - RoomCountInfo
+
+typedef GPB_ENUM(RoomCountInfo_FieldNumber) {
+  RoomCountInfo_FieldNumber_RoomId = 1,
+  RoomCountInfo_FieldNumber_Count = 2,
+};
+
+GPB_FINAL @interface RoomCountInfo : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+@property(nonatomic, readwrite) int64_t count;
+
+@property(nonatomic, readwrite) BOOL hasCount;
 @end
 
 NS_ASSUME_NONNULL_END

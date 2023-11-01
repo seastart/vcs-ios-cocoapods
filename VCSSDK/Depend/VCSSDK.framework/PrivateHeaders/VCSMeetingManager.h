@@ -13,6 +13,7 @@
 #import "VCSStreamMediaManager.h"
 #import "VCSChatRoomManager.h"
 #import "VCSCameraGatherManager.h"
+#import "VCSWebRTCManager.h"
 #import "VCSReplayServer.h"
 #import "Models.pbobjc.h"
 #import "RoomServer.pbobjc.h"

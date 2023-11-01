@@ -14,6 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 初始化方法
 + (VCSToolBridge *)sharedManager;
 
+#pragma mark - MD5方式加密的字符串
+/// MD5方式加密的字符串
+/// @param data 加密数据
+- (NSString *)MD5:(NSString *)data;
+
 /// 检测当前App是否在后台
 - (BOOL)applicationStateBackground;
 

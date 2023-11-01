@@ -293,6 +293,12 @@
 /// @param error 错误信息
 - (void)onListenRoomCloudRecordEventWithNotify:(McuRunStateNotify *)notify error:(NSError *)error;
 
+#pragma mark 研讨会议人数通知
+/// 研讨会议人数通知
+/// @param notify 通知信息
+/// @param error 错误信息
+- (void)onListenSeminarRoomCountWithNotify:(RoomCountInfo *)notify error:(NSError *)error;
+
 #pragma mark 事件命令透传通知
 /// 事件命令透传通知
 /// @param command 消息指令

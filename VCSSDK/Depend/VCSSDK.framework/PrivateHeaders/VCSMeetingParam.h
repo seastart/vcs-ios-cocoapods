@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Models.pbobjc.h"
 #import "VCSCommons.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -32,6 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *tag;
 #pragma mark 扩展字段
 @property (nonatomic, copy) NSString *extendInfo;
+
+#pragma mark 研讨会模式补充参数
+/// 账号入会模式，默认 AccountMode_AmNormal，注：研讨会模式必传
+@property (nonatomic, assign) AccountMode accountMode;
+/// CDN服务器地址，注：研讨会模式必传
+@property (nonatomic, copy) NSString *domain;
 /* ****************** ⬆️ 当前登录用户信息(可由登录获取)(必填项) ⬆️ ****************** */
 
 
