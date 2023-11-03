@@ -43,6 +43,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// - Parameter audioArray: 音频功率列表
 - (void)roomRemoteAudioStatusAudioArray:(NSMutableArray<NSDictionary *> *)audioArray;
 
+#pragma mark 设备性能使用情况回调
+/// 设备性能使用情况回调
+/// - Parameters:
+///   - memory: 内存使用
+///   - cpu: CPU占用率
+- (void)devicePerformanceNotification:(double)memory cpu:(double)cpu;
+
 @end
 
 @interface VCSWebRTCManager : NSObject
