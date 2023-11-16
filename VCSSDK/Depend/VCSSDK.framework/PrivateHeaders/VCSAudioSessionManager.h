@@ -51,8 +51,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// - Parameter route: 音频路由
 - (void)setAudioRoute:(VCSAudioRoute)route;
 
-#pragma mark 当前音频路由
-/// 当前音频路由
+#pragma mark 获取当前音频路由
+/// 获取当前音频路由
 - (VCSAudioRoute)currentAudioRoute;
 
 #pragma mark 释放音频会话
