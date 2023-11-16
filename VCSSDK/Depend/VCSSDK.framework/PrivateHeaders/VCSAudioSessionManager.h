@@ -37,12 +37,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) BOOL headphoneDeviceAvailable;
 /// 蓝牙耳机是否可用
 @property (nonatomic, assign, readonly) BOOL bluetoothDeviceAvailable;
-/// 麦克风是否可用
-@property (nonatomic, assign, readonly) BOOL receiverDeviceAvailable;
-/// 扬声器是否可用
-@property (nonatomic, assign, readonly) BOOL speakerDeviceAvailable;
-/// 可用音频设备列表
-@property (nonatomic, strong, readonly) NSArray <NSNumber *> *availableAudioDevices;
 
 #pragma mark 获取音频会话单例
 /// 获取音频会话单例
@@ -52,14 +46,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// 音频会话配置
 - (void)setupAudioSession;
 
-#pragma mark 当前音频路由
-/// 当前音频路由
-- (VCSAudioRoute)currentAudioRoute;
-
 #pragma mark 设置音频路由
 /// 设置音频路由
 /// - Parameter route: 音频路由
 - (void)setAudioRoute:(VCSAudioRoute)route;
+
+#pragma mark 当前音频路由
+/// 当前音频路由
+- (VCSAudioRoute)currentAudioRoute;
 
 #pragma mark 释放音频会话
 /// 释放音频会话
