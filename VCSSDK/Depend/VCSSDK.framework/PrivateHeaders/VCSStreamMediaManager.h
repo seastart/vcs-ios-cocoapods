@@ -113,12 +113,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// }
 - (void)roomAudioSpeakingStatusWithAudioArray:(NSMutableArray *)audioArray;
 
-#pragma mark 音频输出通道改变回调
-/// 音频输出通道改变回调
-/// @param state 音频输出端口类型
-/// @param deviceName 音频输出设置名称
-- (void)roomAudioOutputPortChangeWithState:(VCSOutputAudioPortState)state deviceName:(NSString *)deviceName;
-
 #pragma mark 当前应用CPU占用率内存使用情况回调
 /// 当前应用CPU占用率内存使用情况回调
 /// @param memory 内存使用

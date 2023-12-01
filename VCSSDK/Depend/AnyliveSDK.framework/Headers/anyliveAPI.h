@@ -131,6 +131,9 @@
 /// 是否开启原生音频设置
 #define VCS_NATIVE_AUDIO 0x405
 
+/// 是否开启内部音频路由
+#define VCS_NATIVE_AUDIOMANAGER 0x406
+
 //设置代理用于数据回调
 @protocol callbackdataDelegate <NSObject>
 

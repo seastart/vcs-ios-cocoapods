@@ -10,6 +10,7 @@
 #import <AnyliveSDK/AnyliveSDK.h>
 #import <hkScreenShared/hkScreenShared.h>
 #import "VCSMeetingParam.h"
+#import "VCSAudioSessionManager.h"
 #import "VCSStreamMediaManager.h"
 #import "VCSChatRoomManager.h"
 #import "VCSCameraGatherManager.h"
@@ -55,8 +56,6 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 @property (nonatomic, assign) BOOL acceptvAudioState;
 #pragma mark 标记是否是NoPickAudio模式(YES-是 NO-否)
 @property (nonatomic, assign) BOOL isNoPickAudio;
-#pragma mark 标记当前的音频路由
-@property (nonatomic, assign) VCSOutputAudioPortState audioRouterState;
 #pragma mark 标记进入房间失败
 @property (nonatomic, assign) BOOL isEnterFailed;
 #pragma mark 标记SDK是否在释放
@@ -221,10 +220,14 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// @param isOpen YES-打开 NO-关闭
 - (void)setSpeakerSwitch:(BOOL)isOpen;
 
-#pragma mark 切换音频输出端口
-/// 切换音频输出端口
-/// @param state 输出端口类型
-- (void)overrideOutputAudioPort:(VCSOutputAudioPortState)state;
+#pragma mark 设置音频路由
+/// 设置音频路由
+/// - Parameter route: 音频路由
+- (void)setAudioRoute:(VCSAudioRoute)route;
+
+#pragma mark 获取当前音频路由
+/// 获取当前音频路由
+- (VCSAudioRoute)currentAudioRoute;
 
 #pragma mark 设置关闭Camera采集推送
 /// 设置关闭Camera采集推送，在非编码模式下有效
