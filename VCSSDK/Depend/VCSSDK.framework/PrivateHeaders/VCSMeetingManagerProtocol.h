@@ -124,12 +124,6 @@
 /// @param status 状态码(0-停止，1-开始，-1-连接失败)
 - (void)pushScreenStreamProcessStatus:(int)status;
 
-#pragma mark 音频输出通道改变回调
-/// 音频输出通道改变回调
-/// @param state 音频输出端口类型
-/// @param deviceName 音频输出设置名称
-- (void)roomAudioOutputPortChangeWithState:(VCSOutputAudioPortState)state deviceName:(NSString *)deviceName;
-
 #pragma mark 当前应用CPU占用率内存使用情况回调
 /// 当前应用CPU占用率内存使用情况回调
 /// @param memory 内存使用
@@ -171,6 +165,12 @@
 /// 流媒体重连结果回调
 /// @param succeed 重连是否成功，YES-成功 NO-失败
 - (void)roomStreamMediaDidReconnectFinish:(BOOL)succeed;
+
+#pragma mark 音频路由变更回调
+/// 音频路由变更回调
+/// @param route 音频路由
+/// @param previousRoute 变更前的音频路由
+- (void)onAudioRouteChanged:(VCSAudioRoute)route previousRoute:(VCSAudioRoute)previousRoute;
 
 
 #pragma mark - -------- 互动服务服务相关代理 --------

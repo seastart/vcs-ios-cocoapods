@@ -52,6 +52,24 @@ typedef enum : NSUInteger {
     VCSMemberRoleTypeAdmin
 } VCSMemberRoleType;
 
+/**
+ 音频路由类型
+ 
+ - VCSAudioRouteUnknow: 未知
+ - VCSAudioRouteSpeaker: 扬声器
+ - VCSAudioRouteReceiver: 听筒
+ - VCSAudioRouteHeadphone: 有线耳机
+ - VCSAudioRouteBluetooth: 蓝牙耳机
+ */
+typedef enum : NSInteger {
+    
+    VCSAudioRouteUnknow,
+    VCSAudioRouteSpeaker,
+    VCSAudioRouteReceiver,
+    VCSAudioRouteHeadphone,
+    VCSAudioRouteBluetooth
+} VCSAudioRoute;
+
 #pragma mark - 码流类型标识符
 /**
  码流类型标识符
@@ -151,25 +169,6 @@ typedef enum : NSInteger {
     VCSDrawConnectStateSucceed = 1,
     VCSDrawConnectStateFail = 2,
 } VCSDrawConnectState;
-
-#pragma mark - 音频输出端口类型
-/**
- 音频输出端口类型
- 
- - VCSOutputAudioPortStateUnknown: 无效(未知原因)
- - VCSOutputAudioPortStateSpeaker: 扬声器(免提模式)
- - VCSOutputAudioPortStateReceiver: 听筒(听筒模式)
- - VCSOutputAudioPortStateBluetooth: 蓝牙设备(蓝牙模式)
- - VCSOutputAudioPortStateHeadset: 有线耳机设备(有线耳机模式)
- */
-typedef enum : NSInteger {
-    
-    VCSOutputAudioPortStateUnknown = 0,
-    VCSOutputAudioPortStateSpeaker = 1,
-    VCSOutputAudioPortStateReceiver = 2,
-    VCSOutputAudioPortStateBluetooth = 3,
-    VCSOutputAudioPortStateHeadset = 4
-} VCSOutputAudioPortState;
 
 #pragma mark - 网络延时抗抖动等级
 /**
