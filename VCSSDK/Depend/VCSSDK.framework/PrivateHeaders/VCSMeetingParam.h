@@ -80,6 +80,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 设置是否横屏
 @property (nonatomic, assign) BOOL isHorizontalScreen;
+#pragma mark 默认音频路由
+/// 默认音频路由，默认 VCSAudioRouteSpeaker
+@property (nonatomic, assign) VCSAudioRoute route;
 
 /// 输出分辨率宽必须是16的倍数 高必须是2的倍数 否则容易出现绿边等问题(已做了兼容)
 /// 1080P---1920x1080 (2000*1024)
