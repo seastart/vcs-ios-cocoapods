@@ -54,4 +54,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface VCSWebRTAudioSubscribeModel : NSObject
+
+/// 远端用户标识
+@property (nonatomic, copy) NSString *userId;
+/// 订阅状态
+@property (nonatomic, assign) BOOL subscribe;
+
+@end
+
 NS_ASSUME_NONNULL_END

@@ -293,11 +293,17 @@
 /// @param error 错误信息
 - (void)onListenRoomCloudRecordEventWithNotify:(McuRunStateNotify *)notify error:(NSError *)error;
 
-#pragma mark 研讨会议人数通知
-/// 研讨会议人数通知
+#pragma mark 网络研讨成员角色通知
+/// 网络研讨成员角色通知
 /// @param notify 通知信息
 /// @param error 错误信息
-- (void)onListenSeminarRoomCountWithNotify:(RoomCountInfo *)notify error:(NSError *)error;
+- (void)onListenWebinarMemberRoleWithNotify:(WebinarRoleNotify *)notify error:(NSError *)error;
+
+#pragma mark 网络研讨会观众数量通知
+/// 网络研讨会观众数量通知
+/// @param notify 通知信息
+/// @param error 错误信息
+- (void)onListenWebinarAudienceCountWithNotify:(WebinarAudienceNumNotify *)notify error:(NSError *)error;
 
 #pragma mark 事件命令透传通知
 /// 事件命令透传通知
