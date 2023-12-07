@@ -79,6 +79,15 @@ typedef void(^VCSChatRoomPackageBlock)(PacketType type, Command command, Result 
 /// @param videoState 视频状态
 + (NSData *)setMemberVideoStateWithSession:(NSString *)session accountId:(NSString *)accountId roomId:(NSString *)roomId targetidsArray:(nullable NSMutableArray<NSString *> *)targetidsArray videoState:(DeviceState)videoState;
 
+#pragma mark 主持人设置成员聊天状态(禁用或开启)
+/// 主持人设置成员聊天状态(禁用或开启)
+/// @param session 入会凭证 (互动凭证)
+/// @param accountId 主持人ID
+/// @param roomId 房间ID
+/// @param targetidsArray 成员列表(为空时表示全局禁用)
+/// @param chatState 聊天状态
++ (NSData *)setMemberChatStateWithSession:(NSString *)session accountId:(NSString *)accountId roomId:(NSString *)roomId targetidsArray:(nullable NSMutableArray<NSString *> *)targetidsArray chatState:(DeviceState)chatState;
+
 #pragma mark 主持人设置房间音频状态(禁用或开启)
 /// 主持人设置房间音频状态(禁用或开启)
 /// @param session 入会凭证 (互动凭证)
@@ -94,6 +103,22 @@ typedef void(^VCSChatRoomPackageBlock)(PacketType type, Command command, Result 
 /// @param roomId 房间ID
 /// @param videoState 视频状态
 + (NSData *)setRoomAudioStateWithSession:(NSString *)session accountId:(NSString *)accountId roomId:(NSString *)roomId videoState:(DeviceState)videoState;
+
+#pragma mark 主持人设置房间聊天状态(禁用或开启)
+/// 主持人设置房间聊天状态(禁用或开启)
+/// @param session 入会凭证 (互动凭证)
+/// @param accountId 主持人ID
+/// @param roomId 房间ID
+/// @param webinarChat 聊天状态
++ (NSData *)setRoomChatStateWithSession:(NSString *)session accountId:(NSString *)accountId roomId:(NSString *)roomId webinarChat:(WebinarState)webinarChat;
+
+#pragma mark 主持人设置房间截屏状态(禁用或开启)
+/// 主持人设置房间截屏状态(禁用或开启)
+/// @param session 入会凭证 (互动凭证)
+/// @param accountId 主持人ID
+/// @param roomId 房间ID
+/// @param webinarScreenShot 截屏状态
++ (NSData *)setRoomScreenShotStateWithSession:(NSString *)session accountId:(NSString *)accountId roomId:(NSString *)roomId webinarScreenShot:(WebinarState)webinarScreenShot;
 
 #pragma mark 主持人踢人
 /// 主持人踢人
@@ -146,7 +171,8 @@ typedef void(^VCSChatRoomPackageBlock)(PacketType type, Command command, Result 
 /// @param roomId 房间ID
 /// @param hus 举手类型(HandUpStatus_HusNone-无，HandUpStatus_HusLiftTheBan-解除禁言请求)
 /// @param result 处理结果(0-同意，其他-不同意)
-+ (NSData *)hostDisposeRoomRaiseHandWithSession:(NSString *)session accountId:(NSString *)accountId targetId:(NSString *)targetId roomId:(NSString *)roomId hus:(HandUpStatus)hus result:(int32_t)result;
+/// @param role 角色(0-嘉宾，1-观众)
++ (NSData *)hostDisposeRoomRaiseHandWithSession:(NSString *)session accountId:(NSString *)accountId targetId:(NSString *)targetId roomId:(NSString *)roomId hus:(HandUpStatus)hus result:(int32_t)result role:(int32_t)role;
 
 #pragma mark 发送聊天消息
 /// 发送聊天消息

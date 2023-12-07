@@ -127,15 +127,31 @@ typedef void (^VCSChatRoomManagerDestroyBlock)(void);
 /// @param videoState 视频状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
 - (void)sendKostCtrlMemberVideoWithTargetidsArray:(nullable NSMutableArray<NSString *> *)targetidsArray videoState:(DeviceState)videoState;
 
-#pragma mark 发送主持人操作房间音频消息
-/// 发送主持人操作房间音频消息
+#pragma mark 发送主持人操作成员聊天状态
+/// 发送主持人操作成员聊天状态
+/// @param targetidsArray 成员列表(为空时表示全局禁用)
+/// @param chatState 聊天状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
+- (void)sendKostCtrlMemberChatWithTargetidsArray:(nullable NSMutableArray<NSString *> *)targetidsArray chatState:(DeviceState)chatState;
+
+#pragma mark 发送主持人操作房间音频状态
+/// 发送主持人操作房间音频状态
 /// @param audioState 音频状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
 - (void)sendKostCtrlRoomAudioWithAudioState:(DeviceState)audioState;
 
-#pragma mark 发送主持人操作房间视频消息
-/// 发送主持人操作房间视频消息
+#pragma mark 发送主持人操作房间视频状态
+/// 发送主持人操作房间视频状态
 /// @param videoState 视频状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
 - (void)sendKostCtrlRoomVideoWithVideoState:(DeviceState)videoState;
+
+#pragma mark 发送主持人操作房间聊天状态
+/// 发送主持人操作房间聊天状态
+/// @param webinarChat 聊天状态(WebinarState_WsActive-正常，WebinarState_WsForbidGuest-禁止嘉宾，WebinarState_WsForbidAudience-禁止观众，WebinarState_WsDisabled-禁止所有)
+- (void)sendKostCtrlRoomChatWithWebinarChat:(WebinarState)webinarChat;
+
+#pragma mark 发送主持人操作房间截屏状态
+/// 发送主持人操作房间截屏状态
+/// @param webinarScreenShot 截屏状态(WebinarState_WsActive-正常，WebinarState_WsForbidGuest-禁止嘉宾，WebinarState_WsForbidAudience-禁止观众，WebinarState_WsDisabled-禁止所有)
+- (void)sendKostCtrlRoomScreenShotWithWebinarScreenShot:(WebinarState)webinarScreenShot;
 
 #pragma mark 主持人设置白板状态(打开或关闭)[废弃]
 /// 主持人设置白板状态(打开或关闭)[废弃]
@@ -166,7 +182,8 @@ typedef void (^VCSChatRoomManagerDestroyBlock)(void);
 /// @param targetId 目标用户
 /// @param hus 举手类型(HandUpStatus_HusNone-无，HandUpStatus_HusLiftTheBan-解除禁言请求)
 /// @param result 处理结果(YES-同意，NO-不同意)
-- (void)hostDisposeRoomRaiseHandWithTargetId:(NSString *)targetId hus:(HandUpStatus)hus result:(BOOL)result;
+/// @param isAudience 是否设置成观众角色(YES-观众，NO-嘉宾)
+- (void)hostDisposeRoomRaiseHandWithTargetId:(NSString *)targetId hus:(HandUpStatus)hus result:(BOOL)result isAudience:(BOOL)isAudience;
 
 #pragma mark 开始分享(包括：白板、图片、桌面)
 /// 开始分享(包括：白板、图片、桌面)
