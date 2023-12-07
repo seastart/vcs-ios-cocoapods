@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/VCSSDK.svg?style=flat)](https://cocoapods.org/pods/VCSSDK)
 [![Platform](https://img.shields.io/cocoapods/p/VCSSDK.svg?style=flat)](https://cocoapods.org/pods/VCSSDK)
 
-#### RTC服务引擎.
+#### VCSSDK服务引擎.
 
 ## Example
 
