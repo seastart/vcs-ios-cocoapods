@@ -5,8 +5,6 @@
 [![License](https://img.shields.io/cocoapods/l/VCSSDK.svg?style=flat)](https://cocoapods.org/pods/VCSSDK)
 [![Platform](https://img.shields.io/cocoapods/p/VCSSDK.svg?style=flat)](https://cocoapods.org/pods/VCSSDK)
 
-#### VCSSDK服务引擎.
-
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
