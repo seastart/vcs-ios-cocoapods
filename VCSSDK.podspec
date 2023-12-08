@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   # 指定支持平台
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
   # 设置包含静态库框架(注意：不能写在subspec子模块中)
   s.static_framework = true
