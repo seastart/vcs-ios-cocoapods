@@ -33,6 +33,7 @@ CF_EXTERN_C_BEGIN
 @class WndLayout;
 @class XChatMessage;
 @class XChatMessageAttachmemt;
+GPB_ENUM_FWD_DECLARE(ConferenceRole);
 GPB_ENUM_FWD_DECLARE(DeviceState);
 GPB_ENUM_FWD_DECLARE(HandUpStatus);
 GPB_ENUM_FWD_DECLARE(McuStatus);
@@ -1150,6 +1151,8 @@ typedef GPB_ENUM(ChatNotify_FieldNumber) {
   ChatNotify_FieldNumber_TargetId = 5,
   ChatNotify_FieldNumber_Type = 6,
   ChatNotify_FieldNumber_Message = 7,
+  ChatNotify_FieldNumber_AccountRole = 8,
+  ChatNotify_FieldNumber_AccountChatState = 9,
 };
 
 /**
@@ -1177,6 +1180,14 @@ GPB_FINAL @interface ChatNotify : GPBMessage
 /** Test to see if @c accountPortrait has been set. */
 @property(nonatomic, readwrite) BOOL hasAccountPortrait;
 
+/** 发送者角色 */
+@property(nonatomic, readwrite) enum ConferenceRole accountRole;
+
+@property(nonatomic, readwrite) BOOL hasAccountRole;
+/** 发送者聊天状态 */
+@property(nonatomic, readwrite) enum DeviceState accountChatState;
+
+@property(nonatomic, readwrite) BOOL hasAccountChatState;
 /** 目标帐号ID, 空则表示发给房间里的所有人 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *targetId;
 /** Test to see if @c targetId has been set. */
