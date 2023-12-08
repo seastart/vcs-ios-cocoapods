@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VCSSDK'
-  s.version          = '1.3.23-cdnmeeting.3'
+  s.version          = '1.3.23-cdnmeeting.1'
   s.summary          = '视频会议SDK'
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -20,15 +20,15 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'http://code.zaoing.com/meeting/VCSSDK-iOS'
+  s.homepage         = 'https://github.com/seastart/vcs-ios-cocoapods'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'SailorGa' => 'ljia789@gmail.com' }
-  s.source           = { :git => 'http://code.zaoing.com/meeting/VCSSDK-iOS.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/seastart/vcs-ios-cocoapods.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   # 指定支持平台
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
   # 设置包含静态库框架(注意：不能写在subspec子模块中)
   s.static_framework = true
