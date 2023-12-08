@@ -6,8 +6,11 @@ DERIVED_DATA_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # 获取工程文件目录
 PROJECT_PATH="$( cd "$( dirname "$PWD" )" && pwd )"
 
+# 项目名字
+LIBRARY_NAME="VCSSDK"
+
 # 项目Podspec名字
-PODSPEC_NAME="VCSSDK.podspec"
+PODSPEC_NAME="${LIBRARY_NAME}.podspec"
 
 # podspec文件路径
 PODSPEC_PATH=${PROJECT_PATH}/${PODSPEC_NAME}
@@ -31,20 +34,20 @@ OID_VERSION=""
 while read line
 do
     if [[ $line == s.version* ]]; then
-    	# 匹配单引号或者双引号
-		RE="\'([^\']*)\'"
-		RE_DOUBLE="\"([^\"]*)\""
-		if [[ $line =~ $RE || $line =~ $RE_DOUBLE ]]; then
-			OID_VERSION=${BASH_REMATCH[1]}
-		fi
-    	break
+        # 匹配单引号或者双引号
+        RE="\'([^\']*)\'"
+        RE_DOUBLE="\"([^\"]*)\""
+        if [[ $line =~ $RE || $line =~ $RE_DOUBLE ]]; then
+            OID_VERSION=${BASH_REMATCH[1]}
+        fi
+        break
     fi
 done < $PODSPEC_PATH
 
 # 检测要发布的版本号是否已经存在
 if [[ "${CLOUDS_VERSION_ARRAY[@]}" =~ "${OID_VERSION}" ]]; then
-	echo "要发布的版本号${OID_VERSION}已经存在，请修改组件发布版本(${PODSPEC_NAME})"
-	# exit 1
+    echo "要发布的版本号已经存在，请修改组件发布版本(${PODSPEC_NAME})"
+    exit 1
 fi
 
 # 获取上传日志
@@ -52,9 +55,9 @@ echo "请输入上传日志内容："
 # 读取用户输入上传日志
 read log
 while [[ -z "$log" ]]; do
-	echo "出错了！上传日志内容不能为空。"
-	echo "请输入上传日志内容："
-	read log
+    echo "出错了！上传日志内容不能为空。"
+    echo "请输入上传日志内容："
+    read log
 done
 COMMIT_LOG="发布SDK${OID_VERSION}-${log}"
 echo "输入的提交日志是：${COMMIT_LOG}"
@@ -75,16 +78,16 @@ echo "#################### Push完成 ####################"
 
 # 发布组件版本
 echo "#################### 正在发布 ####################"
-pod repo push freewindSpecs ${PODSPEC_PATH} --skip-import-validation --allow-warnings --use-libraries --verbose | tee ${ISSUE_LOG_FILE}
+pod trunk push ${PODSPEC_PATH} --skip-import-validation --allow-warnings --use-libraries --verbose | tee ${ISSUE_LOG_FILE}
 
 COUNT=0
-TOTAL_COUNT=3
+TOTAL_COUNT=2
 
 while read LOG_LINE
 do
-	if [[ ${LOG_LINE} == "Updating the \`freewindSpecs' repo" || ${LOG_LINE} == "Adding the spec to the \`freewindSpecs' repo" || ${LOG_LINE} == "Pushing the \`freewindSpecs' repo" ]]; then
-		COUNT=`expr ${COUNT} + 1`
-	fi
+    if [[ ${LOG_LINE} =~ "Push for \`${LIBRARY_NAME} ${OID_VERSION}' has been pushed" ]]; then
+        COUNT=`expr ${COUNT} + 1`
+    fi
 done < $ISSUE_LOG_FILE
 
 # 记录结束发布时间
@@ -102,12 +105,11 @@ DURATION_TIME="${HOUR_TIME}小时 ${MINUTE_TIME}分钟 ${SECOND_TIME}秒"
 
 # 判断发布是否成功
 if [[ ${COUNT} == ${TOTAL_COUNT} ]]; then
-	echo "#################### 发布成功 ####################"
+    echo "#################### 发布成功 ####################"
     # 移除日志文件
     rm $ISSUE_LOG_FILE
 else
-	echo "#################### 发布失败 ####################"
+    echo "#################### 发布失败 ####################"
 fi
 
 echo "#################### 发布用时：${DURATION_TIME} ####################"
-
