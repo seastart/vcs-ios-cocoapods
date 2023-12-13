@@ -42,6 +42,7 @@ GPB_ENUM_FWD_DECLARE(MuteState);
 GPB_ENUM_FWD_DECLARE(Operation);
 GPB_ENUM_FWD_DECLARE(RelieveAstate);
 GPB_ENUM_FWD_DECLARE(SharingType);
+GPB_ENUM_FWD_DECLARE(TerminalType);
 GPB_ENUM_FWD_DECLARE(WebinarState);
 
 NS_ASSUME_NONNULL_BEGIN
@@ -1153,6 +1154,7 @@ typedef GPB_ENUM(ChatNotify_FieldNumber) {
   ChatNotify_FieldNumber_Message = 7,
   ChatNotify_FieldNumber_AccountRole = 8,
   ChatNotify_FieldNumber_AccountChatState = 9,
+  ChatNotify_FieldNumber_TerminalType = 10,
 };
 
 /**
@@ -1188,6 +1190,10 @@ GPB_FINAL @interface ChatNotify : GPBMessage
 @property(nonatomic, readwrite) enum DeviceState accountChatState;
 
 @property(nonatomic, readwrite) BOOL hasAccountChatState;
+/** 发送者终端类型 */
+@property(nonatomic, readwrite) enum TerminalType terminalType;
+
+@property(nonatomic, readwrite) BOOL hasTerminalType;
 /** 目标帐号ID, 空则表示发给房间里的所有人 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *targetId;
 /** Test to see if @c targetId has been set. */
