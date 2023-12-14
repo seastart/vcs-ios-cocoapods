@@ -31,6 +31,7 @@ CF_EXTERN_C_BEGIN
 @class RemoveAccount;
 @class WaitingAccount;
 GPB_ENUM_FWD_DECLARE(ChatResult);
+GPB_ENUM_FWD_DECLARE(ConferenceRole);
 GPB_ENUM_FWD_DECLARE(InviteResponse);
 
 NS_ASSUME_NONNULL_BEGIN
@@ -372,6 +373,7 @@ typedef GPB_ENUM(Call_FieldNumber) {
   Call_FieldNumber_RoomNo = 3,
   Call_FieldNumber_Restart = 4,
   Call_FieldNumber_AccountsArray = 5,
+  Call_FieldNumber_Role = 6,
 };
 
 /**
@@ -398,6 +400,10 @@ GPB_FINAL @interface Call : GPBMessage
 /** The number of items in @c accountsArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger accountsArray_Count;
 
+/** 参会角色 0:嘉宾,6:观众 */
+@property(nonatomic, readwrite) enum ConferenceRole role;
+
+@property(nonatomic, readwrite) BOOL hasRole;
 @end
 
 #pragma mark - CallCancel
