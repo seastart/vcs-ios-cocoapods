@@ -51,6 +51,15 @@ typedef void(^VCSMQTTClientPackageBlock)(PacketType type, Command command, Resul
 /// @param token 登录token
 /// @param accountId 用户ID
 /// @param restart 是否重新开始(YES-忽略上次的呼叫 NO-叠加上次的呼叫)
++ (NSData *)sendCallWithAccountsArray:(NSMutableArray<WaitingAccount *> *)accountsArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId restart:(BOOL)restart;
+
+#pragma mark 发起呼叫
+/// 发起呼叫
+/// @param accountsArray 呼叫列表
+/// @param roomNo 房间ID
+/// @param token 登录token
+/// @param accountId 用户ID
+/// @param restart 是否重新开始(YES-忽略上次的呼叫 NO-叠加上次的呼叫)
 /// @param role 参会角色
 + (NSData *)sendCallWithAccountsArray:(NSMutableArray<WaitingAccount *> *)accountsArray token:(NSString *)token roomNo:(NSString *)roomNo accountId:(NSString *)accountId restart:(BOOL)restart role:(ConferenceRole)role;
 
