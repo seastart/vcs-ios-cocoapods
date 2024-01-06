@@ -1094,6 +1094,7 @@ typedef GPB_ENUM(ChatRequest_FieldNumber) {
   ChatRequest_FieldNumber_TargetId = 6,
   ChatRequest_FieldNumber_Type = 7,
   ChatRequest_FieldNumber_Message = 8,
+  ChatRequest_FieldNumber_AccountRelativePortrait = 9,
 };
 
 /**
@@ -1126,6 +1127,11 @@ GPB_FINAL @interface ChatRequest : GPBMessage
 /** Test to see if @c accountPortrait has been set. */
 @property(nonatomic, readwrite) BOOL hasAccountPortrait;
 
+/** 发送者头像相对地址 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountRelativePortrait;
+/** Test to see if @c accountRelativePortrait has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountRelativePortrait;
+
 /** 目标帐号ID, 空则表示发给房间里的所有人 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *targetId;
 /** Test to see if @c targetId has been set. */
@@ -1155,6 +1161,7 @@ typedef GPB_ENUM(ChatNotify_FieldNumber) {
   ChatNotify_FieldNumber_AccountRole = 8,
   ChatNotify_FieldNumber_AccountChatState = 9,
   ChatNotify_FieldNumber_TerminalType = 10,
+  ChatNotify_FieldNumber_AccountRelativePortrait = 11,
 };
 
 /**
@@ -1194,6 +1201,11 @@ GPB_FINAL @interface ChatNotify : GPBMessage
 @property(nonatomic, readwrite) enum TerminalType terminalType;
 
 @property(nonatomic, readwrite) BOOL hasTerminalType;
+/** 发送者头像相对地址 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountRelativePortrait;
+/** Test to see if @c accountRelativePortrait has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountRelativePortrait;
+
 /** 目标帐号ID, 空则表示发给房间里的所有人 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *targetId;
 /** Test to see if @c targetId has been set. */
@@ -2216,7 +2228,7 @@ GPB_FINAL @interface WebinarRoleNotify : GPBMessage
 /** Test to see if @c accountId has been set. */
 @property(nonatomic, readwrite) BOOL hasAccountId;
 
-/** 0:嘉宾; 1:观众 */
+/** 6:观众；其他嘉宾 */
 @property(nonatomic, readwrite) int32_t role;
 
 @property(nonatomic, readwrite) BOOL hasRole;

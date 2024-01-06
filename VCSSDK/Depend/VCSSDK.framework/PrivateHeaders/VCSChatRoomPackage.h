@@ -182,9 +182,10 @@ typedef void(^VCSChatRoomPackageBlock)(PacketType type, Command command, Result 
 /// @param roomId 房间ID
 /// @param nickname 用户昵称
 /// @param portrait 用户头像
+/// @param relativePortrait 用户头像相对地址
 /// @param type 消息类型
 /// @param message 信息
-+ (NSData *)sendRoomChatMessageWithSession:(NSString *)session accountId:(NSString *)accountId targetId:(NSString *)targetId roomId:(NSString *)roomId nickname:(NSString *)nickname portrait:(NSString *)portrait type:(MessageType)type message:(NSString *)message;
++ (NSData *)sendRoomChatMessageWithSession:(NSString *)session accountId:(NSString *)accountId targetId:(NSString *)targetId roomId:(NSString *)roomId nickname:(NSString *)nickname portrait:(NSString *)portrait relativePortrait:(NSString *)relativePortrait type:(MessageType)type message:(NSString *)message;
 
 #pragma mark 开始分享(包括：白板、图片、桌面)
 /// 开始分享(包括：白板、图片、桌面)
