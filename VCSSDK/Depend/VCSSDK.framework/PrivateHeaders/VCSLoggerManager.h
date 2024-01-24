@@ -32,6 +32,13 @@ NS_ASSUME_NONNULL_BEGIN
 ///   - itemModel: 实时日志对象
 - (VCSMetricItemModel *)loggerManager:(VCSLoggerManager *)manager onMetricExpand:(VCSMetricItemModel *)itemModel;
 
+#pragma mark 重定向日志扩展事件回调
+/// 重定向日志扩展事件回调
+/// - Parameters:
+///   - manager: 日志组件实例
+///   - redirectModel: 重定向日志对象
+- (VCSRedirectModel *)loggerManager:(VCSLoggerManager *)manager onRedirectExpand:(VCSRedirectModel *)redirectModel;
+
 @end
 
 #pragma mark - VCSLoggerManager
@@ -92,6 +99,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 追加实时日志
 /// - Parameter itemModel: 实时日志对象
 - (void)appendMetricWithItemModel:(VCSMetricItemModel *)itemModel;
+
+#pragma mark 触发上报重定向日志
+/// 触发上报重定向日志
+/// - Parameter filePath: 文件路径
+/// - Parameter folderName: 文件夹名称
+- (void)uploadRedirectWithFilePath:(NSString *)filePath folderName:(NSString *)folderName;
 
 #pragma mark 触发日志上报
 /// 触发日志上报

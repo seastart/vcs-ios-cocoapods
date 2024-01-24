@@ -256,4 +256,24 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 
 @end
 
+#pragma mark - 黑窗口重定向日志对象
+@interface VCSRedirectModel : NSObject
+
+/// 设备标识
+@property (nonatomic, copy) NSString *device_id;
+/// 设备类型，默认 TerminalType_TerminalIos
+@property (nonatomic, assign) NSInteger device_type;
+
+/// 用户标识
+@property (nonatomic, copy, nullable) NSString *uid;
+/// 会议记录标识(入会必传)
+@property (nonatomic, copy, nullable) NSString *conf_log_id;
+
+/// 创建重定向日志对象
+/// - Parameters:
+///   - deviceId: 设备标识
+- (instancetype)initWithDeviceId:(NSString *)deviceId;
+
+@end
+
 NS_ASSUME_NONNULL_END

@@ -64,9 +64,10 @@ typedef void (^NetworkResultBlock)(BOOL result, id _Nullable data, NSString * _N
 ///   - url: 请求接口
 ///   - params: 请求参数
 ///   - fileData: 文件数据
+///   - fileType: 文件类型
 ///   - className: 结果对象
 ///   - resultBlock: 请求回调
-- (void)POST:(NSString *)url params:(nullable NSDictionary *)params fileData:(NSData *)fileData className:(nullable NSString *)className resultBlock:(NetworkResultBlock)resultBlock;
+- (void)POST:(NSString *)url params:(nullable NSDictionary *)params fileData:(NSData *)fileData fileType:(NSString *)fileType className:(nullable NSString *)className resultBlock:(NetworkResultBlock)resultBlock;
 
 @end
 
