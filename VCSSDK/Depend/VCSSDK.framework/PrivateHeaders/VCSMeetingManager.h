@@ -16,6 +16,7 @@
 #import "VCSChatRoomManager.h"
 #import "VCSRoomControlManager.h"
 #import "VCSCameraGatherManager.h"
+#import "VCSWebRTCManager.h"
 #import "VCSReplayServer.h"
 #import "Models.pbobjc.h"
 #import "RoomServer.pbobjc.h"
@@ -495,27 +496,43 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// @param videoState 视频状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
 - (void)sendKostCtrlVideoWithTargetId:(nullable NSString *)targetId videoState:(DeviceState)videoState DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到sendKostCtrlMemberVideoWithTargetidsArray:videoState:接口");
 
-#pragma mark 发送主持人操作成员音频消息
-/// 发送主持人操作成员音频消息
+#pragma mark 发送主持人操作成员音频状态
+/// 发送主持人操作成员音频状态
 /// @param targetidsArray 成员列表(为空时表示全局禁用)
 /// @param audioState 音频状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
 - (void)sendKostCtrlMemberAudioWithTargetidsArray:(nullable NSMutableArray<NSString *> *)targetidsArray audioState:(DeviceState)audioState DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到hostControlMemberAudioWithAccountidArray:audioState:接口");
 
-#pragma mark 发送主持人操作成员视频消息
-/// 发送主持人操作成员视频消息
+#pragma mark 发送主持人操作成员视频状态
+/// 发送主持人操作成员视频状态
 /// @param targetidsArray 成员列表(为空时表示全局禁用)
 /// @param videoState 视频状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
 - (void)sendKostCtrlMemberVideoWithTargetidsArray:(nullable NSMutableArray<NSString *> *)targetidsArray videoState:(DeviceState)videoState DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到hostControlMemberVideoWithAccountidArray:videoState:接口");
 
-#pragma mark 发送主持人操作房间音频消息
-/// 发送主持人操作房间音频消息
+#pragma mark 发送主持人操作成员聊天状态
+/// 发送主持人操作成员聊天状态
+/// @param targetidsArray 成员列表(为空时表示全局禁用)
+/// @param chatState 聊天状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
+- (void)sendKostCtrlMemberChatWithTargetidsArray:(nullable NSMutableArray<NSString *> *)targetidsArray chatState:(DeviceState)chatState;
+
+#pragma mark 发送主持人操作房间音频状态
+/// 发送主持人操作房间音频状态
 /// @param audioState 音频状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
 - (void)sendKostCtrlRoomAudioWithAudioState:(DeviceState)audioState DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到setupRoomAudioStateWithState:接口");
 
-#pragma mark 发送主持人操作房间视频消息
-/// 发送主持人操作房间视频消息
+#pragma mark 发送主持人操作房间视频状态
+/// 发送主持人操作房间视频状态
 /// @param videoState 视频状态(DeviceState_DsActive-正常，DeviceState_DsClosed-关闭，DeviceState_DsDisabled-禁用)
 - (void)sendKostCtrlRoomVideoWithVideoState:(DeviceState)videoState DEPRECATED_MSG_ATTRIBUTE("此方法已经弃用，请迁移到setupRoomVideoStateWithState:接口");
+
+#pragma mark 发送主持人操作房间聊天状态
+/// 发送主持人操作房间聊天状态
+/// @param webinarChat 聊天状态(WebinarState_WsActive-正常，WebinarState_WsForbidGuest-禁止嘉宾，WebinarState_WsForbidAudience-禁止观众，WebinarState_WsDisabled-禁止所有)
+- (void)sendKostCtrlRoomChatWithWebinarChat:(WebinarState)webinarChat;
+
+#pragma mark 发送主持人操作房间截屏状态
+/// 发送主持人操作房间截屏状态
+/// @param webinarScreenShot 截屏状态(WebinarState_WsActive-正常，WebinarState_WsForbidGuest-禁止嘉宾，WebinarState_WsForbidAudience-禁止观众，WebinarState_WsDisabled-禁止所有)
+- (void)sendKostCtrlRoomScreenShotWithWebinarScreenShot:(WebinarState)webinarScreenShot;
 
 #pragma mark 推送码流发生变化
 /// 推送码流发生变化
@@ -541,7 +558,8 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// @param targetId 目标用户
 /// @param hus 举手类型(HandUpStatus_HusNone-无，HandUpStatus_HusLiftTheBan-解除禁言请求)
 /// @param result 处理结果(YES-同意，NO-不同意)
-- (void)hostDisposeRoomRaiseHandWithTargetId:(NSString *)targetId hus:(HandUpStatus)hus result:(BOOL)result;
+/// @param isAudience 是否设置成观众角色(YES-观众，NO-嘉宾)
+- (void)hostDisposeRoomRaiseHandWithTargetId:(NSString *)targetId hus:(HandUpStatus)hus result:(BOOL)result isAudience:(BOOL)isAudience;
 
 #pragma mark 开始分享
 /// 开始分享(包括：白板、图片、桌面)

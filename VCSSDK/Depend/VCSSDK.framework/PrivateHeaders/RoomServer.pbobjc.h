@@ -33,6 +33,7 @@ CF_EXTERN_C_BEGIN
 @class WndLayout;
 @class XChatMessage;
 @class XChatMessageAttachmemt;
+GPB_ENUM_FWD_DECLARE(ConferenceRole);
 GPB_ENUM_FWD_DECLARE(DeviceState);
 GPB_ENUM_FWD_DECLARE(HandUpStatus);
 GPB_ENUM_FWD_DECLARE(McuStatus);
@@ -41,6 +42,8 @@ GPB_ENUM_FWD_DECLARE(MuteState);
 GPB_ENUM_FWD_DECLARE(Operation);
 GPB_ENUM_FWD_DECLARE(RelieveAstate);
 GPB_ENUM_FWD_DECLARE(SharingType);
+GPB_ENUM_FWD_DECLARE(TerminalType);
+GPB_ENUM_FWD_DECLARE(WebinarState);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -1091,6 +1094,7 @@ typedef GPB_ENUM(ChatRequest_FieldNumber) {
   ChatRequest_FieldNumber_TargetId = 6,
   ChatRequest_FieldNumber_Type = 7,
   ChatRequest_FieldNumber_Message = 8,
+  ChatRequest_FieldNumber_AccountRelativePortrait = 9,
 };
 
 /**
@@ -1123,6 +1127,11 @@ GPB_FINAL @interface ChatRequest : GPBMessage
 /** Test to see if @c accountPortrait has been set. */
 @property(nonatomic, readwrite) BOOL hasAccountPortrait;
 
+/** 发送者头像相对地址 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountRelativePortrait;
+/** Test to see if @c accountRelativePortrait has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountRelativePortrait;
+
 /** 目标帐号ID, 空则表示发给房间里的所有人 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *targetId;
 /** Test to see if @c targetId has been set. */
@@ -1149,6 +1158,10 @@ typedef GPB_ENUM(ChatNotify_FieldNumber) {
   ChatNotify_FieldNumber_TargetId = 5,
   ChatNotify_FieldNumber_Type = 6,
   ChatNotify_FieldNumber_Message = 7,
+  ChatNotify_FieldNumber_AccountRole = 8,
+  ChatNotify_FieldNumber_AccountChatState = 9,
+  ChatNotify_FieldNumber_TerminalType = 10,
+  ChatNotify_FieldNumber_AccountRelativePortrait = 11,
 };
 
 /**
@@ -1175,6 +1188,23 @@ GPB_FINAL @interface ChatNotify : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *accountPortrait;
 /** Test to see if @c accountPortrait has been set. */
 @property(nonatomic, readwrite) BOOL hasAccountPortrait;
+
+/** 发送者角色 */
+@property(nonatomic, readwrite) enum ConferenceRole accountRole;
+
+@property(nonatomic, readwrite) BOOL hasAccountRole;
+/** 发送者聊天状态 */
+@property(nonatomic, readwrite) enum DeviceState accountChatState;
+
+@property(nonatomic, readwrite) BOOL hasAccountChatState;
+/** 发送者终端类型 */
+@property(nonatomic, readwrite) enum TerminalType terminalType;
+
+@property(nonatomic, readwrite) BOOL hasTerminalType;
+/** 发送者头像相对地址 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountRelativePortrait;
+/** Test to see if @c accountRelativePortrait has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountRelativePortrait;
 
 /** 目标帐号ID, 空则表示发给房间里的所有人 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *targetId;
@@ -1233,6 +1263,7 @@ typedef GPB_ENUM(HandUpRequest_FieldNumber) {
   HandUpRequest_FieldNumber_TargetId = 4,
   HandUpRequest_FieldNumber_Hus = 5,
   HandUpRequest_FieldNumber_Result = 6,
+  HandUpRequest_FieldNumber_Role = 7,
 };
 
 GPB_FINAL @interface HandUpRequest : GPBMessage
@@ -1265,6 +1296,10 @@ GPB_FINAL @interface HandUpRequest : GPBMessage
 @property(nonatomic, readwrite) int32_t result;
 
 @property(nonatomic, readwrite) BOOL hasResult;
+/** 0:嘉宾; 1:观众 */
+@property(nonatomic, readwrite) int32_t role;
+
+@property(nonatomic, readwrite) BOOL hasRole;
 @end
 
 #pragma mark - HandUpNotify
@@ -1275,6 +1310,7 @@ typedef GPB_ENUM(HandUpNotify_FieldNumber) {
   HandUpNotify_FieldNumber_AccountName = 3,
   HandUpNotify_FieldNumber_Hus = 4,
   HandUpNotify_FieldNumber_Result = 5,
+  HandUpNotify_FieldNumber_Role = 6,
 };
 
 GPB_FINAL @interface HandUpNotify : GPBMessage
@@ -1302,6 +1338,10 @@ GPB_FINAL @interface HandUpNotify : GPBMessage
 @property(nonatomic, readwrite) int32_t result;
 
 @property(nonatomic, readwrite) BOOL hasResult;
+/** 0:嘉宾; 1:观众 */
+@property(nonatomic, readwrite) int32_t role;
+
+@property(nonatomic, readwrite) BOOL hasRole;
 @end
 
 #pragma mark - SetMemberStateRequest
@@ -1313,6 +1353,7 @@ typedef GPB_ENUM(SetMemberStateRequest_FieldNumber) {
   SetMemberStateRequest_FieldNumber_TargetidsArray = 4,
   SetMemberStateRequest_FieldNumber_VideoState = 5,
   SetMemberStateRequest_FieldNumber_AudioState = 6,
+  SetMemberStateRequest_FieldNumber_ChatState = 7,
 };
 
 /**
@@ -1348,6 +1389,10 @@ GPB_FINAL @interface SetMemberStateRequest : GPBMessage
 @property(nonatomic, readwrite) enum DeviceState audioState;
 
 @property(nonatomic, readwrite) BOOL hasAudioState;
+/** 聊天状态 */
+@property(nonatomic, readwrite) enum DeviceState chatState;
+
+@property(nonatomic, readwrite) BOOL hasChatState;
 @end
 
 #pragma mark - SetRoomStateRequest
@@ -1359,6 +1404,8 @@ typedef GPB_ENUM(SetRoomStateRequest_FieldNumber) {
   SetRoomStateRequest_FieldNumber_Locked = 4,
   SetRoomStateRequest_FieldNumber_VideoState = 5,
   SetRoomStateRequest_FieldNumber_AudioState = 6,
+  SetRoomStateRequest_FieldNumber_WebinarChat = 7,
+  SetRoomStateRequest_FieldNumber_WebinarScreenShot = 8,
 };
 
 /**
@@ -1393,6 +1440,14 @@ GPB_FINAL @interface SetRoomStateRequest : GPBMessage
 @property(nonatomic, readwrite) enum DeviceState audioState;
 
 @property(nonatomic, readwrite) BOOL hasAudioState;
+/** 聊天状态 */
+@property(nonatomic, readwrite) enum WebinarState webinarChat;
+
+@property(nonatomic, readwrite) BOOL hasWebinarChat;
+/** 截屏状态 */
+@property(nonatomic, readwrite) enum WebinarState webinarScreenShot;
+
+@property(nonatomic, readwrite) BOOL hasWebinarScreenShot;
 @end
 
 #pragma mark - SetRoomMoveHostRequest
@@ -2148,6 +2203,58 @@ GPB_FINAL @interface McuRunStateNotify : GPBMessage
 /** Test to see if @c mcuMsgEn has been set. */
 @property(nonatomic, readwrite) BOOL hasMcuMsgEn;
 
+@end
+
+#pragma mark - WebinarRoleNotify
+
+typedef GPB_ENUM(WebinarRoleNotify_FieldNumber) {
+  WebinarRoleNotify_FieldNumber_RoomId = 1,
+  WebinarRoleNotify_FieldNumber_AccountId = 2,
+  WebinarRoleNotify_FieldNumber_Role = 3,
+};
+
+/**
+ * 设置成员为观众/嘉宾通知
+ **/
+GPB_FINAL @interface WebinarRoleNotify : GPBMessage
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 账号ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
+/** Test to see if @c accountId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountId;
+
+/** 6:观众；其他嘉宾 */
+@property(nonatomic, readwrite) int32_t role;
+
+@property(nonatomic, readwrite) BOOL hasRole;
+@end
+
+#pragma mark - WebinarAudienceNumNotify
+
+typedef GPB_ENUM(WebinarAudienceNumNotify_FieldNumber) {
+  WebinarAudienceNumNotify_FieldNumber_RoomId = 1,
+  WebinarAudienceNumNotify_FieldNumber_AudienceNum = 2,
+};
+
+/**
+ * 观众数通知
+ **/
+GPB_FINAL @interface WebinarAudienceNumNotify : GPBMessage
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 观众数量 */
+@property(nonatomic, readwrite) int32_t audienceNum;
+
+@property(nonatomic, readwrite) BOOL hasAudienceNum;
 @end
 
 NS_ASSUME_NONNULL_END
