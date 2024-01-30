@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VCSSDK'
-  s.version          = '1.3.23-screenshare.2'
+  s.version          = '1.3.24-screenshare.1'
   s.summary          = '视频会议SDK'
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -40,6 +40,7 @@ TODO: Add long description of the pod here.
   # 依赖开源库
   s.dependency 'MMKV'
   s.dependency 'Protobuf'
+  # s.dependency 'GoogleWebRTC/WebRTC-SDK'
   s.dependency 'SSZipArchive', '>= 2.4.3'
   s.dependency 'AFNetworking', '>= 4.0.0'
   

@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Models.pbobjc.h"
 #import "VCSCommons.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -130,7 +131,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL enableSaveAudioCapture;
 /// 保存远程接收音频流，默认 NO
 @property (nonatomic, assign) BOOL enableSaveAudioReceive;
-
 /* ****************** ⬆️ AGC AEC sampe 编码参数设置(选填项) ⬆️ ****************** */
 
 
@@ -169,6 +169,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 云端录制轨道标识，默认 VCSStreamIdentifierMain
 @property (nonatomic, assign) VCSStreamIdentifier cloudRecordIdentifier;
+
+
+/* ****************** ⬇️ 网络研讨会参数 ⬇️ ****************** */
+/// 是否为网络研讨会模式
+@property (nonatomic, assign) BOOL webinarMode;
+/// 网络研讨会服务地址
+@property (nonatomic, copy) NSString *webinarHost;
+/* ****************** ⬆️ 网络研讨会参数 ⬆️ ****************** */
 
 @end
 

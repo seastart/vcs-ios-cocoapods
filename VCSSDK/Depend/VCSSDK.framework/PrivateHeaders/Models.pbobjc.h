@@ -310,6 +310,12 @@ typedef GPB_ENUM(Command) {
 
   /** 被踢离开会议通知 */
   Command_CmdRoomNotifyKickoutExit = 1500,
+
+  /** --------------------网络研讨会相关指令开始-----------------------------/ */
+  Command_CmdWebinarNotifyRole = 1600,
+
+  /** --------------------网络研讨会相关指令结束-----------------------------/ */
+  Command_CmdWebinarNotifyAudienceNum = 1601,
 };
 
 GPBEnumDescriptor *Command_EnumDescriptor(void);
@@ -464,6 +470,31 @@ GPBEnumDescriptor *DeviceState_EnumDescriptor(void);
  **/
 BOOL DeviceState_IsValidValue(int32_t value);
 
+#pragma mark - Enum WebinarState
+
+/** 网络研讨会设置状态 */
+typedef GPB_ENUM(WebinarState) {
+  /** 正常 */
+  WebinarState_WsActive = 0,
+
+  /** 禁止嘉宾 */
+  WebinarState_WsForbidGuest = 1,
+
+  /** 禁止观众 */
+  WebinarState_WsForbidAudience = 2,
+
+  /** 禁止所有 */
+  WebinarState_WsDisabled = 3,
+};
+
+GPBEnumDescriptor *WebinarState_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL WebinarState_IsValidValue(int32_t value);
+
 #pragma mark - Enum ConferenceRole
 
 /** 会议角色 */
@@ -485,6 +516,9 @@ typedef GPB_ENUM(ConferenceRole) {
 
   /** 企业外部联系人 */
   ConferenceRole_CrCorpExternal = 5,
+
+  /** 观众 */
+  ConferenceRole_CrAudience = 6,
 };
 
 GPBEnumDescriptor *ConferenceRole_EnumDescriptor(void);
@@ -1609,6 +1643,8 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_McuStartAccId = 37,
   Room_FieldNumber_Res = 38,
   Room_FieldNumber_McuAccNum = 39,
+  Room_FieldNumber_WebinarChat = 40,
+  Room_FieldNumber_WebinarScreenShot = 41,
 };
 
 /**
@@ -1778,6 +1814,14 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) int32_t mcuAccNum;
 
 @property(nonatomic, readwrite) BOOL hasMcuAccNum;
+/** 全局聊天状态 */
+@property(nonatomic, readwrite) WebinarState webinarChat;
+
+@property(nonatomic, readwrite) BOOL hasWebinarChat;
+/** 全局截屏状态 */
+@property(nonatomic, readwrite) WebinarState webinarScreenShot;
+
+@property(nonatomic, readwrite) BOOL hasWebinarScreenShot;
 @end
 
 #pragma mark - Account
@@ -1813,6 +1857,7 @@ typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_ExtendInfo = 28,
   Account_FieldNumber_Mobile = 29,
   Account_FieldNumber_Token = 30,
+  Account_FieldNumber_ChatState = 31,
 };
 
 /**
@@ -1953,6 +1998,10 @@ GPB_FINAL @interface Account : GPBMessage
 /** Test to see if @c token has been set. */
 @property(nonatomic, readwrite) BOOL hasToken;
 
+/** 聊天状态 */
+@property(nonatomic, readwrite) DeviceState chatState;
+
+@property(nonatomic, readwrite) BOOL hasChatState;
 @end
 
 #pragma mark - Stream

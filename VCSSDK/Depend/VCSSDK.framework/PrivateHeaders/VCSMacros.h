@@ -99,9 +99,11 @@
 
 #pragma mark - 上传最大码率(整个推流的上限码率)
 #define VCS_STREAM_MAXBITRATE 3000
-
 #pragma mark - 呼叫服务重连最大次数
 #define VCS_NETCALL_CONNECT 15
+
+/// 流媒体轨道数量
+#define VCS_STREAM_TRACK_COUNT 6
 
 /// 网络监测上行标志
 #define VCSNETWORKUPLOADSIGN @"upld::"

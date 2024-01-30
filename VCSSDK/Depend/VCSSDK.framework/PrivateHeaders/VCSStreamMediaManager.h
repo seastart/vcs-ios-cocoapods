@@ -188,7 +188,7 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 
 #pragma mark 获取流媒体SDK版本
 /// 获取流媒体SDK版本
-- (NSString *)getVersion;
+- (NSString *)version;
 
 #pragma mark 释放流媒体服务资源
 /// 释放流媒体服务资源
