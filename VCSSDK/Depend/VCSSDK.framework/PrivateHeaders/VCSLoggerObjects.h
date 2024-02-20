@@ -238,10 +238,10 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 @property (nonatomic, copy, nullable) NSString *codec;
 
 /// 接收共享桌面流独有属性，共享屏幕0帧版本引入
-/// 是否图片模式
-@property (nonatomic, assign) BOOL img_mode;
-/// 是否在收流
-@property (nonatomic, assign) BOOL is_load_stream;
+/// 是否图片模式，0-否 1-是
+@property (nonatomic, assign) int img_mode;
+/// 是否在收流，0-否 1-是
+@property (nonatomic, assign) int is_load_stream;
 
 /// 创建视频日志对象
 /// - Parameters:
