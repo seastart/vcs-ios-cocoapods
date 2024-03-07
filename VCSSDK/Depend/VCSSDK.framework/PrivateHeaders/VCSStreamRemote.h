@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic, readonly) int fps;
 /// 最后一次帧处理时间戳(毫秒)
 @property (assign, nonatomic, readonly) NSTimeInterval interval;
+/// 视频帧次数
+@property (assign, nonatomic, readonly) int frames;
 
 #pragma mark - 更新远程视频信息
 /// 更新远程视频信息
@@ -32,6 +34,11 @@ NS_ASSUME_NONNULL_BEGIN
 ///   - width: 视频流宽
 ///   - height: 视频流高
 - (void)renewStreamRemoteWithLinkId:(int)linkId track:(int)track width:(int)width height:(int)height;
+
+#pragma mark - 重新计算帧率
+/// 重新计算帧率
+/// - Parameter currentlyInterval: 当前时间戳
+- (int)recountStreamRemoteFps:(NSTimeInterval)currentlyInterval;
 
 @end
 
