@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface VCSWebRTCAudioRenderer : NSObject
+@interface VCSWebRTCAudioRenderer : NSObject <RTCAudioRenderer>
 
 #pragma mark 创建渲染器
 /// 创建渲染器
