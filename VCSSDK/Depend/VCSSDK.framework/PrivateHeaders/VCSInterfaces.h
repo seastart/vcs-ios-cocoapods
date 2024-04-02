@@ -51,6 +51,8 @@ FOUNDATION_EXTERN NSString *__nonnull const VCSLoggerUploadAuthToken;
 FOUNDATION_EXTERN NSString *__nonnull const VCSLoggerLogsUpload;
 #pragma mark - 实时日志上报
 FOUNDATION_EXTERN NSString *__nonnull const VCSLoggerMetricUpload;
+#pragma mark - 重定向日志上报
+FOUNDATION_EXTERN NSString *__nonnull const VCSLoggerRedirectUpload;
 
 #pragma mark - 呼叫服务接收订阅主题
 FOUNDATION_EXTERN NSString *__nonnull const VCSRegReceiveTopic;

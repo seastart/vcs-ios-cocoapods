@@ -61,6 +61,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int meetingPort;
 #pragma mark 会议服务ID
 @property (nonatomic, copy) NSString *serverId;
+#pragma mark 流媒体线路名称
+@property (nonatomic, copy) NSString *streamLineName;
 /* ******** ⬆️ 流媒体服务和互动服务地址端口(可由创建会议/连线获取)(必填项) ⬆️ ******** */
 
 
