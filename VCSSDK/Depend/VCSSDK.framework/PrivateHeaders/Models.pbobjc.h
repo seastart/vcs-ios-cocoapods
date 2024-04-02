@@ -409,6 +409,8 @@ typedef GPB_ENUM(ServerType) {
 
   /** 流媒体 */
   ServerType_StVtdu = 3,
+  ServerType_StMqtt = 4,
+  ServerType_StPicCache = 5,
 };
 
 GPBEnumDescriptor *ServerType_EnumDescriptor(void);
@@ -1643,6 +1645,7 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_McuAccNum = 39,
   Room_FieldNumber_WebinarChat = 40,
   Room_FieldNumber_WebinarScreenShot = 41,
+  Room_FieldNumber_PicMode = 42,
 };
 
 /**
@@ -1820,6 +1823,10 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) WebinarState webinarScreenShot;
 
 @property(nonatomic, readwrite) BOOL hasWebinarScreenShot;
+/** 是否开启0帧模式(false:不开启;true:开启;) */
+@property(nonatomic, readwrite) BOOL picMode;
+
+@property(nonatomic, readwrite) BOOL hasPicMode;
 @end
 
 #pragma mark - Account

@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 @class VCSMetricDeviceModel;
 @class VCSMetricAudioModel;
 @class VCSMetricVideoModel;
+@class VCSMetricGearsModel;
 
 #pragma mark - 行为日志上报对象
 @interface VCSLoggerModel : NSObject
@@ -139,6 +140,9 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 /// 远程共享信息
 @property (nonatomic, strong, nullable) NSArray <VCSMetricVideoModel *> *remote_shares;
 
+/// 远端下行档位信息
+@property (nonatomic, strong, nullable) NSArray <VCSMetricGearsModel *> *net_level;
+
 /// 创建实时日志对象
 /// - Parameters:
 ///   - userId: 用户标识
@@ -150,7 +154,8 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 ///   - remoteAudios: 远程音频信息列表
 ///   - remoteVideos: 远程视频信息列表
 ///   - remoteShares: 远程共享信息列表
-- (instancetype)initWithUserId:(nullable NSString *)userId roomNo:(nullable NSString *)roomNo networkModel:(nullable VCSMetricNetworkModel *)networkModel localAudio:(nullable VCSMetricAudioModel *)localAudio localVideos:(nullable NSArray <VCSMetricVideoModel *> *)localVideos localShare:(nullable VCSMetricVideoModel *)localShare remoteAudios:(nullable NSArray <VCSMetricAudioModel *> *)remoteAudios remoteVideos:(nullable NSArray <VCSMetricVideoModel *> *)remoteVideos remoteShares:(nullable NSArray <VCSMetricVideoModel *> *)remoteShares;
+///   - remoteGears: 远程档位信息列表
+- (instancetype)initWithUserId:(nullable NSString *)userId roomNo:(nullable NSString *)roomNo networkModel:(nullable VCSMetricNetworkModel *)networkModel localAudio:(nullable VCSMetricAudioModel *)localAudio localVideos:(nullable NSArray <VCSMetricVideoModel *> *)localVideos localShare:(nullable VCSMetricVideoModel *)localShare remoteAudios:(nullable NSArray <VCSMetricAudioModel *> *)remoteAudios remoteVideos:(nullable NSArray <VCSMetricVideoModel *> *)remoteVideos remoteShares:(nullable NSArray <VCSMetricVideoModel *> *)remoteShares remoteGears:(nullable NSArray <VCSMetricGearsModel *> *)remoteGears;
 
 @end
 
@@ -237,6 +242,12 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 /// 编码格式
 @property (nonatomic, copy, nullable) NSString *codec;
 
+/// 接收共享桌面流独有属性，共享屏幕0帧版本引入
+/// 是否图片模式，0-否 1-是
+@property (nonatomic, assign) int img_mode;
+/// 是否在收流，0-否 1-是
+@property (nonatomic, assign) int is_load_stream;
+
 /// 创建视频日志对象
 /// - Parameters:
 ///   - userId: 用户标识
@@ -247,6 +258,42 @@ typedef NS_ENUM(NSInteger, VCSLoggerLevel) {
 ///   - track: 视频轨道
 ///   - codec: 编码格式
 - (instancetype)initWithUserId:(nullable NSString *)userId bitrate:(CGFloat)bitrate height:(CGFloat)height width:(CGFloat)width framerate:(CGFloat)framerate track:(int)track codec:(nullable NSString *)codec;
+
+@end
+
+#pragma mark - 实时日志档位对象
+@interface VCSMetricGearsModel : NSObject
+
+/// 用户标识(为local时，表示当前用户)
+@property (nonatomic, copy, nullable) NSString *uid;
+/// 档位值(成员时，表示下行延时自适应档位；自己时，表示码率自适应档位)
+@property (nonatomic, assign) int level;
+
+/// 创建档位对象
+/// - Parameters:
+///   - userId: 用户标识
+///   - level: 档位值
+- (instancetype)initWithUserId:(nullable NSString *)userId level:(int)level;
+
+@end
+
+#pragma mark - 黑窗口重定向日志对象
+@interface VCSRedirectModel : NSObject
+
+/// 设备标识
+@property (nonatomic, copy) NSString *device_id;
+/// 设备类型，默认 TerminalType_TerminalIos
+@property (nonatomic, assign) NSInteger device_type;
+
+/// 用户标识
+@property (nonatomic, copy, nullable) NSString *uid;
+/// 会议记录标识(入会必传)
+@property (nonatomic, copy, nullable) NSString *conf_log_id;
+
+/// 创建重定向日志对象
+/// - Parameters:
+///   - deviceId: 设备标识
+- (instancetype)initWithDeviceId:(NSString *)deviceId;
 
 @end
 
