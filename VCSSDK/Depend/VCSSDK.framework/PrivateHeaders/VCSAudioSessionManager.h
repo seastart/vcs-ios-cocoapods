@@ -7,6 +7,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
+#import "VCSAudioRouteModel.h"
 #import "VCSCommons.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -23,8 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 音频路由变更回调
 /// @param manager 音频会话实例
 /// @param route 音频路由
+/// @param routeName 音频路由名称
 /// @param previousRoute 变更前的音频路由
-- (void)audioSessionDidChangeRoute:(VCSAudioSessionManager *)manager route:(VCSAudioRoute)route previousRoute:(VCSAudioRoute)previousRoute;
+/// @param previousRouteName 变更前的音频路由名称
+- (void)audioSessionDidChangeRoute:(VCSAudioSessionManager *)manager route:(VCSAudioRoute)route routeName:(NSString *)routeName previousRoute:(VCSAudioRoute)previousRoute previousRouteName:(NSString *)previousRouteName;
 
 @end
 
@@ -54,6 +57,10 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 获取当前音频路由
 /// 获取当前音频路由
 - (VCSAudioRoute)currentAudioRoute;
+
+#pragma mark 获取音频路由列表
+/// 获取音频路由列表
+- (NSArray<VCSAudioRouteModel *> *)getAvailableAudioRoutes;
 
 #pragma mark 释放音频会话
 /// 释放音频会话
