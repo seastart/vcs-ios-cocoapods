@@ -178,6 +178,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *webinarHost;
 /* ****************** ⬆️ 网络研讨会参数 ⬆️ ****************** */
 
+
+/* ****************** ⬇️ 宫格会议参数 ⬇️ ****************** */
+/// 是否为宫格会议模式，默认 NO
+@property (nonatomic, assign) BOOL squareGridMeeting;
+/* ****************** ⬆️ 网络研讨会参数 ⬆️ ****************** */
+
 @end
 
 NS_ASSUME_NONNULL_END

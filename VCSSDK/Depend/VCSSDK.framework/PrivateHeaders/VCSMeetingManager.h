@@ -271,6 +271,11 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// @param identifier 轨道标识
 - (void)setCloudRecordIdentifier:(VCSStreamIdentifier)identifier;
 
+#pragma mark 设置是否是宫格会议模式
+/// 设置是否是宫格会议模式
+/// @param enable YES-启用 NO-关闭
+- (void)setSquareGridMeeting:(BOOL)enable;
+
 
 #pragma mark - -------- 视频会议本地采集相关接口 ---------
 #pragma mark 却换屏幕方向
