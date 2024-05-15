@@ -94,6 +94,12 @@
 /// @param error 错误信息
 - (void)onListenNetCallRoomPrepareWithNotify:(RoomPrepareNotify *)notify error:(NSError *)error;
 
+#pragma mark 呼叫卡片消息通知
+/// 呼叫卡片消息通知
+/// @param notify 通知信息
+/// @param error 错误信息
+- (void)onListenNetCallRoomCardMsgWithNotify:(CallCardMsgNotify *)notify error:(NSError *)error;
+
 #pragma mark 事件命令透传通知
 /// 事件命令透传通知
 /// @param command 消息指令

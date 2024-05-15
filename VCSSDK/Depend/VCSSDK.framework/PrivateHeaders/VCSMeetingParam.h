@@ -182,6 +182,8 @@ NS_ASSUME_NONNULL_BEGIN
 /* ****************** ⬇️ 宫格会议参数 ⬇️ ****************** */
 /// 是否为宫格会议模式，默认 NO
 @property (nonatomic, assign) BOOL squareGridMeeting;
+/// 默认摄像头位置 YES-前置 NO-后置，默认 YES
+@property (nonatomic, assign) BOOL defaultCameraPosition;
 /* ****************** ⬆️ 网络研讨会参数 ⬆️ ****************** */
 
 @end
