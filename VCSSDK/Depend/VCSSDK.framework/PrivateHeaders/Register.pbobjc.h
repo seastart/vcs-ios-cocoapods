@@ -71,6 +71,9 @@ typedef GPB_ENUM(InviteStatus) {
 
   /** 挂断 */
   InviteStatus_Hangup = 10,
+
+  /** 网络异常 */
+  InviteStatus_Abnormal = 11,
 };
 
 GPBEnumDescriptor *InviteStatus_EnumDescriptor(void);
