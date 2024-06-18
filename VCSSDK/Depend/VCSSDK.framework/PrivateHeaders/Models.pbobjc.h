@@ -317,6 +317,9 @@ typedef GPB_ENUM(Command) {
 
   /** --------------------网络研讨会相关指令结束-----------------------------/ */
   Command_CmdRoomCardMsgNotify = 1602,
+
+  /** 更新通话卡片消息 */
+  Command_CmdRoomCardMsgUpdate = 1603,
 };
 
 GPBEnumDescriptor *Command_EnumDescriptor(void);

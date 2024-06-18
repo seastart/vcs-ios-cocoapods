@@ -74,6 +74,9 @@ typedef GPB_ENUM(InviteStatus) {
 
   /** 网络异常 */
   InviteStatus_Abnormal = 11,
+
+  /** 另一端已接听 */
+  InviteStatus_AcceptedByOther = 12,
 };
 
 GPBEnumDescriptor *InviteStatus_EnumDescriptor(void);
@@ -184,6 +187,7 @@ GPB_FINAL @interface WaitingAccount : GPBMessage
 typedef GPB_ENUM(RegHeartbeatRequest_FieldNumber) {
   RegHeartbeatRequest_FieldNumber_Token = 1,
   RegHeartbeatRequest_FieldNumber_AccountId = 2,
+  RegHeartbeatRequest_FieldNumber_Version = 3,
 };
 
 /**
@@ -201,6 +205,10 @@ GPB_FINAL @interface RegHeartbeatRequest : GPBMessage
 /** Test to see if @c accountId has been set. */
 @property(nonatomic, readwrite) BOOL hasAccountId;
 
+/** 版本信息，默认从1开始 */
+@property(nonatomic, readwrite) int32_t version;
+
+@property(nonatomic, readwrite) BOOL hasVersion;
 @end
 
 #pragma mark - OfflineRequest
@@ -880,35 +888,18 @@ GPB_FINAL @interface RoomsNicknameUpdateNotify : GPBMessage
 #pragma mark - CallCardMsgNotify
 
 typedef GPB_ENUM(CallCardMsgNotify_FieldNumber) {
-  CallCardMsgNotify_FieldNumber_CardId = 1,
-  CallCardMsgNotify_FieldNumber_CallId = 2,
-  CallCardMsgNotify_FieldNumber_RoomId = 3,
-  CallCardMsgNotify_FieldNumber_AccId = 4,
-  CallCardMsgNotify_FieldNumber_SendAccId = 5,
-  CallCardMsgNotify_FieldNumber_CardStatus = 6,
-  CallCardMsgNotify_FieldNumber_StatusMsg = 7,
-  CallCardMsgNotify_FieldNumber_StatusDesc = 8,
-  CallCardMsgNotify_FieldNumber_StatusMsgEn = 9,
-  CallCardMsgNotify_FieldNumber_StatusDescEn = 10,
-  CallCardMsgNotify_FieldNumber_Duration = 11,
-  CallCardMsgNotify_FieldNumber_BeginAt = 12,
-  CallCardMsgNotify_FieldNumber_EndAt = 13,
-  CallCardMsgNotify_FieldNumber_CallType = 14,
-  CallCardMsgNotify_FieldNumber_RoomState = 15,
-  CallCardMsgNotify_FieldNumber_CardType = 16,
-  CallCardMsgNotify_FieldNumber_ExtendInfo = 17,
-  CallCardMsgNotify_FieldNumber_UpdateCardIdList = 18,
+  CallCardMsgNotify_FieldNumber_CallId = 1,
+  CallCardMsgNotify_FieldNumber_RoomId = 2,
+  CallCardMsgNotify_FieldNumber_AccId = 3,
+  CallCardMsgNotify_FieldNumber_SendAccId = 4,
+  CallCardMsgNotify_FieldNumber_ConfId = 5,
+  CallCardMsgNotify_FieldNumber_RoomNo = 6,
 };
 
 /**
  * 呼叫卡片消息，通知hiklink
  **/
 GPB_FINAL @interface CallCardMsgNotify : GPBMessage
-
-/** 卡片唯一ID */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *cardId;
-/** Test to see if @c cardId has been set. */
-@property(nonatomic, readwrite) BOOL hasCardId;
 
 /** 呼叫唯一ID */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *callId;
@@ -930,63 +921,15 @@ GPB_FINAL @interface CallCardMsgNotify : GPBMessage
 /** Test to see if @c sendAccId has been set. */
 @property(nonatomic, readwrite) BOOL hasSendAccId;
 
-/** 卡片状态，1、通话中断；2、对方忙线中；3、忙线未接听；4、已取消；5：对方已取消；6：进行中(离开会议)；7：已结束；8：未应答；9：对方未应答;10:已拒绝；11：对方已拒绝） */
-@property(nonatomic, readwrite) int32_t cardStatus;
+/** 会议ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *confId;
+/** Test to see if @c confId has been set. */
+@property(nonatomic, readwrite) BOOL hasConfId;
 
-@property(nonatomic, readwrite) BOOL hasCardStatus;
-/** 状态，中文标识 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *statusMsg;
-/** Test to see if @c statusMsg has been set. */
-@property(nonatomic, readwrite) BOOL hasStatusMsg;
-
-/** 状态描述 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *statusDesc;
-/** Test to see if @c statusDesc has been set. */
-@property(nonatomic, readwrite) BOOL hasStatusDesc;
-
-/** 状态，英文标识 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *statusMsgEn;
-/** Test to see if @c statusMsgEn has been set. */
-@property(nonatomic, readwrite) BOOL hasStatusMsgEn;
-
-/** 英文状态描述 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *statusDescEn;
-/** Test to see if @c statusDescEn has been set. */
-@property(nonatomic, readwrite) BOOL hasStatusDescEn;
-
-/** 通话持续时长，单位:秒，0表示未接通 */
-@property(nonatomic, readwrite) int64_t duration;
-
-@property(nonatomic, readwrite) BOOL hasDuration;
-/** 通话开始时间 */
-@property(nonatomic, readwrite) int64_t beginAt;
-
-@property(nonatomic, readwrite) BOOL hasBeginAt;
-/** 通话结束时间 */
-@property(nonatomic, readwrite) int64_t endAt;
-
-@property(nonatomic, readwrite) BOOL hasEndAt;
-/** 会议呼叫类型（0:普通会议 1.语音通话 2.视频通话 3.视频会议） */
-@property(nonatomic, readwrite) int32_t callType;
-
-@property(nonatomic, readwrite) BOOL hasCallType;
-/** 通话状态,(0：正常；1：已结束) */
-@property(nonatomic, readwrite) int32_t roomState;
-
-@property(nonatomic, readwrite) BOOL hasRoomState;
-/** 卡片类型(0:不需要更新历史卡片状态 1:需要按房间更新所有历史卡片状态 2:需要按房间更新所有历史卡片描述；3:需要按房间更新所有历史卡片状态和描述) */
-@property(nonatomic, readwrite) int32_t cardType;
-
-@property(nonatomic, readwrite) BOOL hasCardType;
-/** 自定义信息 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *extendInfo;
-/** Test to see if @c extendInfo has been set. */
-@property(nonatomic, readwrite) BOOL hasExtendInfo;
-
-/** 需要更新的卡片ID列表（以，分隔），当card_type不为0时，需要更新其他卡片 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *updateCardIdList;
-/** Test to see if @c updateCardIdList has been set. */
-@property(nonatomic, readwrite) BOOL hasUpdateCardIdList;
+/** 会议房间号 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
 
 @end
 

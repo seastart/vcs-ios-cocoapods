@@ -26,7 +26,8 @@ typedef void(^VCSNetCallPackageBlock)(PacketType type, Command command, Result r
 /// 发送心跳
 /// @param token 登录token
 /// @param accountId 账号ID
-+ (NSData *)sendHeartBeatWithToken:(NSString *)token accountId:(NSString *)accountId;
+/// @param version 版本信息
++ (NSData *)sendHeartBeatWithToken:(NSString *)token accountId:(NSString *)accountId version:(NSInteger)version;
 
 #pragma mark 发送邀请入会请求
 /// 发送邀请入会请求
