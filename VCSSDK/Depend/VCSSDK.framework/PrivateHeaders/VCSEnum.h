@@ -27,6 +27,24 @@ typedef enum : NSInteger {
     VCSAudioRouteBluetooth
 } VCSAudioRoute;
 
+/**
+ 呼叫状态类型
+ 
+ - VCSCallStateUnknow: 未知状态
+ - VCSCallStateDialing: 呼叫拨号
+ - VCSCallStateIncoming: 呼叫来电
+ - VCSCallStateConnected: 呼叫接通
+ - VCSCallStateDisconnected: 通话结束
+ */
+typedef enum : NSInteger {
+    
+    VCSCallStateUnknow,
+    VCSCallStateDialing,
+    VCSCallStateIncoming,
+    VCSCallStateConnected,
+    VCSCallStateDisconnected
+} VCSCallState;
+
 #pragma mark - 码流类型标识符
 /**
  码流类型标识符

@@ -120,6 +120,9 @@
 //系统初始化后设置音频出于非上传状态/或者上传状态，
 #define VCS_SET_DEFNOSEND 0x308   //default send lparam = 0,lparam=1 nosend
 
+/// 重启编码器
+#define VCS_RESET_ENCODER 0x309
+
 /// 是否开启加密
 #define VCS_SET_ECPA 0x30a
 
@@ -133,6 +136,11 @@
 
 /// 是否开启内部音频路由
 #define VCS_NATIVE_AUDIOMANAGER 0x406
+
+/// 音频会话操作
+/// lparam = 1，表示 start
+/// lparam = 0，表示 stop
+#define VCS_AUDIO_SESSION 0x407
 
 //设置代理用于数据回调
 @protocol callbackdataDelegate <NSObject>

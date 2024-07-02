@@ -340,6 +340,11 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 /// @param identifier 轨道标识
 - (void)setCloudRecordIdentifier:(VCSStreamIdentifier)identifier;
 
+#pragma mark 重置音频会话
+/// 重置音频会话
+/// @param reboot 操作类型，YES-重启 NO-关闭
+- (void)resetAudioSession:(BOOL)reboot;
+
 #pragma mark 释放流媒体像素数据资源
 /// 释放流媒体像素数据资源
 /// @param yData 流媒体像素数据
