@@ -8,6 +8,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import "VCSAudioRouteModel.h"
+#import <CallKit/CallKit.h>
 #import "VCSCommons.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -29,12 +30,20 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param previousRouteName 变更前的音频路由名称
 - (void)audioSessionDidChangeRoute:(VCSAudioSessionManager *)manager route:(VCSAudioRoute)route routeName:(NSString *)routeName previousRoute:(VCSAudioRoute)previousRoute previousRouteName:(NSString *)previousRouteName;
 
+#pragma mark 音频会话中断恢复回调
+/// 音频会话中断恢复回调
+/// @param manager 音频会话实例
+- (BOOL)audioSessionDidInterruptionRecover:(VCSAudioSessionManager *)manager;
+
+#pragma mark 呼叫状态变更回调
+/// 呼叫状态变更回调
+/// @param manager 音频会话实例
+/// @param callState 呼叫状态
+- (void)audioSession:(VCSAudioSessionManager *)manager didChangeCallState:(VCSCallState)callState;
+
 @end
 
 @interface VCSAudioSessionManager : NSObject
-
-/// 音频会话代理
-@property (nonatomic, weak) id<VCSAudioSessionManagerDelegate> delegate;
 
 /// 有线耳机是否可用
 @property (nonatomic, assign, readonly) BOOL headphoneDeviceAvailable;
@@ -47,7 +56,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 音频会话配置
 /// 音频会话配置
-- (void)setupAudioSession;
+/// - Parameter delegate: 代理回调
+- (void)setupAudioSessionWithDelegate:(nullable id <VCSAudioSessionManagerDelegate>)delegate;
 
 #pragma mark 设置音频路由
 /// 设置音频路由
