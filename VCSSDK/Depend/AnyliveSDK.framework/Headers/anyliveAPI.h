@@ -85,6 +85,15 @@
 #define BLUETHOOTH_ROUTER 0x5002
 #define LINE_ROUTER       0x5003
 #define UNKOWN_ROUTER     0x5004
+/// 启动音频播放异常
+#define PLAY_ERROR        0x5005
+/// 启动音频采集异常
+#define RECORD_ERROR      0x5006
+/// 启动音频播放成功
+#define PLAY_RUNNING      0x5007
+/// 启动音频采集成功
+#define RECORD_RUNNING    0x5008
+
 
 #define USE_DENOISE   0x1000 // lparam =1 开启降噪 【默认开启】
 #define USE_VADPROB   0x1001 // lparam=1 开启静音检查 【默认开启】
