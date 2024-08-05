@@ -308,6 +308,12 @@
 /// @param error 错误信息
 - (void)onListenWebinarAudienceCountWithNotify:(WebinarAudienceNumNotify *)notify error:(NSError *)error;
 
+#pragma mark 语音转写失败通知
+/// 语音转写失败通知
+/// @param notify 通知信息
+/// @param error 错误信息
+- (void)onListenRoomSpeechErrorWithNotify:(RoomSpeechErrorNotify *)notify error:(NSError *)error;
+
 #pragma mark 事件命令透传通知
 /// 事件命令透传通知
 /// @param command 消息指令
