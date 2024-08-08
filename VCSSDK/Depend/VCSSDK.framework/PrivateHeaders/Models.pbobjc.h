@@ -1668,6 +1668,7 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_SpeechTranscript = 43,
   Room_FieldNumber_SpeechWarn = 44,
   Room_FieldNumber_SpeechSummary = 45,
+  Room_FieldNumber_SummaryWarn = 46,
 };
 
 /**
@@ -1861,6 +1862,10 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) int32_t speechSummary;
 
 @property(nonatomic, readwrite) BOOL hasSpeechSummary;
+/** 会中会议纪要告警状态，0:正常;1:资源紧张 */
+@property(nonatomic, readwrite) int32_t summaryWarn;
+
+@property(nonatomic, readwrite) BOOL hasSummaryWarn;
 @end
 
 #pragma mark - Account
