@@ -1669,6 +1669,7 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_SpeechWarn = 44,
   Room_FieldNumber_SpeechSummary = 45,
   Room_FieldNumber_SummaryWarn = 46,
+  Room_FieldNumber_SpeechSummaryAuth = 47,
 };
 
 /**
@@ -1858,7 +1859,7 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) int32_t speechWarn;
 
 @property(nonatomic, readwrite) BOOL hasSpeechWarn;
-/** 会中会议纪要状态，0:关闭;1:所有成员可查看整场会议内容;2:所有成员可查看参会期间内容;3:仅主持人可看 */
+/** 会中会议纪要状态，0:关闭;1:开启;2:后台开启 */
 @property(nonatomic, readwrite) int32_t speechSummary;
 
 @property(nonatomic, readwrite) BOOL hasSpeechSummary;
@@ -1866,6 +1867,10 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) int32_t summaryWarn;
 
 @property(nonatomic, readwrite) BOOL hasSummaryWarn;
+/** 会中会议纪要权限，0:关闭;1:所有成员可查看整场会议内容;2:所有成员可查看参会期间内容;3:仅主持人可看 */
+@property(nonatomic, readwrite) int32_t speechSummaryAuth;
+
+@property(nonatomic, readwrite) BOOL hasSpeechSummaryAuth;
 @end
 
 #pragma mark - Account
