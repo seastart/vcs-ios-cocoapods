@@ -65,6 +65,18 @@ typedef GPB_ENUM(InviteStatus) {
 
   /** 已邀请 */
   InviteStatus_Invite = 8,
+
+  /** 通话中断 */
+  InviteStatus_Interrupt = 9,
+
+  /** 挂断 */
+  InviteStatus_Hangup = 10,
+
+  /** 网络异常 */
+  InviteStatus_Abnormal = 11,
+
+  /** 另一端已接听 */
+  InviteStatus_AcceptedByOther = 12,
 };
 
 GPBEnumDescriptor *InviteStatus_EnumDescriptor(void);
@@ -105,6 +117,8 @@ typedef GPB_ENUM(WaitingAccount_FieldNumber) {
   WaitingAccount_FieldNumber_CallType = 10,
   WaitingAccount_FieldNumber_RoomPwd = 11,
   WaitingAccount_FieldNumber_ExtendInfo = 12,
+  WaitingAccount_FieldNumber_Version = 13,
+  WaitingAccount_FieldNumber_CallerAccountId = 14,
 };
 
 GPB_FINAL @interface WaitingAccount : GPBMessage
@@ -157,6 +171,15 @@ GPB_FINAL @interface WaitingAccount : GPBMessage
 /** Test to see if @c extendInfo has been set. */
 @property(nonatomic, readwrite) BOOL hasExtendInfo;
 
+/** 版本信息，默认从1开始 */
+@property(nonatomic, readwrite) int32_t version;
+
+@property(nonatomic, readwrite) BOOL hasVersion;
+/** 呼叫方的accountId */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *callerAccountId;
+/** Test to see if @c callerAccountId has been set. */
+@property(nonatomic, readwrite) BOOL hasCallerAccountId;
+
 @end
 
 #pragma mark - RegHeartbeatRequest
@@ -164,6 +187,7 @@ GPB_FINAL @interface WaitingAccount : GPBMessage
 typedef GPB_ENUM(RegHeartbeatRequest_FieldNumber) {
   RegHeartbeatRequest_FieldNumber_Token = 1,
   RegHeartbeatRequest_FieldNumber_AccountId = 2,
+  RegHeartbeatRequest_FieldNumber_Version = 3,
 };
 
 /**
@@ -181,6 +205,10 @@ GPB_FINAL @interface RegHeartbeatRequest : GPBMessage
 /** Test to see if @c accountId has been set. */
 @property(nonatomic, readwrite) BOOL hasAccountId;
 
+/** 版本信息，默认从1开始 */
+@property(nonatomic, readwrite) int32_t version;
+
+@property(nonatomic, readwrite) BOOL hasVersion;
 @end
 
 #pragma mark - OfflineRequest
@@ -855,6 +883,54 @@ GPB_FINAL @interface RoomsNicknameUpdateNotify : GPBMessage
 @property(nonatomic, readwrite) int32_t state;
 
 @property(nonatomic, readwrite) BOOL hasState;
+@end
+
+#pragma mark - CallCardMsgNotify
+
+typedef GPB_ENUM(CallCardMsgNotify_FieldNumber) {
+  CallCardMsgNotify_FieldNumber_CallId = 1,
+  CallCardMsgNotify_FieldNumber_RoomId = 2,
+  CallCardMsgNotify_FieldNumber_AccId = 3,
+  CallCardMsgNotify_FieldNumber_SendAccId = 4,
+  CallCardMsgNotify_FieldNumber_ConfId = 5,
+  CallCardMsgNotify_FieldNumber_RoomNo = 6,
+};
+
+/**
+ * 呼叫卡片消息，通知hiklink
+ **/
+GPB_FINAL @interface CallCardMsgNotify : GPBMessage
+
+/** 呼叫唯一ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *callId;
+/** Test to see if @c callId has been set. */
+@property(nonatomic, readwrite) BOOL hasCallId;
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 接收账号ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accId;
+/** Test to see if @c accId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccId;
+
+/** 发送账号ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *sendAccId;
+/** Test to see if @c sendAccId has been set. */
+@property(nonatomic, readwrite) BOOL hasSendAccId;
+
+/** 会议ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *confId;
+/** Test to see if @c confId has been set. */
+@property(nonatomic, readwrite) BOOL hasConfId;
+
+/** 会议房间号 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
 @end
 
 NS_ASSUME_NONNULL_END

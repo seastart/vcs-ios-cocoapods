@@ -86,6 +86,12 @@ typedef enum : NSInteger {
 /// 取消订阅
 @property (nonatomic, copy, readonly) VCSMQTTManager * (^unsubscribe)(NSString *topic, SGMQTTUnsubscribeHandler handler);
 
+/// 批量订阅主题
+@property (nonatomic, copy, readonly) VCSMQTTManager * (^subscribeBatch)(NSArray *topicArray, SGMQTTQosLevel level, SGMQTTSubscribeHandler result, VCSMQTTReceiveDataHandler receiveData);
+
+/// 批量取消订阅
+@property (nonatomic, copy, readonly) VCSMQTTManager * (^unsubscribeBatch)(NSArray *topicArray, SGMQTTUnsubscribeHandler handler);
+
 /// 发送数据
 @property (nonatomic, copy, readonly) VCSMQTTManager * (^publishData)(NSData *data, NSString *topic, BOOL retain, SGMQTTQosLevel qos, SGMQTTPublishHandler handler);
 

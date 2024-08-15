@@ -170,8 +170,10 @@
 #pragma mark 音频路由变更回调
 /// 音频路由变更回调
 /// @param route 音频路由
+/// @param routeName 音频路由名称
 /// @param previousRoute 变更前的音频路由
-- (void)onAudioRouteChanged:(VCSAudioRoute)route previousRoute:(VCSAudioRoute)previousRoute;
+/// @param previousRouteName 变更前的音频路由名称
+- (void)onAudioRouteChanged:(VCSAudioRoute)route routeName:(NSString *)routeName previousRoute:(VCSAudioRoute)previousRoute previousRouteName:(NSString *)previousRouteName;
 
 
 #pragma mark - -------- 互动服务服务相关代理 --------

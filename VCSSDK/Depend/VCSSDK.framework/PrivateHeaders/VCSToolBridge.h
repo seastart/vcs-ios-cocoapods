@@ -49,8 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param subSize 指定长度
 - (NSMutableArray *)splitWithOriginalArray:(NSMutableArray *)originalArray subSize:(int)subSize;
 
-#pragma mark - 获取唯一标识符UUID
-/// 获取唯一标识符UUID
+#pragma mark - 获取UUID随机标识字符串
+/// 获取UUID随机标识字符串
 - (NSString *)getUniqueIdentifier;
 
 #pragma mark - 域名解析IP地址

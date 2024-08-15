@@ -256,6 +256,10 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// 获取当前音频路由
 - (VCSAudioRoute)currentAudioRoute;
 
+#pragma mark 获取音频路由列表
+/// 获取音频路由列表
+- (NSArray<VCSAudioRouteModel *> *)getAvailableAudioRoutes;
+
 #pragma mark 设置关闭Camera采集推送
 /// 设置关闭Camera采集推送，在非编码模式下有效
 /// 非编码模式录屏下必须通过该函数来却换流推送
@@ -293,6 +297,11 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// 设置云端系统录制轨道
 /// @param identifier 轨道标识
 - (void)setCloudRecordIdentifier:(VCSStreamIdentifier)identifier;
+
+#pragma mark 设置是否是宫格会议模式
+/// 设置是否是宫格会议模式
+/// @param enable YES-启用 NO-关闭
+- (void)setSquareGridMeeting:(BOOL)enable;
 
 
 #pragma mark - -------- 视频会议本地采集相关接口 ---------

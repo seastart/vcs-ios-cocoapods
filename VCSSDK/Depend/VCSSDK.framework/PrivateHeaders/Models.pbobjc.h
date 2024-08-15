@@ -313,9 +313,13 @@ typedef GPB_ENUM(Command) {
 
   /** --------------------网络研讨会相关指令开始-----------------------------/ */
   Command_CmdWebinarNotifyRole = 1600,
+  Command_CmdWebinarNotifyAudienceNum = 1601,
 
   /** --------------------网络研讨会相关指令结束-----------------------------/ */
-  Command_CmdWebinarNotifyAudienceNum = 1601,
+  Command_CmdRoomCardMsgNotify = 1602,
+
+  /** 更新通话卡片消息 */
+  Command_CmdRoomCardMsgUpdate = 1603,
 };
 
 GPBEnumDescriptor *Command_EnumDescriptor(void);

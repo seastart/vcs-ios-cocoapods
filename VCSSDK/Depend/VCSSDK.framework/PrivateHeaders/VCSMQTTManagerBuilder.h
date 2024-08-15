@@ -90,6 +90,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeSubscribeWithTopic:(NSString *)topic;
 
 
+/// 批量订阅主题
+/// @param topicArray 订阅主题列表
+/// @param qos 服务质量级别
+/// @param handler 接收数据回调
+- (void)addBatchSubscribeWithTopicArray:(NSArray *)topicArray qos:(SGMQTTQosLevel)qos handler:(VCSMQTTReceiveDataHandler)handler;
+
+/// 批量移除订阅主题
+/// @param topicArray 订阅主题列表
+- (void)removeBatchSubscribeWithTopicArray:(NSArray *)topicArray;
+
+
 /// 添加接收数据监听
 /// @param receiveLabel 接收标签名
 /// @param handler 接收数据回调
