@@ -2257,6 +2257,29 @@ GPB_FINAL @interface WebinarAudienceNumNotify : GPBMessage
 @property(nonatomic, readwrite) BOOL hasAudienceNum;
 @end
 
+#pragma mark - RoomSpeechErrorNotify
+
+typedef GPB_ENUM(RoomSpeechErrorNotify_FieldNumber) {
+  RoomSpeechErrorNotify_FieldNumber_AccountId = 1,
+  RoomSpeechErrorNotify_FieldNumber_Error = 2,
+};
+
+/**
+ * 语音转写失败通知
+ **/
+GPB_FINAL @interface RoomSpeechErrorNotify : GPBMessage
+
+/** 失败成员 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
+/** Test to see if @c accountId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountId;
+
+/** 失败类型，0：无资源；1：拉流错误 */
+@property(nonatomic, readwrite) int32_t error;
+
+@property(nonatomic, readwrite) BOOL hasError;
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END

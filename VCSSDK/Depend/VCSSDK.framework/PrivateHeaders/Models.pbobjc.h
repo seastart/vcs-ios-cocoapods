@@ -313,13 +313,24 @@ typedef GPB_ENUM(Command) {
 
   /** --------------------网络研讨会相关指令开始-----------------------------/ */
   Command_CmdWebinarNotifyRole = 1600,
-  Command_CmdWebinarNotifyAudienceNum = 1601,
 
   /** --------------------网络研讨会相关指令结束-----------------------------/ */
+  Command_CmdWebinarNotifyAudienceNum = 1601,
+
+  /** 推送通话卡片消息 */
   Command_CmdRoomCardMsgNotify = 1602,
 
   /** 更新通话卡片消息 */
   Command_CmdRoomCardMsgUpdate = 1603,
+
+  /** --------------------语音转写相关指令开始-----------------------------/ */
+  Command_CmdRoomSpeechText = 1700,
+
+  /** 会议纪要 */
+  Command_CmdRoomSummary = 1701,
+
+  /** --------------------语音转写相关指令结束-----------------------------/ */
+  Command_CmdRoomNotifySpeechError = 1702,
 };
 
 GPBEnumDescriptor *Command_EnumDescriptor(void);
@@ -1536,6 +1547,7 @@ typedef GPB_ENUM(CorporationBase_FieldNumber) {
   CorporationBase_FieldNumber_VasTime = 6,
   CorporationBase_FieldNumber_VasConc = 7,
   CorporationBase_FieldNumber_LimitCorp = 8,
+  CorporationBase_FieldNumber_AuditState = 9,
 };
 
 /**
@@ -1571,6 +1583,9 @@ GPB_FINAL @interface CorporationBase : GPBMessage
 @property(nonatomic, readwrite) BOOL limitCorp;
 
 @property(nonatomic, readwrite) BOOL hasLimitCorp;
+@property(nonatomic, readwrite) int32_t auditState;
+
+@property(nonatomic, readwrite) BOOL hasAuditState;
 @end
 
 #pragma mark - CorporationOrgBase
@@ -1650,6 +1665,11 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_WebinarChat = 40,
   Room_FieldNumber_WebinarScreenShot = 41,
   Room_FieldNumber_PicMode = 42,
+  Room_FieldNumber_SpeechTranscript = 43,
+  Room_FieldNumber_SpeechWarn = 44,
+  Room_FieldNumber_SpeechSummary = 45,
+  Room_FieldNumber_SummaryWarn = 46,
+  Room_FieldNumber_SpeechSummaryAuth = 47,
 };
 
 /**
@@ -1831,6 +1851,26 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) BOOL picMode;
 
 @property(nonatomic, readwrite) BOOL hasPicMode;
+/** 会中语音转写，0:关闭;1:开启;2:后台开启 */
+@property(nonatomic, readwrite) int32_t speechTranscript;
+
+@property(nonatomic, readwrite) BOOL hasSpeechTranscript;
+/** 会中语音转写告警状态，0:正常;1:可能失败 */
+@property(nonatomic, readwrite) int32_t speechWarn;
+
+@property(nonatomic, readwrite) BOOL hasSpeechWarn;
+/** 会中会议纪要状态，0:关闭;1:开启;2:后台开启 */
+@property(nonatomic, readwrite) int32_t speechSummary;
+
+@property(nonatomic, readwrite) BOOL hasSpeechSummary;
+/** 会中会议纪要告警状态，0:正常;1:资源紧张 */
+@property(nonatomic, readwrite) int32_t summaryWarn;
+
+@property(nonatomic, readwrite) BOOL hasSummaryWarn;
+/** 会中会议纪要权限，0:关闭;1:所有成员可查看整场会议内容;2:所有成员可查看参会期间内容;3:仅主持人可看 */
+@property(nonatomic, readwrite) int32_t speechSummaryAuth;
+
+@property(nonatomic, readwrite) BOOL hasSpeechSummaryAuth;
 @end
 
 #pragma mark - Account
@@ -2966,6 +3006,105 @@ GPB_FINAL @interface RoomsNameUpdateNotify : GPBMessage
 @property(nonatomic, readwrite) int64_t state;
 
 @property(nonatomic, readwrite) BOOL hasState;
+@end
+
+#pragma mark - RoomSpeechText
+
+typedef GPB_ENUM(RoomSpeechText_FieldNumber) {
+  RoomSpeechText_FieldNumber_RoomId = 1,
+  RoomSpeechText_FieldNumber_AccountId = 2,
+  RoomSpeechText_FieldNumber_AccountNickname = 3,
+  RoomSpeechText_FieldNumber_AccountPortrait = 4,
+  RoomSpeechText_FieldNumber_Content = 5,
+  RoomSpeechText_FieldNumber_SpeechId = 6,
+  RoomSpeechText_FieldNumber_Timestamps = 7,
+};
+
+/**
+ * 会议语音转写文字内容
+ **/
+GPB_FINAL @interface RoomSpeechText : GPBMessage
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 说话成员ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
+/** Test to see if @c accountId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountId;
+
+/** 说话成员昵称 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountNickname;
+/** Test to see if @c accountNickname has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountNickname;
+
+/** 说话成员头像 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountPortrait;
+/** Test to see if @c accountPortrait has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountPortrait;
+
+/** 说话内容 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *content;
+/** Test to see if @c content has been set. */
+@property(nonatomic, readwrite) BOOL hasContent;
+
+/** 段落id */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *speechId;
+/** Test to see if @c speechId has been set. */
+@property(nonatomic, readwrite) BOOL hasSpeechId;
+
+/** 说话时间 */
+@property(nonatomic, readwrite) int64_t timestamps;
+
+@property(nonatomic, readwrite) BOOL hasTimestamps;
+@end
+
+#pragma mark - RoomSpeechSummary
+
+typedef GPB_ENUM(RoomSpeechSummary_FieldNumber) {
+  RoomSpeechSummary_FieldNumber_RoomId = 1,
+  RoomSpeechSummary_FieldNumber_Summary = 2,
+  RoomSpeechSummary_FieldNumber_Title = 3,
+  RoomSpeechSummary_FieldNumber_SummaryType = 4,
+  RoomSpeechSummary_FieldNumber_SummaryId = 5,
+  RoomSpeechSummary_FieldNumber_Timestamps = 6,
+};
+
+/**
+ * 会议纪要
+ **/
+GPB_FINAL @interface RoomSpeechSummary : GPBMessage
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 会议纪要内容 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *summary;
+/** Test to see if @c summary has been set. */
+@property(nonatomic, readwrite) BOOL hasSummary;
+
+/** 会议纪要标题 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *title;
+/** Test to see if @c title has been set. */
+@property(nonatomic, readwrite) BOOL hasTitle;
+
+/** 纪要类型，0:会议纪要总结;1:章节总结 */
+@property(nonatomic, readwrite) int32_t summaryType;
+
+@property(nonatomic, readwrite) BOOL hasSummaryType;
+/** 纪要ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *summaryId;
+/** Test to see if @c summaryId has been set. */
+@property(nonatomic, readwrite) BOOL hasSummaryId;
+
+/** 纪要生成时间 */
+@property(nonatomic, readwrite) int64_t timestamps;
+
+@property(nonatomic, readwrite) BOOL hasTimestamps;
 @end
 
 NS_ASSUME_NONNULL_END
