@@ -147,8 +147,10 @@
 #define VCS_NATIVE_AUDIOMANAGER 0x406
 
 /// 音频会话操作
-/// lparam = 1，表示 start
-/// lparam = 0，表示 stop
+/// lparam = 1，表示 启动
+/// lparam = 0，表示 停止
+/// wparam = 1，表示 音频采集
+/// wparam = 0，表示 音频播放
 #define VCS_AUDIO_SESSION 0x407
 
 //设置代理用于数据回调
