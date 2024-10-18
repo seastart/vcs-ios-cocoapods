@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define SDKVERSION "9.6.0-ffmpeg@2024.10.17"
+#define SDKVERSION "10.0.0-ffmpeg.1@2024.10.18"
 
 //! Project version number for AnyliveSDK.
 FOUNDATION_EXPORT double AnyliveSDKVersionNumber;
