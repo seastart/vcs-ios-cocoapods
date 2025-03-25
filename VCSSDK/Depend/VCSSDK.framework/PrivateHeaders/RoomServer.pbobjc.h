@@ -2280,6 +2280,41 @@ GPB_FINAL @interface RoomSpeechErrorNotify : GPBMessage
 @property(nonatomic, readwrite) BOOL hasError;
 @end
 
+#pragma mark - IdentityVerifyRequiredNotify
+
+typedef GPB_ENUM(IdentityVerifyRequiredNotify_FieldNumber) {
+  IdentityVerifyRequiredNotify_FieldNumber_RoomId = 1,
+  IdentityVerifyRequiredNotify_FieldNumber_Scene = 2,
+  IdentityVerifyRequiredNotify_FieldNumber_OperatorAccountId = 3,
+  IdentityVerifyRequiredNotify_FieldNumber_OperatorAccountNickname = 4,
+};
+
+/**
+ * 需要实人认证通知（CMD_Room_Identity_Verify_Required_Notify）
+ **/
+GPB_FINAL @interface IdentityVerifyRequiredNotify : GPBMessage
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 提示场景（1：会议成员共享屏幕） */
+@property(nonatomic, readwrite) int32_t scene;
+
+@property(nonatomic, readwrite) BOOL hasScene;
+/** 操作人账号ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *operatorAccountId;
+/** Test to see if @c operatorAccountId has been set. */
+@property(nonatomic, readwrite) BOOL hasOperatorAccountId;
+
+/** 操作人账号昵称 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *operatorAccountNickname;
+/** Test to see if @c operatorAccountNickname has been set. */
+@property(nonatomic, readwrite) BOOL hasOperatorAccountNickname;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END
