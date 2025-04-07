@@ -108,8 +108,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 设置预览方向
 /// 设置预览方向默认 UIDeviceOrientationLandscapeLeft
 @property(nonatomic, assign) UIDeviceOrientation deviceOrientation;
-#pragma mark 设置预览是否开启镜像
-/// 设置预览是否开启镜像
+#pragma mark 设置前置预览是否开启镜像
+/// 设置前置预览是否开启镜像，默认 YES
 @property (nonatomic, assign) BOOL isMirror;
 #pragma mark 设置是否自动加适应加黑边
 /// 是否自动加适应加黑边，在竖屏采集用可以设置加黑边 默认不自动适应加黑边
