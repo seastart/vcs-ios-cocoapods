@@ -2280,6 +2280,52 @@ GPB_FINAL @interface RoomSpeechErrorNotify : GPBMessage
 @property(nonatomic, readwrite) BOOL hasError;
 @end
 
+#pragma mark - CmdRoomDetectionResultNotify
+
+typedef GPB_ENUM(CmdRoomDetectionResultNotify_FieldNumber) {
+  CmdRoomDetectionResultNotify_FieldNumber_RoomId = 1,
+  CmdRoomDetectionResultNotify_FieldNumber_RoomNo = 2,
+  CmdRoomDetectionResultNotify_FieldNumber_AlarmType = 3,
+  CmdRoomDetectionResultNotify_FieldNumber_AlarmTime = 4,
+  CmdRoomDetectionResultNotify_FieldNumber_Title = 5,
+  CmdRoomDetectionResultNotify_FieldNumber_Content = 6,
+};
+
+/**
+ * 会议违规提醒通知
+ **/
+GPB_FINAL @interface CmdRoomDetectionResultNotify : GPBMessage
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 房间号 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+/** 报警类型(0:涉诈-敏感词;1:涉诈-Ai识别;2:违规;3:举报) */
+@property(nonatomic, readwrite) int32_t alarmType;
+
+@property(nonatomic, readwrite) BOOL hasAlarmType;
+/** 提醒时间 */
+@property(nonatomic, readwrite) int64_t alarmTime;
+
+@property(nonatomic, readwrite) BOOL hasAlarmTime;
+/** 提醒标题 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *title;
+/** Test to see if @c title has been set. */
+@property(nonatomic, readwrite) BOOL hasTitle;
+
+/** 提醒内容 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *content;
+/** Test to see if @c content has been set. */
+@property(nonatomic, readwrite) BOOL hasContent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END
