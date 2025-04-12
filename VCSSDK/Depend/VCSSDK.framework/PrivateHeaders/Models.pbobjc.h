@@ -313,6 +313,9 @@ typedef GPB_ENUM(Command) {
   /** 被踢离开会议通知 */
   Command_CmdRoomNotifyKickoutExit = 1500,
 
+  /** 会议违规提醒通知 */
+  Command_CmdRoomNotifyDetectionResult = 1501,
+
   /** --------------------网络研讨会相关指令开始-----------------------------/ */
   Command_CmdWebinarNotifyRole = 1600,
 
