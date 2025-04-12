@@ -35,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Enum Command
 
 typedef GPB_ENUM(Command) {
+  Command_Unknown = 0,
+
   /** 会议室状态通知 */
   Command_CmdRoomNotifyRoom = 1,
 
@@ -311,6 +313,9 @@ typedef GPB_ENUM(Command) {
   /** 被踢离开会议通知 */
   Command_CmdRoomNotifyKickoutExit = 1500,
 
+  /** 会议违规提醒通知 */
+  Command_CmdRoomNotifyDetectionResult = 1501,
+
   /** --------------------网络研讨会相关指令开始-----------------------------/ */
   Command_CmdWebinarNotifyRole = 1600,
 
@@ -361,6 +366,15 @@ typedef GPB_ENUM(Result) {
 
   /** 房间已关闭 */
   Result_ResultRoomClosed = 5,
+
+  /** 参数错误 */
+  Result_ResultParamError = 40,
+
+  /** 无操作权限 */
+  Result_ResultNoPermission = 43,
+
+  /** 服务器错误 */
+  Result_ResultServerError = 50,
 
   /** 本地超时 */
   Result_ResultLocalTimeout = -11,
@@ -1851,7 +1865,7 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) BOOL picMode;
 
 @property(nonatomic, readwrite) BOOL hasPicMode;
-/** 会中语音转写，0:关闭;1:开启;2:后台开启 */
+/** 会中语音转写，0:关闭;1:开启;2:后台开启;3:停止 */
 @property(nonatomic, readwrite) int32_t speechTranscript;
 
 @property(nonatomic, readwrite) BOOL hasSpeechTranscript;
@@ -1859,7 +1873,7 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) int32_t speechWarn;
 
 @property(nonatomic, readwrite) BOOL hasSpeechWarn;
-/** 会中会议纪要状态，0:关闭;1:开启;2:后台开启 */
+/** 会中会议纪要状态，0:关闭;1:开启;2:后台开启;3:停止 */
 @property(nonatomic, readwrite) int32_t speechSummary;
 
 @property(nonatomic, readwrite) BOOL hasSpeechSummary;
