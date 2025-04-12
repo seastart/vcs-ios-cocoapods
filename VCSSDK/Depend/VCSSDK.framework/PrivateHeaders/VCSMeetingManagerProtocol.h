@@ -302,6 +302,12 @@
 /// @param error 错误信息
 - (void)onListenWebinarMemberRoleWithNotify:(WebinarRoleNotify *)notify error:(NSError *)error;
 
+#pragma mark 会议违规提醒通知
+/// 会议违规提醒通知
+/// @param notify 通知信息
+/// @param error 错误信息
+- (void)onListenRoomViolationWithNotify:(CmdRoomDetectionResultNotify *)notify error:(NSError *)error;
+
 #pragma mark 网络研讨会观众数量通知
 /// 网络研讨会观众数量通知
 /// @param notify 通知信息
