@@ -126,6 +126,7 @@ typedef GPB_ENUM(ExitRoomRequest_FieldNumber) {
   ExitRoomRequest_FieldNumber_AccountId = 2,
   ExitRoomRequest_FieldNumber_RoomId = 3,
   ExitRoomRequest_FieldNumber_MsgId = 4,
+  ExitRoomRequest_FieldNumber_AccessToken = 5,
 };
 
 /**
@@ -152,6 +153,11 @@ GPB_FINAL @interface ExitRoomRequest : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *msgId;
 /** Test to see if @c msgId has been set. */
 @property(nonatomic, readwrite) BOOL hasMsgId;
+
+/** 账号登录token */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accessToken;
+/** Test to see if @c accessToken has been set. */
+@property(nonatomic, readwrite) BOOL hasAccessToken;
 
 @end
 
