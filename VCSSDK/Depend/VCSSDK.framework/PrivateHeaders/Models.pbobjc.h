@@ -336,6 +336,9 @@ typedef GPB_ENUM(Command) {
 
   /** --------------------语音转写相关指令结束-----------------------------/ */
   Command_CmdRoomNotifySpeechError = 1702,
+
+  /** 需要实人认证通知 */
+  Command_CmdRoomIdentityVerifyRequiredNotify = 1720,
 };
 
 GPBEnumDescriptor *Command_EnumDescriptor(void);
