@@ -34,7 +34,8 @@ typedef void(^VCSChatRoomPackageBlock)(PacketType type, Command command, Result 
 /// @param session 入会凭证 (互动凭证)
 /// @param accountId 主持人ID
 /// @param roomId 房间ID
-+ (NSData *)exitRoomWithSession:(NSString *)session accountId:(NSString *)accountId roomId:(NSString *)roomId;
+/// @param accessToken 账号登录令牌
++ (NSData *)exitRoomWithSession:(NSString *)session accountId:(NSString *)accountId roomId:(NSString *)roomId accessToken:(NSString *)accessToken;
 
 #pragma mark 发送心跳
 /// 发送心跳
