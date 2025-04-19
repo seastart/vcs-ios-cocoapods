@@ -126,6 +126,7 @@ typedef GPB_ENUM(ExitRoomRequest_FieldNumber) {
   ExitRoomRequest_FieldNumber_AccountId = 2,
   ExitRoomRequest_FieldNumber_RoomId = 3,
   ExitRoomRequest_FieldNumber_MsgId = 4,
+  ExitRoomRequest_FieldNumber_AccessToken = 5,
 };
 
 /**
@@ -152,6 +153,11 @@ GPB_FINAL @interface ExitRoomRequest : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *msgId;
 /** Test to see if @c msgId has been set. */
 @property(nonatomic, readwrite) BOOL hasMsgId;
+
+/** 账号登录token */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accessToken;
+/** Test to see if @c accessToken has been set. */
+@property(nonatomic, readwrite) BOOL hasAccessToken;
 
 @end
 
@@ -2278,6 +2284,41 @@ GPB_FINAL @interface RoomSpeechErrorNotify : GPBMessage
 @property(nonatomic, readwrite) int32_t error;
 
 @property(nonatomic, readwrite) BOOL hasError;
+@end
+
+#pragma mark - IdentityVerifyRequiredNotify
+
+typedef GPB_ENUM(IdentityVerifyRequiredNotify_FieldNumber) {
+  IdentityVerifyRequiredNotify_FieldNumber_RoomId = 1,
+  IdentityVerifyRequiredNotify_FieldNumber_Scene = 2,
+  IdentityVerifyRequiredNotify_FieldNumber_OperatorAccountId = 3,
+  IdentityVerifyRequiredNotify_FieldNumber_OperatorAccountNickname = 4,
+};
+
+/**
+ * 需要实人认证通知（CMD_Room_Identity_Verify_Required_Notify）
+ **/
+GPB_FINAL @interface IdentityVerifyRequiredNotify : GPBMessage
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 提示场景（1：会议成员共享屏幕） */
+@property(nonatomic, readwrite) int32_t scene;
+
+@property(nonatomic, readwrite) BOOL hasScene;
+/** 操作者账号ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *operatorAccountId;
+/** Test to see if @c operatorAccountId has been set. */
+@property(nonatomic, readwrite) BOOL hasOperatorAccountId;
+
+/** 操作者账号昵称 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *operatorAccountNickname;
+/** Test to see if @c operatorAccountNickname has been set. */
+@property(nonatomic, readwrite) BOOL hasOperatorAccountNickname;
+
 @end
 
 #pragma mark - CmdRoomDetectionResultNotify
