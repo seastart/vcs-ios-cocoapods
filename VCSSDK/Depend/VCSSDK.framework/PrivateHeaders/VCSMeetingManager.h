@@ -276,6 +276,9 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// @param enable YES-启用 NO-关闭
 - (void)setSquareGridMeeting:(BOOL)enable;
 
+#pragma mark 重置音频会话
+/// 重置音频会话
+- (void)resetAudioSession;
 
 #pragma mark - -------- 视频会议本地采集相关接口 ---------
 #pragma mark 却换屏幕方向
