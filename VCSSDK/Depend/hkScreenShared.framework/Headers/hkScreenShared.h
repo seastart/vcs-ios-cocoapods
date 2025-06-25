@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define SCREEENVERSION @"9.6.0-aliyun.1@2025.06.16"
+#define SCREEENVERSION @"9.6.1-aliyun.1@2025.06.25"
 
 //! Project version number for hkScreenShared.
 FOUNDATION_EXPORT double hkScreenSharedVersionNumber;

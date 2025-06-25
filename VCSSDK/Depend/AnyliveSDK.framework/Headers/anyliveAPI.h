@@ -74,14 +74,10 @@
 #define RPT_AUDIOINF 0x22
 #define RPT_SPEECH_STATE 10
 
-/// 最大用户数，默认是16
-/// 最大用户数首先必须是服务器支持
-#define VCS_MAX_USER    0x2001
-
 //使用AAC编码 //moreAAC
 #define AUDIO_ENCODE_AAC 0
 //使用OPUS编码
-#define AUDIO_ENCODE_OPUS 0x5355504F
+#define  AUDIO_ENCODE_OPUS 0x5355504F
 
 
 #define SPEAKER_ROUTER    0x5000
