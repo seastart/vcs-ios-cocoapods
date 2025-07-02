@@ -7,3 +7,5 @@
 
 /// 视频会议服务
 #import "VCSMeetingManager.h"
+/// 会议服务分类
+#import "VCSMeetingManager+ChatRoom.h"
