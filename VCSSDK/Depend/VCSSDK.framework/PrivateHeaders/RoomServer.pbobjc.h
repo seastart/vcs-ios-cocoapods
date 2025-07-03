@@ -2367,6 +2367,53 @@ GPB_FINAL @interface CmdRoomDetectionResultNotify : GPBMessage
 
 @end
 
+#pragma mark - CmdRoomDetectionBanNotify
+
+typedef GPB_ENUM(CmdRoomDetectionBanNotify_FieldNumber) {
+  CmdRoomDetectionBanNotify_FieldNumber_RoomId = 1,
+  CmdRoomDetectionBanNotify_FieldNumber_RoomNo = 2,
+  CmdRoomDetectionBanNotify_FieldNumber_AccountId = 3,
+  CmdRoomDetectionBanNotify_FieldNumber_BanType = 4,
+  CmdRoomDetectionBanNotify_FieldNumber_Title = 5,
+  CmdRoomDetectionBanNotify_FieldNumber_Content = 6,
+};
+
+/**
+ * 涉诈违规账号封禁解封通知
+ **/
+GPB_FINAL @interface CmdRoomDetectionBanNotify : GPBMessage
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 房间号 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+/** 违规账号 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
+/** Test to see if @c accountId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountId;
+
+/** 封禁类型(0:封禁;1:解封) */
+@property(nonatomic, readwrite) int32_t banType;
+
+@property(nonatomic, readwrite) BOOL hasBanType;
+/** 提醒标题 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *title;
+/** Test to see if @c title has been set. */
+@property(nonatomic, readwrite) BOOL hasTitle;
+
+/** 提醒内容 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *content;
+/** Test to see if @c content has been set. */
+@property(nonatomic, readwrite) BOOL hasContent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END
