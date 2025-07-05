@@ -2376,6 +2376,10 @@ typedef GPB_ENUM(CmdRoomDetectionBanNotify_FieldNumber) {
   CmdRoomDetectionBanNotify_FieldNumber_BanType = 4,
   CmdRoomDetectionBanNotify_FieldNumber_Title = 5,
   CmdRoomDetectionBanNotify_FieldNumber_Content = 6,
+  CmdRoomDetectionBanNotify_FieldNumber_LimitScope = 7,
+  CmdRoomDetectionBanNotify_FieldNumber_LimitDevType = 8,
+  CmdRoomDetectionBanNotify_FieldNumber_LimitStreamSourceDevType = 9,
+  CmdRoomDetectionBanNotify_FieldNumber_LimitVideoShareDevType = 10,
 };
 
 /**
@@ -2411,6 +2415,26 @@ GPB_FINAL @interface CmdRoomDetectionBanNotify : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *content;
 /** Test to see if @c content has been set. */
 @property(nonatomic, readwrite) BOOL hasContent;
+
+/** 限制范围（0-房间级，1-账户级。本次只有房间级）； */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *limitScope;
+/** Test to see if @c limitScope has been set. */
+@property(nonatomic, readwrite) BOOL hasLimitScope;
+
+/** 受限制端；（比如 PC/APP/小程序/web） */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *limitDevType;
+/** Test to see if @c limitDevType has been set. */
+@property(nonatomic, readwrite) BOOL hasLimitDevType;
+
+/** 限制流的来源端（比如 app/小程序）； */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *limitStreamSourceDevType;
+/** Test to see if @c limitStreamSourceDevType has been set. */
+@property(nonatomic, readwrite) BOOL hasLimitStreamSourceDevType;
+
+/** 限制打开视频或共享的端（比如 app/小程序）； */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *limitVideoShareDevType;
+/** Test to see if @c limitVideoShareDevType has been set. */
+@property(nonatomic, readwrite) BOOL hasLimitVideoShareDevType;
 
 @end
 
