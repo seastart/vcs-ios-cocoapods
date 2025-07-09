@@ -171,6 +171,11 @@
 -(void)OnVideoOrientationInfo:(int)track lable:(int)lable;
 
 -(void)OnAudioRouterInfo:(int)type info:(NSString*)info;
+
+/// 流媒体日志回调
+/// - Parameter ptr: 日志内容
+- (void)vcs_Remote_LogCallback:(NSString *)ptr;
+
 @end
 @interface StaticAnyLibrary : NSObject
 {
