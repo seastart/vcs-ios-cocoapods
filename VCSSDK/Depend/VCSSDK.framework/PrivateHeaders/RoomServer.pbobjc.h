@@ -2373,10 +2373,10 @@ typedef GPB_ENUM(CmdRoomDetectionBanNotify_FieldNumber) {
   CmdRoomDetectionBanNotify_FieldNumber_RoomId = 1,
   CmdRoomDetectionBanNotify_FieldNumber_RoomNo = 2,
   CmdRoomDetectionBanNotify_FieldNumber_AccountId = 3,
-  CmdRoomDetectionBanNotify_FieldNumber_BanType = 4,
-  CmdRoomDetectionBanNotify_FieldNumber_Title = 5,
-  CmdRoomDetectionBanNotify_FieldNumber_Content = 6,
-  CmdRoomDetectionBanNotify_FieldNumber_LimitScope = 7,
+  CmdRoomDetectionBanNotify_FieldNumber_RoomIsInBan = 4,
+  CmdRoomDetectionBanNotify_FieldNumber_AccountIsInBan = 5,
+  CmdRoomDetectionBanNotify_FieldNumber_Title = 6,
+  CmdRoomDetectionBanNotify_FieldNumber_Content = 7,
   CmdRoomDetectionBanNotify_FieldNumber_LimitDevType = 8,
   CmdRoomDetectionBanNotify_FieldNumber_LimitStreamSourceDevType = 9,
   CmdRoomDetectionBanNotify_FieldNumber_LimitVideoShareDevType = 10,
@@ -2402,10 +2402,14 @@ GPB_FINAL @interface CmdRoomDetectionBanNotify : GPBMessage
 /** Test to see if @c accountId has been set. */
 @property(nonatomic, readwrite) BOOL hasAccountId;
 
-/** 封禁类型(0:封禁;1:解封) */
-@property(nonatomic, readwrite) int32_t banType;
+/** 房间是否被封禁 */
+@property(nonatomic, readwrite) BOOL roomIsInBan;
 
-@property(nonatomic, readwrite) BOOL hasBanType;
+@property(nonatomic, readwrite) BOOL hasRoomIsInBan;
+/** 账号是否被封禁 */
+@property(nonatomic, readwrite) BOOL accountIsInBan;
+
+@property(nonatomic, readwrite) BOOL hasAccountIsInBan;
 /** 提醒标题 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *title;
 /** Test to see if @c title has been set. */
@@ -2415,11 +2419,6 @@ GPB_FINAL @interface CmdRoomDetectionBanNotify : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *content;
 /** Test to see if @c content has been set. */
 @property(nonatomic, readwrite) BOOL hasContent;
-
-/** 限制范围（0-房间级，1-账户级。本次只有房间级）； */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *limitScope;
-/** Test to see if @c limitScope has been set. */
-@property(nonatomic, readwrite) BOOL hasLimitScope;
 
 /** 受限制端；（比如 PC/APP/小程序/web） */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *limitDevType;
