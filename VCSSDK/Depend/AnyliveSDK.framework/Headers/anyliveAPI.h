@@ -157,6 +157,17 @@
 /// wparam = 0，表示 音频播放
 #define VCS_AUDIO_SESSION 0x407
 
+/// 共享屏幕支持声音新增设置接口
+/// 控制麦克风声音的发送(mix)
+/// lparam == 1 & wparam == 1，表示 开启
+/// lparam == 0 & wparam == 0，表示 关闭
+#define VCS_MIC_AUDIO 0x2002
+
+/// 控制本地声音是否发送(mix)
+/// lparam == 1 & wparam == 1，表示 开启
+/// lparam == 0 & wparam == 0，表示 关闭
+#define VCS_APP_AUDIO 0x2003
+
 //设置代理用于数据回调
 @protocol callbackdataDelegate <NSObject>
 

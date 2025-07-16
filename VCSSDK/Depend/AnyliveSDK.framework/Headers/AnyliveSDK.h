@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define SDKVERSION "10.0.4@2025.07.09"
+#define SDKVERSION "10.0.5-shareaudio.2@2025.07.14"
 
 //! Project version number for AnyliveSDK.
 FOUNDATION_EXPORT double AnyliveSDKVersionNumber;
