@@ -316,6 +316,9 @@ typedef GPB_ENUM(Command) {
   /** 会议违规提醒通知 */
   Command_CmdRoomNotifyDetectionResult = 1501,
 
+  /** 涉诈账号封禁通知 */
+  Command_CmdRoomNotifyBanResult = 1502,
+
   /** --------------------网络研讨会相关指令开始-----------------------------/ */
   Command_CmdWebinarNotifyRole = 1600,
 

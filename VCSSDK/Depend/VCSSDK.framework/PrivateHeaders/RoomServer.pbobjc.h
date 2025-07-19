@@ -2367,6 +2367,76 @@ GPB_FINAL @interface CmdRoomDetectionResultNotify : GPBMessage
 
 @end
 
+#pragma mark - CmdRoomDetectionBanNotify
+
+typedef GPB_ENUM(CmdRoomDetectionBanNotify_FieldNumber) {
+  CmdRoomDetectionBanNotify_FieldNumber_RoomId = 1,
+  CmdRoomDetectionBanNotify_FieldNumber_RoomNo = 2,
+  CmdRoomDetectionBanNotify_FieldNumber_AccountId = 3,
+  CmdRoomDetectionBanNotify_FieldNumber_RoomIsInBan = 4,
+  CmdRoomDetectionBanNotify_FieldNumber_AccountIsInBan = 5,
+  CmdRoomDetectionBanNotify_FieldNumber_Title = 6,
+  CmdRoomDetectionBanNotify_FieldNumber_Content = 7,
+  CmdRoomDetectionBanNotify_FieldNumber_LimitDevType = 8,
+  CmdRoomDetectionBanNotify_FieldNumber_LimitStreamSourceDevType = 9,
+  CmdRoomDetectionBanNotify_FieldNumber_LimitVideoShareDevType = 10,
+};
+
+/**
+ * 涉诈违规账号封禁解封通知
+ **/
+GPB_FINAL @interface CmdRoomDetectionBanNotify : GPBMessage
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 房间号 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomNo;
+/** Test to see if @c roomNo has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomNo;
+
+/** 违规账号 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
+/** Test to see if @c accountId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountId;
+
+/** 房间是否被封禁 */
+@property(nonatomic, readwrite) BOOL roomIsInBan;
+
+@property(nonatomic, readwrite) BOOL hasRoomIsInBan;
+/** 账号是否被封禁 */
+@property(nonatomic, readwrite) BOOL accountIsInBan;
+
+@property(nonatomic, readwrite) BOOL hasAccountIsInBan;
+/** 提醒标题 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *title;
+/** Test to see if @c title has been set. */
+@property(nonatomic, readwrite) BOOL hasTitle;
+
+/** 提醒内容 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *content;
+/** Test to see if @c content has been set. */
+@property(nonatomic, readwrite) BOOL hasContent;
+
+/** 受限制端；（比如 PC/APP/小程序/web） */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *limitDevType;
+/** Test to see if @c limitDevType has been set. */
+@property(nonatomic, readwrite) BOOL hasLimitDevType;
+
+/** 限制流的来源端（比如 app/小程序）； */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *limitStreamSourceDevType;
+/** Test to see if @c limitStreamSourceDevType has been set. */
+@property(nonatomic, readwrite) BOOL hasLimitStreamSourceDevType;
+
+/** 限制打开视频或共享的端（比如 app/小程序）； */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *limitVideoShareDevType;
+/** Test to see if @c limitVideoShareDevType has been set. */
+@property(nonatomic, readwrite) BOOL hasLimitVideoShareDevType;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END
