@@ -308,6 +308,12 @@
 /// @param error 错误信息
 - (void)onListenRoomViolationWithNotify:(CmdRoomDetectionResultNotify *)notify error:(NSError *)error;
 
+#pragma mark 涉诈账号封禁通知
+/// 涉诈账号封禁通知
+/// @param notify 通知信息
+/// @param error 错误信息
+- (void)onListenRoomViolationBanWithNotify:(CmdRoomDetectionBanNotify *)notify error:(NSError *)error;
+
 #pragma mark 网络研讨会观众数量通知
 /// 网络研讨会观众数量通知
 /// @param notify 通知信息
