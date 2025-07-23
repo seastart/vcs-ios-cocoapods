@@ -52,11 +52,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/// 获取时间戳回调
+typedef void(^VCSWebRTCTimestampBlock)(void(^completionHandler)(NSInteger timestamp));
+
 @interface VCSWebRTCManager : NSObject
 
 #pragma mark 获取服务单例
 /// 获取服务单例
 + (VCSWebRTCManager *)sharedManager;
+
+#pragma mark 设置时间戳回调
+/// 设置时间戳回调
+@property (nonatomic, copy) VCSWebRTCTimestampBlock timestampBlock;
 
 #pragma mark 加入房间
 /// 加入房间
