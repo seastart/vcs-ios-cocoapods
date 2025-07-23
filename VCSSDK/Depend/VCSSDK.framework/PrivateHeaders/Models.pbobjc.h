@@ -1927,6 +1927,7 @@ typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_Mobile = 29,
   Account_FieldNumber_Token = 30,
   Account_FieldNumber_ChatState = 31,
+  Account_FieldNumber_UpdatedAt = 32,
 };
 
 /**
@@ -2071,6 +2072,10 @@ GPB_FINAL @interface Account : GPBMessage
 @property(nonatomic, readwrite) DeviceState chatState;
 
 @property(nonatomic, readwrite) BOOL hasChatState;
+/** 更新时间 */
+@property(nonatomic, readwrite) int64_t updatedAt;
+
+@property(nonatomic, readwrite) BOOL hasUpdatedAt;
 @end
 
 #pragma mark - Stream
