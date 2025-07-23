@@ -31,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 释放完成回调
 typedef void (^VCSMeetingManagerDestroyBlock)(void);
+/// 获取时间戳回调
+typedef void(^VCSMeetingManagerTimestampBlock)(void(^completionHandler)(NSInteger timestamp));
 
 @interface VCSMeetingManager : NSObject
 
@@ -38,6 +40,8 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 @property (nonatomic, weak) id <VCSMeetingManagerProtocol> delegate;
 #pragma mark 视频会议本地采集相关代理
 @property (nonatomic, weak) id <VCSMeetingManagerCameraProtocol> cameraDelegate;
+#pragma mark 设置时间戳回调
+@property (nonatomic, copy) VCSMeetingManagerTimestampBlock timestampBlock;
 #pragma mark 会控参数
 @property (nonatomic, strong) VCSMeetingParam *meetingParam;
 #pragma mark 房间信息
@@ -150,7 +154,7 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 /// @param appGroup Application Group Identifier
 - (void)startScreenRecordWithAppGroup:(NSString *)appGroup;
 
-#pragma mark - 关闭屏幕录制
+#pragma mark 关闭屏幕录制
 /// 关闭屏幕录制
 - (void)stopScreenRecord;
 
@@ -630,7 +634,9 @@ typedef void (^VCSMeetingManagerDestroyBlock)(void);
 ///   - selves: 是否为当前账户(YES-自己 NO-其它成员)
 - (void)sendRoomMemberExtendWithTargetId:(nullable NSString *)targetId extendInfo:(NSString *)extendInfo selves:(BOOL)selves;
 
-#pragma mark - 事件命令透传处理
+
+#pragma mark - -------- 视频会议其它相关接口 ---------
+#pragma mark 事件命令透传处理
 /// 事件命令透传处理
 /// @param command 消息指令
 /// @param notify 通知内容

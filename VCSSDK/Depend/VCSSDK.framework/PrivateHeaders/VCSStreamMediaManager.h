@@ -302,6 +302,13 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 #pragma mark 录屏数据推流(非编码模式)
 - (NSInteger)pushScreenStream:(CVPixelBufferRef)sampleBuffer stamp:(CMTime)stamp rotate:(int)rotate autofixblackSide:(BOOL)fix;
 
+#pragma mark 发布屏幕采集音频流
+/// 发布屏幕采集音频流
+/// @param streamData 屏幕采集音频流数据
+/// @param stamp 显示时间戳
+/// @param dts 解码时间戳
+- (NSInteger)publishScreenAudioWithStreamData:(NSData *)streamData stamp:(uint32_t)stamp dts:(uint32_t)dts;
+
 #pragma mark 设置是否关闭本地采集Camera流推送，在非编码模式下有效 非编码模式录屏下必须通过该函数来却换流推送
 - (void)setCloseCameraStream:(BOOL)isClose;
 
