@@ -112,21 +112,26 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param string 字符串
 + (nullable NSDictionary *)dictionaryWithJsonString:(nullable NSString *)string;
 
-#pragma mark 释放流媒体像素数据资源
+#pragma mark - 释放流媒体像素数据资源
 /// 释放流媒体像素数据资源
 /// @param yData 流媒体像素数据
 /// @param uData 流媒体像素数据
 /// @param vData 流媒体像素数据
 + (void)destroyStreamWithyData:(void *)yData uData:(void *)uData vData:(void *)vData;
 
-#pragma mark 随机生成数字串
+#pragma mark - 随机生成数字串
 /// 随机生成数字串
 /// @param number 随机数量
 + (NSString *)buildRandomStringWithNumber:(NSInteger)number;
 
-#pragma mark 构建随机连接标识
+#pragma mark - 构建随机连接标识
 /// 构建随机连接标识
 + (NSString *)buildRandomLinkId;
+
+#pragma mark - 删除过期文件
+/// 删除过期文件
+/// - Parameter rootPath: 文件目录
++ (void)deleteOverdueFiles:(NSString *)rootPath;
 
 @end
 
