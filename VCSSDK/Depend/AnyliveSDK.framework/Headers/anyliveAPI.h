@@ -175,6 +175,16 @@
 -(void)OnVideoOrientationInfo:(int)track lable:(int)lable;
 
 -(void)OnAudioRouterInfo:(int)type info:(NSString*)info;
+
+/// 本地音频数据回调
+/// - Parameters:
+///   - spl: 采样率
+///   - chl: ​​声道数
+///   - stamp: 时间戳
+///   - dataSize: 数据大小
+///   - pcmData: 音频元数据
+- (void)LocalAudioCallback:(int)spl chl:(int)chl stamp:(unsigned int)stamp dataSize:(int)dataSize pcmData:(void *)pcmData;
+
 @end
 @interface StaticAnyLibrary : NSObject
 {

@@ -175,6 +175,15 @@
 /// @param previousRouteName 变更前的音频路由名称
 - (void)onAudioRouteChanged:(VCSAudioRoute)route routeName:(NSString *)routeName previousRoute:(VCSAudioRoute)previousRoute previousRouteName:(NSString *)previousRouteName;
 
+#pragma mark 音频采集数据回调
+/// 音频采集数据回调
+/// @param samplerate 采样率
+/// @param channel 声道数
+/// @param stamp 时间戳
+/// @param dataSize 数据大小
+/// @param pcmData 音频元数据
+- (void)onRoomAudioCapture:(int)samplerate channel:(int)channel stamp:(unsigned int)stamp dataSize:(int)dataSize pcmData:(void *)pcmData;
+
 
 #pragma mark - -------- 互动服务服务相关代理 --------
 #pragma mark 互动服务闪断重连成功回调
