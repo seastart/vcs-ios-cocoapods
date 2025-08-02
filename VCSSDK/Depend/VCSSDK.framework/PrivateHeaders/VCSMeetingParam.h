@@ -188,6 +188,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL defaultCameraPosition;
 /* ****************** ⬆️ 网络研讨会参数 ⬆️ ****************** */
 
+/// 是否开启双码流，默认 YES
+@property (nonatomic, assign) BOOL enableMultiStream;
+
 @end
 
 NS_ASSUME_NONNULL_END
