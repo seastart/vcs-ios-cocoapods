@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VCSSDK'
-  s.version          = '1.4.7-enterReceipt.1'
+  s.version          = '1.4.7-enterReceipt.2'
   s.summary          = '视频会议SDK'
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
