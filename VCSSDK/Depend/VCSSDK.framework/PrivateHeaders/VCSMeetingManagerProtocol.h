@@ -332,6 +332,12 @@
 /// @param error 错误信息
 - (void)onListenIdentityVerifyRequiredWithNotify:(IdentityVerifyRequiredNotify *)notify error:(NSError *)error;
 
+#pragma mark 录制视角跟随用户通知
+/// 录制视角跟随用户通知
+/// @param notify 通知信息
+/// @param error 错误信息
+- (void)onListenCloudRecordFollowWithNotify:(RoomMcuRecordFollowNotify *)notify error:(NSError *)error;
+
 #pragma mark 事件命令透传通知
 /// 事件命令透传通知
 /// @param command 消息指令

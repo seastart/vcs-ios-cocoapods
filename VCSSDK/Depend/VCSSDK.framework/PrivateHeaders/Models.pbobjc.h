@@ -342,6 +342,9 @@ typedef GPB_ENUM(Command) {
 
   /** 需要实人认证通知 */
   Command_CmdRoomIdentityVerifyRequiredNotify = 1720,
+
+  /** 通知房间录制视角跟随用户 */
+  Command_CmdRoomMcuRecordFollowNotify = 1801,
 };
 
 GPBEnumDescriptor *Command_EnumDescriptor(void);
