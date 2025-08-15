@@ -190,6 +190,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 是否开启双码流，默认 YES
 @property (nonatomic, assign) BOOL enableMultiStream;
+/// 是否需要发送离会消息，默认 NO
+@property (nonatomic, assign) BOOL whetherSendExitMessage;
 
 @end
 
