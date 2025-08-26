@@ -86,7 +86,9 @@ typedef void (^VCSChatRoomManagerDestroyBlock)(void);
 #pragma mark - -------- 发送互动服务消息 --------
 #pragma mark 发送心跳消息
 /// 发送心跳消息
-- (void)sendHeartBeat;
+/// - Parameter isHeartbeat: 是否心跳 NO-信息更新或心跳 YES-只上报心跳
+/// 如果是逻辑触发，需要主动同步心跳时 isHeartbeat 设置 NO，如果是固定时间的周期心跳 isHeartbeat 设置 YES。
+- (void)sendHeartBeat:(BOOL)isHeartbea;
 
 #pragma mark 发送退出房间消息
 - (void)sendExitRoom;
