@@ -1928,6 +1928,8 @@ typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_Token = 30,
   Account_FieldNumber_ChatState = 31,
   Account_FieldNumber_UpdatedAt = 32,
+  Account_FieldNumber_IpArea = 33,
+  Account_FieldNumber_CertStatus = 34,
 };
 
 /**
@@ -2076,6 +2078,15 @@ GPB_FINAL @interface Account : GPBMessage
 @property(nonatomic, readwrite) int64_t updatedAt;
 
 @property(nonatomic, readwrite) BOOL hasUpdatedAt;
+/** IP所属归属地 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *ipArea;
+/** Test to see if @c ipArea has been set. */
+@property(nonatomic, readwrite) BOOL hasIpArea;
+
+/** 个人认证状态，0-未认证 1-已认证 */
+@property(nonatomic, readwrite) int32_t certStatus;
+
+@property(nonatomic, readwrite) BOOL hasCertStatus;
 @end
 
 #pragma mark - Stream
@@ -3043,6 +3054,8 @@ typedef GPB_ENUM(RoomSpeechText_FieldNumber) {
   RoomSpeechText_FieldNumber_Content = 5,
   RoomSpeechText_FieldNumber_SpeechId = 6,
   RoomSpeechText_FieldNumber_Timestamps = 7,
+  RoomSpeechText_FieldNumber_IpArea = 8,
+  RoomSpeechText_FieldNumber_CertStatus = 9,
 };
 
 /**
@@ -3084,6 +3097,15 @@ GPB_FINAL @interface RoomSpeechText : GPBMessage
 @property(nonatomic, readwrite) int64_t timestamps;
 
 @property(nonatomic, readwrite) BOOL hasTimestamps;
+/** IP所属归属地 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *ipArea;
+/** Test to see if @c ipArea has been set. */
+@property(nonatomic, readwrite) BOOL hasIpArea;
+
+/** 个人认证状态，0-未认证 1-已认证 */
+@property(nonatomic, readwrite) int32_t certStatus;
+
+@property(nonatomic, readwrite) BOOL hasCertStatus;
 @end
 
 #pragma mark - RoomSpeechSummary
