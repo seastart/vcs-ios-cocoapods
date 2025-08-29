@@ -68,6 +68,11 @@ typedef void (^VCSChatRoomManagerDestroyBlock)(void);
 /// @param restart 是否需要重置订阅
 - (BOOL)restartConnect:(BOOL)restart;
 
+#pragma mark 变更入会回执状态
+/// 变更入会回执状态
+/// @param status 回执状态
+- (void)changeReceiptWithStatus:(BOOL)status;
+
 #pragma mark 手动重置订阅主题(测试)
 /// 手动重置订阅主题(测试)
 /// - Parameter finishBlock: 订阅完成
