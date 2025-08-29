@@ -378,6 +378,11 @@ typedef void(^VCSMeetingManagerTimestampBlock)(void(^completionHandler)(NSIntege
 
 
 #pragma mark - -------- 视频会议互动消息服务相关接口 ---------
+#pragma mark 变更入会回执状态
+/// 变更入会回执状态
+/// @param status 回执状态
+- (void)changeReceiptWithStatus:(BOOL)status;
+
 #pragma mark 更新心跳(自身状态变化时需要及时调用此方法)
 - (void)renewMyAccountHeartBeat;
 
