@@ -68,6 +68,11 @@ typedef void (^VCSChatRoomManagerDestroyBlock)(void);
 /// @param restart 是否需要重置订阅
 - (BOOL)restartConnect:(BOOL)restart;
 
+#pragma mark 变更入会回执状态
+/// 变更入会回执状态
+/// @param status 回执状态
+- (void)changeReceiptWithStatus:(BOOL)status;
+
 #pragma mark 手动重置订阅主题(测试)
 /// 手动重置订阅主题(测试)
 /// - Parameter finishBlock: 订阅完成
@@ -86,7 +91,9 @@ typedef void (^VCSChatRoomManagerDestroyBlock)(void);
 #pragma mark - -------- 发送互动服务消息 --------
 #pragma mark 发送心跳消息
 /// 发送心跳消息
-- (void)sendHeartBeat;
+/// - Parameter isHeartbeat: 是否心跳 NO-信息更新或心跳 YES-只上报心跳
+/// 如果是逻辑触发，需要主动同步心跳时 isHeartbeat 设置 NO，如果是固定时间的周期心跳 isHeartbeat 设置 YES。
+- (void)sendHeartBeat:(BOOL)isHeartbea;
 
 #pragma mark 发送退出房间消息
 - (void)sendExitRoom;

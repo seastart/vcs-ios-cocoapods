@@ -167,6 +167,7 @@ typedef GPB_ENUM(HeartbeatRequest_FieldNumber) {
   HeartbeatRequest_FieldNumber_Token = 1,
   HeartbeatRequest_FieldNumber_RoomId = 2,
   HeartbeatRequest_FieldNumber_Account = 3,
+  HeartbeatRequest_FieldNumber_IsHeartbeat = 4,
 };
 
 /**
@@ -189,6 +190,10 @@ GPB_FINAL @interface HeartbeatRequest : GPBMessage
 /** Test to see if @c account has been set. */
 @property(nonatomic, readwrite) BOOL hasAccount;
 
+/** 是否心跳，默认false；false:信息更新或心跳,true:只上报心跳 */
+@property(nonatomic, readwrite) BOOL isHeartbeat;
+
+@property(nonatomic, readwrite) BOOL hasIsHeartbeat;
 @end
 
 #pragma mark - HostCtrlRequest
