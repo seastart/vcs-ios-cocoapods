@@ -42,7 +42,9 @@ typedef void(^VCSChatRoomPackageBlock)(PacketType type, Command command, Result 
 /// @param session 入会凭证 (互动凭证)
 /// @param roomId 房间ID
 /// @param account 参会人
-+ (NSData *)sendHeartBeatWithSession:(NSString *)session room:(NSString *)roomId account:(Account *)account;
+/// @param isHeartbeat 是否心跳 NO-信息更新或心跳 YES-只上报心跳
+/// 如果是逻辑触发，需要主动同步心跳时 isHeartbeat 设置 NO，如果是固定时间的周期心跳 isHeartbeat 设置 YES。
++ (NSData *)sendHeartBeatWithSession:(NSString *)session room:(NSString *)roomId account:(Account *)account isHeartbeat:(BOOL)isHeartbeat;
 
 #pragma mark 主持人设置音频设备状态(禁用或开启)
 /// 主持人设置音视频设备状态(禁用或开启)
