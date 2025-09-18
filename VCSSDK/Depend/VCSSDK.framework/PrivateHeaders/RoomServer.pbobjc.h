@@ -2442,6 +2442,41 @@ GPB_FINAL @interface CmdRoomDetectionBanNotify : GPBMessage
 
 @end
 
+#pragma mark - RoomMcuRecordFollowNotify
+
+typedef GPB_ENUM(RoomMcuRecordFollowNotify_FieldNumber) {
+  RoomMcuRecordFollowNotify_FieldNumber_RoomId = 1,
+  RoomMcuRecordFollowNotify_FieldNumber_OriHostNickname = 2,
+  RoomMcuRecordFollowNotify_FieldNumber_AccountId = 3,
+  RoomMcuRecordFollowNotify_FieldNumber_Action = 4,
+};
+
+/**
+ * mcu录制视角跟随通知
+ **/
+GPB_FINAL @interface RoomMcuRecordFollowNotify : GPBMessage
+
+/** 房间ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *roomId;
+/** Test to see if @c roomId has been set. */
+@property(nonatomic, readwrite) BOOL hasRoomId;
+
+/** 原主持人昵称 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *oriHostNickname;
+/** Test to see if @c oriHostNickname has been set. */
+@property(nonatomic, readwrite) BOOL hasOriHostNickname;
+
+/** 跟随者成员ID */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *accountId;
+/** Test to see if @c accountId has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountId;
+
+/** 0-主动开启跟随 1-转移主持人跟随 2-撤回主持人跟随 3-主持人离会自动转移跟随 4-主持人重新入会自动恢复跟随 */
+@property(nonatomic, readwrite) int32_t action;
+
+@property(nonatomic, readwrite) BOOL hasAction;
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END
