@@ -262,11 +262,6 @@ typedef void (^VCSStreamMediaManagerDestroyBlock)(void);
 #pragma mark 获取当前解码类型(-1-未就绪, 0-软解, 1-硬件解码)
 - (NSInteger)getCurrentDecoder;
 
-#pragma mark 设置是否使用双码流
-/// 设置是否使用双码流
-/// @param isUse YES-使用双码流 NO-使用单码流
-- (void)setMultiStream:(BOOL)isUse;
-
 #pragma mark 设置是否关闭高清码流
 /// 设置是否关闭高码流
 /// @param isClose YES-使用高码流 NO-不使用高码流
