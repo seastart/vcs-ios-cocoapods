@@ -10,30 +10,51 @@
 #import <VideoToolbox/VideoToolbox.h>
 NS_ASSUME_NONNULL_BEGIN
 
+/// 停止屏幕采集回调
 typedef void (^StopReplayKit)(NSString *msg);
+
 @interface ScreenRTCClient:NSObject
-//: ScreenRTCConnect
-//encoder 必须设置这些编码参数否则录屏失败 720x1280    300kp
-@property (nonatomic, readwrite) unsigned short Encoderwidth;
-@property (nonatomic, readwrite) unsigned short Encoderheight;
-@property (nonatomic, readwrite) uint32_t EncodermaxFramerate;//30
+
+/// 屏幕分辨率宽
+@property (nonatomic, assign) unsigned short screenWidth;
+/// 屏幕分辨率高
+@property (nonatomic, assign) unsigned short screenHeight;
+
+/// 编码分辨率宽，默认 720
+@property (nonatomic, assign) unsigned short Encoderwidth;
+/// 编码分辨率高，默认 1280
+@property (nonatomic, assign) unsigned short Encoderheight;
+/// 最大帧率，默认 20
+@property (nonatomic, assign) uint32_t EncodermaxFramerate;
+/// 停止屏幕采集回调
 @property (nonatomic, copy) StopReplayKit ReplayBlock;
 
-//非编码模式输出参数
-@property (nonatomic, readwrite) unsigned int height;//720p
+/// 初始化客户端连接
+/// - Parameters:
+///   - ModeType: 模式类型(暂无意义)
+///   - appGroup: Application Group Identifier
+- (BOOL)initCliectConnect:(int)ModeType appGroup:(NSString *)appGroup;
 
-- (BOOL)initCliectConnect:(int)ModeType appGroup:(NSString *)appGroup; //初始化后方可创createCliectConnect
-/// 创建 client socket
+#pragma mark - 创建客户端连接
+/// 创建客户端连接
 - (BOOL)createCliectConnect;
-//close
+
+#pragma mark - 关闭客户端连接
+/// 关闭客户端连接
 - (void)close;
 
-/// client send data to  server
+#pragma mark - 客户端将视频数据发送到服务器
+/// 客户端将视频数据发送到服务器
+/// - Parameter sampleBuffer: 视频数据
 - (void)sendBuffertoServer:(CMSampleBufferRef)sampleBuffer;
 
-/// client send audio data to  server
+#pragma mark - 客户端将音频数据发送到服务器
+/// 客户端将音频数据发送到服务器
+/// - Parameter sampleBuffer: 音频数据
 - (void)sendAudioBuffertoServer:(CMSampleBufferRef)sampleBuffer;
 
+#pragma mark - 静态补帧
+/// 静态补帧
 - (void)sendNotifyBuffertoServer;
 
 #pragma mark - 请求调整码率

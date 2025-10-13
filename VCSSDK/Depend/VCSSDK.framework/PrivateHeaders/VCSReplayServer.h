@@ -99,11 +99,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// - Parameters:
 ///   - appGroup: Application Group Identifier
 ///   - isCasting: 录屏模式 YES-投屏 NO-共享
+///   - screenWidth: 屏幕宽度
+///   - screenHeight: 屏幕高度
 ///   - encoderWidth: 编码宽度
 ///   - encoderHeight: 编码高度
 ///   - encoderHeight: 编码帧率
+///   - framerate: 最大帧率
 ///   - delegate: 代理回调
-- (void)startScreenRecordWithAppGroup:(NSString *)appGroup isCasting:(BOOL)isCasting encoderWidth:(int)encoderWidth encoderHeight:(int)encoderHeight framerate:(int)framerate delegate:(nullable id <VCSReplayServerDelegate>)delegate;
+- (void)startScreenRecordWithAppGroup:(NSString *)appGroup isCasting:(BOOL)isCasting screenWidth:(int)screenWidth screenHeight:(int)screenHeight encoderWidth:(int)encoderWidth encoderHeight:(int)encoderHeight framerate:(int)framerate delegate:(nullable id <VCSReplayServerDelegate>)delegate;
 
 #pragma mark 关闭屏幕录制
 /// 关闭屏幕录制
