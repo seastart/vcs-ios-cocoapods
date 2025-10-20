@@ -153,6 +153,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param succeed 重连是否成功，YES-成功 NO-失败
 - (void)streamMedia:(VCSStreamMediaManager *)stream didReconnectFinish:(BOOL)succeed;
 
+#pragma mark 流媒体日志回调
+/// 流媒体日志回调
+/// @param stream 流媒体实例
+/// @param content 日志内容
+- (void)streamMedia:(VCSStreamMediaManager *)stream didStreamMediaLog:(NSString *)content;
+
 @end
 
 /// 释放完成回调
