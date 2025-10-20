@@ -172,6 +172,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param resampledData 音频重采样数据
 - (void)streamMedia:(VCSStreamMediaManager *)stream onAudioResampled:(int)samplerate channel:(int)channel stamp:(unsigned int)stamp resampledData:(NSData *)resampledData;
 
+#pragma mark 流媒体日志回调
+/// 流媒体日志回调
+/// @param stream 流媒体实例
+/// @param content 日志内容
+- (void)streamMedia:(VCSStreamMediaManager *)stream didStreamMediaLog:(NSString *)content;
+
 @end
 
 /// 释放完成回调

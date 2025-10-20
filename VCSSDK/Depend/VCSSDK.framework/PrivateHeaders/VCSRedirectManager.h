@@ -19,6 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 启动日志重定向
 - (void)startService;
 
+#pragma mark 记录日志内容
+/// 记录日志内容
+/// - Parameter content: 日志内容
+- (void)recordLogData:(NSString *)content;
+
 #pragma mark 获取日志文件名称
 /// 获取日志文件名称
 - (NSString *)getFolderName;

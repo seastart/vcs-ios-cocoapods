@@ -185,6 +185,10 @@
 ///   - pcmData: 音频元数据
 - (void)LocalAudioCallback:(int)spl chl:(int)chl stamp:(unsigned int)stamp dataSize:(int)dataSize pcmData:(void *)pcmData;
 
+/// 流媒体日志回调
+/// - Parameter ptr: 日志内容
+- (void)vcs_Remote_LogCallback:(NSString *)ptr;
+
 @end
 @interface StaticAnyLibrary : NSObject
 {

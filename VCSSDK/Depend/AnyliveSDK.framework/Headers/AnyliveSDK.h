@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define SDKVERSION "10.0.5-audiocallback.2@2025.08.01"
+#define SDKVERSION "10.0.6-audiocallback.1@2025.10.20"
 
 //! Project version number for AnyliveSDK.
 FOUNDATION_EXPORT double AnyliveSDKVersionNumber;
