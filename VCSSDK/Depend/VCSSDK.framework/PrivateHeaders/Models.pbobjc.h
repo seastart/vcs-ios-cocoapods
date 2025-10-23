@@ -1693,6 +1693,11 @@ typedef GPB_ENUM(Room_FieldNumber) {
   Room_FieldNumber_SpeechSummary = 45,
   Room_FieldNumber_SummaryWarn = 46,
   Room_FieldNumber_SpeechSummaryAuth = 47,
+  Room_FieldNumber_IntegMemberLimit = 48,
+  Room_FieldNumber_IntegWaitingRoomState = 49,
+  Room_FieldNumber_IntegWaterMark = 50,
+  Room_FieldNumber_IntegScreenShot = 51,
+  Room_FieldNumber_EarlyEntryPerm = 52,
 };
 
 /**
@@ -1894,6 +1899,26 @@ GPB_FINAL @interface Room : GPBMessage
 @property(nonatomic, readwrite) int32_t speechSummaryAuth;
 
 @property(nonatomic, readwrite) BOOL hasSpeechSummaryAuth;
+/** 入会权限（0：允许所有人、1：仅允许企业成员、2：仅允许受邀成员）（不区分企业内企业外） */
+@property(nonatomic, readwrite) int32_t integMemberLimit;
+
+@property(nonatomic, readwrite) BOOL hasIntegMemberLimit;
+/** 是否开启等候室（1：是、0：否）（不区分企业内企业外） */
+@property(nonatomic, readwrite) int32_t integWaitingRoomState;
+
+@property(nonatomic, readwrite) BOOL hasIntegWaitingRoomState;
+/** 是否开启会议水印（不区分企业内企业外） */
+@property(nonatomic, readwrite) BOOL integWaterMark;
+
+@property(nonatomic, readwrite) BOOL hasIntegWaterMark;
+/** 是否允许会议录屏（不区分企业内企业外） */
+@property(nonatomic, readwrite) BOOL integScreenShot;
+
+@property(nonatomic, readwrite) BOOL hasIntegScreenShot;
+/** 提前进入权限（1：允许成员提前进入、2：仅允许成员当天进入） */
+@property(nonatomic, readwrite) int32_t earlyEntryPerm;
+
+@property(nonatomic, readwrite) BOOL hasEarlyEntryPerm;
 @end
 
 #pragma mark - Account
