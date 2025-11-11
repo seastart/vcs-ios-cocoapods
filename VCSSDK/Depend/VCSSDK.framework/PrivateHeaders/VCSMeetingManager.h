@@ -22,6 +22,7 @@
 #import "RTCModel.h"
 #import "VCSMeetingManagerProtocol.h"
 #import "VCSMeetingMemberModel.h"
+#import "VCSMQTTClientPackage.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

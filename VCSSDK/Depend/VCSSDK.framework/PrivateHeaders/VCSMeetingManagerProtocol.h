@@ -187,6 +187,13 @@
 /// @param result 结果
 - (void)roomListenRoomEnterFailedCommand:(Command)command result:(Result)result;
 
+#pragma mark 互动服务收到数据回调
+/// 互动服务收到数据回调
+/// @param data 消息体，注：该数据为未解包数据需要解包获取PacketType、Command、Result以及结构数据NSData
+/// @param topic 订阅主题
+/// @param retained 保留字段
+- (void)onListenReceiveWithData:(NSData *)data topic:(nullable NSString *)topic retained:(BOOL)retained;
+
 #pragma mark 会议室状态通知
 /// 会议室状态通知
 /// @param notify 通知信息

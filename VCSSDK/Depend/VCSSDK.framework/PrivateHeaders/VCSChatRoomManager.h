@@ -29,6 +29,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// 互动服务闪断重连成功回调
 - (BOOL)roomReconnectedSucceed;
 
+#pragma mark 互动服务收到数据回调
+/// 互动服务收到数据回调
+/// - Parameters:
+///   - data: 消息体，注：该数据为未解包数据需要解包获取PacketType、Command、Result以及结构数据NSData
+///   - topic: 订阅主题
+///   - retained: 保留字段
+- (void)roomListenReceiveWithData:(NSData *)data topic:(nullable NSString *)topic retained:(BOOL)retained;
+
 #pragma mark 监听互动服务消息
 /// 监听互动服务消息
 /// @param command 消息类型

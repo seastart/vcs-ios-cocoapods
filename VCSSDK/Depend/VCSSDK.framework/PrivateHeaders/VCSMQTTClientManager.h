@@ -11,6 +11,7 @@
 #import "Models.pbobjc.h"
 #import "VCSCommons.h"
 #import "VCSMQTTClientManagerProtocol.h"
+#import "VCSMQTTClientPackage.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
