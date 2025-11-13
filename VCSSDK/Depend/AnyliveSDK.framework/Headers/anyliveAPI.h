@@ -157,6 +157,17 @@
 /// wparam = 0，表示 音频播放
 #define VCS_AUDIO_SESSION 0x407
 
+/// 共享屏幕支持声音新增设置接口
+/// 控制麦克风声音的发送(mix)
+/// lparam == 1 & wparam == 1，表示 开启
+/// lparam == 0 & wparam == 0，表示 关闭
+#define VCS_MIC_AUDIO 0x2002
+
+/// 控制本地声音是否发送(mix)
+/// lparam == 1 & wparam == 1，表示 开启
+/// lparam == 0 & wparam == 0，表示 关闭
+#define VCS_APP_AUDIO 0x2003
+
 //设置代理用于数据回调
 @protocol callbackdataDelegate <NSObject>
 
@@ -175,6 +186,15 @@
 -(void)OnVideoOrientationInfo:(int)track lable:(int)lable;
 
 -(void)OnAudioRouterInfo:(int)type info:(NSString*)info;
+
+/// 本地音频数据回调
+/// - Parameters:
+///   - spl: 采样率
+///   - chl: ​​声道数
+///   - stamp: 时间戳
+///   - dataSize: 数据大小
+///   - pcmData: 音频元数据
+- (void)LocalAudioCallback:(int)spl chl:(int)chl stamp:(unsigned int)stamp dataSize:(int)dataSize pcmData:(void *)pcmData;
 
 /// 流媒体日志回调
 /// - Parameter ptr: 日志内容
