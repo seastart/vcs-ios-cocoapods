@@ -153,6 +153,25 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param succeed 重连是否成功，YES-成功 NO-失败
 - (void)streamMedia:(VCSStreamMediaManager *)stream didReconnectFinish:(BOOL)succeed;
 
+#pragma mark 音频采集原数据回调
+/// 音频采集原数据回调
+/// @param stream 流媒体实例
+/// @param samplerate 采样率
+/// @param channel 声道数
+/// @param stamp 时间戳
+/// @param dataSize 数据大小
+/// @param pcmData 音频元数据
+- (void)streamMedia:(VCSStreamMediaManager *)stream onAudioCapture:(int)samplerate channel:(int)channel stamp:(unsigned int)stamp dataSize:(int)dataSize pcmData:(void *)pcmData;
+
+#pragma mark 音频采集重采样数据回调
+/// 音频采集重采样数据回调
+/// @param stream 流媒体实例
+/// @param samplerate 采样率
+/// @param channel 声道数
+/// @param stamp 时间戳
+/// @param resampledData 音频重采样数据
+- (void)streamMedia:(VCSStreamMediaManager *)stream onAudioResampled:(int)samplerate channel:(int)channel stamp:(unsigned int)stamp resampledData:(NSData *)resampledData;
+
 #pragma mark 流媒体日志回调
 /// 流媒体日志回调
 /// @param stream 流媒体实例
