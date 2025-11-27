@@ -700,6 +700,9 @@ typedef GPB_ENUM(TerminalType) {
 
   /** Rooms盒子 */
   TerminalType_TerminalRooms = 19,
+
+  /** 鸿蒙设备 */
+  TerminalType_TerminalHarmonyOs = 24,
 };
 
 GPBEnumDescriptor *TerminalType_EnumDescriptor(void);
