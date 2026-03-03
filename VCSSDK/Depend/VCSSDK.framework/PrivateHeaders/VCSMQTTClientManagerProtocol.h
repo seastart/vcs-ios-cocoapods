@@ -22,6 +22,13 @@
 /// @param result 结果
 - (void)onListenNetCallResultCommand:(Command)command result:(Result)result;
 
+#pragma mark 呼叫服务收到数据回调
+/// 呼叫服务收到数据回调
+/// @param data 消息体，注：该数据为未解包数据需要解包获取PacketType、Command、Result以及结构数据NSData
+/// @param topic 订阅主题
+/// @param retained 保留字段
+- (void)onListenNetCallReceiveWithData:(NSData *)data topic:(nullable NSString *)topic retained:(BOOL)retained;
+
 #pragma mark 邀请入会通知
 /// 邀请入会通知
 /// @param notify 通知信息
