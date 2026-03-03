@@ -181,6 +181,13 @@ NS_ASSUME_NONNULL_BEGIN
 /* ****************** ⬆️ 网络研讨会参数 ⬆️ ****************** */
 
 
+/* ****************** ⬇️ 是否启用ook流媒体 ⬇️ ****************** */
+/// 是否启用ook流媒体，默认 YES
+/// 注：只有 webinarMode 为 NO 时，才有意义
+@property (nonatomic, assign) BOOL ookStreamingEnable;
+/* ****************** ⬆️ 是否启用ook流媒体 ⬆️ ****************** */
+
+
 /* ****************** ⬇️ 宫格会议参数 ⬇️ ****************** */
 /// 是否为宫格会议模式，默认 NO
 @property (nonatomic, assign) BOOL squareGridMeeting;
