@@ -26,7 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///   - ModeType: 编码模式 0-编码模式 1-原数据模式
 ///   - appGroup: Application Group Identifier
 ///   - isCasting: 是否是投屏模式 YES-投屏 NO-共享
-- (BOOL)initServerConnect:(int)ModeType appGroup:(NSString *)appGroup isCasting:(BOOL)isCasting;
+///   - forceLandscape: 业务是否强制横屏
+- (BOOL)initServerConnect:(int)ModeType appGroup:(NSString *)appGroup isCasting:(BOOL)isCasting forceLandscape:(BOOL)forceLandscape;
 
 /// 创建服务端链接
 - (BOOL)createServerConnect;
