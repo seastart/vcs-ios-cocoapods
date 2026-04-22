@@ -131,6 +131,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL enableSaveAudioCapture;
 /// 保存远程接收音频流，默认 NO
 @property (nonatomic, assign) BOOL enableSaveAudioReceive;
+
+#pragma mark 保存视频流数据相关
+/// 保存本地采集视频流，默认 NO
+@property (nonatomic, assign) BOOL enableSaveVideoCapture;
+/// 保存远程接收视频流，默认 NO
+@property (nonatomic, assign) BOOL enableSaveVideoReceive;
 /* ****************** ⬆️ AGC AEC sampe 编码参数设置(选填项) ⬆️ ****************** */
 
 

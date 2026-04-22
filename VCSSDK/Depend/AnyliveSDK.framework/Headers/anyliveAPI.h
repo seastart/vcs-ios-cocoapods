@@ -196,6 +196,16 @@
 ///   - pcmData: 音频元数据
 - (void)LocalAudioCallback:(int)spl chl:(int)chl stamp:(unsigned int)stamp dataSize:(int)dataSize pcmData:(void *)pcmData;
 
+/// 本地视频数据回调
+/// - Parameters:
+///   - bits: 视频数据
+///   - bitslen: 数据大小
+///   - bitspos: 数据位置
+///   - track: 轨道号
+///   - pts: 显示时间戳
+///   - dts: 解码时间戳
+- (void)LocalVideoframeCallback:(const unsigned char *)bits bitslen:(int)bitslen bitspos:(int)bitspos track:(int)track pts:(unsigned int)pts dts:(unsigned int)dts;
+
 /// 流媒体日志回调
 /// - Parameter ptr: 日志内容
 - (void)vcs_Remote_LogCallback:(NSString *)ptr;
