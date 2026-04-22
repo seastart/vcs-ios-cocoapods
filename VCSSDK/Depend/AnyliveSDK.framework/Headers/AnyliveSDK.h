@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define SDKVERSION "10.0.7-dualStreams.1@2026.04.17"
+#define SDKVERSION "10.0.7@2026.04.22"
 
 //! Project version number for AnyliveSDK.
 FOUNDATION_EXPORT double AnyliveSDKVersionNumber;
