@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *tag;
 #pragma mark 扩展字段
 @property (nonatomic, copy) NSString *extendInfo;
+#pragma mark 终端类型，默认 TerminalType_TerminalIos
+@property (nonatomic, assign) TerminalType terminalType;
 /* ****************** ⬆️ 当前登录用户信息(可由登录获取)(必填项) ⬆️ ****************** */
 
 
