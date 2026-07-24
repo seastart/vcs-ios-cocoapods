@@ -677,6 +677,9 @@ typedef GPB_ENUM(TerminalType) {
   /** 微信小程序 */
   TerminalType_TerminalWxXcx = 9,
 
+  /** 会控WEB端 */
+  TerminalType_TerminalWeb = 10,
+
   /** SIP直连设备 */
   TerminalType_TerminalSipGate = 12,
 
@@ -701,8 +704,32 @@ typedef GPB_ENUM(TerminalType) {
   /** Rooms盒子 */
   TerminalType_TerminalRooms = 19,
 
+  /** PC_Red */
+  TerminalType_TerminalPcRed = 20,
+
+  /** Outlook */
+  TerminalType_TerminalOutlook = 21,
+
+  /** 无卡安卓Pad */
+  TerminalType_TerminalIpadNoSimAndroid = 22,
+
+  /** 无卡iPad */
+  TerminalType_TerminalIpadNoSimIos = 23,
+
   /** 鸿蒙设备 */
   TerminalType_TerminalHarmonyOs = 24,
+
+  /** Mac WebRTC */
+  TerminalType_TerminalMacWebRtc = 25,
+
+  /** 有卡安卓Pad */
+  TerminalType_TerminalIpadWithSimAndroid = 26,
+
+  /** 有卡iPad */
+  TerminalType_TerminalIpadWithSimIos = 27,
+
+  /** 服务 */
+  TerminalType_TerminalService = 30,
 };
 
 GPBEnumDescriptor *TerminalType_EnumDescriptor(void);
